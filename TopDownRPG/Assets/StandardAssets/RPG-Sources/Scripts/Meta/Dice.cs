@@ -73,10 +73,7 @@ public static class Dice {
 			Pool += overall;
 		if (Pool > Bonus)
 			Pool = Bonus;
-		if (Pool > 0)
 			Bonus = Pool;
-		else
-			Bonus = 0;
 		if (failed || criticalcounter < 0)
 			return false;
 		else
