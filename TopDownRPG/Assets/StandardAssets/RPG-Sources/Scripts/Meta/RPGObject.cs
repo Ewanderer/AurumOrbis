@@ -436,7 +436,6 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 
 	//Das Objekt macht Auskunft über die Verfügbarkeit einer Eigenschaft und bei numerischen Werten Auskunft über die Höhe des gefragten bestimmten Wertes. Dabei werden alle Informationen wie sich der Wert zusammengesetzt mitgegeben.
 	public abstract bool CheckValue (string NameOfValue, out int BaseValue, out int EndValue, out TEffect[] UseEffects);
-
 	//Diese Funktion dient zum Zugriff auf den HP-Wert oder so, gibt die Menge des angerichten schaden zurück. Heilungen. bzw Absorbtionen müssen an die RecieveHealing Funktion weitergegeben werden.	
 	public abstract float RecieveDamage (float Value, string Typ);
 

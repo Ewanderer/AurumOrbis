@@ -6,7 +6,7 @@ public class EffectScriptObject {
 
 	bool isActive;
 	public bool IsActive{
-		get{return isActive&&!effect.IsSupressed;}
+		get{return isActive&&!Effect.IsSupressed;}
 	}
 
 	//Konstanten
