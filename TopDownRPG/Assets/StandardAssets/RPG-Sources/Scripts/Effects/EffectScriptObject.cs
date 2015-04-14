@@ -67,7 +67,7 @@ public class EffectScriptObject {
 
 	//Funktion zum Interpretieren der Scripts
 
-	void ExecuteScript(params Paramter Parameters){
+	void ExecuteScript(params Paramter[] Parameters){
 	
 	}
 
