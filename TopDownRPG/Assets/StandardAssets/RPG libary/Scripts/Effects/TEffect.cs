@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class TEffect:IRPGSource {
+public class TEffect:ScriptableObject,IRPGSource {
 	public string Name;
 	public IRPGSource OriginalSource;//Für bestimmte Effekte, wie Bindungen ist es oft wichtig die originale Herkunft zu kennen
 	public Content[] Information;//Werden beim Benutzen der im RPG-Objekt vereinbarten Schnittstellen ausgegeben.

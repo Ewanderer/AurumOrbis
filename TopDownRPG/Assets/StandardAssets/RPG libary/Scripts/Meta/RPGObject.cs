@@ -39,6 +39,31 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 	/**Liste von Informationen.*/
 	protected List<Content> cInformation = new List<Content> ();
 
+	public virtual float this[string ValueName]{
+		get{
+			string v=ValueName.ToLower();
+			if(v=="weight")
+				return cWeight;
+			if(v=="size")
+				return cSizeCategory;
+			ValueHelper vh;
+			if(bValues.Exists(delegate(ValueHelper obj) {
+				return obj.ValueName==v;
+		}))
+				vh=bValues.Find(delegate(ValueHelper obj) {
+					return obj.ValueName==v;
+				});
+			else
+				return 0;
+			if(vh is NumericValueHelper)
+				return (vh as NumericValueHelper).Value;
+			if(vh is booleanValueHelper&&(vh as booleanValueHelper).Value)
+				return 1;
+			else
+				return 0;
+		}
+	}
+
 	/**Öffentliche Eigenschaft zum Auslesen der aktuelle Größenordnung*/
 	public virtual SizeCategory Size {
 		get{return cSizeCategory;}
@@ -80,9 +105,14 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 	 * \return Wert
 	 */
 	protected float GetNBaseValue(string Name){
-	return bValues.Find (delegate(ValueHelper obj) {
+		if (bValues.Exists (delegate(ValueHelper obj) {
 			return (obj is NumericValueHelper) && obj.ValueName == Name;
-		});
+		}))
+			return (bValues.Find (delegate(ValueHelper obj) {
+				return (obj is NumericValueHelper) && obj.ValueName == Name;
+			}) as NumericValueHelper).Value;
+		else
+			return 0;
 	}
 
 	/**
@@ -91,9 +121,14 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 	 * \return Wert
 	 */
 	protected bool GetBBaseValue(string Name){
-		return bValues.Find (delegate(ValueHelper obj) {
+		if (bValues.Exists (delegate(ValueHelper obj) {
 			return (obj is booleanValueHelper) && obj.ValueName == Name;
-		});
+		}))
+			return (bValues.Find (delegate(ValueHelper obj) {
+				return (obj is booleanValueHelper) && obj.ValueName == Name;
+			})as booleanValueHelper).Value;
+		else
+			return false;
 	}
 
 	/**
@@ -417,6 +452,7 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 		cSizeCategory = bSizeCategory + (int)GetCurrentValueModification ("sizecategory");
 
 	}
+
 
 	//Informationen
 	//Diese Funktion benutzt das Objekt um Informationen über das Target zu sammeln. DeepSearch offenbart alle Informationen die das StrongRequirements "NeedAnalyze" haben 

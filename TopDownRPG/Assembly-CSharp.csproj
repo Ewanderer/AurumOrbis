@@ -46,18 +46,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\StandardAssets\RPG-Sources\Scripts\Creatures\TCreature.cs" />
-     <Compile Include="Assets\StandardAssets\RPG-Sources\Scripts\Effects\EffectScriptObject.cs" />
-     <Compile Include="Assets\StandardAssets\RPG-Sources\Scripts\Effects\TEffect.cs" />
-     <Compile Include="Assets\StandardAssets\RPG-Sources\Scripts\InteractiveObjects\InteractiveObject.cs" />
-     <Compile Include="Assets\StandardAssets\RPG-Sources\Scripts\Items\Equipment\TEquipment.cs" />
-     <Compile Include="Assets\StandardAssets\RPG-Sources\Scripts\Items\TItem.cs" />
-     <Compile Include="Assets\StandardAssets\RPG-Sources\Scripts\Items\TItemStatistic.cs" />
-     <Compile Include="Assets\StandardAssets\RPG-Sources\Scripts\Meta\Content.cs" />
-     <Compile Include="Assets\StandardAssets\RPG-Sources\Scripts\Meta\Core.cs" />
-     <Compile Include="Assets\StandardAssets\RPG-Sources\Scripts\Meta\Dice.cs" />
-     <Compile Include="Assets\StandardAssets\RPG-Sources\Scripts\Meta\IRPGSource.cs" />
-     <Compile Include="Assets\StandardAssets\RPG-Sources\Scripts\Meta\RPGObject.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Effects\EffectScriptObject.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Effects\TEffect.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\InteractiveObjects\InteractiveObject.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Items\Equipment\TEquipment.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Items\TItem.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Items\TItemStatistic.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Logger\RPGLogger.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\Content.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\Core.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\Dice.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\IRPGSource.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\RPGObject.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

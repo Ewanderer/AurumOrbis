@@ -8,7 +8,7 @@ public static class Dice {
 		return true;
 	}
 	/**
-	 * \brief Diese Funktion macht einen regülaren Check gegen eine beliebiege Anzahl an Limits
+	 * \brief Diese Funktion macht einen regülaren Check gegen eine beliebiege Anzahl an Limits, verwenden wenn es keinen Bonuspool gibt
 	 * 
 	 * \param Pool Punkte zum Ausgleichen oder bei negativen Werten, die ausgeglichen werden
 	 * \param IsCritical Gibt an ob es sich um ein kritisches Ergebnis handelt. Anhand von Result erkennt man ob positiv oder negativ.

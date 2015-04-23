@@ -75,6 +75,52 @@ public class TCreature : RPGObject
 		get{ return cAppearance;}
 	}
 
+	public override float this[string ValueName]{
+		get{
+			switch(ValueName.ToLower()){
+			case "strength":
+				return Strength;
+				break;
+			case "constitution":
+				return Constitution;
+				break;
+			case "dexterity":
+				return Dexterity;
+				break;
+			case "metabolism":
+				return Metabolism;
+				break;
+			case "intelligence":
+				return Intelligence;
+				break;
+			case "wisdom":
+				return Wisdom;
+				break;
+			case "charisma":
+				return Charisma;
+				break;
+			case "appearance":
+				return Appearance;
+				break;
+			}
+			if(Skills.Exists(delegate(Skill obj) {
+				return obj.SkillName==ValueName;
+			})){
+				Skill ss=Skills.Find(delegate(Skill obj) {
+					return obj.SkillName==ValueName;
+				});
+				if(ss.Value>0)
+					return Mathf.RoundToInt(ss.Value+GetCurrentValueModification(ValueName));
+				else
+					return 0;
+			}
+			return base[ValueName];
+		}
+	}
+
+	public bool this[string ValueName,int i]{
+		get{return GetBBaseValue(ValueName.ToLower())&&GetCurrentValueModification(ValueName)>0;}
+	}
 
 	//Ausrüstung und Inventar
 
@@ -94,6 +140,24 @@ public class TCreature : RPGObject
 	public List<TItem> Inventory {
 		get{ return _Inventory;}
 	}	
+
+	/**
+	 * \brief Klasse zum bereitstellen von Talentinformationen 
+	 * 
+	 * 
+	 */
+
+	public class Skill
+	{
+		public string SkillName;
+		public int Value;
+		public string Attribute1;
+		public string Attribute2;
+		public string Attribute3;
+	}
+
+
+	List<Skill> Skills=new List<Skill>();
 
 	//Diese Funktion wird bei jeder Veränderung von Equipment oder Effektliste neu aufgerufen
 	protected override void UpdateStatistics ()
@@ -120,7 +184,8 @@ public class TCreature : RPGObject
 	public override bool CheckValue (string NameOfValue, out int BaseValue, out int EndValue, out TEffect[] UseEffects){
 
 	}
-	
+
+
 	//Diese Funktion dient zum Zugriff auf den HP-Wert oder so, gibt die Menge des angerichten schaden zurück. Heilungen. bzw Absorbtionen müssen an die RecieveHealing Funktion weitergegeben werden.	
 	public override float RecieveDamage (float Value, string Typ){
 
