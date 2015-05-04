@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Creatures\TFeat.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Effects\EffectScriptObject.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Effects\TEffect.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\InteractiveObjects\InteractiveObject.cs" />
@@ -54,11 +55,14 @@
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Items\TItem.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Items\TItemStatistic.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Logger\RPGLogger.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\CommandInterpreter.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\Content.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\Core.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\Dice.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\IRPGSource.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\RPGObject.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Templates\TDiscipline_Template.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Templates\TRace_Template.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

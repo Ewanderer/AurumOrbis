@@ -20,6 +20,8 @@ public class TCreature : RPGObject
 	}
 	//Charakter-Statistiken
 
+	//Primäre Attribute
+
 	//Felder für die Basiswerte aller Primären Attribute, können nur durch "Training"/LvL-Up verändert werden
 	int bStrength;
 	int bDexterity;
@@ -75,52 +77,137 @@ public class TCreature : RPGObject
 		get{ return cAppearance;}
 	}
 
-	public override float this[string ValueName]{
-		get{
-			switch(ValueName.ToLower()){
+	public override float this [string ValueName] {
+		get {
+			switch (ValueName.ToLower ()) {
 			case "strength":
 				return Strength;
-				break;
 			case "constitution":
 				return Constitution;
-				break;
 			case "dexterity":
 				return Dexterity;
-				break;
 			case "metabolism":
 				return Metabolism;
-				break;
 			case "intelligence":
 				return Intelligence;
-				break;
 			case "wisdom":
 				return Wisdom;
-				break;
 			case "charisma":
 				return Charisma;
-				break;
 			case "appearance":
 				return Appearance;
-				break;
 			}
-			if(Skills.Exists(delegate(Skill obj) {
-				return obj.SkillName==ValueName;
-			})){
-				Skill ss=Skills.Find(delegate(Skill obj) {
-					return obj.SkillName==ValueName;
+			if (Skills.Exists (delegate(Skill obj) {
+				return obj.SkillName == ValueName;
+			})) {
+				Skill ss = Skills.Find (delegate(Skill obj) {
+					return obj.SkillName == ValueName;
 				});
-				if(ss.Value>0)
-					return Mathf.RoundToInt(ss.Value+GetCurrentValueModification(ValueName));
+				if (ss.Value > 0)
+					return (int) (ss.Value + GetCurrentValueModification (ValueName));
 				else
 					return 0;
 			}
-			return base[ValueName];
+			return base [ValueName];
 		}
 	}
 
+	//Sekundäre Attribute
+
+	float _bHitpoints;//Maximale Gesunheit, Grundwert
+	float _mHitpoints;//Maximale Gesundheit, Endwert.
+	float _cHitpoints;//Aktuelle Gesundheit wenn sie auf 0 fällt stirbt der Char, können nicht regeneriert werden solange nicht aller Schmerz wiederhergestellt wurde und auch benötigt man ärtzliche Behandlung.
+	float _cPain;//Eine Art Schutz gegen Schwere Verwundungen. Wird durch Rast, Heilmittelchen oder einfache Heilzauber geschaffen. 
+
+	float _bDurability;//Die Gesamtasudauer der Figur,Grundwert
+	float _mDurability;//Die Gesamtausdauer der Figur, Endwert
+	float _cExhaustion;//Der Grad der Erschöpfung durch langanhaltende Belastung(Tragen Schwerer Rüstung, Schlafmangel). Stellt auch die Maximale Grenze für Stamina-Regeneration da.
+	float _cStamina;//Wird durch Kurzeitige Körperliche Aktivität benötigt
+
+	float _bMana;//Maximaler Manapool, wenn 0 können keine anderen Effekte die Mana steigern greifen.
+	float _mMana;
+	float _cMana;
+
+
+	//Öffentliche Felder für Sekundär-Attribute
+
+	public float mHitpoints {
+		get{ return _mHitpoints;}
+	}
+
+	public float cHitpoints {
+		get{ return _cHitpoints;}
+	}
+
+	public float cPain {
+		get{ return _cPain;}
+	}
+
+	public float mHealth {
+		get{ return _mHitpoints * 11;}
+	}
+
+	/*
+	 * Dieses Feld dient zur größeren Vedeutlicherung der Gesamt HP.
+	 */
+	public float cHealth {
+		get{ return _cPain + cHitpoints * 10;}
+	}
+
+	public float mDurability {
+		get{ return _mDurability;}
+	}
+
+	public float cExhaustion {
+		get{ return _cStamina;}
+	}
+
+	public float cStamina {
+		get{ return _cStamina;}
+	}
+
+	public float mMana {
+		get{ return _mMana;}
+	}
+
+	public float cMana {
+		get{ return _cMana;}
+	}
+	//Fertigkeiten
+	
+	public class Skill
+	{
+		TCreature Owner;
+		public string SkillName;
+		public string ShortDescription;
+		public string LongDescription;
+		int value;
+		public string Attribute1;
+		public string Attribute2;
+		public string Attribute3;
+		string[] BaseValues;
+
+		public int Value {
+			get {
+				int result = value;
+				foreach (string bvs in BaseValues) {
+					result += Mathf.RoundToInt (Owner.Skills.Find (delegate(Skill obj) {
+						return bvs.Split (' ') [0] == obj.SkillName;
+					}).Value * System.Convert.ToSingle (bvs.Split (' ') [1]));
+				}
+				return result;
+			}
+		}
+		
+	}
+	
+	
+	List<Skill> Skills = new List<Skill> ();
+
+	/*
 	public bool this[string ValueName,int i]{
 		get{return GetBBaseValue(ValueName.ToLower())&&GetCurrentValueModification(ValueName)>0;}
-	}
+	}*/
 
 	//Ausrüstung und Inventar
 
@@ -141,29 +228,28 @@ public class TCreature : RPGObject
 		get{ return _Inventory;}
 	}	
 
-	/**
-	 * \brief Klasse zum bereitstellen von Talentinformationen 
-	 * 
-	 * 
-	 */
+	//Statuses
 
-	public class Skill
+	public enum CreatureMovementStatus
 	{
-		public string SkillName;
-		public int Value;
-		public string Attribute1;
-		public string Attribute2;
-		public string Attribute3;
+		Resting=0,
+		Idle=1,
+		Sneaking=2,
+		Walking=3,
+		Running=4,
+		SelfLevitation=5
 	}
+	;
+	CreatureMovementStatus CMS;
+	bool IsAlive;//Well Undeads are also alive :D
 
 
-	List<Skill> Skills=new List<Skill>();
 
 	//Diese Funktion wird bei jeder Veränderung von Equipment oder Effektliste neu aufgerufen
 	protected override void UpdateStatistics ()
 	{
 		base.UpdateStatistics ();
-		//Berechne die current Values zur schnellerern Abgreifung
+		//Berechne die current Values zur schnellerern Abgreifung, Primäre Attribute
 		cStrength = bStrength + (int)GetCurrentValueModification ("strength");
 		cDexterity = bDexterity + (int)GetCurrentValueModification ("dexterity");
 		cConstitution = bConstitution + (int)GetCurrentValueModification ("constitution");
@@ -172,28 +258,94 @@ public class TCreature : RPGObject
 		cWisdom = bWisdom + (int)GetCurrentValueModification ("wisdom");
 		cCharisma = bCharisma + (int)GetCurrentValueModification ("charisma");
 		cAppearance = bAppearance + (int)GetCurrentValueModification ("appearance");
+
+		//Berechene die sekundäre Attribute
+		_bMana = GetCurrentValueModification ("manapool");
+		if (_bMana > 0) {
+			_cMana = _bMana + GetCurrentValueModification ("mana");
+		}
+		_mHitpoints = _bHitpoints + cConstitution * 10 + GetCurrentValueModification ("hitpoints");
+		_mDurability = _bHitpoints + cConstitution * 100 + GetCurrentValueModification ("durability");
+
 	}
 
 
 	//Diese Funktion gibt wieder ob das Objekt versteckt ist(return bool) und zusätzliche Informatioen wie diese Tarnung aufgebaut ist.
-	public override bool IsVisible(out int HideValue,out TEffect[] UseEffects){
-
+	public override bool IsVisible (out int HideValue, out TEffect[] UseEffects)
+	{
+		if (CMS == CreatureMovementStatus.Sneaking || GetCurrentValueModification ("invisibility") > 0) {
+			HideValue = (int)this ["hide"] + (int)GetCurrentValueModification ("invisibility");
+			List<TEffect> result = AttributeHelper.Find (delegate(AttributModificationHelper obj) {
+				return obj.AttributeName == "hide";
+			}).UsedModifications;
+			result.AddRange (AttributeHelper.Find (delegate(AttributModificationHelper obj) {
+				return obj.AttributeName == "invisibility";
+			}).UsedModifications);
+			UseEffects = result.ToArray ();
+			return true;
+		}
+		HideValue = 0;
+		UseEffects = null;
+		return false;
 	}
 	
-	//Das Objekt macht Auskunft über die Verfügbarkeit einer Eigenschaft und bei numerischen Werten Auskunft über die Höhe des gefragten bestimmten Wertes. Dabei werden alle Informationen wie sich der Wert zusammengesetzt mitgegeben.
-	public override bool CheckValue (string NameOfValue, out int BaseValue, out int EndValue, out TEffect[] UseEffects){
+	//Bei Creatures fragen wir Skills ab.
+	public override bool CheckValue (string NameOfValue, out int BaseValue, out int EndValue, out TEffect[] UseEffects)
+	{
+		BaseValue = 0;
+		EndValue = 0;
+		float mod = GetCurrentValueModification (NameOfValue);
+		UseEffects = AttributeHelper.Find (delegate(AttributModificationHelper obj) {
+			return obj.AttributeName == NameOfValue;
+		}).UsedModifications.ToArray();
+		if (mod < 0)
+			EndValue -=(int) mod;
+		if (Skills.Exists (delegate(Skill obj) {
+			return obj.SkillName == NameOfValue;
+		})) {
+			Skill ss = Skills.Find (delegate(Skill obj) {
+				return obj.SkillName == NameOfValue;
+			});
+			BaseValue = ss.Value;
+			if (ss.Value > 0)
+				EndValue = (int) (ss.Value + mod);
+			return true;
+		}
+		return false;
 
 	}
 
 
 	//Diese Funktion dient zum Zugriff auf den HP-Wert oder so, gibt die Menge des angerichten schaden zurück. Heilungen. bzw Absorbtionen müssen an die RecieveHealing Funktion weitergegeben werden.	
-	public override float RecieveDamage (float Value, string Typ){
+	public override float RecieveDamage (float Value, string Typ)
+	{
+		if (Typ != "abilitycost") {
+			//Apply Resistance
+		}
+		if (Value > 0) {
+			_cPain -= Value;
+			if (_cPain < 0) {
+				Value = _cPain / -10;
+				_cHitpoints -= Value;
+				_cPain = 0;
+			}
+			//Send Damage Messgae to Effects
+			return Value;
+		} else if (Value < 0)
+			return RecieveHealing (Value);
+		return 0;
+
 
 	}
 	
 	//Dient zum Verrechnen von Heilung mit beispielsweise Heilmodifikationen
-	protected override float RecieveHealing(float Value){
+	protected override float RecieveHealing (float Value)
+	{
+		Value *= GetCurrentValueModification ("healingamplification");
+		_cPain = Mathf.Clamp (_cPain + Value, 0, _cHitpoints);
+		//Send Triggers
 
+		return Value;
 	}
 
 	// Use this for initialization

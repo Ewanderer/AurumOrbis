@@ -21,4 +21,49 @@ public class TEffect:ScriptableObject,IRPGSource {
 	public bool IsSupressed;//Bestimmte andere Effekte können zwar den Effekt nicht beenden, aber seine Wirkung einfrieren(Zeit läuft weiter)...
 	public float oDuration;//Wenn die originale Dauer negativ ist, gilt der Effekt als Permament und Zeit wird nicht beachtet...
 	public float cDuration;
+
+	public void SendMessage(string Message,IRPGSource Source){
+	
+	}
+
+	public float this[string Valuename]{
+		get{
+			switch(Valuename){
+			case "Name":
+				return 0;
+			default:
+				if(Valuename.Split('.').Length>1){
+					string[] VS=Valuename.Split('.');
+					int E=System.Convert.ToInt16(VS[0]);
+					if(VS[1][0]=='%')
+						return scriptObjects[E].nvalues.Find(delegate(EffectScriptObject.NumericValue obj) {
+							return obj.Name==VS[1].TrimStart('%');
+						}).Value;
+					else
+					if(VS[1][0]=='§'){
+						string bs="";
+						for(int i=2;i<VS.Length;i++)
+							bs+=VS[i]+".";
+						bs.TrimEnd('.');
+						switch(VS[1].TrimStart('§')){
+							case "effect":
+							return scriptObjects[E].effect[bs];
+						
+						case "afflicted":
+							return scriptObjects[E].afflicted[bs];
+						
+						case "source":
+							return scriptObjects[E].source[bs];
+						}
+					}else{
+						return 0;
+					}
+				}else
+					return 0;
+					break;
+			}
+			return 0;
+		}
+	}
+
 }

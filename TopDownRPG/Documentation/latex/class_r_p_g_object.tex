@@ -15,7 +15,7 @@ Inheritance diagram for R\+P\+G\+Object\+:\begin{figure}[H]
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{class_r_p_g_object_1_1_attribut_modification_helper}{Attribut\+Modification\+Helper}
-\item 
+\begin{DoxyCompactList}\small\item\em Diese Klasse verwaltet die Modifikationen für den genannten Wert, die sich aus den passiven Teilen aller Effekte ergeben. \end{DoxyCompactList}\item 
 class \hyperlink{class_r_p_g_object_1_1boolean_value_helper}{boolean\+Value\+Helper}
 \item 
 class \hyperlink{class_r_p_g_object_1_1_numeric_value_helper}{Numeric\+Value\+Helper}
@@ -46,12 +46,10 @@ class \hyperlink{class_r_p_g_object_1_1_value_helper}{Value\+Helper}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_r_p_g_object_ab05437a7714f58d52ee610f1fb9c052b}{}float {\bfseries Get\+N\+Base\+Value} (string Name)\label{class_r_p_g_object_ab05437a7714f58d52ee610f1fb9c052b}
-
-\item 
-\hypertarget{class_r_p_g_object_a7772162c56eed453f9f97b6ac01bc48b}{}bool {\bfseries Get\+B\+Base\+Value} (string Name)\label{class_r_p_g_object_a7772162c56eed453f9f97b6ac01bc48b}
-
-\item 
+float \hyperlink{class_r_p_g_object_ab05437a7714f58d52ee610f1fb9c052b}{Get\+N\+Base\+Value} (string Name)
+\begin{DoxyCompactList}\small\item\em Sucht den Standardwert aus der Liste b\+Values raus. \end{DoxyCompactList}\item 
+bool \hyperlink{class_r_p_g_object_a7772162c56eed453f9f97b6ac01bc48b}{Get\+B\+Base\+Value} (string Name)
+\begin{DoxyCompactList}\small\item\em Sucht den Standardwert aus der Liste b\+Values raus. \end{DoxyCompactList}\item 
 \hypertarget{class_r_p_g_object_a766f2912c7947d76a429a373b3073ce2}{}void {\bfseries On\+New\+Effect} (\hyperlink{class_t_effect}{T\+Effect} effect)\label{class_r_p_g_object_a766f2912c7947d76a429a373b3073ce2}
 
 \item 
@@ -85,8 +83,7 @@ List$<$ \hyperlink{class_t_effect}{T\+Effect} $>$ \hyperlink{class_r_p_g_object_
 \item 
 List$<$ \hyperlink{struct_content}{Content} $>$ \hyperlink{class_r_p_g_object_ac5b133eca19e8f97988722018cdf139b}{c\+Information} = new List$<$\hyperlink{struct_content}{Content}$>$ ()
 \item 
-\hypertarget{class_r_p_g_object_aca7f376707b78c0852b0001ee67dc80f}{}List$<$ \hyperlink{class_r_p_g_object_1_1_value_helper}{Value\+Helper} $>$ {\bfseries b\+Values} =new List$<$\hyperlink{class_r_p_g_object_1_1_value_helper}{Value\+Helper}$>$()\label{class_r_p_g_object_aca7f376707b78c0852b0001ee67dc80f}
-
+List$<$ \hyperlink{class_r_p_g_object_1_1_value_helper}{Value\+Helper} $>$ \hyperlink{class_r_p_g_object_aca7f376707b78c0852b0001ee67dc80f}{b\+Values} =new List$<$\hyperlink{class_r_p_g_object_1_1_value_helper}{Value\+Helper}$>$()
 \item 
 \hypertarget{class_r_p_g_object_a19aea805ab96ccaa5bd202bebe6ff482}{}List$<$ \hyperlink{class_r_p_g_object_1_1_attribut_modification_helper}{Attribut\+Modification\+Helper} $>$ {\bfseries Attribute\+Helper} = new List$<$\hyperlink{class_r_p_g_object_1_1_attribut_modification_helper}{Attribut\+Modification\+Helper}$>$ ()\label{class_r_p_g_object_a19aea805ab96ccaa5bd202bebe6ff482}
 
@@ -94,14 +91,16 @@ List$<$ \hyperlink{struct_content}{Content} $>$ \hyperlink{class_r_p_g_object_ac
 \subsection*{Properties}
 \begin{DoxyCompactItemize}
 \item 
+\hypertarget{class_r_p_g_object_a3d99b09e24d89cedff15b23fd6f64839}{}virtual float {\bfseries this\mbox{[}string Value\+Name\mbox{]}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}\label{class_r_p_g_object_a3d99b09e24d89cedff15b23fd6f64839}
+
+\item 
 virtual Size\+Category \hyperlink{class_r_p_g_object_ad4fe72a3a4621618a563219805ede17d}{Size}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
 \item 
 virtual List$<$ \hyperlink{class_t_effect}{T\+Effect} $>$ \hyperlink{class_r_p_g_object_ac13bdb9e5988e9eff18e5f6f5b613bb6}{Effects}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
 \item 
 virtual float \hyperlink{class_r_p_g_object_af627383d88885ca597a549cb52e4b242}{Weight}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
 \item 
-\hypertarget{class_r_p_g_object_a312d68adaf6a8eb15319d3cac8198802}{}virtual List$<$ \hyperlink{struct_content}{Content} $>$ {\bfseries Information}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}\label{class_r_p_g_object_a312d68adaf6a8eb15319d3cac8198802}
-
+virtual List$<$ \hyperlink{struct_content}{Content} $>$ \hyperlink{class_r_p_g_object_a312d68adaf6a8eb15319d3cac8198802}{Information}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
 \end{DoxyCompactItemize}
 
 
@@ -113,11 +112,55 @@ Jordan Eichner
 \end{DoxyAuthor}
 
 
+\subsection{Member Function Documentation}
+\hypertarget{class_r_p_g_object_a7772162c56eed453f9f97b6ac01bc48b}{}\index{R\+P\+G\+Object@{R\+P\+G\+Object}!Get\+B\+Base\+Value@{Get\+B\+Base\+Value}}
+\index{Get\+B\+Base\+Value@{Get\+B\+Base\+Value}!R\+P\+G\+Object@{R\+P\+G\+Object}}
+\subsubsection[{Get\+B\+Base\+Value}]{\setlength{\rightskip}{0pt plus 5cm}bool R\+P\+G\+Object.\+Get\+B\+Base\+Value (
+\begin{DoxyParamCaption}
+\item[{string}]{Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_r_p_g_object_a7772162c56eed453f9f97b6ac01bc48b}
+
+
+Sucht den Standardwert aus der Liste b\+Values raus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Name} & Name des gesuchten Standardwerts \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Wert 
+\end{DoxyReturn}
+\hypertarget{class_r_p_g_object_ab05437a7714f58d52ee610f1fb9c052b}{}\index{R\+P\+G\+Object@{R\+P\+G\+Object}!Get\+N\+Base\+Value@{Get\+N\+Base\+Value}}
+\index{Get\+N\+Base\+Value@{Get\+N\+Base\+Value}!R\+P\+G\+Object@{R\+P\+G\+Object}}
+\subsubsection[{Get\+N\+Base\+Value}]{\setlength{\rightskip}{0pt plus 5cm}float R\+P\+G\+Object.\+Get\+N\+Base\+Value (
+\begin{DoxyParamCaption}
+\item[{string}]{Name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_r_p_g_object_ab05437a7714f58d52ee610f1fb9c052b}
+
+
+Sucht den Standardwert aus der Liste b\+Values raus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Name} & Name des gesuchten Standardwerts \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Wert 
+\end{DoxyReturn}
+
+
 \subsection{Member Data Documentation}
 \hypertarget{class_r_p_g_object_ae5cb76ccbe4f37237cc03a9737009577}{}\index{R\+P\+G\+Object@{R\+P\+G\+Object}!b\+Size\+Category@{b\+Size\+Category}}
 \index{b\+Size\+Category@{b\+Size\+Category}!R\+P\+G\+Object@{R\+P\+G\+Object}}
 \subsubsection[{b\+Size\+Category}]{\setlength{\rightskip}{0pt plus 5cm}Size\+Category R\+P\+G\+Object.\+b\+Size\+Category\hspace{0.3cm}{\ttfamily [protected]}}\label{class_r_p_g_object_ae5cb76ccbe4f37237cc03a9737009577}
-Größenordnung für Modifikationen \hypertarget{class_r_p_g_object_a550507f127d2915aa0b7a95ef5e3feb6}{}\index{R\+P\+G\+Object@{R\+P\+G\+Object}!b\+Weight@{b\+Weight}}
+Größenordnung für Modifikationen \hypertarget{class_r_p_g_object_aca7f376707b78c0852b0001ee67dc80f}{}\index{R\+P\+G\+Object@{R\+P\+G\+Object}!b\+Values@{b\+Values}}
+\index{b\+Values@{b\+Values}!R\+P\+G\+Object@{R\+P\+G\+Object}}
+\subsubsection[{b\+Values}]{\setlength{\rightskip}{0pt plus 5cm}List$<${\bf Value\+Helper}$>$ R\+P\+G\+Object.\+b\+Values =new List$<${\bf Value\+Helper}$>$()\hspace{0.3cm}{\ttfamily [protected]}}\label{class_r_p_g_object_aca7f376707b78c0852b0001ee67dc80f}
+Liste zur Verwaltung aller Standardwerte \hypertarget{class_r_p_g_object_a550507f127d2915aa0b7a95ef5e3feb6}{}\index{R\+P\+G\+Object@{R\+P\+G\+Object}!b\+Weight@{b\+Weight}}
 \index{b\+Weight@{b\+Weight}!R\+P\+G\+Object@{R\+P\+G\+Object}}
 \subsubsection[{b\+Weight}]{\setlength{\rightskip}{0pt plus 5cm}float R\+P\+G\+Object.\+b\+Weight\hspace{0.3cm}{\ttfamily [protected]}}\label{class_r_p_g_object_a550507f127d2915aa0b7a95ef5e3feb6}
 Standardgewicht in kg in einer Umgebung mit Standard g; \hypertarget{class_r_p_g_object_a833cf33788a1040a7fdcb703d6e3126d}{}\index{R\+P\+G\+Object@{R\+P\+G\+Object}!c\+Effects@{c\+Effects}}
@@ -138,7 +181,13 @@ Durch Effekte verändertes Gewicht
 \hypertarget{class_r_p_g_object_ac13bdb9e5988e9eff18e5f6f5b613bb6}{}\index{R\+P\+G\+Object@{R\+P\+G\+Object}!Effects@{Effects}}
 \index{Effects@{Effects}!R\+P\+G\+Object@{R\+P\+G\+Object}}
 \subsubsection[{Effects}]{\setlength{\rightskip}{0pt plus 5cm}virtual List$<${\bf T\+Effect}$>$ R\+P\+G\+Object.\+Effects\hspace{0.3cm}{\ttfamily [get]}}\label{class_r_p_g_object_ac13bdb9e5988e9eff18e5f6f5b613bb6}
-Öffentliche Eigenschaft zum Auslesen aller Effekte, die auf das Objekt einwirken \hypertarget{class_r_p_g_object_ad4fe72a3a4621618a563219805ede17d}{}\index{R\+P\+G\+Object@{R\+P\+G\+Object}!Size@{Size}}
+Öffentliche Eigenschaft zum Auslesen aller Effekte, die auf das Objekt einwirken \hypertarget{class_r_p_g_object_a312d68adaf6a8eb15319d3cac8198802}{}\index{R\+P\+G\+Object@{R\+P\+G\+Object}!Information@{Information}}
+\index{Information@{Information}!R\+P\+G\+Object@{R\+P\+G\+Object}}
+\subsubsection[{Information}]{\setlength{\rightskip}{0pt plus 5cm}virtual List$<${\bf Content}$>$ R\+P\+G\+Object.\+Information\hspace{0.3cm}{\ttfamily [get]}}\label{class_r_p_g_object_a312d68adaf6a8eb15319d3cac8198802}
+Öffentliche Eigenschaft zum Auslesen der Informationen, auch wen er nicht benutzt werden sollte, sondern man sollte eher \begin{DoxySeeAlso}{See also}
+Get\+Information 
+\end{DoxySeeAlso}
+\hypertarget{class_r_p_g_object_ad4fe72a3a4621618a563219805ede17d}{}\index{R\+P\+G\+Object@{R\+P\+G\+Object}!Size@{Size}}
 \index{Size@{Size}!R\+P\+G\+Object@{R\+P\+G\+Object}}
 \subsubsection[{Size}]{\setlength{\rightskip}{0pt plus 5cm}virtual Size\+Category R\+P\+G\+Object.\+Size\hspace{0.3cm}{\ttfamily [get]}}\label{class_r_p_g_object_ad4fe72a3a4621618a563219805ede17d}
 Öffentliche Eigenschaft zum Auslesen der aktuelle Größenordnung \hypertarget{class_r_p_g_object_af627383d88885ca597a549cb52e4b242}{}\index{R\+P\+G\+Object@{R\+P\+G\+Object}!Weight@{Weight}}
@@ -148,4 +197,4 @@ Durch Effekte verändertes Gewicht
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/\+Jordan Eichner/\+Documents/\+Unity/\+Top\+Down\+R\+P\+G/\+Assets/\+Standard\+Assets/\+R\+P\+G-\/\+Sources/\+Scripts/\+Meta/R\+P\+G\+Object.\+cs\end{DoxyCompactItemize}
+C\+:/\+Users/\+Jordan Eichner/\+Documents/\+Git\+Hub/\+Top\+Down\+R\+P\+G/\+Top\+Down\+R\+P\+G/\+Assets/\+Standard\+Assets/\+R\+P\+G libary/\+Scripts/\+Meta/R\+P\+G\+Object.\+cs\end{DoxyCompactItemize}

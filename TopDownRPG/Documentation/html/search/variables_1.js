@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['ceffects',['cEffects',['../class_r_p_g_object.html#a833cf33788a1040a7fdcb703d6e3126d',1,'RPGObject']]],
-  ['cinformation',['cInformation',['../class_r_p_g_object.html#ac5b133eca19e8f97988722018cdf139b',1,'RPGObject']]],
-  ['csizecategory',['cSizeCategory',['../class_r_p_g_object.html#a5076aeba98770e8507778eb6051df87b',1,'RPGObject']]],
-  ['cweight',['cWeight',['../class_r_p_g_object.html#a098dcfa4772557888348f5164da509f8',1,'RPGObject']]]
+  ['base_5fpassiveeffects',['base_PassiveEffects',['../struct_t_discipline___template.html#afa71992d7f467f7eaa7f1f4d0dc7d05e',1,'TDiscipline_Template']]],
+  ['base_5fskillheads',['base_SkillHeads',['../struct_t_discipline___template.html#aec2a4f16caf01c371224b0f67059cb74',1,'TDiscipline_Template']]],
+  ['base_5ftalents',['base_Talents',['../struct_t_discipline___template.html#afb9d738ec47776f7c3dfc98e2507991b',1,'TDiscipline_Template']]],
+  ['bsizecategory',['bSizeCategory',['../class_r_p_g_object.html#ae5cb76ccbe4f37237cc03a9737009577',1,'RPGObject']]],
+  ['bvalues',['bValues',['../class_r_p_g_object.html#aca7f376707b78c0852b0001ee67dc80f',1,'RPGObject']]],
+  ['bweight',['bWeight',['../class_r_p_g_object.html#a550507f127d2915aa0b7a95ef5e3feb6',1,'RPGObject']]]
 ];

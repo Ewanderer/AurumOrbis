@@ -45,7 +45,7 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 			if(v=="weight")
 				return cWeight;
 			if(v=="size")
-				return cSizeCategory;
+				return (int)cSizeCategory;
 			ValueHelper vh;
 			if(bValues.Exists(delegate(ValueHelper obj) {
 				return obj.ValueName==v;
@@ -206,25 +206,33 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 		public List<Inhibitor> Inhibitors = new List<Inhibitor> ();//Selbes gilt für die Blocks
 		
 		//Diese dynamisch erstellte Liste wählt aus allen Spalten(Sourcetyp) den ersten Eintrag(höchste Order) aus, sofern dieser nicht durch einen Inhibitor mit höherer Order blockiert wird oder selbst unterdrückt wird.
-		public List<Modification> UsedModifications {
+		public List<TEffect> UsedModifications {
 			get {
-				List<Modification> result = new List<Modification> ();
+				List<TEffect>result = new List<TEffect> ();
 				for (int i=0; i<AllModifications.Count; i++) {
 					if (!AllModifications [i] [0].IsSupressed (AttributeName)&&(Inhibitors[0].IsSupressed(AttributeName)||Inhibitors[0].Order<AllModifications[i][0].Order))
-						result.Add (AllModifications [i] [0]);
+						result.Add (AllModifications [i] [0].SourceEffect);
 				}
 				return result;
 			}
 		}
+
+
 		//Dieses Feld berechnet die GesamtModifikation
 		public float OverallModification {
 			get {
+				List<Modification> effects = new List<Modification> ();
+				for (int i=0; i<AllModifications.Count; i++) {
+					if (!AllModifications [i] [0].IsSupressed (AttributeName)&&(Inhibitors[0].IsSupressed(AttributeName)||Inhibitors[0].Order<AllModifications[i][0].Order))
+						effects.Add (AllModifications [i][0]);
+				}
+
 				float Result = 0;
-				foreach (Modification m in UsedModifications.FindAll(delegate(Modification obj) {
+				foreach (Modification m in effects.FindAll(delegate(Modification obj) {
 					return !obj.Mode;
 				}))
 					Result += m.Value;
-				foreach (Modification m in UsedModifications.FindAll(delegate(Modification obj) {
+				foreach (Modification m in effects.FindAll(delegate(Modification obj) {
 					return obj.Mode;
 				}))
 					Result *= m.Value;
@@ -240,7 +248,7 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 	}
 	
 	protected List<AttributModificationHelper> AttributeHelper = new List<AttributModificationHelper> ();
-	
+
 	//Diese Funktion baut einen neuen Effekt in die Helper ein
 	protected void OnNewEffect (TEffect effect)
 	{
@@ -450,6 +458,7 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 
 		cWeight = bWeight + GetCurrentValueModification ("weight");
 		cSizeCategory = bSizeCategory + (int)GetCurrentValueModification ("sizecategory");
+		//Setzten der Statuseffekte
 
 	}
 
@@ -478,7 +487,9 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 	//Dient zum Verrechnen von Heilung mit beispielsweise Heilmodifikationen
 	protected abstract float RecieveHealing(float Value);
 
+	public virtual void SendMessage(string Message,IRPGSource Source){
 
+	}
 
 
 

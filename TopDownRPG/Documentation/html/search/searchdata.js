@@ -1,24 +1,27 @@
 var indexSectionsWithContent =
 {
-  0: "abceimnprstvw",
+  0: "abcdegilmnprstvw",
   1: "abceimnprstv",
-  2: "bcv",
-  3: "esw"
+  2: "gi",
+  3: "abcdelnpv",
+  4: "eisw"
 };
 
 var indexSectionNames =
 {
   0: "all",
   1: "classes",
-  2: "variables",
-  3: "properties"
+  2: "functions",
+  3: "variables",
+  4: "properties"
 };
 
 var indexSectionLabels =
 {
   0: "All",
   1: "Classes",
-  2: "Variables",
-  3: "Properties"
+  2: "Functions",
+  3: "Variables",
+  4: "Properties"
 };
 

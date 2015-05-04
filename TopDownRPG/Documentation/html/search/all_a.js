@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['tcreature',['TCreature',['../class_t_creature.html',1,'']]],
-  ['teffect',['TEffect',['../class_t_effect.html',1,'']]],
-  ['tequipment',['TEquipment',['../class_t_equipment.html',1,'']]],
-  ['titem',['TItem',['../class_t_item.html',1,'']]],
-  ['titemstatistic',['TItemStatistic',['../class_t_item_statistic.html',1,'']]]
+  ['paramter',['Paramter',['../struct_effect_script_object_1_1_paramter.html',1,'EffectScriptObject']]],
+  ['prequisites',['Prequisites',['../struct_t_discipline___template.html#a3ea2df44f609935eb4f04eda1a6434d0',1,'TDiscipline_Template']]]
 ];
