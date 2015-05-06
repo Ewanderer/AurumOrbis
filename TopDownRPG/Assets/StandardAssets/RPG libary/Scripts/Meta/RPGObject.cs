@@ -46,21 +46,7 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 				return cWeight;
 			if(v=="size")
 				return (int)cSizeCategory;
-			ValueHelper vh;
-			if(bValues.Exists(delegate(ValueHelper obj) {
-				return obj.ValueName==v;
-		}))
-				vh=bValues.Find(delegate(ValueHelper obj) {
-					return obj.ValueName==v;
-				});
-			else
-				return 0;
-			if(vh is NumericValueHelper)
-				return (vh as NumericValueHelper).Value;
-			if(vh is booleanValueHelper&&(vh as booleanValueHelper).Value)
-				return 1;
-			else
-				return 0;
+			return 0;
 		}
 	}
 
@@ -82,54 +68,7 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 		get{return cInformation;}
 	}
 
-	/**Hilfsklasse um Standardwerte zu verwalten*/
-	public abstract class ValueHelper{
-		public string ValueName;/**<Name des Werts*/
-	}
 
-	/**Spezialiesierte Hilfsklasse um Numerische(float) Werte zu speichern.*/
-	public class NumericValueHelper:ValueHelper
-	{
-		public float Value;/**<Naja der dem Namen zugeordnete Standard-Wert*/
-	}
-	/**Spezialisierte Hilfsklasse um boolsche Werte zu speichern*/
-	public class booleanValueHelper:ValueHelper{
-		public bool Value;
-	}
-	/**Liste zur Verwaltung aller Standardwerte */
-	protected List<ValueHelper> bValues=new List<ValueHelper>();
-
-	/**
-	 * \brief Sucht den Standardwert aus der Liste bValues raus
-	 * \param Name Name des gesuchten Standardwerts
-	 * \return Wert
-	 */
-	protected float GetNBaseValue(string Name){
-		if (bValues.Exists (delegate(ValueHelper obj) {
-			return (obj is NumericValueHelper) && obj.ValueName == Name;
-		}))
-			return (bValues.Find (delegate(ValueHelper obj) {
-				return (obj is NumericValueHelper) && obj.ValueName == Name;
-			}) as NumericValueHelper).Value;
-		else
-			return 0;
-	}
-
-	/**
-	 * \brief Sucht den Standardwert aus der Liste bValues raus
-	 * \param Name Name des gesuchten Standardwerts
-	 * \return Wert
-	 */
-	protected bool GetBBaseValue(string Name){
-		if (bValues.Exists (delegate(ValueHelper obj) {
-			return (obj is booleanValueHelper) && obj.ValueName == Name;
-		}))
-			return (bValues.Find (delegate(ValueHelper obj) {
-				return (obj is booleanValueHelper) && obj.ValueName == Name;
-			})as booleanValueHelper).Value;
-		else
-			return false;
-	}
 
 	/**
 	 * \brief Diese Klasse verwaltet die Modifikationen für den genannten Wert, die sich aus den passiven Teilen aller Effekte ergeben

@@ -1,14 +1,10 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\StandardAssets\RPG libary\Scripts\Effects\TEffect.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\StandardAssets\RPG libary\Scripts\InteractiveObjects\InteractiveObject.cs">
     <Files>
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs" Line="107" Column="18" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\InteractiveObjects\InteractiveObject.cs" Line="99" Column="19" />
       <File FileName="Assets\StandardAssets\RPG libary\Scripts\Meta\RPGObject.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Templates\TDiscipline_Template.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Effects\TEffect.cs" Line="56" Column="43" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Effects\EffectScriptObject.cs" Line="419" Column="5" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Creatures\TFeat.cs" Line="38" Column="3" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Meta\IRPGSource.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
