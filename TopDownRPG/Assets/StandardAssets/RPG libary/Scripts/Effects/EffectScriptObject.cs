@@ -66,10 +66,8 @@ public class EffectScriptObject
 	bool UseTimer;
 	float TimeIntervall;
 	float Timer;
-	bool TakeDamageCreature;
-	bool TakeDamageEffect;
-	bool TakeHealCreature;
-	bool TakeHealEffect;
+	bool TakeDamage;
+	bool RecieveHealing;
 	//Trigger-Interface Funktionen
 
 	public struct Paramter
@@ -87,9 +85,35 @@ public class EffectScriptObject
 	public void OnActivate (IRPGSource s)
 	{
 		if (!Effect.IsSupressed && AllowActivate)
-			ExecuteScript (new Paramter ());
+			ExecuteScript (null);
 		
 	}
+
+	public void OnTakeDamage(ref float value, string Type,IRPGSource source){
+		if (!Effect.IsSupressed && TakeDamage) {
+			NumericValue v=new NumericValue("value",value);
+			nValues.Add(v);
+			StringValue t=new StringValue("type",Type);
+			sValues.Add(t);
+			Paramter s=new Paramter("source",source);
+			ExecuteScript(new Paramter[]{s});
+			nValues.Remove(v);
+			sValues.Remove(t);
+			value=v.Value;
+		}
+	}
+
+	public void OnRecieveHealing(ref float value,IRPGSource source){
+		if (!Effect.IsSupressed && RecieveHealing) {
+			NumericValue v=new NumericValue("value",value);
+			nValues.Add(v);
+			Paramter s=new Paramter("source",source);
+			ExecuteScript(new Paramter[]{s});
+			nValues.Remove(v);
+			value=v.Value;
+		}
+	}
+
 
 	//
 	List<string> Script = new List<string> ();
@@ -320,14 +344,14 @@ public class EffectScriptObject
 					ProcessCommandToEffect (Effect, split [0].Split ('(') [1].TrimEnd (')').Split (','), Parameters);
 				} else
 				if (split [0].Split ('.') [0] == "§afflicted") {
-					ProcessCommandToCreature (Afflicted, split [0].Split ('(') [1].TrimEnd (')').Split (','), Parameters);
+					ProcessCommandToObject (Afflicted, split [0].Split ('(') [1].TrimEnd (')').Split (','), Parameters);
 				} else {
 					IRPGSource target = (new List<Paramter> (Parameters)).Find (delegate(Paramter obj) {
 						return obj.Name == split [0].Split ('.') [0].TrimStart ('§');
 					}).O;
 					if (target != default(IRPGSource)) {
 						if (target is TCreature)
-							ProcessCommandToCreature (target as TCreature, split [0].Split ('(') [1].TrimEnd (')').Split (','), Parameters);
+							ProcessCommandToObject (target as TCreature, split [0].Split ('(') [1].TrimEnd (')').Split (','), Parameters);
 						else
 							if (target is TEffect)
 							ProcessCommandToEffect (target as TEffect, split [0].Split ('(') [1].TrimEnd (')').Split (','), Parameters);
@@ -337,17 +361,60 @@ public class EffectScriptObject
 				break;
 			case '$':
 				//Edit Strings
+				StringValue sv;
+				if((sv=sValues.Find(delegate(StringValue obj) {
+					return obj.Name==split[0].TrimStart('$');
+				}))!=default(StringValue)){
+					switch(split[1]){
+					case "=":
+						sv.Value=split[2];
+						break;
+					case "+=":
+						sv.Value+=split[2];
+						break;
+					}
+				}else{
+					RPGLogger.LogEvent("Value:"+split[0]+"not found","RPG-ScriptObject",true);
+
+				}
+
 				break;
 			case '%':
+				NumericValue nv;
 				//Edit Numeric Values
+				if((nv=nValues.Find(delegate(NumericValue obj) {
+					return obj.Name==split[0].TrimStart('%');
+				}))!=default(NumericValue)){
+					switch(split[1]){
+					case "=":
+						nv.Value=System.Convert.ToSingle(split[2]);
+						break;
+					case "+=":
+						nv.Value+=System.Convert.ToSingle(split[2]);
+						break;
+					case "-=":
+						nv.Value-=System.Convert.ToSingle(split[2]);
+						break;
+					case "*=":
+						nv.Value*=System.Convert.ToSingle(split[2]);
+						break;
+					case "/=":
+						nv.Value/=System.Convert.ToSingle(split[2]);
+						break;
+					}
+
+				}else{
+					RPGLogger.LogEvent("Value:"+split[0]+"not found","RPG-ScriptObject",true);
+				}
 				break;
 			}
 
 			PC++;
 		}
 	}
+	
 
-	void ProcessCommandToCreature (RPGObject target, string[] CallParameter, Paramter[] Triggerparameter)
+	void ProcessCommandToObject (RPGObject target, string[] CallParameter, Paramter[] Triggerparameter)
 	{
 	
 	}

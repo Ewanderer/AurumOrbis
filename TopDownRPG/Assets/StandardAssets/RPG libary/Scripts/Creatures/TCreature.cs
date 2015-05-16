@@ -271,11 +271,11 @@ public class TCreature : RPGObject
 
 
 	//Diese Funktion gibt wieder ob das Objekt versteckt ist(return bool) und zusätzliche Informatioen wie diese Tarnung aufgebaut ist.
-	public override bool IsVisible (out int HideValue, out TEffect[] UseEffects)
+	public override bool IsVisible (out int HideValue, out AttributModificationHelper.Modification[] UseEffects)
 	{
 		if (CMS == CreatureMovementStatus.Sneaking || GetCurrentValueModification ("invisibility") > 0) {
 			HideValue = (int)this ["hide"] + (int)GetCurrentValueModification ("invisibility");
-			List<TEffect> result = AttributeHelper.Find (delegate(AttributModificationHelper obj) {
+			List<AttributModificationHelper.Modification> result = AttributeHelper.Find (delegate(AttributModificationHelper obj) {
 				return obj.AttributeName == "hide";
 			}).UsedModifications;
 			result.AddRange (AttributeHelper.Find (delegate(AttributModificationHelper obj) {
@@ -290,14 +290,17 @@ public class TCreature : RPGObject
 	}
 	
 	//Bei Creatures fragen wir Skills ab.
-	public override bool CheckValue (string NameOfValue, out int BaseValue, out int EndValue, out TEffect[] UseEffects)
+	public override bool CheckValue (string NameOfValue, out int BaseValue, out int EndValue, out AttributModificationHelper.Modification[] UsedModification,out AttributModificationHelper.Counter[] UsedCounter)
 	{
 		BaseValue = 0;
 		EndValue = 0;
 		float mod = GetCurrentValueModification (NameOfValue);
-		UseEffects = AttributeHelper.Find (delegate(AttributModificationHelper obj) {
+		UsedModification = AttributeHelper.Find (delegate(AttributModificationHelper obj) {
 			return obj.AttributeName == NameOfValue;
 		}).UsedModifications.ToArray();
+		UsedCounter = AttributeHelper.Find (delegate(AttributModificationHelper obj) {
+			return obj.AttributeName == NameOfValue;
+		}).Counters.ToArray ();
 		if (mod < 0)
 			EndValue -=(int) mod;
 		if (Skills.Exists (delegate(Skill obj) {
@@ -317,34 +320,43 @@ public class TCreature : RPGObject
 
 
 	//Diese Funktion dient zum Zugriff auf den HP-Wert oder so, gibt die Menge des angerichten schaden zurück. Heilungen. bzw Absorbtionen müssen an die RecieveHealing Funktion weitergegeben werden.	
-	public override float RecieveDamage (float Value, string Typ)
+	public override float RecieveDamage (float Value, string Typ, IRPGSource Source)
 	{
 		if (Typ != "abilitycost") {
 			//Apply Resistance
+			Value-=this["Resistance_"+Typ];
+			Value*=this["Resistance%_"+Typ];
 		}
 		if (Value > 0) {
+			//Send Damage Messgae to Effects
+			foreach(TEffect e in Effects)
+				foreach(EffectScriptObject so in e.ScriptObjects)
+					so.OnTakeDamage(ref Value,Typ,Source);
+
 			_cPain -= Value;
 			if (_cPain < 0) {
 				Value = _cPain / -10;
 				_cHitpoints -= Value;
 				_cPain = 0;
 			}
-			//Send Damage Messgae to Effects
+		
 			return Value;
 		} else if (Value < 0)
-			return RecieveHealing (Value);
+			return RecieveHealing (Value,Source);
 		return 0;
 
 
 	}
 	
 	//Dient zum Verrechnen von Heilung mit beispielsweise Heilmodifikationen
-	protected override float RecieveHealing (float Value)
+	protected override float RecieveHealing (float Value,IRPGSource Source)
 	{
 		Value *= GetCurrentValueModification ("healingamplification");
 		_cPain = Mathf.Clamp (_cPain + Value, 0, _cHitpoints);
 		//Send Triggers
-
+		foreach(TEffect e in Effects)
+			foreach(EffectScriptObject so in e.ScriptObjects)
+				so.OnRecieveHealing(ref Value,Source);
 		return Value;
 	}
 

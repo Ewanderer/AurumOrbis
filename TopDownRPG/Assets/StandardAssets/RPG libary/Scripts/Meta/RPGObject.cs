@@ -89,15 +89,15 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 			 * \param Name Naja man muss den Attributsnamen rübergeben, damit man sicher überprüfen kann
 			 * \return Der Name ist Programm...
 			 */
-
+			//?
 			public bool IsSupressed (string Name)
 			{
 				
 				foreach (string s in SourceEffect.WorkingPassiveEffectStrings) {
 					if (s.Split (' ') [0].ToLower () == "add" && s.Split (' ') [1] == Name && s.Split (' ') [2] == SourceType && s.Split (' ') [3]==Order.ToString() && ((s.Contains ("%%") && Mode) || (!s.Contains ("%%") && !Mode)))
-						return true;
+						return false;
 				}
-				return false;
+				return true;
 			}
 
 			public string SourceType;/**Angabe über den Sourcetyp, zur Kategorisierung<*/
@@ -123,9 +123,9 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 				
 				foreach (string s in SourceEffect.WorkingPassiveEffectStrings) {
 					if (s.Split (' ') [0].ToLower () == "block" && s.Split (' ') [1] == Name && s.Split (' ') [2] == SourceTyp && s.Split (' ') [3]==Order.ToString())
-						return true;
+						return false;
 				}
-				return false;
+				return true;
 			}
 			
 			public int Order;
@@ -140,17 +140,40 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 			}
 			
 		}
+
+		public class Counter
+		{
+			public bool IsSupressed(string Name){
+				foreach (string s in SourceEffect.WorkingPassiveEffectStrings) {
+					if (s.Split (' ') [0].ToLower () == "counter" && s.Split (' ') [1] == Name && s.Split (' ') [2] == SourceTyp && s.Split (' ') [3]==Order.ToString())
+						return false;
+				}
+				return true;
+			}
+
+			public int Order;
+			public string SourceTyp;
+			public TEffect SourceEffect;
+			public Counter(int _Order,string _SourceTyp,TEffect _SourceEffect){
+				Order=_Order;
+				SourceTyp=_SourceTyp;
+				SourceEffect=_SourceEffect;
+			}
+
+		}
+
 		
 		public List<List<Modification>> AllModifications = new List<List<Modification>> ();//Diese Tabelle sortiert alle Effekte gleicher Herkunft in die einzelnen Spalten sortiert nach Order
 		public List<Inhibitor> Inhibitors = new List<Inhibitor> ();//Selbes gilt für die Blocks
-		
+		public List<Counter> Counters = new List<Counter> ();
+
 		//Diese dynamisch erstellte Liste wählt aus allen Spalten(Sourcetyp) den ersten Eintrag(höchste Order) aus, sofern dieser nicht durch einen Inhibitor mit höherer Order blockiert wird oder selbst unterdrückt wird.
-		public List<TEffect> UsedModifications {
+		public List<Modification> UsedModifications {
 			get {
-				List<TEffect>result = new List<TEffect> ();
+				List<Modification>result = new List<Modification> ();
 				for (int i=0; i<AllModifications.Count; i++) {
 					if (!AllModifications [i] [0].IsSupressed (AttributeName)&&(Inhibitors[0].IsSupressed(AttributeName)||Inhibitors[0].Order<AllModifications[i][0].Order))
-						result.Add (AllModifications [i] [0].SourceEffect);
+						result.Add (AllModifications [i] [0]);
 				}
 				return result;
 			}
@@ -177,8 +200,18 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 					Result *= m.Value;
 				return Result;
 			}
-			
 		}
+
+		public List<Counter> UsedCounter{
+			get{
+				List<Counter> result=new List<Counter>();
+				foreach(Counter c in Counters)
+					if(!c.IsSupressed(AttributeName))
+						result.Add(c);
+				return result;
+			}
+		}
+
 		
 		public AttributModificationHelper (string Name)
 		{
@@ -229,6 +262,19 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 				//Evt. Platz für die neue Quelle machen und Effekt direkt einfügen
 				AMH.Inhibitors.Add (new AttributModificationHelper.Inhibitor (splitted[2], System.Convert.ToInt16 (splitted [3]), effect));
 			}
+			else{
+				if(splitted[0]=="counter"){
+					if (!AttributeHelper.Exists (delegate(AttributModificationHelper obj) {
+						return obj.AttributeName == splitted [1];
+					}))
+						AttributeHelper.Add (new AttributModificationHelper (splitted [1]));
+					AttributModificationHelper AMH = AttributeHelper.Find (delegate(AttributModificationHelper obj) {
+						return obj.AttributeName == splitted [1];
+					});
+					//Evt. Platz für die neue Quelle machen und Effekt direkt einfügen
+					AMH.Counters.Add (new AttributModificationHelper.Counter (System.Convert.ToInt16 (splitted [3]),splitted[2], effect));
+				}
+			}
 		}
 	}
 	
@@ -238,7 +284,7 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 		foreach (string s in effect.PassiveEffectStrings) {
 			string[] splitted = s.Split (' ');
 			//Überprüfe ob effect ein Modifiktor oder Inhibitor war
-			if (splitted [0] == "add" || splitted [0] == "block") {
+			if (splitted [0] == "add" || splitted [0] == "block"||splitted[0]=="counter") {
 				//Wähle den entsprechenden AttributsHelfer aus
 				AttributModificationHelper AMH = AttributeHelper.Find (delegate(AttributModificationHelper obj) {
 					return obj.AttributeName == splitted [1];
@@ -255,11 +301,16 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 				ml.RemoveAll (delegate(AttributModificationHelper.Modification obj) {
 					return obj.SourceEffect == effect;
 				});
+				//Lösche Einträge aus den COunter
+				AMH.Counters.RemoveAll(delegate(AttributModificationHelper.Counter obj) {
+					return obj.SourceEffect==effect;
+				});
+
 				//Eine leere Source-Liste wird entfernt
 				if (ml.Count == 0)
 					AMH.AllModifications.Remove (ml);
 				//Ein leerer Attributshelfer wird entfernt...
-				if (AMH.AllModifications.Count == 0 && AMH.Inhibitors.Count == 0)
+				if (AMH.AllModifications.Count == 0 && AMH.Inhibitors.Count == 0&&AMH.Counters.Count==0)
 					AttributeHelper.Remove (AMH);
 			}
 		}
@@ -400,11 +451,9 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 		//Setzten der Statuseffekte
 
 	}
-
-
 	//Informationen
 	//Diese Funktion benutzt das Objekt um Informationen über das Target zu sammeln. DeepSearch offenbart alle Informationen die das StrongRequirements "NeedAnalyze" haben 
-	public virtual string[] GetInformation (RPGObject Sender, bool IsDeepSearch=false){
+	public virtual string[] GetInformation (RPGObject Sender, bool IsDeepSearchesing=false){
 		return null;
 	}
 
@@ -416,15 +465,15 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource {
 	//Funktionsrümpfe
 
 	//Diese Funktion gibt wieder ob das Objekt versteckt ist(return bool) und zusätzliche Informatioen wie diese Tarnung aufgebaut ist.
-	public abstract bool IsVisible(out int HideValue,out TEffect[] UseEffects);
+	public abstract bool IsVisible (out int HideValue, out AttributModificationHelper.Modification[] UseEffects);
 
 	//Das Objekt macht Auskunft über die Verfügbarkeit einer Eigenschaft und bei numerischen Werten Auskunft über die Höhe des gefragten bestimmten Wertes. Dabei werden alle Informationen wie sich der Wert zusammengesetzt mitgegeben.
-	public abstract bool CheckValue (string NameOfValue, out int BaseValue, out int EndValue, out TEffect[] UseEffects);
+	public abstract bool CheckValue (string NameOfValue, out int BaseValue, out int EndValue, out AttributModificationHelper.Modification[] UsedModification,out AttributModificationHelper.Counter[] UsedCounter);
 	//Diese Funktion dient zum Zugriff auf den HP-Wert oder so, gibt die Menge des angerichten schaden zurück. Heilungen. bzw Absorbtionen müssen an die RecieveHealing Funktion weitergegeben werden.	
-	public abstract float RecieveDamage (float Value, string Typ);
+	public abstract float RecieveDamage (float Value, string Typ, IRPGSource Source);
 
 	//Dient zum Verrechnen von Heilung mit beispielsweise Heilmodifikationen
-	protected abstract float RecieveHealing(float Value);
+	protected abstract float RecieveHealing(float Value,IRPGSource Source);
 
 	public virtual void SendMessage(string Message,IRPGSource Source){
 
