@@ -13,7 +13,7 @@ public class Core:MonoBehaviour {
 	} 
 
 	void InitializeServices(){
-
+		Dice.InitializeDiceService();
 	}
 
 

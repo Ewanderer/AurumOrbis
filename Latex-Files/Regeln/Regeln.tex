@@ -1,0 +1,165 @@
+\documentclass[a4paper,12pt,oneside]{book}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{imakeidx}
+\usepackage[hypertexnames=false]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage{nameref}
+\usepackage{ulem}
+
+
+\hypersetup{
+	bookmarks=true,
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\author{Jordan Eichner}
+\title{Regelwerk zu Arum Orbis}
+\date{}
+
+\begin{document}
+
+\maketitle
+\part*{Vorwort}
+Das nun folgende Regelwerke ist eine von verschiedenen Regelwerken, wie DSA, Opus Anima und Pathfinder, inspirierte Version eines Rollenspiels für die Anwendung in Echtzeit-Action-Szenarien, also vor allem Computerspielen. Neben den Regel wird dieses Werk auch einige Konzepte der auf diesen Regel basierenden Programmumsetzung enthalten. Natürlich sind alle Interessierten eingeladen, die Regeln für eine Verwendung als klassisches P\&P anzupassen.
+Jordan Eichner
+
+\tableofcontents
+  
+\part{Grundlagen}
+\chapter{Ein paar Abkürzugen}
+W6=6 Seitiger Würfel
+
+\chapter{Strukturierung der Welt}
+Die Spielwert setzt sich aus zwei Teilen zusammen: der Statischen Umgebung, wozu vor allem das Terrain zählt und den sogenannten RPG-Objekten. Letztere kann man schließlich noch in folgende Kategorien einteilen:
+\begin{description}
+\item[Kreaturen:]
+Hierzu gehören alle Lebewesen, seien es Spielerfiguren oder angreifende Monster.
+\item[Interaktive Objekte:]
+Neben Gegenständen, zählen auch alle Objekte mit denen der Spieler interagieren kann.
+\end{description}
+\chapter{Komplexitäts-Klassen}
+Aurum Orbis wird von Kreaturen aller Art bewohnt, angefangen bei einem einfachem Bauer, bis zu einem Drachen. Natürlich sind ihre Möglichkeiten dabei so verschieden, dass man für einen besseren Vergleich auf ein Stufensystem zurückgreifen muss. Alle Aktionen, Kampfstile und Figuren lassen sich daher in sog. Komplexitätsklassen einordnen:
+\begin{description}
+\item[Mundan:] Hier lässt sich jeder von Tagelöhner bis zum frisch Gebackenen Abenteurer, sowie viele Wildtiere einordnen. Alle Kampfstile auf dem Niveau von einer Bürgermiliz befinden sich auf diesem Niveau, genauso wie die Herstellung eines Großteil von Alltagsgegenständen und alle mit einfachen Professionen verbundenen Tätigkeiten.
+\item[Heroisch:] Die kleineren magischen Monster und die größeren Kreaturen, sowie Abenteurer mit jahrelanger Erfahrung und Angehörige von weiterentwickelten Professionen, wie dem Bestienjäger, gehören in diese Kreaturen. Einige wenige Alltagsgegenstände, sowie verbesserte Ausrüstung und einfache exotischen Waffen kommen aus dieser Kategorie, Kampfstile die im Militär gelehrt werden sind diese Kategorie.
+\item[Episch:]Die meisten magischen Monster, sowie einfache Diener von Göttern und wirkliche Plagen aus der Gegenwelt, sowie wirkliche Berühmtheiten können sich zu dieser Kategorie zählen. Aufwendige Konstruktionen und Rezepturen und verbesserte einfache Exotische Waffen, sowie seltene Exotische Waffen und die Techniken von ...
+\item[Legendär:]
+\item[Ultimativ:]Götter und die ältesten der Drachen, sowie die Herrscher über Teile der Gegenwelt spielen in dieser Liga, also eigentlich nur Unsterbliche. Ein Sterblicher vermag sich zwar daran versuchen etwas vom Niveau dieser Giganten zu erschaffen, doch selbst einem Meisterlichem Handwerker hat für das einfachster aus dieser Kategorie nur eine 5\% Erfolgschance und häufig fatalen Folgen bei einem Fehlschlag.
+\end{description}
+
+\section{Mathematik zu Schranken für Spielerfortschritt}
+Um ein geeignetes Balanceing zu erzielen hier ein paar Gedanken.
+\begin{itemize}
+\item Wir entwickeln zunächst ein sauberes System für alle nicht Kampf-Bezogenen Elemente und passen die Formel zu Berechnung von Kampf-Werten an das bestehende System an.
+\item Die Anzahl aller nicht Waffenfertigkeiten sei: $S$. 
+\item Wir gehen davon aus, dass jeder Spieler im durchschnitt Meisterschaft in einer bestimmen Anzahl an Fertigkeiten(keine Waffen) haben: \(S_{3}\)
+\item Zusätzlich gibt es noch zwei weitere Arten von Fertigkeiten die jeweils grundlegend(1) und durchschnittlich(2):$S_{1}, S{2}$. Von allen anderen Fertigkeiten gehen wir davon aus, dass diese ungelernt sind und Ordnen sie $S_{0}$ zu.
+\item Eine Figur ist zusätzlich noch bis zu einem gewissen Grad optimiert, also $S_{1..3}$ bauen auf den gleichen Attributen auf. Der Grad dieser Einigkeit sei: $O$
+\item Wir arbeiten nun nacheinander die Komplexitätsklasse $K_{1..5}$ ab.
+\item Zu Beginn unserer Untersuchung gehen wir davon aus, dass alle Fertigkeiten aus $S_{3}$ auf 75\% des untersuchten $K$ liegt. ($K_{1}$ =20 * 0.75 => 15) Für $S_2$ bei 50 und für $S_1$ bei 25\% liegt. $S_{0}$ bleiben immer bei 0. Diese drei Grenzen nennen wir $R_{1...3}$.
+\item In der für $K$ erstellen wir nun für jede Gruppe von Fertigkeiten $S_{0..3}$ jeweils die gewünschte Erfolgswahrscheinlichkeit für das äußerste $Q_{komplex}$ und das einfachste $Q_{simpel}$ für den Fall, dass $O>80\%$ und für den Fall, dass $O<20\%$ ist.
+\item Nun Suchen wir nach einer geeigneten Verteilung der 10 Attribute damit wir für das untersuchte K, die Wahrscheinlichkeiten erfüllen. Nun isolieren wir die Attribute in eine geeignete Menge($A_{c}=3$) an Gruppen($A_{1..c}$), in denen jeweils die am dichtesten Attribute liegen und bestimmen für den Mittelwert dieser Gruppen$A_{m, 1..c}$.
+\item Nun erstellen wir aus den beiden Profilen $A_{m}$ zu O den Mittelwert, dieser entspricht dann geeigneten Schranken für die Attribute: $A_b,1...c$.
+\item Nachdem wir alle Komplexitätsklassen auf diese Weise abgearbeitet haben, untersuchen wir, ob die berechneten Attributsverteilungen im Gesamtbild stimmig sind. Dazu gehört, dass mit einem Profil aus der niedriegeren Komplexitätsklasse, selbst für Proben zu Fertigkeiten aus $S_3$ aus $Q_{simpel,1}$ nur eine Wahrscheinlichkeit von 25\% besteht.
+\item Falls dies nicht der Fall ist ändern wir ggf. $R_{1..3}, A_{c}$ und beginnen erneut mit der Berechnung für alle Komplexitätsklassen.
+\item Sind wir mit dem $A_b$ für alle $K$ zufrieden, beginnen wir nun mit der Optimierung für Kampfsituationen.
+\item Alle Kampffertigkeiten seien 
+\end{itemize}
+
+\chapter{Proben}
+\section{Übersicht}
+Wann immer der Ausgang einer Aktion, sei es von einem Spieler oder einer Kreatur entscheidet eine sogenannte Probe über diese. In der Regel besteht eine Probe aus einer Reihe von Würfen mit 100-seitigen Würfeln. Anbei eine Reihe über die Abläufe verschiedener Proben. 
+\section{Arten von Proben}
+\begin{description}
+\item[Attributprobe:]Auch wenn man nur in Ausnahmefällen auf ein Attribut würfelt(In der Regel, wenn keine passende Fertigkeit zur Verfügung steht), ist dieser Wurf die Grundlage für Fertigkeitsproben. Mit einem W100, muss man einen Wert kleiner gleich dem gefordertem Attributswert erzielen. Dabei kann je nach Situation eine sog. Erschwernis(die auf den Würfelwurf addiert wird) oder Erleichterung(die vom Würfelwurf subtrahiert wird) erteilt werden. 
+\item[Fertigkeitsprobe:]
+Sie ist eigentlich nur eine erweiterte Attributsprobe, nur dass man auf die drei, mit der Fertigkeit assoziierten Attributen, eine Probe machen muss. Dabei dienen die Fertigkeitspunkte als zusätzliche Erleichterung, mit der man Ausgleichen kann. Wie bei der Attributsprobe gibt es Erschwernis und Erleichterung, wenn die Erschwernis die Fertigkeitspunkte übersteigt, werden die übrigen Punkte als Erschwernis bei allen drei Würfen eingerechnet werden muss.
+\item[Offene Probe:]
+In der Regel benötigt man nur Auskunft darüber, ob der Probe bestanden wurde, doch in bestimmten Fällen möchte man über die Qualität des Erfolges, bzw. der Niederlage Bescheid wissen(z.B. beim Handwerk). In diesem Fall würfelt man ganz normal seine Probe betrachtet anschließend die übrig gebliebenen, bzw. fehlenden Punkte. Man kann dabei nie mehr Punkte übrig behalten, wie man ohne Situationsabhängige Erleichterung zur Verfügung hatte(im Fall einer klassischen Fertigkeitsprobe niemals mehr als man Punkte in der Fertigkeit hat).
+\item[konkurrierende Probe:]
+In bestimmten Situationen, versucht man nicht einfach eine Aufgabe zu erledigen, sondern sie besser als jemand anders zu machen. In einem solchen Fall kommt es zu einer konkurrierenden Probe. Dabei macht der Herausforderer zunächst eine offene Probe, anschließend der Herausgeforderte mit einer Erschwernis, bzw. bei gescheiterte Probe Erleichterung in Höhe der übrig gebliebenen, bzw. fehlenden Punkte. Je nachdem wie beide Proben ausgegangen sind und wie viele Punkte der Herausgeforderte, hat die Probe unterschiedliche Ausgänge. 
+\end{description}
+\section{Besonderheiten}
+Bei jeder Probe kommen der 1 und der 100 eine Besonderheit zu:
+\begin{description}
+\item[Alles Einser:]
+In diesem Fall spricht man von einem kritischen Erfolg, welcher nicht nur einen automatischen Erfolg der Probe sondern auch noch einen zusätzlichen positiven Seiteneffekt hat. Dazu kann zum Beispiel eine erhöhte Ausführungsgeschwindigkeit der mit der Probe verbunden Tätigkeit gehören.
+\item[Mehr als die Hälfte eine Eins:]
+Dies zählt als automatischer Erfolg, unabhängig davon ob man aufgrund von Erschwernis die Probe eigentlich nicht erfolgreich abschließen konnte.
+\item[Mehr als die Hälfte eine 100]
+Es handelt sich um einen Patzer, einem automatischen Misserfolg, egal wie viele Punkte man zum Ausgleich besitzt.
+\item[Alles 100er]
+Das Glück ist nicht mit einem. In diesem Fall spricht man von einem kritischem Fehlschlag, welcher neben dem automatischen Misserfolg, eine negative Wirkung mit sich bringt, wie Selbstverletzung.
+\end{description}
+
+\chapter{Sagenpunkte}
+Jede Handlung hat Konsequenzen, manchmal sogar für den Rest der Welt. Sagenpunkte sind eine Mischung aus Eben diesem Einfluss, seinem Ruf und der generellen Lebenserfahrung einer Kreatur. Die Möglichkeiten an denen man sie sammelt und an denen man sie Ausgeben kann sind so groß, dass nun zwei eigene Abschnitte folgen:
+\section{Verdienstmöglichkeiten}
+\begin{itemize}
+\item Durch das Erreichen von einfachen Erfolgen beim Kampf gegen Monster, angefangen bei den ersten Hundert erschlagenen Dunkelelfen, über eine Horde magischer Bestien, bis hin zum Erschlagen eines feindseligen Jungdrachens. Allgemein kann man sagen, dass man 1/100 der SP des erschlagenen Feindes erhält.
+\item Beim Abschließen von Geschichtssträngen, in Abhängigkeit der eigenen Beteiligung(Meisterentscheid).
+\item Durch die Teilnahme an einem historischem Ereignis, wie einem Krieg oder einer Seuche, auch hier abhänig von der Beteiligung(Meisterentscheid).
+\item Beim Erkunden und Ausräumen von Horten.
+\item Als Handwerker, einmal für die Fertigung, wobei natürliche Artefakte wesentlich lokrativer sind und außerdem rückwirkend, wenn der Gegenstand zum Einsatz kommt. Wenn also das Schwert benutzt wird, um einen Drachen zu erschlagen, so wird in Abhängigkeit, wie weit der Weg des Schwertes vom Amboss zum Helden war(Anzahl der Weiterverkäufe), eine gewisse Menge an SP an den Schmied ausgeschüttet. In der Regel erhält man 1/500 der SP für den erschlagenden Feind, geteilt durch die Anzahl der Weiterverkäufe, nach Abgabe vom Schmied an den ersten Besitzer.
+\item Die Kreation eines Epos zu einem historischen Moment aus den Beschreibungen eines Augenzeugen. Auch hier gibt es eine Rückwirkende SP-Gewinnung. (Diese Möglichkeit wird zunächst nicht im Spiel integriert sein und ist für eine spätere Entwicklung evt. geplant)
+
+\end{itemize}
+\section{Ausgabemöglichkeiten}
+\begin{itemize}
+\item Einen Titel erkaufen oder zumindest die Möglichkeit freischalten, diesen zu erfahren. In der Regel besteht diese Möglichkeit in einer Aufgabe, bei der sich die Figur beweisen muss.
+\item In der Regel kann man jede allgemein verfügbare Spezialisierung durch das bezahlen eines Lehrmeisters erlernen. Doch um z.B. bei den Lehrmeistern einer Geheimorganisation sich die Grundzüge anzueignen, muss man erst einmal über diese stoßen, ähnlich wie bei den zuvor genannten Titel, wird also eine besondere Aufgabe freigeschaltet an deren Ende ein Lehrmeister wartet.
+\item Viele Aufgaben im Leben einer Figur sind reine Fleißarbeit, dazu gehört Muskeltraining, Studium in der Bibliothek oder die Erforschung einer neuen Technologie oder Rezeptur. Diese Aufgaben werden im Groben durch SP erledigt, einerseits um den Zeitaufwand im Spiel zu reduzieren, andererseits damit man sich beispielsweise das Erstellen einer vollständigen Bibliothek ersparen kann.
+\end{itemize}
+\section{Anmerkungen}
+Das Startguthaben einer Figur besteht aus SP, welche für die in den ersten Lebensjahren gesammelte Erfahrung steht. Bei der Charaktererstellung können diese noch zusätzlich für direkte Attributssteigerung oder Vermögen und evt. weitere Dinge ausgeben.
+
+\part{Kreaturen}
+\setcounter{chapter}{0}
+\chapter{Übersicht}
+Neben einer Bezeichnung(und beim Spiel einer Internen eindeutigen ID) ist jede Kreatur Teil einer Art an, von dieser erhält sie in der 
+\chapter{Attribute}
+Die Attribute symbolisieren die Ausprägen der geistigen und köperliche Kapazitäten der Kreatur. Attributswerte können dabei einen Wert zwischen 0 und 100 besitzen, auch wenn in der Regel die Werte bei 1 oder höher liegen. Anbei eine kurze Beschreibung zu jedem Attribut:
+\begin{description}
+\item[Stärke] 
+\item[Mut]
+\item[Gewandtheit]
+\item[Fingerfertigkeit]
+\item[Konstitution]
+\item[Metabolismus]
+\item[Intelligenz]
+\item[Weisheit]
+\item[Charisma]
+\item[Aussehen]
+\end{description}
+\chapter{Sekundäre Attribute}
+\chapter{Fertigkeiten}
+\section{Übersicht von Fertigkeiten}
+\chapter{Effekte}
+
+\part{Ergänzung für Charaktere}
+\setcounter{chapter}{0}
+\chapter{Spezialisierungen/Professionen}
+\chapter{Ausrüstung}
+
+\part{Ausrüstung \& anderen Gegenständen}
+\setcounter{chapter}{0}
+\part{Herstellung von Objekten}
+\setcounter{chapter}{0}
+\part{Kampf}
+\setcounter{chapter}{0}
+\part{Magie}
+\setcounter{chapter}{0}
+\part{Geweihte}
+\setcounter{chapter}{0}
+\part{Meister \& Hintergründe}
+\setcounter{chapter}{0}
+\part{Zusätzliche Regeln}
+\setcounter{chapter}{0}
+\phantomsection
+
+\end{document}

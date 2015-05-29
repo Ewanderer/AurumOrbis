@@ -24,7 +24,9 @@ public class TCreature : RPGObject
 
 	//Felder für die Basiswerte aller Primären Attribute, können nur durch "Training"/LvL-Up verändert werden
 	int bStrength;
-	int bDexterity;
+	int bCourage;
+	int bAgility;
+	int bPrestidigitation;
 	int bConstitution;
 	int bMetabolism;
 	int bIntelligence;
@@ -33,7 +35,9 @@ public class TCreature : RPGObject
 	int bAppearance;
 	//Felder für die durch Effekte modifizierten Attribute
 	int cStrength;
-	int cDexterity;
+	int cCourage;
+	int cAgility;
+	int cPrestidigitation;
 	int cConstitution;
 	int cMetabolism;
 	int cIntelligence;
@@ -48,9 +52,16 @@ public class TCreature : RPGObject
 	public int Strength {
 		get{ return cStrength;}
 	}
+	public int Courage {
+		get{ return cCourage;}
+	}
 
-	public int Dexterity {
-		get{ return cDexterity;}
+	public int Agility {
+		get{ return cAgility;}
+	}
+
+	public int Prestidigitation{
+		get{return cPrestidigitation;}
 	}
 
 	public int Constitution {
@@ -82,10 +93,14 @@ public class TCreature : RPGObject
 			switch (ValueName.ToLower ()) {
 			case "strength":
 				return Strength;
+			case "courage":
+				return Courage;
 			case "constitution":
 				return Constitution;
-			case "dexterity":
-				return Dexterity;
+			case "agility":
+				return Agility;
+			case "prestidigitation":
+				return Prestidigitation;
 			case "metabolism":
 				return Metabolism;
 			case "intelligence":
@@ -97,17 +112,7 @@ public class TCreature : RPGObject
 			case "appearance":
 				return Appearance;
 			}
-			if (Skills.Exists (delegate(Skill obj) {
-				return obj.SkillName == ValueName;
-			})) {
-				Skill ss = Skills.Find (delegate(Skill obj) {
-					return obj.SkillName == ValueName;
-				});
-				if (ss.Value > 0)
-					return (int) (ss.Value + GetCurrentValueModification (ValueName));
-				else
-					return 0;
-			}
+
 			return base [ValueName];
 		}
 	}
@@ -173,36 +178,9 @@ public class TCreature : RPGObject
 	public float cMana {
 		get{ return _cMana;}
 	}
-	//Fertigkeiten
-	
-	public class Skill
-	{
-		TCreature Owner;
-		public string SkillName;
-		public string ShortDescription;
-		public string LongDescription;
-		int value;
-		public string Attribute1;
-		public string Attribute2;
-		public string Attribute3;
-		string[] BaseValues;
 
-		public int Value {
-			get {
-				int result = value;
-				foreach (string bvs in BaseValues) {
-					result += Mathf.RoundToInt (Owner.Skills.Find (delegate(Skill obj) {
-						return bvs.Split (' ') [0] == obj.SkillName;
-					}).Value * System.Convert.ToSingle (bvs.Split (' ') [1]));
-				}
-				return result;
-			}
-		}
-		
-	}
 	
-	
-	List<Skill> Skills = new List<Skill> ();
+
 
 	/*
 	public bool this[string ValueName,int i]{
@@ -251,7 +229,9 @@ public class TCreature : RPGObject
 		base.UpdateStatistics ();
 		//Berechne die current Values zur schnellerern Abgreifung, Primäre Attribute
 		cStrength = bStrength + (int)GetCurrentValueModification ("strength");
-		cDexterity = bDexterity + (int)GetCurrentValueModification ("dexterity");
+		cCourage = bCourage + (int)GetCurrentValueModification ("courage");
+		cAgility = bAgility + (int)GetCurrentValueModification ("agility");
+		cPrestidigitation = bPrestidigitation + (int)GetCurrentValueModification ("prestidigitation");
 		cConstitution = bConstitution + (int)GetCurrentValueModification ("constitution");
 		cMetabolism = bMetabolism + (int)GetCurrentValueModification ("metabolism");
 		cIntelligence = bIntelligence + (int)GetCurrentValueModification ("intelligence");
@@ -269,7 +249,7 @@ public class TCreature : RPGObject
 
 	}
 
-
+	/*
 	//Diese Funktion gibt wieder ob das Objekt versteckt ist(return bool) und zusätzliche Informatioen wie diese Tarnung aufgebaut ist.
 	public override bool IsVisible (out int HideValue, out AttributModificationHelper.Modification[] UseEffects)
 	{
@@ -287,36 +267,9 @@ public class TCreature : RPGObject
 		HideValue = 0;
 		UseEffects = null;
 		return false;
-	}
+	}*/
 	
-	//Bei Creatures fragen wir Skills ab.
-	public override bool CheckValue (string NameOfValue, out int BaseValue, out int EndValue, out AttributModificationHelper.Modification[] UsedModification,out AttributModificationHelper.Counter[] UsedCounter)
-	{
-		BaseValue = 0;
-		EndValue = 0;
-		float mod = GetCurrentValueModification (NameOfValue);
-		UsedModification = AttributeHelper.Find (delegate(AttributModificationHelper obj) {
-			return obj.AttributeName == NameOfValue;
-		}).UsedModifications.ToArray();
-		UsedCounter = AttributeHelper.Find (delegate(AttributModificationHelper obj) {
-			return obj.AttributeName == NameOfValue;
-		}).Counters.ToArray ();
-		if (mod < 0)
-			EndValue -=(int) mod;
-		if (Skills.Exists (delegate(Skill obj) {
-			return obj.SkillName == NameOfValue;
-		})) {
-			Skill ss = Skills.Find (delegate(Skill obj) {
-				return obj.SkillName == NameOfValue;
-			});
-			BaseValue = ss.Value;
-			if (ss.Value > 0)
-				EndValue = (int) (ss.Value + mod);
-			return true;
-		}
-		return false;
 
-	}
 
 
 	//Diese Funktion dient zum Zugriff auf den HP-Wert oder so, gibt die Menge des angerichten schaden zurück. Heilungen. bzw Absorbtionen müssen an die RecieveHealing Funktion weitergegeben werden.	
