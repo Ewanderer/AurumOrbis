@@ -552,7 +552,19 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource
 	//Update-Funktion für Effekte um ihre Restdauer im Auge zu behalten und um periodische Active-Strings auszulösen
 	public void UpdateEffects (float timestep)
 	{
-
+		for (int i=0; i<Effects.Count; i++) {
+			if (Effects [i].oDuration != -1) {
+				Effects[i].cDuration-=timestep;
+				if(Effects[i].cDuration<=0){
+					Effects.RemoveAt(i);
+					i--;
+					continue;
+				}
+			}
+			foreach (EffectScriptObject eo in Effects[i].ScriptObjects) {
+				eo.OnTimer ();
+			}
+		}
 	}
 
 	//Funktionsrümpfe

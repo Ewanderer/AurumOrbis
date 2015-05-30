@@ -115,6 +115,15 @@ public class EffectScriptObject
 	}
 
 
+	public void OnTimer(){
+		if (!Effect.IsSupressed && UseTimer) {
+			if(Timer<Time.time){
+				Timer=Time.time+TimeIntervall;
+				ExecuteScript();
+			}
+		}
+	}
+
 	//
 	List<string> Script = new List<string> ();
 
@@ -413,7 +422,7 @@ public class EffectScriptObject
 		}
 	}
 	
-
+	//Use Original FuctionNames
 	void ProcessCommandToObject (RPGObject target, string[] CallParameter, Paramter[] Triggerparameter)
 	{
 	
