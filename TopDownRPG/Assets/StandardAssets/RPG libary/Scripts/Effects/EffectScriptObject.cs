@@ -132,27 +132,29 @@ public class EffectScriptObject
 	//Funktion zum Interpretieren der Scripts
 	void ExecuteScript (params Paramter[] Parameters)
 	{
-		bool SkipBlock = false;
-		bool SkipElse = false;
+		List<bool> BlockStatus=new List<bool>();//Bestimmt wie die Blöcke behandelt werden sollen
+		BlockStatus.Add (true);//Hauptroutine
+		int depht = 0;//Gibt die Tiefe der aktuellen Verschachtelung an.
 		int PC = 0;
-		while (Script[PC]!="done"&&PC<Script.Count) {
+		while (Script[PC]!="done"&&PC<Script.Count&&BlockStatus.Count>0) {
 			string[] split = Script [PC].Split (' ');
-			if (SkipElse && split [0] == "else") {
-				SkipBlock = true;
-				SkipElse = false;
-				PC++;
-				continue;
-			}
-			if (SkipBlock && (split [0] == "endelse" || split [0] == "else")) {
-				SkipBlock = false;
+
+			if (split [0] == "else") {
+				BlockStatus[depht]=!BlockStatus[depht];
 				PC++;
 				continue;
 			}		
-			if (split [0] == "skip") {
-				SkipBlock = true;
+			if (split [0] == "end") {
+				BlockStatus.RemoveAt(depht);
+				depht--;
 				PC++;
 				continue;
 			}
+			if (!BlockStatus[depht]) {
+				PC++;
+				continue;
+			}
+
 			if (split [0] == "goto") {
 				PC = System.Convert.ToInt16 (split [2]);
 				continue;
@@ -182,15 +184,15 @@ public class EffectScriptObject
 					//4=Invertierung des Vergleichs von 2 Werten
 					switch (expression.Length) {
 					case 1:
-						expressionstate.Add (CollectObjectbooleanValue (expression [0]));
+						expressionstate.Add (collectBooleanValue (expression [0]));
 						break;
 					case 2:
-						expressionstate.Add (!CollectObjectbooleanValue (expression [0]));
+						expressionstate.Add (!collectBooleanValue (expression [0]));
 						break;
 					case 3:
 						if (expression [0] [0] == '%' && expression [2] [0] == '%') {
-							float a = CollectObjectnumericValue (expression [0]);
-							float b = CollectObjectnumericValue (expression [2]);
+							float a = collectNumericValue (expression [0]);
+							float b = collectNumericValue (expression [2]);
 							switch (expression [1]) {
 							case "<":
 								if (a < b)
@@ -251,8 +253,8 @@ public class EffectScriptObject
 						break;
 					case 4:
 						if (expression [0] [0] == '%' && expression [2] [0] == '%') {
-							float a = CollectObjectnumericValue (expression [0]);
-							float b = CollectObjectnumericValue (expression [2]);
+							float a = collectNumericValue (expression [0]);
+							float b = collectNumericValue (expression [2]);
 							switch (expression [1]) {
 							case "<":
 								if (a < b)
@@ -313,13 +315,13 @@ public class EffectScriptObject
 						break;
 					}
 				}
-
+				
 				//Verbinde den gesamten boolschen Ausdruck
 				int leftoverparameter = Operators.Count;//Anzahl der übrig gebliebenden Operatoren
 				int leftoverands = Operators.FindAll (delegate(string obj) {
 					return obj == "&" || obj == "|";
 				}).Count;
-	
+				
 				while (leftoverparameter>0) {
 					for (int i=0; i<Operators.Count; i++) {
 						if (leftoverands > 0) {
@@ -335,37 +337,42 @@ public class EffectScriptObject
 								leftoverparameter--;
 							}
 						}
-
+						
 					}
 				}
 				//Festlegung über die Flussrichtung der nächsten Blöcke
-				SkipBlock = !IsTrue;
-				SkipElse = IsTrue;
+				BlockStatus.Add(IsTrue);
+				depht++;
 				PC++;
 				continue;
 			}
-
+			
 			//Allgemeine Interpretation von Kommandos
 			switch (split [0] [0]) {
+			case '!':
+				if(split[0].Split('.')[0]=="!system"){
+					ProcessCommandToSystem(split [0].Split ('.') [1].Split('(')[0], split [0].Split ('(') [1].TrimEnd (')').Split (','), Parameters);
+				}
+				break;
 			case '§':
 				//Zugriff auf eine der Konstanten Objekten
 				if (split [0].Split ('.') [0] == "§effect") {
-					ProcessCommandToEffect (Effect, split [0].Split ('(') [1].TrimEnd (')').Split (','), Parameters);
+					ProcessCommandToEffect (Effect, split [0].Split ('.') [1].Split('(')[0], split [0].Split ('(') [1].TrimEnd (')').Split (','), Parameters);
 				} else
 				if (split [0].Split ('.') [0] == "§afflicted") {
-					ProcessCommandToObject (Afflicted, split [0].Split ('(') [1].TrimEnd (')').Split (','), Parameters);
+					ProcessCommandToObject (Afflicted, split [0].Split ('.') [1].Split('(')[0],split [0].Split ('(') [1].TrimEnd (')').Split (','), Parameters);
 				} else {
 					IRPGSource target = (new List<Paramter> (Parameters)).Find (delegate(Paramter obj) {
 						return obj.Name == split [0].Split ('.') [0].TrimStart ('§');
 					}).O;
 					if (target != default(IRPGSource)) {
 						if (target is TCreature)
-							ProcessCommandToObject (target as TCreature, split [0].Split ('(') [1].TrimEnd (')').Split (','), Parameters);
+							ProcessCommandToObject (target as RPGObject,split [0].Split ('.') [1].Split('(')[0], split [0].Split ('(') [1].TrimEnd (')').Split (','), Parameters);
 						else
 							if (target is TEffect)
-							ProcessCommandToEffect (target as TEffect, split [0].Split ('(') [1].TrimEnd (')').Split (','), Parameters);
+								ProcessCommandToEffect (target as TEffect,split [0].Split ('.') [1].Split('(')[0], split [0].Split ('(') [1].TrimEnd (')').Split (','), Parameters);
 					}
-
+					
 				}
 				break;
 			case '$':
@@ -384,9 +391,9 @@ public class EffectScriptObject
 					}
 				}else{
 					RPGLogger.LogEvent("Value:"+split[0]+"not found","RPG-ScriptObject",true);
-
+					
 				}
-
+				
 				break;
 			case '%':
 				NumericValue nv;
@@ -411,29 +418,60 @@ public class EffectScriptObject
 						nv.Value/=System.Convert.ToSingle(split[2]);
 						break;
 					}
-
+					
 				}else{
 					RPGLogger.LogEvent("Value:"+split[0]+"not found","RPG-ScriptObject",true);
 				}
 				break;
 			}
-
+			
 			PC++;
 		}
 	}
-	
 	//Use Original FuctionNames
-	void ProcessCommandToObject (RPGObject target, string[] CallParameter, Paramter[] Triggerparameter)
+	void ProcessCommandToObject (RPGObject target,string Command ,string[] CallParameter, Paramter[] Triggerparameter)
+	{
+		List<NumericValue> numericOutput = new List<NumericValue> ();
+		List<StringValue> stringOutput = new List<StringValue> ();
+	
+
+		switch (Command) {
+		case "recievedamage":
+			numericOutput.Add(new NumericValue("output0",target.RecieveDamage(collectNumericValue(CallParameter[0],Triggerparameter),collectStringValue(CallParameter[1]),collectIRPGSource(CallParameter[2],Triggerparameter))));
+			break;
+		case "updatestatistics":
+			target.UpdateStatistics();
+			break;
+		case "addeffect":
+			if(CallParameter.Length==1)
+			target.AddEffect(collectIRPGSource(CallParameter[0])as TEffect);
+			else
+				target.AddEffect(Core.instance.SpawnEffect(CallParameter[0],collectIRPGSource(CallParameter[1],Triggerparameter),target));
+			break;
+		}
+
+
+		nValues.RemoveAll(delegate(NumericValue obj) {
+			return obj.Name.Contains("output");
+		});
+		sValues.RemoveAll(delegate(StringValue obj) {
+			return obj.Name.Contains("output");
+		});
+		nValues.AddRange (numericOutput);
+		sValues.AddRange (stringOutput);
+
+	}
+
+	void ProcessCommandToEffect (TEffect target,string Command, string[] CallParameter, Paramter[] Triggerparameter)
 	{
 	
 	}
 
-	void ProcessCommandToEffect (TEffect target, string[] CallParameter, Paramter[] Triggerparameter)
-	{
+	void ProcessCommandToSystem(string Command, string[] CallParameter,Paramter[] Triggerparameter){
 	
 	}
 
-	float CollectObjectnumericValue (string O, params Paramter[] Parameters)
+	float collectNumericValue (string O, params Paramter[] Parameters)
 	{
 		
 		switch (O [0]) {
@@ -465,12 +503,11 @@ public class EffectScriptObject
 				}).Value;
 			return 0;
 		}
-		return 0;
+		return System.Convert.ToSingle(O);
 	}
 
-	bool CollectObjectbooleanValue (string O, params Paramter[] Parameters)
+	bool collectBooleanValue (string O, params Paramter[] Parameters)
 	{
-
 		switch (O [0]) {
 		case '§':
 			switch (O.Split ('.') [0].TrimStart ('§')) {
@@ -506,6 +543,39 @@ public class EffectScriptObject
 		return false;
 	}
 
+	string collectStringValue(string O){
+		if (O [0] == '$') {
+			StringValue sV;
+			if ((sV = sValues.Find (delegate(StringValue obj) {
+				return obj.Name == O.TrimStart ('$');
+			})) != default(StringValue)) {
+				return sV.Value;
+			}
+			return O;
+		}
+		return O;
+	}
+
+	IRPGSource collectIRPGSource(string O,params Paramter[] parameter){
+		if (O [0] == '§') {
+			switch (O.Split ('.') [0].TrimStart ('§')) {
+			case "afflicted":
+					return afflicted;
+			case "effect":
+					return effect;
+			default:
+				if ((new List<Paramter> (parameter)).Exists (delegate(Paramter obj) {
+					return obj.Name == O.Split ('.') [0].TrimStart ('§');
+				}))
+					return (new List<Paramter> (parameter)).Find (delegate(Paramter obj) {
+						return obj.Name == O.Split ('.') [0].TrimStart ('§');
+					}).O;
+				break;
+			}
+		}
+		return null;
+	}
+
 	//Indikatioren für Varibeltypen
 	//§=TriggerValue,constantValue
 	//$=StringValue
@@ -518,6 +588,8 @@ public class EffectScriptObject
 
 	public EffectScriptObject (string _Script, IRPGSource _Source, RPGObject _Target, TEffect _Effect)
 	{
+		Source = _Source;
+		Afflicted = _Target;
 		string[] Lines = _Script.Split (';');
 		int state = 0;
 		for (int i=0; i<Lines.Length; i++) {
@@ -544,13 +616,6 @@ public class EffectScriptObject
 				Script.Add (Lines [i]);
 			}
 		}
-	}
-	
-	//Funktion zur Neuverknüpfung des Effekts
-	public void SetUpEffect (IRPGSource _Source, RPGObject _Target)
-	{
-		Source = _Source;
-		Afflicted = _Target;
 	}
 
 

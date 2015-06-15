@@ -409,10 +409,14 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource
 		})) {
 			OnNewEffect (Effect);//Füge den neuen Effekt in das Helper System ein
 			cEffects.Add (Effect);//Füge ihn in die Liste der Effekte ein
-			UpdateStatistics ();//Aktualisiere die Statisitk
+		//	UpdateStatistics ();//Aktualisiere die Statisitk(wird erst nach anknüpfen aller Effekte von der Gegenseite aufgerufen!)
 			return true;//Effekt erfolgreich hinzugefügt!
 		}
 		return false;//Effekt konnte nicht hinzugefügt werden!
+	}
+
+	public virtual bool RemoveEffect(TEffect effect){
+		return false;
 	}
 
 
@@ -424,8 +428,10 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource
 		}).OverallModification;
 	}
 
+
+
 	//Diese Funktion dient dazu die Funktionalität bei Add Effect zu gewährleisten, muss aber selbst aufgerufen werden, um Performance bei großen Effekt-Manipulierungen zu steigern.
-	protected virtual void UpdateStatistics ()
+	public virtual void UpdateStatistics ()
 	{
 		EnforceEffectSupression ();
 		//Sortiere die Listen der AttributsHelfer

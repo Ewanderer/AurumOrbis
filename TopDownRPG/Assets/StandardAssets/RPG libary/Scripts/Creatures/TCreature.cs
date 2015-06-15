@@ -224,7 +224,7 @@ public class TCreature : RPGObject
 
 
 	//Diese Funktion wird bei jeder Veränderung von Equipment oder Effektliste neu aufgerufen
-	protected override void UpdateStatistics ()
+	public override void UpdateStatistics ()
 	{
 		base.UpdateStatistics ();
 		//Berechne die current Values zur schnellerern Abgreifung, Primäre Attribute

@@ -17,13 +17,33 @@ public class TEffect:ScriptableObject,IRPGSource {
 	public EffectScriptObject[] ScriptObjects{
 		get{return scriptObjects;}
 	} 
-	public string[] ReactionEffectStrings;//Metaprogramme die allerdings situationabhängig ausgeführt werden
+	//public string[] ReactionEffectStrings;//Metaprogramme die allerdings situationabhängig ausgeführt werden
 	public bool IsSupressed;//Bestimmte andere Effekte können zwar den Effekt nicht beenden, aber seine Wirkung einfrieren(Zeit läuft weiter)...
 	public float oDuration;//Wenn die originale Dauer negativ ist, gilt der Effekt als Permament und Zeit wird nicht beachtet...
 	public float cDuration;
 
 	public void SendMessage(string Message,IRPGSource Source){
 	
+	}
+
+	public TEffect(){
+	
+	}
+
+	public TEffect(TEffectBase effectbase,IRPGSource source,RPGObject afflicted){
+		Name = effectbase.Name;
+		OriginalSource = source;
+		Information = effectbase.Information;
+		GeneralCategory = effectbase.GeneralCategory;
+		Tags = effectbase.Tags;
+		GeneralOrder = effectbase.GeneralOrder;
+		PassiveEffectStrings = effectbase.PassiveEffectStrings;
+		ActiveEffectStrings = effectbase.ActiveEffectStrings;
+//		ReactionEffectStrings = effectbase.ReactionEffectStrings;
+		oDuration = effectbase.oDuration;
+		scriptObjects = new EffectScriptObject[ActiveEffectStrings.Length];
+		for (int i=0; i<scriptObjects.Length; i++)
+			scriptObjects [i] = new EffectScriptObject (ActiveEffectStrings [i], source, afflicted, this);
 	}
 
 	public float this[string Valuename]{
