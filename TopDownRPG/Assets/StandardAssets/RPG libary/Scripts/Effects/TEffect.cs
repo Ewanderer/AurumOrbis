@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
-public class TEffect:ScriptableObject,IRPGSource {
+[System.Serializable]
+public class TEffect:IRPGSource {
 	public string Name;
+	public string referenceID;
 	public IRPGSource OriginalSource;//Für bestimmte Effekte, wie Bindungen ist es oft wichtig die originale Herkunft zu kennen
 	public Content[] Information;//Werden beim Benutzen der im RPG-Objekt vereinbarten Schnittstellen ausgegeben.
 	public string GeneralCategory;//Manchmal ist es erforderlich, dass nicht nur die einzelnen passiven Effekte nicht stacken, sondern auch ganze Effekte nur einmalig auf dem Objekt exestieren können.
@@ -22,11 +23,11 @@ public class TEffect:ScriptableObject,IRPGSource {
 	public float oDuration;//Wenn die originale Dauer negativ ist, gilt der Effekt als Permament und Zeit wird nicht beachtet...
 	public float cDuration;
 
-	public void SendMessage(string Message,IRPGSource Source){
+	public void sendMessage(string Message,IRPGSource Source){
 	
 	}
 
-	public TEffect(){
+	public TEffect(string id){
 	
 	}
 
@@ -44,6 +45,10 @@ public class TEffect:ScriptableObject,IRPGSource {
 		scriptObjects = new EffectScriptObject[ActiveEffectStrings.Length];
 		for (int i=0; i<scriptObjects.Length; i++)
 			scriptObjects [i] = new EffectScriptObject (ActiveEffectStrings [i], source, afflicted, this);
+	}
+
+	public string getID(){
+		return referenceID;
 	}
 
 	public float this[string Valuename]{

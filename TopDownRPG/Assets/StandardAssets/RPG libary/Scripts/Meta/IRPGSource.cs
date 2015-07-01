@@ -2,7 +2,9 @@
 using System.Collections;
 
 public interface IRPGSource {
-	void SendMessage(string Message,IRPGSource Source);
+	void sendMessage(string Message,IRPGSource Source);
+	string getID();
+
 	float this[string ValueName] {
 		get;
 	}

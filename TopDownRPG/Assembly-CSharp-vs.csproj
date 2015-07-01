@@ -46,6 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\StandardAssets\Networking\Scripts\ClientWatcher\Watcher.cs" />
+     <Compile Include="Assets\StandardAssets\Networking\Scripts\Grid\WorldBlock.cs" />
+     <Compile Include="Assets\StandardAssets\Networking\Scripts\Grid\WorldGrid.cs" />
+     <Compile Include="Assets\StandardAssets\Networking\Scripts\ID-System\IDComponent.cs" />
+     <Compile Include="Assets\StandardAssets\Networking\Scripts\ID-System\IDObject.cs" />
+     <Compile Include="Assets\StandardAssets\Networking\Scripts\ID-System\IDService.cs" />
+     <Compile Include="Assets\StandardAssets\Networking\Scripts\Server\NetworkCore.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Creatures\TFeat.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Effects\EffectScriptObject.cs" />
@@ -58,11 +65,12 @@
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\Content.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\Dice.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\IRPGSource.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\RPGEvent.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\RPGObject.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\RPGDebug\RPGLogger.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\System\CommandInterpreter.cs" />
-     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\System\Core.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\System\EffectCatalog.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\System\RPGCore.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Templates\TDiscipline_Template.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Templates\TRace_Template.cs" />
  <Reference Include="UnityEngine.UI">

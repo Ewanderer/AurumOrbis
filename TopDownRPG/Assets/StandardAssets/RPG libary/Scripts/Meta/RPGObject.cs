@@ -27,19 +27,25 @@ public enum SizeCategory
  * @author Jordan Eichner
  * \brief Diese Basisklasse vereinheitlicht die wichtigsten Eigenschaften aller Objekte, die Teil der vom RPG-System verwalteten Welt sind.
  */
-public abstract class RPGObject:MonoBehaviour,IRPGSource
+[System.Serializable]
+public abstract class RPGObject:IDComponent,IRPGSource
 {
 
 	//Standardwerte, jeweils die konstanten Grundwerte originalValue und ihr Pandon die currentValues, die mit Updatestatics neu bestimmt werden.
-	
+	[System.Serializable]
 	protected float bWeight;/**< Standardgewicht in kg in einer Umgebung mit Standard g;*/
+	[System.Serializable]
 	protected float cWeight;/**< Durch Effekte verändertes Gewicht*/
+	[System.Serializable]
 	protected SizeCategory bSizeCategory; /**< Größenordnung für Modifikationen */
+	[System.Serializable]
 	protected SizeCategory cSizeCategory;	/**<Durch Effekte veränderte Größe*/	
 
 	/**Geschützte Liste für Effekte ist über die entsprechenden Funktionen(AddEfect,RemoveEffect) von außen aufzurufen*/
+	[System.Serializable]
 	protected List<TEffect> cEffects = new List<TEffect> ();
 	/**Liste von Informationen.*/
+	[System.Serializable]
 	protected List<Content> cInformation = new List<Content> ();
 
 	public virtual float this [string ValueName] {
@@ -87,6 +93,7 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource
 	/**
 	 * \brief Diese Klasse verwaltet die Modifikationen für den genannten Wert, die sich aus den passiven Teilen aller Effekte ergeben
 	 */
+	[System.Serializable]
 	public class AttributModificationHelper
 	{
 		public string AttributeName;/**<Name des Wertes, der hier berechnet wird.*/
@@ -119,7 +126,7 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource
 			public int Order;/**<*/
 			public bool Mode;//false=additive,true=mulitplicativ
 			public TEffect SourceEffect;
-			
+			[System.Serializable]
 			public Modification (string sourcetype, float value, int order, bool mode, TEffect sourceeffect)
 			{
 				SourceType = sourcetype;
@@ -129,7 +136,7 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource
 				SourceEffect = sourceeffect;
 			}
 		}
-		
+		[System.Serializable]
 		public class Inhibitor
 		{
 			public bool IsSupressed (string Name)
@@ -154,7 +161,7 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource
 			}
 			
 		}
-
+		[System.Serializable]
 		public class Counter
 		{
 			public bool IsSupressed (string Name)
@@ -179,7 +186,6 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource
 
 		}
 
-		
 		public List<List<Modification>> AllModifications = new List<List<Modification>> ();//Diese Tabelle sortiert alle Effekte gleicher Herkunft in die einzelnen Spalten sortiert nach Order
 		public List<Inhibitor> Inhibitors = new List<Inhibitor> ();//Selbes gilt für die Blocks
 		public List<Counter> Counters = new List<Counter> ();
@@ -234,7 +240,7 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource
 			AttributeName = Name;
 		}
 	}
-	
+	[System.Serializable]
 	protected List<AttributModificationHelper> AttributeHelper = new List<AttributModificationHelper> ();
 
 	//Diese Funktion baut einen neuen Effekt in die Helper ein
@@ -474,6 +480,7 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource
 
 	}
 	//Feritkgieten
+	[System.Serializable]
 	public class Skill
 	{
 		TCreature Owner;
@@ -502,7 +509,7 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource
 		
 	}
 	
-	
+	[System.Serializable]
 	protected List<Skill> _Skills = new List<Skill> ();
 	
 	public List<Skill> Skills {
@@ -582,10 +589,15 @@ public abstract class RPGObject:MonoBehaviour,IRPGSource
 	//Dient zum Verrechnen von Heilung mit beispielsweise Heilmodifikationen
 	protected abstract float RecieveHealing (float Value, IRPGSource Source);
 
-	public virtual void SendMessage (string Message, IRPGSource Source)
+	public virtual void sendMessage (string Message, IRPGSource Source)
 	{
 
 	}
+
+	public string getID(){
+		return "empty";
+	}
+
 
 
 

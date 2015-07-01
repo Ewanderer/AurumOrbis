@@ -446,7 +446,7 @@ public class EffectScriptObject
 			if(CallParameter.Length==1)
 			target.AddEffect(collectIRPGSource(CallParameter[0])as TEffect);
 			else
-				target.AddEffect(Core.instance.SpawnEffect(CallParameter[0],collectIRPGSource(CallParameter[1],Triggerparameter),target));
+				target.AddEffect(RPGCore.instance.spawnEffect(CallParameter[0],collectIRPGSource(CallParameter[1],Triggerparameter),target));
 			break;
 		}
 
