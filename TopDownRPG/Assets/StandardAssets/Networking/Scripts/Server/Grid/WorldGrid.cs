@@ -10,9 +10,22 @@ public class WorldGrid : MonoBehaviour
 	WorldBlock _main;//The highest WorldBlock, containing all other WorldBlocks.
 	WorldBlock[,,] _baseGrid;//Das niedrigste Layer der Weltblöcke im 10x10x10m rahmen. [X,Z,Y]
 
+	//Basierend auf dem base-Grid werden die over-Blocks geschaffen, bis zu dem Punkt, dass es ein Layer mit nur einem Block gibt, dieser sei main.
+	void createMetaGrid(){
+
+	}
+
 	//Diese Funktion generiert entweder aus den Datein zu der ID ein IDObjekt oder sucht dieses aus der Liste der bereits geladenen IDObjekte
 	public static IDObject getIDObject(string ID){
-		return null;
+		IDObject result;
+		if ((result = WorldGrid.instance._main.loadedObjects.Find (delegate(IDObject obj) {
+			return obj.id == ID;
+		})) != default(IDObject))
+			return result;
+		else {
+			//Objekt muss geladen werden.
+		}
+		return result;
 	} 
 
 	public WorldBlock[,,] baseGrid{
@@ -23,6 +36,15 @@ public class WorldGrid : MonoBehaviour
 		get{return _main;}
 	}
 
+	//Diese Funktion lädt das gesamte Grid basierend auf einem im Ordner liegendem Grid...
+	public void setupGridFromFile(){
+
+	}
+
+	//Diese Funktion wird eine komplett leere Welt erschaffen(Wenn man wom naja offentsichtlichen)...
+	public void setupEmptyGrid(Vector3 size){
+
+	}
 
 
 

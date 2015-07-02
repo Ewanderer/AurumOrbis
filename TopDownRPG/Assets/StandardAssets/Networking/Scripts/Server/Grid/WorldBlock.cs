@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,26 +8,26 @@ using System.Collections.Generic;
 //sowie eine Instanzinierungsfunktion(mit evt. Netzwerkfunktionalität).
 
 public class WorldBlock {
-
-	struct WorldBlockHelper{
-		int Layer;
-		int X;
-		int Y;
-		int Z;
-		System.DateTime momentOfLastUpdate;
-		string[] objectIDs;
-		Vector3[] _subBlocks;
-		Vector3 _overBlock;
-	}
-
+	[SerializeField]
 	private int Layer;
-	private bool _isLoaded;//Solange die Blöcke nicht benötigt werden, wird ihr Speicher freigegeben und diese Variable wird auf false gesetzt.
-	private System.DateTime momentOfLastUpdate;//Um Arbeitsspeicher zu sparen, wird der Server nicht dauerhaft alle Blöcke berechnen, sondern diese bei Bedarf im Schnelldurchlauf laden
-	private Vector3[] _subBlocks;
-	private Vector3 _overBlock;
+	[SerializeField]
+	private Vector3 Position;
 
-	private List<IDObject> containedObject = new List<IDObject> ();//Liste aller enthaltenen RPG-Objekte
-	//private List<VisualFXObject> containedVFX=new List<VisualFXObject>();//Liste aller enthaltenen Visuelle Effekte
+	private bool _isLoaded;//Solange die Blöcke nicht benötigt werden, wird ihr Speicher freigegeben und diese Variable wird auf false gesetzt.
+	[SerializeField]
+	private System.DateTime momentOfLastUpdate;//Um Arbeitsspeicher zu sparen, wird der Server nicht dauerhaft alle Blöcke berechnen, sondern diese bei Bedarf im Schnelldurchlauf laden
+	[SerializeField]
+	private Vector3[] _subBlocks;
+	[SerializeField]
+	private Vector3 _overBlock;
+	[SerializeField]
+	private List<string> _containedID = new List<string> ();//Liste aller enthaltenen Objekte anhand ihrer ID
+
+	private List<IDObject> _loadedObjects=new List<IDObject>();
+
+	public List<IDObject> loadedObjects{
+		get{return _loadedObjects;}
+	}
 
 	public List<WorldBlock> subBlocks{
 		get{
@@ -53,23 +54,46 @@ public class WorldBlock {
 		//Alternative Langzeit-UpdateRoutine auf Basis der Statistiken. Wird später implementiert.
 
 		//Aktivierung aller Objekte, sodass die normalen UpdateRoutinen greifen.
+		_isLoaded = true;
 	}
 
 	//Geht nach oben
 	public void register(IDObject o){
-		containedObject.Add (o);
+		_containedID.Add (o.id);
+		loadedObjects.Add (o);
 		overBlock.register (o);
 	}
 
 	//Geht nach unten
 	public void unregister(IDObject o){
-		containedObject.Remove (o);
-		foreach (WorldBlock b in subBlocks)
+		_containedID.Remove (o.id);
+		loadedObjects.Remove(o);
+		foreach (WorldBlock b in subBlocks) {
 			b.unregister (o);
+		}
 	}
 
-	public void SaveBlock(string BlockIdentityString){
+	public void register(string id){
+		_containedID.Add (id);
+		if (isLoaded) {
+			//Das Objekt muss noch generiert werden
 
+		} else {
+			overBlock.register(id);
+		}
+	}
+
+	public void saveBlock(){
+		string blockIdentityString = Layer.ToString () + "_" + ((int)Position.x).ToString () + "_" + ((int)Position.x).ToString () + "_" + ((int)Position.x).ToString () + ".wb";
+
+	}
+
+	//Diese Funktion speichert den Block und löscht anschließend alle im Chunk befindlichen Objekte, die nicht   
+	public void closeBlock(){
+		saveBlock();
+		foreach (IDObject obj in loadedObjects)
+			NetworkServer.Destroy (obj.gameObject);
+		_isLoaded = false;
 	}
 
 }

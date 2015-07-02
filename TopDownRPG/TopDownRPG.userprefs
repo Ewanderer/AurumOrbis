@@ -1,8 +1,18 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\Unity\NetworkTest\Assets\player.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\StandardAssets\General\StaticWorldManager.cs">
     <Files>
-      <File FileName="..\..\..\Unity\NetworkTest\Assets\player.cs" Line="17" Column="39" />
+      <File FileName="Assets\StandardAssets\General\FileHelper.cs" Line="16" Column="24" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\Server\Grid\WorldBlock.cs" Line="80" Column="4" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\ClientWatcher\Watcher.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Meta\RPGObject.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\ID-System\IDComponent.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\ID-System\IDObject.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\System\RPGCore.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\Server\Grid\GridPoint.cs" Line="9" Column="25" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\Server\Grid\WorldGrid.cs" Line="41" Column="3" />
+      <File FileName="Assets\StandardAssets\General\StaticWorldManager.cs" Line="6" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

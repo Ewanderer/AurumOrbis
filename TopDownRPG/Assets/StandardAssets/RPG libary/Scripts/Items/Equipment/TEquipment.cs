@@ -3,15 +3,9 @@ using System.Collections;
 
 public class TEquipment : TItem {
 
-	public string EquipmentSlot;
+	public TEquipment(string id):base(id){
 
-	// Use this for initialization
-	void Start () {
-	
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+	public string equipmentSlot;
 }

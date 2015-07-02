@@ -31,21 +31,25 @@ public enum SizeCategory
 public abstract class RPGObject:IDComponent,IRPGSource
 {
 
+	public RPGObject(string id):base(id){
+
+	}
+
 	//Standardwerte, jeweils die konstanten Grundwerte originalValue und ihr Pandon die currentValues, die mit Updatestatics neu bestimmt werden.
-	[System.Serializable]
+	[SerializeField]
 	protected float bWeight;/**< Standardgewicht in kg in einer Umgebung mit Standard g;*/
-	[System.Serializable]
+	[SerializeField]
 	protected float cWeight;/**< Durch Effekte verändertes Gewicht*/
-	[System.Serializable]
+	[SerializeField]
 	protected SizeCategory bSizeCategory; /**< Größenordnung für Modifikationen */
-	[System.Serializable]
+	[SerializeField]
 	protected SizeCategory cSizeCategory;	/**<Durch Effekte veränderte Größe*/	
 
 	/**Geschützte Liste für Effekte ist über die entsprechenden Funktionen(AddEfect,RemoveEffect) von außen aufzurufen*/
-	[System.Serializable]
+	[SerializeField]
 	protected List<TEffect> cEffects = new List<TEffect> ();
 	/**Liste von Informationen.*/
-	[System.Serializable]
+	[SerializeField]
 	protected List<Content> cInformation = new List<Content> ();
 
 	public virtual float this [string ValueName] {
@@ -93,7 +97,7 @@ public abstract class RPGObject:IDComponent,IRPGSource
 	/**
 	 * \brief Diese Klasse verwaltet die Modifikationen für den genannten Wert, die sich aus den passiven Teilen aller Effekte ergeben
 	 */
-	[System.Serializable]
+	[SerializeField]
 	public class AttributModificationHelper
 	{
 		public string AttributeName;/**<Name des Wertes, der hier berechnet wird.*/
@@ -101,6 +105,7 @@ public abstract class RPGObject:IDComponent,IRPGSource
 		/**
 		 * Diese innere Klasse dient zur Verwaltung aller passiven Effekten aus der Kategorie "add".
 		 */
+		[System.Serializable]
 		public class Modification
 		{
 
@@ -126,7 +131,6 @@ public abstract class RPGObject:IDComponent,IRPGSource
 			public int Order;/**<*/
 			public bool Mode;//false=additive,true=mulitplicativ
 			public TEffect SourceEffect;
-			[System.Serializable]
 			public Modification (string sourcetype, float value, int order, bool mode, TEffect sourceeffect)
 			{
 				SourceType = sourcetype;
@@ -240,7 +244,7 @@ public abstract class RPGObject:IDComponent,IRPGSource
 			AttributeName = Name;
 		}
 	}
-	[System.Serializable]
+	[SerializeField]
 	protected List<AttributModificationHelper> AttributeHelper = new List<AttributModificationHelper> ();
 
 	//Diese Funktion baut einen neuen Effekt in die Helper ein
@@ -483,14 +487,17 @@ public abstract class RPGObject:IDComponent,IRPGSource
 	[System.Serializable]
 	public class Skill
 	{
-		TCreature Owner;
+		[SerializeField]
+		RPGObject Owner;
 		public string SkillName;
 		public string ShortDescription;
 		public string LongDescription;
+		[SerializeField]
 		int value;
 		public string Attribute1;
 		public string Attribute2;
 		public string Attribute3;
+		[SerializeField]
 		string[] BaseValues;
 		public string[] Focus;
 		public string[][] FocusAttributes;
@@ -509,7 +516,7 @@ public abstract class RPGObject:IDComponent,IRPGSource
 		
 	}
 	
-	[System.Serializable]
+	[SerializeField]
 	protected List<Skill> _Skills = new List<Skill> ();
 	
 	public List<Skill> Skills {
@@ -595,7 +602,7 @@ public abstract class RPGObject:IDComponent,IRPGSource
 	}
 
 	public string getID(){
-		return "empty";
+		return base.referenceID;
 	}
 
 

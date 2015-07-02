@@ -5,6 +5,10 @@ using System.Collections.Generic;
 public class InteractiveObject : RPGObject
 {	
 
+	public InteractiveObject(string id):base(id){
+
+	}
+
 	/**Hilfsklasse um Standardwerte zu verwalten*/
 	public abstract class ValueHelper
 	{

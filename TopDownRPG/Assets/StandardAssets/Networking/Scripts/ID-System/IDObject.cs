@@ -35,8 +35,8 @@ public class IDObject : NetworkBehaviour {
 	void Update(){
 		if (!base.isLocalPlayer)
 			return;
-	foreach (IDComponent c in components)
-			c.update (Time.deltaTime,gameObject);
+//	foreach (IDComponent c in components)
+			//c.update (Time.deltaTime,gameObject);
 	}
 
 	void LateUpdate(){
@@ -61,10 +61,11 @@ public class IDObject : NetworkBehaviour {
 		if (base.isClient)
 			return;
 		//Öffne das Verzeichnis des IDObjekts und generiere daraus die Components
-		string[] neededComponents;
+		string[] neededComponents=new string[0];
+		//(System.Activator("","Test",new string[]{id}) as IDComponent)
 		foreach (string cs in neededComponents) {
-			components.Add(System.Activator(null,cs) as IDComponent);
-			components[components.Count-1].deserializeFromFile("");
+			components.Add((System.Activator.CreateInstance("",cs,new string[]{id}).Unwrap() as IDComponent));
+		//	components[components.Count-1].deserializeFromFile("");
 		}
 		base.SetDirtyBit (1);
 	}

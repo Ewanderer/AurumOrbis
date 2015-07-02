@@ -7,6 +7,10 @@ using System.Collections.Generic;
 public class TCreature : RPGObject
 {
 
+	public TCreature(string id):base(id){
+
+	}
+
 	public override List<TEffect> Effects {
 		get {
 			List<TEffect> result = new List<TEffect> ();

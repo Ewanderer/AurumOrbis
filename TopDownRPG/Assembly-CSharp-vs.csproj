@@ -46,13 +46,16 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\StandardAssets\General\FileHelper.cs" />
+     <Compile Include="Assets\StandardAssets\General\StaticWorldManager.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\ClientWatcher\Watcher.cs" />
-     <Compile Include="Assets\StandardAssets\Networking\Scripts\Grid\WorldBlock.cs" />
-     <Compile Include="Assets\StandardAssets\Networking\Scripts\Grid\WorldGrid.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\ID-System\IDComponent.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\ID-System\IDObject.cs" />
-     <Compile Include="Assets\StandardAssets\Networking\Scripts\ID-System\IDService.cs" />
-     <Compile Include="Assets\StandardAssets\Networking\Scripts\Server\NetworkCore.cs" />
+     <Compile Include="Assets\StandardAssets\Networking\Scripts\Server\Grid\GridPoint.cs" />
+     <Compile Include="Assets\StandardAssets\Networking\Scripts\Server\Grid\WorldBlock.cs" />
+     <Compile Include="Assets\StandardAssets\Networking\Scripts\Server\Grid\WorldGrid.cs" />
+     <Compile Include="Assets\StandardAssets\Networking\Scripts\Server\IDService.cs" />
+     <Compile Include="Assets\StandardAssets\Networking\Scripts\Server\ServerCore.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Creatures\TFeat.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Effects\EffectScriptObject.cs" />

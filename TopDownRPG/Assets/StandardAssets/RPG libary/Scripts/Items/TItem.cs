@@ -6,15 +6,11 @@ using System.Collections.Generic;
 //Hier sind alle Informationen, sowohl RPG technisch, als auch das Design für den Container.
 //Dies hier ist außerdem die Basisklasse für TWeapon und TEquipment
 public class TItem :InteractiveObject {
-	
+
+	public TItem(string id):base(id){
+
+	}
+
 	public TItemStatistic OriginalItemStats;
 	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
