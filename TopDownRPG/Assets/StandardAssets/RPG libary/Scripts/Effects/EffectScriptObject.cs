@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -437,16 +437,16 @@ public class EffectScriptObject
 
 		switch (Command) {
 		case "recievedamage":
-			numericOutput.Add(new NumericValue("output0",target.RecieveDamage(collectNumericValue(CallParameter[0],Triggerparameter),collectStringValue(CallParameter[1]),collectIRPGSource(CallParameter[2],Triggerparameter))));
+			numericOutput.Add(new NumericValue("output0",target.recieveDamage(collectNumericValue(CallParameter[0],Triggerparameter),collectStringValue(CallParameter[1]),collectIRPGSource(CallParameter[2],Triggerparameter))));
 			break;
 		case "updatestatistics":
-			target.UpdateStatistics();
+			target.updateStatistics();
 			break;
 		case "addeffect":
 			if(CallParameter.Length==1)
-			target.AddEffect(collectIRPGSource(CallParameter[0])as TEffect);
+			target.addEffect(collectIRPGSource(CallParameter[0])as TEffect);
 			else
-				target.AddEffect(RPGCore.instance.spawnEffect(CallParameter[0],collectIRPGSource(CallParameter[1],Triggerparameter),target));
+				target.addEffect(RPGCore.instance.spawnEffect(CallParameter[0],collectIRPGSource(CallParameter[1],Triggerparameter),target));
 			break;
 		}
 

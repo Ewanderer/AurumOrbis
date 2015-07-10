@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.Networking;
 /**
  *@author Jordan Eichner
  * 
@@ -30,18 +30,15 @@ public enum SizeCategory
 [System.Serializable]
 public abstract class RPGObject:IDComponent,IRPGSource
 {
-
-	public RPGObject(string id):base(id){
-
-	}
-
 	//Standardwerte, jeweils die konstanten Grundwerte originalValue und ihr Pandon die currentValues, die mit Updatestatics neu bestimmt werden.
-	[SerializeField]
 	protected float bWeight;/**< Standardgewicht in kg in einer Umgebung mit Standard g;*/
+	[SyncVar]
 	[SerializeField]
 	protected float cWeight;/**< Durch Effekte verändertes Gewicht*/
-	[SerializeField]
+	
+
 	protected SizeCategory bSizeCategory; /**< Größenordnung für Modifikationen */
+	[SyncVar]
 	[SerializeField]
 	protected SizeCategory cSizeCategory;	/**<Durch Effekte veränderte Größe*/	
 
@@ -60,10 +57,10 @@ public abstract class RPGObject:IDComponent,IRPGSource
 			if (v == "size")
 				return (int)cSizeCategory;
 			return 0;
-			if (_Skills.Exists (delegate(Skill obj) {
+			if (_skills.Exists (delegate(Skill obj) {
 				return obj.SkillName == ValueName;
 			})) {
-				Skill ss = _Skills.Find (delegate(Skill obj) {
+				Skill ss = _skills.Find (delegate(Skill obj) {
 					return obj.SkillName == ValueName;
 				});
 				if (ss.Value > 0)
@@ -244,8 +241,11 @@ public abstract class RPGObject:IDComponent,IRPGSource
 			AttributeName = Name;
 		}
 	}
+	bool dirtAH;
+
 	[SerializeField]
 	protected List<AttributModificationHelper> AttributeHelper = new List<AttributModificationHelper> ();
+
 
 	//Diese Funktion baut einen neuen Effekt in die Helper ein
 	protected void OnNewEffect (TEffect effect)
@@ -404,8 +404,8 @@ public abstract class RPGObject:IDComponent,IRPGSource
 			}
 		}
 	}
-	
-	public virtual bool AddEffect (TEffect Effect)
+
+	public virtual bool addEffect (TEffect Effect)
 	{
 		//Überprüfe zunächst ob ein Schutz gegen den Effekt exestiert
 		if (!cEffects.Exists (delegate(TEffect obj) {
@@ -425,7 +425,8 @@ public abstract class RPGObject:IDComponent,IRPGSource
 		return false;//Effekt konnte nicht hinzugefügt werden!
 	}
 
-	public virtual bool RemoveEffect(TEffect effect){
+
+	public virtual bool removeEffect(TEffect effect,bool enforceRemove=false){
 		return false;
 	}
 
@@ -441,8 +442,10 @@ public abstract class RPGObject:IDComponent,IRPGSource
 
 
 	//Diese Funktion dient dazu die Funktionalität bei Add Effect zu gewährleisten, muss aber selbst aufgerufen werden, um Performance bei großen Effekt-Manipulierungen zu steigern.
-	public virtual void UpdateStatistics ()
+
+	public virtual void updateStatistics ()
 	{
+		dirtAH = true;
 		EnforceEffectSupression ();
 		//Sortiere die Listen der AttributsHelfer
 		for (int i=0; i<AttributeHelper.Count; i++) {
@@ -480,6 +483,7 @@ public abstract class RPGObject:IDComponent,IRPGSource
 
 		cWeight = bWeight + GetCurrentValueModification ("weight");
 		cSizeCategory = bSizeCategory + (int)GetCurrentValueModification ("sizecategory");
+
 		//Setzten der Statuseffekte
 
 	}
@@ -506,7 +510,7 @@ public abstract class RPGObject:IDComponent,IRPGSource
 			get {
 				int result = value;
 				foreach (string bvs in BaseValues) {
-					result += Mathf.RoundToInt (Owner._Skills.Find (delegate(Skill obj) {
+					result += Mathf.RoundToInt (Owner._skills.Find (delegate(Skill obj) {
 						return bvs.Split (' ') [0] == obj.SkillName;
 					}).Value * System.Convert.ToSingle (bvs.Split (' ') [1]));
 				}
@@ -515,16 +519,19 @@ public abstract class RPGObject:IDComponent,IRPGSource
 		}
 		
 	}
-	
+	bool dirtySkills;
+
 	[SerializeField]
-	protected List<Skill> _Skills = new List<Skill> ();
-	
+	protected List<Skill> _skills = new List<Skill> ();
 	public List<Skill> Skills {
-		get{ return _Skills;}
+		get{ 
+			return _skills;
+		}
 	}
 
 	//Abfrage über die Verfügbarkeit eines Skills
-	public virtual void CheckSkill (string NameOfSkill, out int BaseValue, out int EndValue, out AttributModificationHelper.Modification[] UsedModification, out AttributModificationHelper.Counter[] UsedCounter)
+
+	public virtual void checkSkill (string NameOfSkill, out int BaseValue, out int EndValue, out AttributModificationHelper.Modification[] UsedModification, out AttributModificationHelper.Counter[] UsedCounter)
 	{
 		BaseValue = 0;
 		EndValue = 0;
@@ -541,7 +548,7 @@ public abstract class RPGObject:IDComponent,IRPGSource
 		if (mod < 0)
 			EndValue -= (int)mod;
 		Skill ss;
-		if ((ss = _Skills.Find (delegate(Skill obj) {
+		if ((ss = Skills.Find (delegate(Skill obj) {
 			return obj.SkillName == NameOfSkill;
 		}))!=default(Skill)) {
 			BaseValue = ss.Value;
@@ -564,7 +571,7 @@ public abstract class RPGObject:IDComponent,IRPGSource
 
 	//Informationen
 	//Diese Funktion benutzt das Objekt um Informationen über das Target zu sammeln. DeepSearch offenbart alle Informationen die das StrongRequirements "NeedAnalyze" haben 
-	public virtual string[] GetInformation (RPGObject Sender, bool IsDeepSearchesing=false)
+	public virtual string[] getInformation (RPGObject Sender, bool IsDeepSearchesing=false)
 	{
 		return null;
 	}
@@ -591,10 +598,9 @@ public abstract class RPGObject:IDComponent,IRPGSource
 
 
 //Diese Funktion dient zum Zugriff auf den HP-Wert oder so, gibt die Menge des angerichten schaden zurück. Heilungen. bzw Absorbtionen müssen an die RecieveHealing Funktion weitergegeben werden.	
-	public abstract float RecieveDamage (float Value, string Typ, IRPGSource Source);
-
+	public abstract float recieveDamage (float Value, string Typ, IRPGSource Source);
 	//Dient zum Verrechnen von Heilung mit beispielsweise Heilmodifikationen
-	protected abstract float RecieveHealing (float Value, IRPGSource Source);
+	protected abstract float recieveHealing (float Value, IRPGSource Source);
 
 	public virtual void sendMessage (string Message, IRPGSource Source)
 	{
@@ -604,8 +610,6 @@ public abstract class RPGObject:IDComponent,IRPGSource
 	public string getID(){
 		return base.referenceID;
 	}
-
-
 
 
 }

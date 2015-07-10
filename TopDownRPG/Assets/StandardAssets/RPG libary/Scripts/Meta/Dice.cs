@@ -153,7 +153,7 @@ public static class Dice
 		AttributeValues [1] = (int)Source [AttributNames [1]];
 		AttributeValues [2] = (int)Source [AttributNames [2]];
 
-		Source.CheckSkill (TargetValueName.Split ('-') [0], out bV, out eV, out m, out c);
+		Source.checkSkill (TargetValueName.Split ('-') [0], out bV, out eV, out m, out c);
 		resultTyp = RollCheck (ref eV, Modifiaction, (int)Class, AttributeValues);
 		//Ausführen des Rolls
 		restPool = eV;
@@ -225,7 +225,7 @@ public static class Dice
 		AttributeValues [0] = (int)Source [AttributNames [0]];
 		AttributeValues [1] = (int)Source [AttributNames [1]];
 		AttributeValues [2] = (int)Source [AttributNames [2]];
-		Source.CheckSkill (TargetValueName.Split ('-') [0], out bV, out eV, out m, out c);
+		Source.checkSkill (TargetValueName.Split ('-') [0], out bV, out eV, out m, out c);
 		if (eV < 0 && mod < 0)
 			eV = (int)(eV * -mod);
 		//Ausführen des Rolls
@@ -349,8 +349,8 @@ public static class Dice
 			RPGObject.AttributModificationHelper.Modification[] tM;
 			RPGObject.AttributModificationHelper.Counter[] sC;
 			RPGObject.AttributModificationHelper.Counter[] tC;
-			source.CheckSkill (sourceValueName, out sBV, out sEV, out sM, out sC);
-			Target.CheckSkill (targetValueName, out tBV, out tEV, out tM, out tC);
+			source.checkSkill (sourceValueName, out sBV, out sEV, out sM, out sC);
+			Target.checkSkill (targetValueName, out tBV, out tEV, out tM, out tC);
 			//Gegenrechnen der Counter und Modificatoren für die Source
 			if (tC.Length > 0) {
 				//Gegenrechnen von sM

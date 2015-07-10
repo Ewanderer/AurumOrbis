@@ -1,20 +1,33 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 [System.Serializable]
-public abstract class IDComponent:object {
+[RequireComponent(typeof(IDObject))]
+
+public abstract class IDComponent:NetworkBehaviour {
 	[SerializeField]
 	protected bool _doUpdateOnLoad;
 	protected string referenceID;
+	protected IDObject referenceObject;
+
+	protected ulong _dirtyMask;
 
 	public bool doUpadteOnLoad{
 		get{return _doUpdateOnLoad;}
 	}
 
-	//public virtual void update(float timeSinceLastUpdate, GameObject self){}
-	//public abstract void applyChanges ();//Dieses Funktion dient nach Laden, bzw Erstellen aller Werte zur Umsetzung in Grafik etc.
-	//public abstract void serializeToFile(string FileName);
-	//public abstract void deserializeFromFile(string FileName);
-	public IDComponent(string id){
-		referenceID = id;
+	public virtual void update(float timeSinceLastUpdate){}
+	public virtual void initialize(){
+		referenceID = gameObject.GetComponent<IDObject> ().id;
+		referenceObject = gameObject.GetComponent<IDObject> ();
 	}
+
+	void Start(){
+		initialize();
+	}
+
+	//public abstract void applyChanges ();//Dieses Funktion dient nach Laden, bzw Erstellen aller Werte zur Umsetzung in Grafik etc.
+//	public abstract void serializeToFile(string FileName);
+//	public abstract void deserializeFromFile(string FileName);
+
 }

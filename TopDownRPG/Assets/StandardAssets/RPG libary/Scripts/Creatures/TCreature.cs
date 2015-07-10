@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -6,11 +7,6 @@ using System.Collections.Generic;
 
 public class TCreature : RPGObject
 {
-
-	public TCreature(string id):base(id){
-
-	}
-
 	public override List<TEffect> Effects {
 		get {
 			List<TEffect> result = new List<TEffect> ();
@@ -27,29 +23,47 @@ public class TCreature : RPGObject
 	//Primäre Attribute
 
 	//Felder für die Basiswerte aller Primären Attribute, können nur durch "Training"/LvL-Up verändert werden
+	[SerializeField]
 	int bStrength;
+	[SerializeField]
 	int bCourage;
+	[SerializeField]
 	int bAgility;
+	[SerializeField]
 	int bPrestidigitation;
+	[SerializeField]
 	int bConstitution;
+	[SerializeField]
 	int bMetabolism;
+	[SerializeField]
 	int bIntelligence;
+	[SerializeField]
 	int bWisdom;
+	[SerializeField]
 	int bCharisma;
+	[SerializeField]
 	int bAppearance;
 	//Felder für die durch Effekte modifizierten Attribute
+	[SyncVar]
 	int cStrength;
+	[SyncVar]
 	int cCourage;
+	[SyncVar]
 	int cAgility;
+	[SyncVar]
 	int cPrestidigitation;
+	[SyncVar]
 	int cConstitution;
+	[SyncVar]
 	int cMetabolism;
+	[SyncVar]
 	int cIntelligence;
+	[SyncVar]
 	int cWisdom;
+	[SyncVar]
 	int cCharisma;
+	[SyncVar]
 	int cAppearance;
-
-
 	//Öffentliche Felder zum Auslesen der Attribute
 
 
@@ -122,19 +136,32 @@ public class TCreature : RPGObject
 	}
 
 	//Sekundäre Attribute
-
+	[SerializeField]
 	float _bHitpoints;//Maximale Gesunheit, Grundwert
+	[SyncVar]
 	float _mHitpoints;//Maximale Gesundheit, Endwert.
+	[SyncVar]
+	[SerializeField]
 	float _cHitpoints;//Aktuelle Gesundheit wenn sie auf 0 fällt stirbt der Char, können nicht regeneriert werden solange nicht aller Schmerz wiederhergestellt wurde und auch benötigt man ärtzliche Behandlung.
+	[SyncVar]
+	[SerializeField]
 	float _cPain;//Eine Art Schutz gegen Schwere Verwundungen. Wird durch Rast, Heilmittelchen oder einfache Heilzauber geschaffen. 
-
+	[SerializeField]
 	float _bDurability;//Die Gesamtasudauer der Figur,Grundwert
+	[SyncVar]
 	float _mDurability;//Die Gesamtausdauer der Figur, Endwert
+	[SyncVar]
+	[SerializeField]
 	float _cExhaustion;//Der Grad der Erschöpfung durch langanhaltende Belastung(Tragen Schwerer Rüstung, Schlafmangel). Stellt auch die Maximale Grenze für Stamina-Regeneration da.
+	[SyncVar]
+	[SerializeField]
 	float _cStamina;//Wird durch Kurzeitige Körperliche Aktivität benötigt
-
+	[SerializeField]
 	float _bMana;//Maximaler Manapool, wenn 0 können keine anderen Effekte die Mana steigern greifen.
+	[SyncVar]
 	float _mMana;
+	[SyncVar]
+	[SerializeField]
 	float _cMana;
 
 
@@ -198,8 +225,9 @@ public class TCreature : RPGObject
 		public string Name;
 		public TEquipment SlottedItem;
 	}
-
+	[SerializeField]
 	List<EquipmentSlot> _Equipment = new List<EquipmentSlot> ();
+	[SerializeField]
 	List<TItem> _Inventory = new List<TItem> ();
 
 	public List<EquipmentSlot> Equipment {
@@ -222,15 +250,19 @@ public class TCreature : RPGObject
 		SelfLevitation=5
 	}
 	;
+	[SerializeField]
+	[SyncVar]
 	CreatureMovementStatus CMS;
+	[SerializeField]
+	[SyncVar]
 	bool IsAlive;//Well Undeads are also alive :D
 
 
 
 	//Diese Funktion wird bei jeder Veränderung von Equipment oder Effektliste neu aufgerufen
-	public override void UpdateStatistics ()
+	public override void updateStatistics ()
 	{
-		base.UpdateStatistics ();
+		base.updateStatistics();
 		//Berechne die current Values zur schnellerern Abgreifung, Primäre Attribute
 		cStrength = bStrength + (int)GetCurrentValueModification ("strength");
 		cCourage = bCourage + (int)GetCurrentValueModification ("courage");
@@ -277,7 +309,7 @@ public class TCreature : RPGObject
 
 
 	//Diese Funktion dient zum Zugriff auf den HP-Wert oder so, gibt die Menge des angerichten schaden zurück. Heilungen. bzw Absorbtionen müssen an die RecieveHealing Funktion weitergegeben werden.	
-	public override float RecieveDamage (float Value, string Typ, IRPGSource Source)
+	public override float recieveDamage (float Value, string Typ, IRPGSource Source)
 	{
 		if (Typ != "abilitycost") {
 			//Apply Resistance
@@ -299,14 +331,15 @@ public class TCreature : RPGObject
 		
 			return Value;
 		} else if (Value < 0)
-			return RecieveHealing (Value,Source);
+			return recieveHealing (Value,Source);
 		return 0;
 
 
 	}
 	
 	//Dient zum Verrechnen von Heilung mit beispielsweise Heilmodifikationen
-	protected override float RecieveHealing (float Value,IRPGSource Source)
+
+	protected override float recieveHealing (float Value,IRPGSource Source)
 	{
 		Value *= GetCurrentValueModification ("healingamplification");
 		_cPain = Mathf.Clamp (_cPain + Value, 0, _cHitpoints);
@@ -315,17 +348,5 @@ public class TCreature : RPGObject
 			foreach(EffectScriptObject so in e.ScriptObjects)
 				so.OnRecieveHealing(ref Value,Source);
 		return Value;
-	}
-
-	// Use this for initialization
-	void Start ()
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
 	}
 }

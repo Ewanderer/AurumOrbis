@@ -64,10 +64,9 @@ public class IDObject : NetworkBehaviour {
 		string[] neededComponents=new string[0];
 		//(System.Activator("","Test",new string[]{id}) as IDComponent)
 		foreach (string cs in neededComponents) {
-			components.Add((System.Activator.CreateInstance("",cs,new string[]{id}).Unwrap() as IDComponent));
-		//	components[components.Count-1].deserializeFromFile("");
+			gameObject.AddComponent(System.Type.GetType(cs));
+			components.Add(gameObject.GetComponent(cs) as IDComponent);
 		}
-		base.SetDirtyBit (1);
 	}
 
 	public override void OnNetworkDestroy ()

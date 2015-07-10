@@ -4,11 +4,6 @@ using System.Collections.Generic;
 
 public class InteractiveObject : RPGObject
 {	
-
-	public InteractiveObject(string id):base(id){
-
-	}
-
 	/**Hilfsklasse um Standardwerte zu verwalten*/
 	public abstract class ValueHelper
 	{
@@ -78,7 +73,7 @@ public class InteractiveObject : RPGObject
 	float _cHP;
 	float _mHP;
 
-	public override float RecieveDamage (float Value, string Typ, IRPGSource Source)
+	public override float recieveDamage (float Value, string Typ, IRPGSource Source)
 	{
 		//Apply Resistance
 		Value -= this["Resistance_" + Typ];
@@ -91,11 +86,11 @@ public class InteractiveObject : RPGObject
 			//Add Destruction
 		} else
 			if (Value < 0)
-				return RecieveHealing (Value,Source);
+				return recieveHealing (Value,Source);
 		return Value;
 	}
 
-	protected override float RecieveHealing (float Value,IRPGSource Source)
+	protected override float recieveHealing (float Value,IRPGSource Source)
 	{
 		Value *= GetCurrentValueModification ("healingamplification");
 		//Send Triggers
@@ -106,16 +101,5 @@ public class InteractiveObject : RPGObject
 		return Value;
 	}
 
-	// Use this for initialization
-	void Start ()
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
-	}
 }
 
