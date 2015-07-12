@@ -1,41 +1,34 @@
 \select@language {ngerman}
-\contentsline {part}{I\hspace {1em}Grundlagen}{4}{part.3}
-\contentsline {chapter}{\numberline {1}Ein paar Abk\IeC {\"u}rzugen}{5}{chapter.4}
-\contentsline {chapter}{\numberline {2}Strukturierung der Welt}{6}{chapter.5}
-\contentsline {chapter}{\numberline {3}Komplexit\IeC {\"a}ts-Klassen}{7}{chapter.6}
-\contentsline {section}{\numberline {3.1}Mathematik zu Schranken f\IeC {\"u}r Spielerfortschritt}{8}{section.7}
-\contentsline {chapter}{\numberline {4}Proben}{10}{chapter.8}
-\contentsline {section}{\numberline {4.1}\IeC {\"U}bersicht}{10}{section.9}
-\contentsline {section}{\numberline {4.2}Arten von Proben}{10}{section.10}
-\contentsline {section}{\numberline {4.3}Besonderheiten}{11}{section.11}
-\contentsline {chapter}{\numberline {5}Sagenpunkte}{12}{chapter.12}
-\contentsline {section}{\numberline {5.1}Verdienstm\IeC {\"o}glichkeiten}{12}{section.13}
-\contentsline {section}{\numberline {5.2}Ausgabem\IeC {\"o}glichkeiten}{13}{section.14}
-\contentsline {section}{\numberline {5.3}Anmerkungen}{13}{section.15}
-\contentsline {part}{II\hspace {1em}Kreaturen}{14}{part.16}
-\contentsline {chapter}{\numberline {1}\IeC {\"U}bersicht}{15}{chapter.17}
-\contentsline {chapter}{\numberline {2}Attribute}{16}{chapter.18}
-\contentsline {section}{\numberline {2.1}St\IeC {\"a}rke}{16}{section.19}
-\contentsline {section}{\numberline {2.2}Mut}{16}{section.20}
-\contentsline {section}{\numberline {2.3}Gewandtheit}{16}{section.21}
-\contentsline {section}{\numberline {2.4}Fingerfertigkeit}{16}{section.22}
-\contentsline {section}{\numberline {2.5}Konstitution}{16}{section.23}
-\contentsline {section}{\numberline {2.6}Metabolismus}{16}{section.24}
-\contentsline {section}{\numberline {2.7}Intelligenz}{16}{section.25}
-\contentsline {section}{\numberline {2.8}Weisheit}{16}{section.26}
-\contentsline {section}{\numberline {2.9}Charisma}{16}{section.27}
-\contentsline {section}{\numberline {2.10}Aussehen}{16}{section.28}
-\contentsline {chapter}{\numberline {3}Sekund\IeC {\"a}re Attribute}{17}{chapter.29}
-\contentsline {chapter}{\numberline {4}Fertigkeiten}{18}{chapter.30}
-\contentsline {section}{\numberline {4.1}\IeC {\"U}bersicht von Fertigkeiten}{18}{section.31}
-\contentsline {chapter}{\numberline {5}Effekte}{19}{chapter.32}
-\contentsline {part}{III\hspace {1em}Erg\IeC {\"a}nzung f\IeC {\"u}r Charaktere}{20}{part.33}
-\contentsline {chapter}{\numberline {1}Spezialisierungen/Professionen}{21}{chapter.34}
-\contentsline {chapter}{\numberline {2}Ausr\IeC {\"u}stung}{22}{chapter.35}
-\contentsline {part}{IV\hspace {1em}Ausr\IeC {\"u}stung \& anderen Gegenst\IeC {\"a}nden}{23}{part.36}
-\contentsline {part}{V\hspace {1em}Herstellung von Objekten}{24}{part.37}
-\contentsline {part}{VI\hspace {1em}Kampf}{25}{part.38}
-\contentsline {part}{VII\hspace {1em}Magie}{26}{part.39}
-\contentsline {part}{VIII\hspace {1em}Geweihte}{27}{part.40}
-\contentsline {part}{IX\hspace {1em}Meister \& Hintergr\IeC {\"u}nde}{28}{part.41}
-\contentsline {part}{X\hspace {1em}Zus\IeC {\"a}tzliche Regeln}{29}{part.42}
+\contentsline {part}{I\hspace {1em}Grundlagen}{5}{part.3}
+\contentsline {chapter}{\numberline {1}Ein paar Abk\IeC {\"u}rzugen}{6}{chapter.4}
+\contentsline {chapter}{\numberline {2}Strukturierung der Welt}{7}{chapter.5}
+\contentsline {chapter}{\numberline {3}Komplexit\IeC {\"a}ts-Klassen}{8}{chapter.6}
+\contentsline {section}{\numberline {3.1}Mathematik zu Schranken f\IeC {\"u}r Spielerfortschritt}{9}{section.7}
+\contentsline {chapter}{\numberline {4}Proben}{11}{chapter.8}
+\contentsline {section}{\numberline {4.1}\IeC {\"U}bersicht}{11}{section.9}
+\contentsline {section}{\numberline {4.2}Arten von Proben}{11}{section.10}
+\contentsline {section}{\numberline {4.3}Besonderheiten}{12}{section.11}
+\contentsline {chapter}{\numberline {5}Sagenpunkte}{13}{chapter.12}
+\contentsline {section}{\numberline {5.1}Verdienstm\IeC {\"o}glichkeiten}{13}{section.13}
+\contentsline {section}{\numberline {5.2}Ausgabem\IeC {\"o}glichkeiten}{14}{section.14}
+\contentsline {section}{\numberline {5.3}Anmerkungen}{14}{section.15}
+\contentsline {part}{II\hspace {1em}Kreaturen}{15}{part.16}
+\contentsline {chapter}{\numberline {1}\IeC {\"U}bersicht}{16}{chapter.17}
+\contentsline {chapter}{\numberline {2}Attribute}{17}{chapter.18}
+\contentsline {chapter}{\numberline {3}Sekund\IeC {\"a}re Attribute}{19}{chapter.19}
+\contentsline {chapter}{\numberline {4}Fertigkeiten}{20}{chapter.20}
+\contentsline {section}{\numberline {4.1}Einf\IeC {\"u}hrung}{20}{section.21}
+\contentsline {section}{\numberline {4.2}\IeC {\"U}bersicht von Fertigkeiten}{20}{section.22}
+\contentsline {subsection}{\numberline {4.2.1}Sonstige}{20}{subsection.23}
+\contentsline {chapter}{\numberline {5}Effekte}{21}{chapter.24}
+\contentsline {part}{III\hspace {1em}Erg\IeC {\"a}nzung f\IeC {\"u}r Charaktere}{22}{part.25}
+\contentsline {chapter}{\numberline {1}Spezialisierungen/Professionen}{23}{chapter.26}
+\contentsline {section}{\numberline {1.1}Aufbau einer Profession/Spezialisierung}{23}{section.27}
+\contentsline {chapter}{\numberline {2}Ausr\IeC {\"u}stung}{24}{chapter.28}
+\contentsline {part}{IV\hspace {1em}Ausr\IeC {\"u}stung \& anderen Gegenst\IeC {\"a}nden}{25}{part.29}
+\contentsline {part}{V\hspace {1em}Herstellung von Objekten}{26}{part.30}
+\contentsline {part}{VI\hspace {1em}Kampf}{27}{part.31}
+\contentsline {part}{VII\hspace {1em}Magie}{28}{part.32}
+\contentsline {part}{VIII\hspace {1em}Geweihte}{29}{part.33}
+\contentsline {part}{IX\hspace {1em}Meister \& Hintergr\IeC {\"u}nde}{30}{part.34}
+\contentsline {part}{X\hspace {1em}Zus\IeC {\"a}tzliche Regeln}{31}{part.35}
