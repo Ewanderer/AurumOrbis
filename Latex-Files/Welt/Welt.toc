@@ -56,7 +56,7 @@
 \contentsline {section}{Elfische Geheimnisse}{39}{section*.56}
 \contentsline {section}{Arkane K\IeC {\"u}nste}{40}{section*.57}
 \contentsline {section}{Alchemistische Ordnung}{40}{section*.58}
-\contentsline {section}{Kristallzucht}{41}{section*.59}
+\contentsline {section}{Kristallenergie}{41}{section*.59}
 \contentsline {chapter}{Antimagie}{42}{chapter*.60}
 \contentsline {chapter}{Anomalie}{43}{chapter*.61}
 \contentsline {section}{\IeC {\"U}bersicht der Anomalien}{43}{section*.62}
