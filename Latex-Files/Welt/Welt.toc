@@ -1,152 +1,164 @@
 \select@language {ngerman}
-\contentsline {part}{I\hspace {1em}Geschichte}{6}{part.2}
-\contentsline {chapter}{Die Dunkle Zeit}{7}{chapter*.3}
-\contentsline {section}{Die Weltbauer}{7}{section*.4}
-\contentsline {section}{Der gro\IeC {\ss }e Streit}{7}{section*.5}
-\contentsline {section}{Neue G\IeC {\"o}tter}{8}{section*.6}
-\contentsline {section}{Die G\IeC {\"o}tterkriege}{9}{section*.7}
-\contentsline {subsection}{Der Aufstieg der Elfen}{9}{section*.8}
-\contentsline {subsection}{W\IeC {\"a}hrenddessen bei den anderen V\IeC {\"o}lkern}{10}{section*.9}
-\contentsline {section}{Die ersten Manakriege}{11}{section*.10}
-\contentsline {section}{Die Gegenwelt}{11}{section*.11}
-\contentsline {subsection}{Vorgeschichte}{11}{section*.12}
-\contentsline {subsection}{Die Ankunft des Pantheon in der Gegenwelt}{12}{section*.13}
-\contentsline {subsection}{Erster Kontakt}{12}{section*.14}
-\contentsline {subsection}{Der Erste Gegenweltkriege}{13}{section*.15}
-\contentsline {subsection}{Der Fall der gro\IeC {\ss }en Barriere}{13}{section*.16}
-\contentsline {subsection}{Der zweite Gegenweltkrieg}{14}{section*.17}
-\contentsline {section}{Der zweiten Manakriege}{14}{section*.18}
-\contentsline {chapter}{Die Jahre nach der Dunklen Zeit}{16}{chapter*.19}
-\contentsline {section}{Der Neuanfang}{16}{section*.20}
-\contentsline {part}{II\hspace {1em}V\IeC {\"o}lker}{17}{part.21}
-\contentsline {chapter}{Kinder von Aurum Orbis}{18}{chapter*.22}
-\contentsline {section}{Menschen}{18}{section*.23}
-\contentsline {subsection}{Menschliche Unterarten}{18}{section*.24}
-\contentsline {subsubsection}{Frostb\IeC {\"a}rte}{18}{section*.25}
-\contentsline {subsubsection}{Nebelheimer}{18}{section*.26}
-\contentsline {subsubsection}{Mittell\IeC {\"a}nder?}{18}{section*.27}
-\contentsline {section}{Elfen}{19}{section*.28}
-\contentsline {subsection}{Spezifikationen}{19}{section*.29}
-\contentsline {subsection}{Kasten}{20}{section*.30}
-\contentsline {subsubsection}{Hain der Felsblumen}{20}{section*.31}
-\contentsline {subsubsection}{Herz der Felsen}{20}{section*.32}
-\contentsline {subsubsection}{Wissen des Stammes}{21}{section*.33}
-\contentsline {subsubsection}{Elfische Garde}{21}{section*.34}
-\contentsline {subsubsection}{Freunde in der Fremde}{21}{section*.35}
-\contentsline {subsubsection}{Drachenelfen}{22}{section*.36}
-\contentsline {section}{Dunkelelfen}{22}{section*.37}
-\contentsline {subsection}{Eigenschaften von Dunkelelfen}{23}{section*.38}
-\contentsline {chapter}{Freunde aus der Gegenwelt}{25}{chapter*.39}
-\contentsline {section}{Nephilim}{25}{section*.40}
-\contentsline {subsection}{Eigenschaften von Nephilim}{25}{section*.41}
-\contentsline {part}{III\hspace {1em}Geographie}{27}{part.42}
-\contentsline {chapter}{\IeC {\"U}bersicht}{28}{chapter*.43}
-\contentsline {chapter}{Sechsstein}{29}{chapter*.44}
-\contentsline {section}{Feuerlande}{29}{section*.45}
-\contentsline {chapter}{Mutanten}{30}{chapter*.46}
-\contentsline {part}{IV\hspace {1em}Magie}{31}{part.47}
-\contentsline {chapter}{Ursprung von Magie}{32}{chapter*.48}
-\contentsline {chapter}{Mana}{33}{chapter*.49}
-\contentsline {section}{Manablut}{34}{section*.50}
-\contentsline {section}{Manabrand}{35}{section*.51}
-\contentsline {chapter}{Anwendungen von Magie}{36}{chapter*.52}
-\contentsline {chapter}{Interdikt der Drachen}{37}{chapter*.53}
-\contentsline {chapter}{Magieschulen}{38}{chapter*.54}
-\contentsline {section}{Drachische Meisterschaften}{38}{section*.55}
-\contentsline {section}{Elfische Geheimnisse}{39}{section*.56}
-\contentsline {section}{Arkane K\IeC {\"u}nste}{40}{section*.57}
-\contentsline {section}{Alchemistische Ordnung}{40}{section*.58}
-\contentsline {section}{Kristallenergie}{41}{section*.59}
-\contentsline {chapter}{Antimagie}{42}{chapter*.60}
-\contentsline {chapter}{Anomalie}{43}{chapter*.61}
-\contentsline {section}{\IeC {\"U}bersicht der Anomalien}{43}{section*.62}
-\contentsline {subsection}{Das Arkeum}{43}{section*.63}
-\contentsline {subsection}{Die Erzseen}{44}{section*.64}
-\contentsline {subsection}{Das Weltherz}{45}{section*.65}
-\contentsline {part}{V\hspace {1em}G\IeC {\"o}tter}{46}{part.66}
-\contentsline {chapter}{Einf\IeC {\"u}hrung}{47}{chapter*.67}
-\contentsline {section}{Begriffe}{47}{section*.68}
-\contentsline {chapter}{Die Aspekte}{48}{chapter*.69}
-\contentsline {section}{Ursprung}{48}{section*.70}
-\contentsline {subsection}{Niju, Herrin \IeC {\"u}ber Land}{48}{section*.71}
-\contentsline {subsection}{Ak-Mol, H\IeC {\"u}ter von Esse und Webstuhl}{49}{section*.72}
-\contentsline {section}{Aufbau der Aspekt-Kulte}{49}{section*.73}
-\contentsline {section}{\IeC {\"U}bersicht \IeC {\"u}ber die Aspekte}{50}{section*.74}
-\contentsline {subsection}{Aigis, der Schutzherr}{50}{section*.75}
-\contentsline {subsubsection}{Weihen}{50}{section*.76}
-\contentsline {subsubsection}{Rituale}{50}{section*.77}
-\contentsline {subsubsection}{Gruppierungen und Kulte}{51}{section*.78}
-\contentsline {subsection}{Ixania, das Licht der Welt}{52}{section*.79}
-\contentsline {subsubsection}{Weihen}{52}{section*.80}
-\contentsline {subsubsection}{Rituale}{52}{section*.81}
-\contentsline {subsubsection}{Zwielicht}{53}{section*.82}
-\contentsline {subsection}{Tholem\IeC {\"a}us, der Wissensozean}{54}{section*.83}
-\contentsline {subsubsection}{Weihen}{54}{section*.84}
-\contentsline {subsubsection}{Rituale und Gaben}{54}{section*.85}
-\contentsline {subsubsection}{Gruppen und Kulte}{54}{section*.86}
-\contentsline {chapter}{Pantheon der Gegenwelt}{56}{chapter*.87}
-\contentsline {section}{Einf\IeC {\"u}hrung}{56}{section*.88}
-\contentsline {section}{Wirken au\IeC {\ss }erhalb der Gegenwelt}{56}{section*.89}
-\contentsline {section}{\IeC {\"U}bersicht \IeC {\"u}ber die G\IeC {\"o}tter}{57}{section*.90}
-\contentsline {subsection}{Eron, der Gerechte}{57}{section*.91}
-\contentsline {subsubsection}{Eron Verehrung}{57}{section*.92}
-\contentsline {paragraph}{Gaben \& Rituale}{58}{section*.93}
-\contentsline {subsection}{Askon, der Gefallene Gott}{58}{section*.94}
-\contentsline {subsubsection}{Askon Verehrung}{59}{section*.95}
-\contentsline {paragraph}{Weihen}{59}{section*.96}
-\contentsline {subsection}{Charon, der F\IeC {\"a}hrmann}{60}{section*.97}
-\contentsline {subsubsection}{Nekromantie}{61}{section*.98}
-\contentsline {paragraph}{Rituale}{61}{section*.99}
-\contentsline {subparagraph}{Nekropole}{65}{section*.100}
-\contentsline {subsection}{Die Lady des Nichts}{65}{section*.101}
-\contentsline {subsubsection}{Weihen}{66}{section*.102}
-\contentsline {subsubsection}{Rituale und Gaben}{66}{section*.103}
-\contentsline {subsubsection}{Der Palast der Leere}{67}{section*.104}
-\contentsline {part}{VI\hspace {1em}Kreaturen}{68}{part.105}
-\contentsline {chapter}{Flora und Fauna von Aurum Orbis}{69}{chapter*.106}
-\contentsline {chapter}{Magische Monster}{71}{chapter*.107}
-\contentsline {chapter}{Plagen aus der Gegenwelt}{72}{chapter*.108}
-\contentsline {chapter}{Sch\IeC {\"o}pfungen fremder G\IeC {\"o}tter}{75}{chapter*.109}
-\contentsline {chapter}{Kreaturenindex}{80}{section*.110}
-\contentsline {part}{VII\hspace {1em}Technologie}{82}{part.112}
-\contentsline {part}{VIII\hspace {1em}Professionen\&Spezialisierungen}{84}{part.113}
-\contentsline {chapter}{Einf\IeC {\"u}hrung}{85}{chapter*.114}
-\contentsline {chapter}{Offene Professionen}{86}{chapter*.115}
+\contentsline {part}{I\hspace {1em}Geschichte}{7}{part.2}
+\contentsline {chapter}{Die Dunkle Zeit}{8}{chapter*.3}
+\contentsline {section}{Die Weltbauer}{8}{section*.4}
+\contentsline {section}{Der gro\IeC {\ss }e Streit}{8}{section*.5}
+\contentsline {section}{Neue G\IeC {\"o}tter}{9}{section*.6}
+\contentsline {section}{Die G\IeC {\"o}tterkriege}{10}{section*.7}
+\contentsline {subsection}{Der Aufstieg der Elfen}{10}{section*.8}
+\contentsline {subsection}{W\IeC {\"a}hrenddessen bei den anderen V\IeC {\"o}lkern}{11}{section*.9}
+\contentsline {section}{Die ersten Manakriege}{12}{section*.10}
+\contentsline {section}{Die Gegenwelt}{12}{section*.11}
+\contentsline {subsection}{Vorgeschichte}{12}{section*.12}
+\contentsline {subsection}{Die Ankunft des Pantheon in der Gegenwelt}{13}{section*.13}
+\contentsline {subsection}{Erster Kontakt}{13}{section*.14}
+\contentsline {subsection}{Der Erste Gegenweltkriege}{14}{section*.15}
+\contentsline {subsection}{Der Fall der gro\IeC {\ss }en Barriere}{14}{section*.16}
+\contentsline {subsection}{Der zweite Gegenweltkrieg}{15}{section*.17}
+\contentsline {section}{Der zweiten Manakriege}{15}{section*.18}
+\contentsline {chapter}{Die Jahre nach der Dunklen Zeit}{17}{chapter*.19}
+\contentsline {section}{Der Neuanfang}{17}{section*.20}
+\contentsline {part}{II\hspace {1em}V\IeC {\"o}lker}{18}{part.21}
+\contentsline {chapter}{Kinder von Aurum Orbis}{19}{chapter*.22}
+\contentsline {section}{Menschen}{19}{section*.23}
+\contentsline {subsection}{Menschliche Unterarten}{19}{section*.24}
+\contentsline {subsubsection}{Frostb\IeC {\"a}rte}{19}{section*.25}
+\contentsline {subsubsection}{Nebelheimer}{19}{section*.26}
+\contentsline {subsubsection}{Mittell\IeC {\"a}nder?}{19}{section*.27}
+\contentsline {section}{Elfen}{20}{section*.28}
+\contentsline {subsection}{Spezifikationen}{20}{section*.29}
+\contentsline {subsection}{Kasten}{21}{section*.30}
+\contentsline {subsubsection}{Hain der Felsblumen}{21}{section*.31}
+\contentsline {subsubsection}{Herz der Felsen}{21}{section*.32}
+\contentsline {subsubsection}{Wissen des Stammes}{22}{section*.33}
+\contentsline {subsubsection}{Elfische Garde}{22}{section*.34}
+\contentsline {subsubsection}{Freunde in der Fremde}{22}{section*.35}
+\contentsline {subsubsection}{Drachenelfen}{23}{section*.36}
+\contentsline {section}{Dunkelelfen}{23}{section*.37}
+\contentsline {subsection}{Eigenschaften von Dunkelelfen}{24}{section*.38}
+\contentsline {chapter}{Freunde aus der Gegenwelt}{26}{chapter*.39}
+\contentsline {section}{Nephilim}{26}{section*.40}
+\contentsline {subsection}{Eigenschaften von Nephilim}{26}{section*.41}
+\contentsline {part}{III\hspace {1em}Geographie}{28}{part.42}
+\contentsline {chapter}{\IeC {\"U}bersicht}{29}{chapter*.43}
+\contentsline {chapter}{Sechsstein}{30}{chapter*.44}
+\contentsline {section}{Feuerlande}{30}{section*.45}
+\contentsline {chapter}{Mutanten}{31}{chapter*.46}
+\contentsline {part}{IV\hspace {1em}Magie}{32}{part.47}
+\contentsline {chapter}{Ursprung von Magie}{33}{chapter*.48}
+\contentsline {chapter}{Mana}{34}{chapter*.49}
+\contentsline {section}{Manablut}{35}{section*.50}
+\contentsline {section}{Manabrand}{36}{section*.51}
+\contentsline {chapter}{Anwendungen von Magie}{37}{chapter*.52}
+\contentsline {chapter}{Interdikt der Drachen}{38}{chapter*.53}
+\contentsline {chapter}{Magieschulen}{39}{chapter*.54}
+\contentsline {section}{Drachische Meisterschaften}{39}{section*.55}
+\contentsline {section}{Elfische Geheimnisse}{40}{section*.56}
+\contentsline {section}{Arkane K\IeC {\"u}nste}{41}{section*.57}
+\contentsline {section}{Alchemistische Ordnung}{41}{section*.58}
+\contentsline {section}{Kristallenergie}{42}{section*.59}
+\contentsline {chapter}{Antimagie}{43}{chapter*.60}
+\contentsline {chapter}{Anomalie}{44}{chapter*.61}
+\contentsline {section}{\IeC {\"U}bersicht der Anomalien}{44}{section*.62}
+\contentsline {subsection}{Das Arkeum}{44}{section*.63}
+\contentsline {subsection}{Die Erzseen}{45}{section*.64}
+\contentsline {subsection}{Das Weltherz}{46}{section*.65}
+\contentsline {part}{V\hspace {1em}G\IeC {\"o}tter}{47}{part.66}
+\contentsline {chapter}{Einf\IeC {\"u}hrung}{48}{chapter*.67}
+\contentsline {section}{Begriffe}{48}{section*.68}
+\contentsline {chapter}{Die Aspekte}{49}{chapter*.69}
+\contentsline {section}{Ursprung}{49}{section*.70}
+\contentsline {subsection}{Niju, Herrin \IeC {\"u}ber Land}{49}{section*.71}
+\contentsline {subsection}{Ak-Mol, H\IeC {\"u}ter von Esse und Webstuhl}{50}{section*.72}
+\contentsline {section}{Aufbau der Aspekt-Kulte}{50}{section*.73}
+\contentsline {section}{\IeC {\"U}bersicht \IeC {\"u}ber die Aspekte}{51}{section*.74}
+\contentsline {subsection}{Aigis, der Schutzherr}{51}{section*.75}
+\contentsline {subsubsection}{Weihen}{51}{section*.76}
+\contentsline {subsubsection}{Rituale}{51}{section*.77}
+\contentsline {subsubsection}{Gruppierungen und Kulte}{52}{section*.78}
+\contentsline {subsection}{Ixania, das Licht der Welt}{53}{section*.79}
+\contentsline {subsubsection}{Weihen}{53}{section*.80}
+\contentsline {subsubsection}{Rituale}{53}{section*.81}
+\contentsline {subsubsection}{Zwielicht}{54}{section*.82}
+\contentsline {subsection}{Tholem\IeC {\"a}us, der Wissensozean}{55}{section*.83}
+\contentsline {subsubsection}{Weihen}{55}{section*.84}
+\contentsline {subsubsection}{Rituale und Gaben}{55}{section*.85}
+\contentsline {subsubsection}{Gruppen und Kulte}{56}{section*.86}
+\contentsline {chapter}{Pantheon der Gegenwelt}{57}{chapter*.87}
+\contentsline {section}{Einf\IeC {\"u}hrung}{57}{section*.88}
+\contentsline {section}{Wirken au\IeC {\ss }erhalb der Gegenwelt}{57}{section*.89}
+\contentsline {section}{\IeC {\"U}bersicht \IeC {\"u}ber die G\IeC {\"o}tter}{58}{section*.90}
+\contentsline {subsection}{Eron, der Gerechte}{58}{section*.91}
+\contentsline {subsubsection}{Eron Verehrung}{58}{section*.92}
+\contentsline {paragraph}{Gaben \& Rituale}{59}{section*.93}
+\contentsline {subsection}{Askon, der Gefallene Gott}{59}{section*.94}
+\contentsline {subsubsection}{Askon Verehrung}{60}{section*.95}
+\contentsline {paragraph}{Weihen}{60}{section*.96}
+\contentsline {subsection}{Charon, der F\IeC {\"a}hrmann}{61}{section*.97}
+\contentsline {subsubsection}{Nekromantie}{62}{section*.98}
+\contentsline {paragraph}{Rituale}{62}{section*.99}
+\contentsline {subparagraph}{Nekropole}{66}{section*.100}
+\contentsline {subsection}{Die Lady des Nichts}{66}{section*.101}
+\contentsline {subsubsection}{Weihen}{67}{section*.102}
+\contentsline {subsubsection}{Rituale und Gaben}{67}{section*.103}
+\contentsline {subsubsection}{Der Palast der Leere}{68}{section*.104}
+\contentsline {part}{VI\hspace {1em}Kreaturen}{69}{part.105}
+\contentsline {chapter}{Flora und Fauna von Aurum Orbis}{70}{chapter*.106}
+\contentsline {chapter}{Magische Monster}{72}{chapter*.107}
+\contentsline {chapter}{Plagen aus der Gegenwelt}{73}{chapter*.108}
+\contentsline {chapter}{Sch\IeC {\"o}pfungen fremder G\IeC {\"o}tter}{76}{chapter*.109}
+\contentsline {chapter}{Kreaturenindex}{81}{section*.110}
+\contentsline {part}{VII\hspace {1em}Technologie}{83}{part.112}
+\contentsline {part}{VIII\hspace {1em}Professionen\&Spezialisierungen}{85}{part.113}
+\contentsline {chapter}{Einf\IeC {\"u}hrung}{86}{chapter*.114}
+\contentsline {chapter}{Offene Professionen}{87}{chapter*.115}
 \contentsline {section}{Bauer}{87}{section*.116}
 \contentsline {section}{Fischer}{87}{section*.117}
 \contentsline {section}{Bote}{87}{section*.118}
 \contentsline {section}{Matrose}{87}{section*.119}
-\contentsline {section}{Pirat}{87}{section*.120}
-\contentsline {section}{Mechaniker}{87}{section*.121}
-\contentsline {section}{Arzt}{87}{section*.122}
-\contentsline {section}{Luftmatrose}{87}{section*.123}
-\contentsline {section}{Luftpirat}{87}{section*.124}
-\contentsline {section}{Soldat}{87}{section*.125}
-\contentsline {section}{J\IeC {\"a}ger}{87}{section*.126}
-\contentsline {subsection}{Voraussetzungen}{87}{section*.127}
-\contentsline {subsection}{Fertigkeiten}{87}{section*.128}
-\contentsline {subsection}{Stufen}{88}{section*.129}
-\contentsline {section}{S\IeC {\"o}ldner}{89}{section*.130}
-\contentsline {subsection}{Voraussetzung}{89}{section*.131}
-\contentsline {subsection}{Fertigkeiten}{89}{section*.132}
-\contentsline {subsection}{Stufen}{89}{section*.133}
-\contentsline {section}{Gauner}{89}{section*.134}
-\contentsline {subsection}{Voraussetzungen}{90}{section*.135}
-\contentsline {subsection}{Fertigkeiten}{90}{section*.136}
-\contentsline {subsection}{Stufen}{90}{section*.137}
-\contentsline {section}{Schurke}{90}{section*.138}
-\contentsline {subsection}{Voraussetzungen}{91}{section*.139}
-\contentsline {subsection}{Fertigkeiten}{91}{section*.140}
-\contentsline {subsection}{Stufen}{91}{section*.141}
-\contentsline {chapter}{Weiterentwickelte Professionen}{92}{chapter*.142}
-\contentsline {section}{Besitenj\IeC {\"a}ger}{92}{section*.143}
-\contentsline {subsection}{Voraussetzungen}{92}{section*.144}
-\contentsline {subsection}{Fertigkeiten}{92}{section*.145}
-\contentsline {subsection}{Stufen}{92}{section*.146}
-\contentsline {section}{Kopfgeldj\IeC {\"a}ger}{93}{section*.147}
-\contentsline {section}{Einbrecher}{93}{section*.148}
-\contentsline {section}{Attent\IeC {\"a}ter}{93}{section*.149}
-\contentsline {part}{IX\hspace {1em}Zu Sortierendes}{94}{part.150}
-\contentsline {chapter}{Tal des Zwielichts}{95}{chapter*.151}
-\contentsline {part}{Stichwortverzeichnis}{96}{section*.152}
-\contentsline {part}{Geographieglossar}{96}{section*.154}
+\contentsline {subsection}{Stufen}{87}{section*.120}
+\contentsline {section}{Pirat}{88}{section*.121}
+\contentsline {section}{Mechaniker}{88}{section*.122}
+\contentsline {section}{Arzt}{88}{section*.123}
+\contentsline {section}{Soldat}{88}{section*.124}
+\contentsline {subsection}{Stufen}{88}{section*.125}
+\contentsline {section}{Barde}{89}{section*.126}
+\contentsline {section}{Gladiator}{89}{section*.127}
+\contentsline {section}{Knecht/Magd}{89}{section*.128}
+\contentsline {section}{Gaukler}{89}{section*.129}
+\contentsline {section}{Trickbetr\IeC {\"u}ger}{89}{section*.130}
+\contentsline {section}{F\IeC {\"a}lscher}{89}{section*.131}
+\contentsline {section}{Gelehrter}{89}{section*.132}
+\contentsline {section}{Priester}{89}{section*.133}
+\contentsline {section}{Koch}{89}{section*.134}
+\contentsline {section}{Faustk\IeC {\"a}mpfer}{89}{section*.135}
+\contentsline {subsection}{Fertigkeiten}{89}{section*.136}
+\contentsline {subsection}{Stufen}{89}{section*.137}
+\contentsline {section}{J\IeC {\"a}ger}{90}{section*.138}
+\contentsline {subsection}{Voraussetzungen}{90}{section*.139}
+\contentsline {subsection}{Fertigkeiten}{90}{section*.140}
+\contentsline {subsection}{Stufen}{90}{section*.141}
+\contentsline {section}{S\IeC {\"o}ldner}{91}{section*.142}
+\contentsline {subsection}{Voraussetzung}{92}{section*.143}
+\contentsline {subsection}{Fertigkeiten}{92}{section*.144}
+\contentsline {subsection}{Stufen}{92}{section*.145}
+\contentsline {section}{Gauner}{92}{section*.146}
+\contentsline {subsection}{Voraussetzungen}{92}{section*.147}
+\contentsline {subsection}{Fertigkeiten}{93}{section*.148}
+\contentsline {subsection}{Stufen}{93}{section*.149}
+\contentsline {section}{Schurke}{93}{section*.150}
+\contentsline {subsection}{Voraussetzungen}{93}{section*.151}
+\contentsline {subsection}{Fertigkeiten}{94}{section*.152}
+\contentsline {subsection}{Stufen}{94}{section*.153}
+\contentsline {chapter}{Weiterentwickelte Professionen}{95}{chapter*.154}
+\contentsline {section}{Besitenj\IeC {\"a}ger}{95}{section*.155}
+\contentsline {subsection}{Voraussetzungen}{95}{section*.156}
+\contentsline {subsection}{Fertigkeiten}{95}{section*.157}
+\contentsline {subsection}{Stufen}{95}{section*.158}
+\contentsline {section}{Kopfgeldj\IeC {\"a}ger}{96}{section*.159}
+\contentsline {section}{Einbrecher}{96}{section*.160}
+\contentsline {section}{Attent\IeC {\"a}ter}{96}{section*.161}
+\contentsline {part}{IX\hspace {1em}Zu Sortierendes}{97}{part.162}
+\contentsline {chapter}{Tal des Zwielichts}{98}{chapter*.163}
+\contentsline {part}{Stichwortverzeichnis}{99}{section*.164}
+\contentsline {part}{Geographieglossar}{99}{section*.166}

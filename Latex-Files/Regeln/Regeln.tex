@@ -51,7 +51,8 @@ Aurum Orbis wird von Kreaturen aller Art bewohnt, angefangen bei einem einfachem
 \item[Legendär:]
 \item[Ultimativ:]Götter und die ältesten der Drachen, sowie die Herrscher über Teile der Gegenwelt spielen in dieser Liga, also eigentlich nur Unsterbliche. Ein Sterblicher vermag sich zwar daran versuchen etwas vom Niveau dieser Giganten zu erschaffen, doch selbst einem Meisterlichem Handwerker hat für das einfachster aus dieser Kategorie nur eine 5\% Erfolgschance und häufig fatalen Folgen bei einem Fehlschlag.
 \end{description}
-
+\section{Einstufungen von Proben}
+Die Einstufung einer Probe erfolgt entweder durch statische Einteilungen, wie bei Handwerkrezepten, oder durch die persönlichen Fertigkeiten der ausführenden Figur. Bei konkurrierenden Proben wird dabei die Kategorie durch den Herausforderer bestimmt. Ansonsten gilt die Regel, dass die Kategorie in der Regel dem Wunsch des Spielers entsprechen kann. Diese Fertigkeiten werden als Frei markiert.
 \section{Mathematik zu Schranken für Spielerfortschritt}
 Um ein geeignetes Balanceing zu erzielen hier ein paar Gedanken.
 \begin{itemize}
@@ -128,31 +129,78 @@ Neben einer Bezeichnung(und beim Spiel einer Internen eindeutigen ID) ist jede K
 \chapter{Attribute}
 Die Attribute symbolisieren die Ausprägen der geistigen und köperliche Kapazitäten der Kreatur. Attributswerte können dabei einen Wert zwischen 0 und 100 besitzen, auch wenn in der Regel die Werte bei 1 oder höher liegen. Anbei eine kurze Beschreibung zu jedem Attribut:
 \begin{description}
-\item[Stärke]
+\item[Stärke(STR)]
 Dieses Attribut ließe sich ohne weiteres in weitere Unterkategorien einteilen, aber im Grunde geht es um die Muskelkraft und maximale Belastbarkeit des Körpers, bis es diesen zerreißt. Wenn eine Tür einzutreten gilt oder man schwere Lasten heben muss, dann ist dieses Attribut in erster Instanz gefragt. Stärke kann durch gezieltes Muskeltraining und eine gezielte Diät angehoben werden, wobei natürlich auch körperliche Arbeit genauso fördernd für diese ist und dazu auch noch profitabler.
-\item[Mut]
+\item[Mut(COU)]
 Sich als Mensch gegen einen Drachen zu werfen würden viele als blanken Wahnsinn bezeichnen, andere als Mut. Dieses Attribut gibt Auskunft über das Selbstvertrauen einer Figur in ihre Fähigkeiten oder die mentale Belastbarkeit gegen Furcht. Dabei sind nicht nur direkte Konfrontationen mit einem Feind, sondern ebenso manche Soziale Interaktionen(Wie das Betören oder Lügen) Gelegenheiten an dem man seinen Mut beweisen muss. Dass Attribut wächst in der Regel mit jeder erfolgreich gemeisterten Konfrontation, kann aber ebenso bei langanhaltendem Pech sinken.
-\item[Gewandtheit]
+\item[Gewandtheit(AG)]
 Flexibilität und Gleichgewicht können im Angesicht wirbelnder Klingen oder um sich durch enge Passagen zu Kämpfen. Insgesamt beschreibt Gewandtheit die allgemeinen Körperkoordinaten und Balance. Damit fließt es oft auch in athletische Talente ein. Im Allgemeinen sind Dehnübungen ein ausgezeichneter Weg um an diesem Attribut zu arbeiten.
-\item[Fingerfertigkeit]
+\item[Fingerfertigkeit(DEX)]
 Im Gegensatz zur zuvor erläuterten Gewandtheit ist dieses Attribut spezialisiert auf die Feinmotorik der Hände und das Feingefühl in diesen. Handwerkliche Talente für kleine Gegenstände oder der Einsatz von kleinen Objekten, sei es im Kampf oder medizinischen Eingriffen. Ständiges Training zahlt sich auch hier aus.
-\item[Konstitution]
+\item[Konstitution(CON)]
 Die allgemeine Ausdauer, aber auch die Körpereigenen Abwehrkräfte gegen Gifte und Krankheiten wird durch Konstitution bestimmt. Bei Ausdauersport oder auch einfach auf der Flucht vor einer heranstürmenden Gefahr, kann Konstitution nie schaden. Eben diese Tätigkeiten steigern gleichzeitig das Attribut.
-\item[Metabolismus]
+\item[Metabolismus(MTB)]
 
-\item[Intelligenz]
-\item[Weisheit]
-\item[Charisma]
-\item[Aussehen]
+\item[Intelligenz(INT)]
+\item[Weisheit(WIS)]
+\item[Charisma(CHA)]
+\item[Aussehen(APP)]
 \end{description}
 \chapter{Sekundäre Attribute}
+Die hier aufgeführten Werte, berechnen sich aus den Basisattributen und können daher nicht direkt durch Training verbessert werden.
+\\Vitalität=Konstitution*2+Boni
+\\Regnerationsrate=Konstitution/(Metabolismus*2)+1+Boni
+\\Kondition=Konstitution*4+Boni
+\\Gefahren-Level(Monster/Tiere)=Summe aller Attribute / 10
 \chapter{Fertigkeiten}
 \section{Einführung}
 Alle Tätigkeiten, die nicht auf einem Attribut basiert, sondern eine Mischung von Erfahrung und Attributen werden durch sogenannte Fertigkeiten beschrieben. Fertigkeiten lassen sich dabei in die Kategorien: Waffen, Soziales, Handwerk, Wissen, Sonstiges. Die Kategorie ist dabei ausschlaggebend für die Lernkosten. Zusätzlich hat jede Fertigkeit einen eigenen, von den Professionen und der sog. Komplexität(A=1, B=1.25, C=1.5, D=2, E=2.25, F=2.5) abhängigen Lernmodifikator. Eine Fertigkeit kann zudem in sog. Fokussierungen auftreten. Diese sind in der Regel Teil einer Profession und erlaubt in bestimmten Situationen mehr Punkte in eine Probe einzubringen.
 \section{Übersicht von Fertigkeiten}
+\subsection{Waffen}
+\subsection{Soziales}
+\begin{description}
+\item[Überzeugen-CHA,WIS,INT]
+\item[Überreden-CHA,INT,CHA]
+\item[Einschüchtern-CHA, COU, STR]
+\item[Lügen-CHA,INT,COU]
+\item[Menschenkenntnis-WIS,INT,CHA]
+\item[Etikette]
+\item[Gassenwissen]
+
+\item[Tanzen]
+\item[Singen]
+\item[Lyrik]
+\item[Schauspielen]
+\item[Verkleiden]
+
+
+\end{description}
+\subsection{Handwerk}
+\subsection{Wissen}
+\begin{description}
+\item[Tierkunde]Neben den Völkern und Monstern gibt es noch eine ganze Reihe von animalischen Kreaturen. Über die Pflege von domestizierten Varianten, Verbreitung und Eigenheiten der Wilden Varianten gibt diese Fähigkeit Auskunft. Die Pflege erfordert neben einer
+\item[Alchemistische Ordnung]Allen Objekten, ob Blut, Minerale, Pflanzen, verfügt laut den Alchemisten über besondere Eigenschaften. Diese zu erkennen, zu extrahieren und mit anderen zu kombinieren sind drei verschiedene Proben, die im letzten Schritt bei Fehlschlägen zur Vernichtung ganzer Stadtviertel führen können. Auch fertige Kreationen dieser Schule können mit dieser Fähigkeiten erkannt werden. Die Probe ist dabei in der Regel 3/4 der zur Herstellung benötigten Probe. In der Regel muss der Anwender auch Zugriff auf ein Labor haben, ansonsten muss er je nach Rezeptur mit heftigen Erschwernissen oder dem garantieren Scheitern rechnen. Für mehr Details siehe hierzu das Kapitel Alchemie.
+\item[Kräuterkunde]Vielen Pflanzen in ganz Aurum Orbis haben von Natur aus Heilkräfte oder schädliche Wirkungen. Für die Erkennung und fachgerechte Verarbeitung werden zwei Proben auf diese Fähigkeit benötigt. Fehlschläge können dabei je nach schwere bis hin zu tödlichen Verwechselungen oder Selbstvergiftung führen.   
+\item[Götter und Aspekte]
+\item[Arkanes Wissen]Die Arkanen Künste sind nicht nur auf das Auswendiglernen von Zaubersprüchen beschränkt. Sie alle beruhen letztendlich auf einer Sprache mit eigenem Vokabular und Grammatik. Wer dieser mächtig ist, kann seine Zauber leicht anpassen, um sie den eigenen Wünschen anzupassen. Diese erhöhen natürlich die Komplexität eines Zaubers und erfordern eine Probe auf arkanes Wissens, wobei übrig gebliebende Punkte die anschließende Zauberprobe bis zur ursprünglichen Komplexität erleichtern. Anbei ein paar Möglichkeiten:
+Effizientes Zaubern-Die Mana-Kosten für den Zauber werden bis zu 25\% reduziert. Komplexität steigt um die gewählte Prozentzahl.
+Zusätzlich kann ein Anwender dieser Fertigkeit ihm nicht bekannte Zaubersprüche erkennen. Hierzu muss eine Probe in Höhe der dem Zauber entsprechendem Komplexität bestanden werden. Magier können nachdem sie diesen erkannt haben, mit einem Gegenzauber abblocken, wobei die Zauberprobe um die übrig gebliebenen Punkte aus der Erkennenprobe vereinfacht wird.
+\item[Sagen und Legenden]Schon immer vermengten die Barden und Geschichtenerzähler die Wahrheit mit Elementen ihrer eigenen Fiktion. So ist zwar nicht immer auf solche Erzählungen verlass und doch kann es, wenn die Bücher des Gelehrten versagen, die Worte einer Ballade sein, die über den Kampf gegen uralte Übel und exotische Gefahren entscheiden kann. Mit dieser Fähigkeiten kann das Fehlen andere Wissensfertigkeiten zum Teil ausgeglichen werden, auch wenn der Meister die Informationen in geeigneten Rätseln verpacken sollte.
+\item[Adel und Persönlichkeiten]
+\item[Historie]
+\item[Geografie]
+\item[Anatomie]
+\end{description}
 \subsection{Sonstige}
 \begin{description}
-\item[Schleichen]Wann immer eine Figur versucht unbemerkt zu bleiben, während sie sich bewegt, dann ist Schleichen gefragt. 
+\item[Schleichen]Frei;Wann immer eine Figur versucht unbemerkt zu bleiben, während sie sich bewegt, dann ist Schleichen gefragt. 
+\item[Wahrnehmung]
+\item[Athletik]Rennen, Springen 
+\item[Akrobatik]Ausweichen, Balancieren, Manöver
+\item[Schwimmen]Schwimmen, Tauchen
+\item[Klettern]Klettern
+\item[Taschendiebstahl]
+\item[Reiten]
 \end{description}
 \chapter{Effekte}
 
@@ -163,6 +211,23 @@ Alle Tätigkeiten, die nicht auf einem Attribut basiert, sondern eine Mischung v
 Jede Profession bringt sog. favorisierte und entlegene Fertigkeiten mit, bei denen jeweils der Lernmodifikator entsprechend erhöht und verringert wird.
 Dazu gibt es verteilt auf bis zu 6 Ränge, beginnend mit 0, Talente, Fertigkeiten-Foki und passive Vorteile.
 Pro Rang gibt es bis zu 4 mit Professionspunkten bezahlbare solcher Inhalte, sowie ein kostenloser, sobald der Rang durch Erfahrung freigeschaltet wurde. Höhere Ränge können dabei nicht eingesehen werden.  
+
+\chapter{Gesundheit und Schwere Wunden}
+Die wichtigsten Werte für eine Figur ist die eigene Gesundheit. Diese wird durch die sog. Vitalität und Trefferpunkte verkörpert.
+\\Vitalität - Dieser Wert ist entscheidend für das Überleben einer Figur. Sinkt sie auf 0 stirbt die Figur unweigerlich.
+\\Trefferpunkt - Bevor eine Figur lebensbedrohliche und schwere Verwundungen einsteckt, geht jeder Schaden gegen diesen Wert. Ist er aufgebraucht wird Vitalität im Verhältnis 1:10 aufgebraucht.
+\\Während die Regeneration von Trefferpunkten bereits während einer ersten echten Rast(8 Stunden) vollständig abgeschlossen ist, wobei Trefferpunkte nicht die aktuelle Vitalität übersteigen können, sieht es im Falle der Vitalität anders aus. In der Regel generiert eine Figur pro Rast ihre Vitalität mit der Regenerationsrate. Durch medizinische Behandlung können beide Regenetationen angehoben werden: 1h intensiver medizinischer Behandlung stellt alle Trefferpunkte wieder her. Für die Vitalität muss die Behandlung auf 12 ausgeweitet werden, wenn auch nicht zwangsläufig so intensiv, siehe hierfür die Fertigkeiten zur Heilkunde und regeneriert dabei die Hälfte der Vitalität.
+Schwere Verletzungen, wie fehlende Gliedmaßen reduzieren dauerhaft die maximale Vitalität, sofern sie nicht wiederhergestellt werden. Anbei eine Tabelle zur Übersicht der Auswirkungen einer derartigen Verletzung:
+
+\chapter{Kondition und Erschöpfung}
+Jede körperliche Aktivität fordert früher oder später ihren Tribut in Form von Erschöpfung. Der Grad der aktuellen Erschöpfung wird hierbei durch die Werte Ausdauer und Kondition verkörpert:
+\\Ausdauer - Alle Körperlichen was über normale Gehen ohne Gepäck hinaus geht kostet in der Regel Ausdauer.
+\\Kondition - Im Fall das einer Figur die Puste ausgeht oder sie einer langfristigen Belastung durch beispielsweise einen Gewaltmarsch mit Gepäck durch die Wüste ausgesetzt ist, sinkt die Kondition. Ausdauer kann im Verhältnis 1:10 durch Kondition ersetzt werden.
+\\Erhält eine Figur die Gelegenheit für Atem zu schöpfen, so regeneriert sich pro Minute ein Zehntel der maximalen Ausdauer. Diese wird begrenzt durch die aktuelle Kondition. Kondition hingegen erholt sich vollständig über eine 8 Stunden Rast, wobei auch kleinere Pausen von einer Mindestdauer von 1h die Kondition wiederherstellen.
+
+\chapter{Kampf}
+
+
 \chapter{Ausrüstung}
 
 \part{Ausrüstung \& anderen Gegenständen}
