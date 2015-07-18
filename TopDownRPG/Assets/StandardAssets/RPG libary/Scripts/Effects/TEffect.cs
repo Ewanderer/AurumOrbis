@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 [System.Serializable]
 public class TEffect:IRPGSource {
+	public int ownID;
 	public string Name;
 	public string referenceID;
 	public IRPGSource OriginalSource;//Für bestimmte Effekte, wie Bindungen ist es oft wichtig die originale Herkunft zu kennen

@@ -1,23 +1,24 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\StandardAssets\RPG libary\Scripts\Meta\RPGObject.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\StandardAssets\Networking\Scripts\ID-System\IDObject.cs">
     <Files>
-      <File FileName="Assets\StandardAssets\Networking\Scripts\ID-System\IDObject.cs" Line="61" Column="21" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Meta\RPGObject.cs" Line="232" Column="36" />
-      <File FileName="Assets\StandardAssets\Networking\Scripts\ID-System\IDComponent.cs" Line="31" Column="3" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\ID-System\IDObject.cs" Line="39" Column="28" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Meta\RPGObject.cs" Line="619" Column="5" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\ID-System\IDComponent.cs" Line="1" Column="1" />
       <File FileName="Assets\StandardAssets\General\FileHelper.cs" Line="1" Column="1" />
       <File FileName="Assets\StandardAssets\Networking\Scripts\Server\Grid\WorldBlock.cs" Line="1" Column="1" />
       <File FileName="Assets\StandardAssets\Networking\Scripts\ClientWatcher\Watcher.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs" Line="349" Column="10" />
       <File FileName="Assets\StandardAssets\RPG libary\Scripts\System\RPGCore.cs" Line="1" Column="1" />
       <File FileName="Assets\StandardAssets\Networking\Scripts\Server\Grid\GridPoint.cs" Line="1" Column="1" />
       <File FileName="Assets\StandardAssets\Networking\Scripts\Server\Grid\WorldGrid.cs" Line="1" Column="1" />
       <File FileName="Assets\StandardAssets\General\StaticWorldManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\InteractiveObjects\InteractiveObject.cs" Line="103" Column="1" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Items\TItem.cs" Line="8" Column="40" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Items\Equipment\TEquipment.cs" Line="5" Column="1" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Effects\EffectScriptObject.cs" Line="440" Column="1" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Meta\Dice.cs" Line="234" Column="3" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\InteractiveObjects\InteractiveObject.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Items\TItem.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Items\Equipment\TEquipment.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Effects\EffectScriptObject.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Meta\Dice.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Effects\TEffect.cs" Line="42" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

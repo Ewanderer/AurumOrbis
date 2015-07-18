@@ -35,8 +35,8 @@ public class IDObject : NetworkBehaviour {
 	void Update(){
 		if (!base.isLocalPlayer)
 			return;
-//	foreach (IDComponent c in components)
-			//c.update (Time.deltaTime,gameObject);
+	foreach (IDComponent c in components)
+			c.update (Time.deltaTime);
 	}
 
 	void LateUpdate(){

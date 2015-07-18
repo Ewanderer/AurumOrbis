@@ -405,6 +405,14 @@ public abstract class RPGObject:IDComponent,IRPGSource
 		}
 	}
 
+	[ClientRpc]
+	public void Rpc_addEfffect(byte[] serializedEffect){
+		if (!isLocalPlayer) {
+			TEffect effect=FileHelper.deserializeObject<TEffect>(serializedEffect);
+			cEffects.Add(effect);
+		}
+	}
+
 	public virtual bool addEffect (TEffect Effect)
 	{
 		//Überprüfe zunächst ob ein Schutz gegen den Effekt exestiert
@@ -425,8 +433,22 @@ public abstract class RPGObject:IDComponent,IRPGSource
 		return false;//Effekt konnte nicht hinzugefügt werden!
 	}
 
+	[ClientRpc]
+	public void Rpc_removeEffect(int effectID){
+		if (!isLocalPlayer)
+			cEffects.Remove (cEffects.Find (delegate(TEffect obj) {
+				return obj.ownID == effectID;
+			}));
+	}
 
 	public virtual bool removeEffect(TEffect effect,bool enforceRemove=false){
+
+		if (enforceRemove && effect.oDuration != -1) {
+			OnRemoveEffect (effect);
+			cEffects.Remove (effect);
+			Rpc_removeEffect (effect.ownID);
+			return true;
+		}
 		return false;
 	}
 
@@ -519,7 +541,6 @@ public abstract class RPGObject:IDComponent,IRPGSource
 		}
 		
 	}
-	bool dirtySkills;
 
 	[SerializeField]
 	protected List<Skill> _skills = new List<Skill> ();
@@ -529,9 +550,14 @@ public abstract class RPGObject:IDComponent,IRPGSource
 		}
 	}
 
+	[Command]
+	public void Cmd_requestSkills(int clientID){
+		//see: http://docs.unity3d.com/Manual/UNetMessages.html
+	}
+
 	//Abfrage über die Verfügbarkeit eines Skills
 
-	public virtual void checkSkill (string NameOfSkill, out int BaseValue, out int EndValue, out AttributModificationHelper.Modification[] UsedModification, out AttributModificationHelper.Counter[] UsedCounter)
+	public	 virtual void checkSkill (string NameOfSkill, out int BaseValue, out int EndValue, out AttributModificationHelper.Modification[] UsedModification, out AttributModificationHelper.Counter[] UsedCounter)
 	{
 		BaseValue = 0;
 		EndValue = 0;
