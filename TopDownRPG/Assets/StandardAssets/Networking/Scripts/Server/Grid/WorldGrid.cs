@@ -10,6 +10,8 @@ public class WorldGrid : MonoBehaviour
 	WorldBlock _main;//The highest WorldBlock, containing all other WorldBlocks.
 	WorldBlock[,,] _baseGrid;//Das niedrigste Layer der Weltblöcke im 10x10x10m rahmen. [X,Z,Y]
 
+	List<PlayerController> allPlayerChars=new List<PlayerController>();
+
 	//Basierend auf dem base-Grid werden die over-Blocks geschaffen, bis zu dem Punkt, dass es ein Layer mit nur einem Block gibt, dieser sei main.
 	void createMetaGrid(){
 

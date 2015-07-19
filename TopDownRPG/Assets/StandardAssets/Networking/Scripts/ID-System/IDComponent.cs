@@ -12,11 +12,19 @@ public abstract class IDComponent:NetworkBehaviour {
 
 	protected ulong _dirtyMask;
 
+
+
 	public bool doUpadteOnLoad{
 		get{return _doUpdateOnLoad;}
 	}
 
 	public virtual void update(float timeSinceLastUpdate){}
+
+	void Update(){
+		if (isLocalPlayer)
+			update (Time.deltaTime);
+	}
+
 	public virtual void initialize(){
 		referenceID = gameObject.GetComponent<IDObject> ().id;
 		referenceObject = gameObject.GetComponent<IDObject> ();
@@ -26,7 +34,7 @@ public abstract class IDComponent:NetworkBehaviour {
 		initialize();
 	}
 
-	//public abstract void applyChanges ();//Dieses Funktion dient nach Laden, bzw Erstellen aller Werte zur Umsetzung in Grafik etc.
+//	public abstract void applyChanges ();//Dieses Funktion dient nach Laden, bzw Erstellen aller Werte zur Umsetzung in Grafik etc.
 //	public abstract void serializeToFile(string FileName);
 //	public abstract void deserializeFromFile(string FileName);
 

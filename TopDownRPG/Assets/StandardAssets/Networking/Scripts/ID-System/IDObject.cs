@@ -22,6 +22,9 @@ public class IDObject : NetworkBehaviour {
 			_id=IDService.getUniqueID ();
 	}
 
+
+	List<NetworkConnection> additionalObservers=new List<NetworkConnection>();
+
 	//Wenn das Objekt endgültig aus der Welt verschwindet soll, muss diese Funktion aufgerufen.
 	public void unregisterObject(){
 		if (base.isClient)
@@ -30,13 +33,6 @@ public class IDObject : NetworkBehaviour {
 		IDService.freeID (_id);
 		isToBeSaved = false;
 		NetworkServer.Destroy (gameObject);
-	}
-
-	void Update(){
-		if (!base.isLocalPlayer)
-			return;
-	foreach (IDComponent c in components)
-			c.update (Time.deltaTime);
 	}
 
 	void LateUpdate(){
