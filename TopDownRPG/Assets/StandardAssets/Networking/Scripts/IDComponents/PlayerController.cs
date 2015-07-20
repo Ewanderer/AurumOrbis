@@ -13,11 +13,18 @@ public class PlayerController : IDComponent
 
 	}
 
+	public override void serializeToFile (string FileName)
+	{
+		FileHelper.WriteToFile (FileName, FileHelper.serializeObject<int> (boundAccountIdentiy));
+	}
+
+	public override void deserializeFromFile (string FileName)
+	{
+		boundAccountIdentiy = FileHelper.deserializeObject<int> (FileHelper.ReadFromFile (FileName));
+	}
 
 	public override void initialize ()
 	{
-
-
 		base.initialize ();
 	}
 

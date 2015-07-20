@@ -8,9 +8,53 @@ using System.IO;
 public class IDObject : NetworkBehaviour {
 	[SyncVar]
 	private string _id;
-	private bool isToBeSaved;
+	private bool isToBeSaved=true;
+
 	public string id{
 		get{return _id;}
+	}
+
+	//Dieser Wert bei Spielern auf false gesetzt, wenn sie sich in einem Chunk befinden, der nicht komplett geladen wurde.
+	bool loadingNetwork;
+	//Dieser wird allgemein gesetzt wenn das Objekt sich in der Statischen Welt an einem noch nicht geladenem Fleckchen befindet.
+	bool loadingWorld;
+
+	bool CheckNetworkLoading(){
+		//Überprüfe den Count der im Chunk des Spielers befindlichen Objekte mit dem von Laut Spieler in diesem Chunk gemeldeten, wenn weniger als 75%, dann lade...
+		return true;//Fürs erste verzichten wir auf diese Maßnahme und werden sie erst bei sichtbaren Problemen einführen.
+	}
+
+	bool CheckWorldLoading(){
+		//Überprüfe den Count der im Chunk des Spieler befindlichen Objekten und vergleiche mit der Angabe des WorldManagers. Wenn kleiner dann gilt das Objekt als ladend...
+		return !StaticWorldManager.instance.usedWorld.Nodes[(int)oldGridPosition.x,(int)oldGridPosition.y,(int)oldGridPosition.z].isLoaded;;
+	}
+
+	//Während dieser Wert true ist, wird das gesamte Objekt eingefroren...
+	public bool isLoading{
+		get{return loadingNetwork||loadingWorld;}
+	}
+
+	void Update(){
+		bool oldvalue = isLoading;
+		if (isClient)
+			loadingNetwork = CheckNetworkLoading ();
+		else
+			loadingNetwork = false;
+		loadingWorld = CheckNetworkLoading ();
+		if (oldvalue != isLoading) {
+			if (isLoading) {
+				foreach (MonoBehaviour mb in gameObject.GetComponents<MonoBehaviour>())
+					if (mb != this)
+						mb.enabled = false;
+				foreach (GameObject go in gameObject.GetComponentsInChildren<GameObject>())
+					go.SetActive (false);
+			} else {
+				foreach (MonoBehaviour mb in gameObject.GetComponents<MonoBehaviour>())
+						mb.enabled = true;
+				foreach (GameObject go in gameObject.GetComponentsInChildren<GameObject>())
+					go.SetActive (true);
+			}
+		}
 	}
 
 	List<IDComponent> components=new List<IDComponent>();
@@ -23,10 +67,26 @@ public class IDObject : NetworkBehaviour {
 	}
 
 
+	List<NetworkConnection> observerRequest=new List<NetworkConnection>();
+
+	public override bool OnCheckObserver (NetworkConnection conn)
+	{
+		return (Vector3.Distance (conn.playerControllers [0].gameObject.GetComponent<Transform> ().position, transform.position) <= 20 || observerRequest.Contains(conn));
+	}
+
+	public override bool OnRebuildObservers (HashSet<NetworkConnection> observers, bool initialize)
+	{
+		foreach (NetworkConnection c in observerRequest)
+			observers.Add (c);
+		return base.OnRebuildObservers(observers,initialize);
+
+	}
+
 	List<NetworkConnection> additionalObservers=new List<NetworkConnection>();
 
 	//Wenn das Objekt endgültig aus der Welt verschwindet soll, muss diese Funktion aufgerufen.
-	public void unregisterObject(){
+	[Command]
+	public void Cmd_unregisterObject(){
 		if (base.isClient)
 			return;
 		WorldGrid.instance.main.unregister (this);
@@ -34,7 +94,7 @@ public class IDObject : NetworkBehaviour {
 		isToBeSaved = false;
 		NetworkServer.Destroy (gameObject);
 	}
-
+	
 	void LateUpdate(){
 		if(base.isServer)
 			updateGrid ();
@@ -45,11 +105,12 @@ public class IDObject : NetworkBehaviour {
 	protected void updateGrid(){
 		Vector3 currentGridPosition=new Vector3(Mathf.Floor(transform.position.x/10),Mathf.Floor(transform.position.y/10),Mathf.Floor(transform.position.z/10));
 		if (oldGridPosition != currentGridPosition) {
-			WorldGrid.instance.baseGrid[(int)oldGridPosition.x,(int)oldGridPosition.z,(int)oldGridPosition.y].unregister(this);
-			WorldGrid.instance.baseGrid[(int)currentGridPosition.x,(int)currentGridPosition.z,(int)currentGridPosition.y].register(this);
+			WorldGrid.instance.baseGrid[(int)oldGridPosition.x,(int)oldGridPosition.y,(int)oldGridPosition.z].unregister(this);
+			WorldGrid.instance.baseGrid[(int)currentGridPosition.x,(int)currentGridPosition.y,(int)currentGridPosition.z].register(this);
+			StaticWorldManager.unregisterIDObject(this,oldGridPosition);
+			StaticWorldManager.registerIDObject(this,currentGridPosition);
 		}
 		oldGridPosition = currentGridPosition;
-		NetworkWriter w = new NetworkWriter ();
 	}
 
 
@@ -57,7 +118,7 @@ public class IDObject : NetworkBehaviour {
 		if (base.isClient)
 			return;
 		//Öffne das Verzeichnis des IDObjekts und generiere daraus die Components
-		string[] neededComponents=new string[0];
+		string[] neededComponents=FileHelper.deserializeObject<string[]>(FileHelper.ReadFromFile("./server/objects/"+id+"/identity.obj")); 
 		//(System.Activator("","Test",new string[]{id}) as IDComponent)
 		foreach (string cs in neededComponents) {
 			gameObject.AddComponent(System.Type.GetType(cs));
@@ -65,9 +126,8 @@ public class IDObject : NetworkBehaviour {
 		}
 	}
 
-	public override void OnNetworkDestroy ()
+	void OnDestroy()
 	{
-		base.OnNetworkDestroy ();
 		if (!isToBeSaved||base.isClient)
 			return;
 		saveToFile ();
@@ -75,8 +135,15 @@ public class IDObject : NetworkBehaviour {
 
 	public void saveToFile(){
 		//Lege einen Ordner mit dem Namen der ID an, falls notwendig lösche bestehenden Datein in diesem.
+		FileHelper.emptyPath ("./server/objects/" + id);
+		List<string> componentNames = new List<string> ();
+		foreach (IDComponent c in components) {
+			componentNames.Add (c.GetType ().ToString ());
+			//Deserialisiere alle Componenten auf den Pfad dieses Ordners
+			c.serializeToFile("./server/objects/"+id+"/"+c.GetType ().ToString ()+".obj");
+		}
 		//Lege eine Datei mit dem Namen "identity.obj" an, wo die Typ-Namen aller Componenten abgelegt sind
-		//Deserialisiere alle Componenten auf den Pfad dieses Ordners
+		FileHelper.WriteToFile ("./server/objects/"+id+"/identity.obj",FileHelper.serializeObject<string[]>(componentNames.ToArray()));
 	}
 
 }

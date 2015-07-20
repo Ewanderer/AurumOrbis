@@ -1,28 +1,22 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 
 public class GridPoint : NetworkBehaviour{
-
-	private WorldBlock connectedBlock;
-	private List<Watcher> loggedClients;
-
-	[Command]
-	public void Cmd_OnClientEnter(Watcher w){
-		loggedClients.Remove (w);
-		loggedClients.Add (w);
-		if (!connectedBlock.isLoaded) {
-			connectedBlock.loadUpBlock();
-		}
+	[SyncVar]
+	private WorldBlock connectedBlock=null;
+	public void ConnectBlock(WorldBlock wb){
+		if(connectedBlock==null)
+		connectedBlock = wb;
 	}
 
-	[Command]
-	public void Cmd_OnClientLeave(Watcher w){
-		loggedClients.Remove (w);
-		if (loggedClients.Count == 0) {
-			connectedBlock.closeBlock();
-		}
+	void Update(){
+	if (!isLocalPlayer)
+			return;
+		if (gameObject.GetComponent<NetworkIdentity> ().observers.Count > 0 && !connectedBlock.isLoaded)
+			connectedBlock.openBlock ();
+		if (gameObject.GetComponent<NetworkIdentity> ().observers.Count == 0 && connectedBlock.isLoaded)
+			connectedBlock.closeBlock ();
 	}
-
 }

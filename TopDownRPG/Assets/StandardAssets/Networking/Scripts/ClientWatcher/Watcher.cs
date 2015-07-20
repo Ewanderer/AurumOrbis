@@ -97,13 +97,4 @@ public class Watcher : MonoBehaviour {
 		}
 	}
 
-	public void checkGridPoints(){
-		foreach (GridPoint gp in GameObject.FindObjectsOfType<GridPoint>()) {
-			//Logge bei allen "sichtbaren" GridPoints ein
-			//Logge bei allen "nicht-sichtbaren" GridPoints aus
-		}
-	}
-
-
-
 }

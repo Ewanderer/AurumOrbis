@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\StandardAssets\General\Skripts\FileHelper.cs" />
      <Compile Include="Assets\StandardAssets\General\Skripts\MyAssetDatabase.cs" />
+     <Compile Include="Assets\StandardAssets\General\Skripts\StaticObject.cs" />
      <Compile Include="Assets\StandardAssets\General\Skripts\StaticWorldManager.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\AccountService\AccountService.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\AccountService\TAccount.cs" />

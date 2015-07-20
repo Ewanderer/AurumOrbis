@@ -5,18 +5,10 @@ using System.Collections;
 [RequireComponent(typeof(IDObject))]
 
 public abstract class IDComponent:NetworkBehaviour {
-	[SerializeField]
-	protected bool _doUpdateOnLoad;
+
 	protected string referenceID;
 	protected IDObject referenceObject;
 
-	protected ulong _dirtyMask;
-
-
-
-	public bool doUpadteOnLoad{
-		get{return _doUpdateOnLoad;}
-	}
 
 	public virtual void update(float timeSinceLastUpdate){}
 
@@ -35,7 +27,7 @@ public abstract class IDComponent:NetworkBehaviour {
 	}
 
 //	public abstract void applyChanges ();//Dieses Funktion dient nach Laden, bzw Erstellen aller Werte zur Umsetzung in Grafik etc.
-//	public abstract void serializeToFile(string FileName);
-//	public abstract void deserializeFromFile(string FileName);
+	public abstract void serializeToFile(string FileName);
+	public abstract void deserializeFromFile(string FileName);
 
 }
