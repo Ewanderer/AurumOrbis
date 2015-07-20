@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.Networking;
 [System.Serializable]
 public class TAccount
 {
@@ -14,7 +14,10 @@ public class TAccount
 	string _password;
 	[SerializeField]
 	List<string> _playerObjectsID=new List<string>();//ID of Player Character
-	int connectionID=-1;
+	[SerializeField]
+	List<string> playerObjectsName = new List<string> ();
+
+	NetworkConnection connection;
 	[SerializeField]
 	bool _isAdmin;
 
@@ -34,10 +37,11 @@ public class TAccount
 		get{return _humanName;}
 	}
 
-	public int Login(string password, int connection,out string[] Names,out string[] IDs){
-		if (_password == password) {
+	public int Login(string password, NetworkConnection conn ,out string[] Names,out string[] IDs){
+		if (_password == password&&connection==null) {
 			Names=null;
 			IDs=_playerObjectsID.ToArray();
+			connection=conn;
 			return _identity;
 		}
 		Names = null;

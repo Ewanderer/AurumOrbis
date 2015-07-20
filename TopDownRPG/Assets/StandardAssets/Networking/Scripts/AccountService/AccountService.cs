@@ -12,7 +12,7 @@ public class AccountService : MonoBehaviour
 	public List<TAccount> registredAccount = new List<TAccount> ();
 
 	public void Login(NetworkMessage msg){
-		Debug.Log("Nutzer Startet!");
+
 		AccountCredentialMsg credential = msg.ReadMessage<AccountCredentialMsg> ();
 		TAccount acc = registredAccount.Find (delegate(TAccount obj) {
 			return obj.humanName==credential.userName;
@@ -24,7 +24,7 @@ public class AccountService : MonoBehaviour
 			string[] charnames;
 		string[] charids;
 
-		int identity=acc.Login (credential.passsword,msg.conn.connectionId,  out charnames,out charids);
+		int identity=acc.Login (credential.passsword,msg.conn,  out charnames,out charids);
 		if (identity == -1) 
 			NetworkServer.SendToClient(msg.conn.connectionId, MyMsgType.SystemError, new StringMessage ("Fehler beim Einloggen. Nutzername oder Password falsch."));
 		else
@@ -39,9 +39,9 @@ public class AccountService : MonoBehaviour
 		}))
 			NetworkServer.SendToClient (msg.conn.connectionId, MyMsgType.SystemError, new StringMessage ("Fehler bei der Accounterstellung! Nutzernamen bereits vergeben."));
 		else{
-			Debug.Log("Neuer Nutzer:"+credential.userName+"-"+credential.passsword);
+		
 			registredAccount.Add (new TAccount (credential.userName, credential.passsword));
-			//Login(msg);
+			Login(msg);
 		}
 	}
 

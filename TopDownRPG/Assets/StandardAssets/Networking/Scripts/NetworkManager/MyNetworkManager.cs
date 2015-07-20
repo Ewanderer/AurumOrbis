@@ -12,6 +12,7 @@ public class MyNetworkManager : MonoBehaviour
 	public IDObject baseObject;
 	public GameObject Core;
 
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -50,6 +51,7 @@ public class MyNetworkManager : MonoBehaviour
 	}
 
 	void SetupServer(){
+	
 		Debug.Log("Server wird aufgesetzt...");
 		NetworkServer.Listen (System.Convert.ToInt16(port));
 		Instantiate (Core);
@@ -61,30 +63,20 @@ public class MyNetworkManager : MonoBehaviour
 	void SetupClient(){
 		Debug.Log("Verbinde mit Server...");
 		client = new NetworkClient ();
-		client.Connect (adress, System.Convert.ToInt16 (port));
 		client.RegisterHandler (MsgType.Connect, OnConnected);
-		while (!client.isConnected)
-			;
-			Debug.Log("Verbindung mit Server hergestellt.");
-		Instantiate (playerObject);
-			IsNetworkUp = false;
-		
-
+		client.Connect (adress, System.Convert.ToInt16 (port));
 	}
 
 	void SetupLocalClient(){
 		Debug.Log("Lokaler Client wird aufgesetzt...");
 		client = ClientScene.ConnectLocalServer ();
-
-		while (!client.isConnected)
-			;
-		Debug.Log("Lokaler Client bereit.");
-		Instantiate (playerObject);
-		IsNetworkUp = false;
+		client.RegisterHandler (MsgType.Connect, OnConnected);
 	}
 
 	void OnConnected(NetworkMessage netMsg){
-		Debug.Log ("Verbindung mit dem Server hergestellt...");
+		Debug.Log("Verbindung mit Server hergestellt.");
+		Instantiate (playerObject);
+		IsNetworkUp = false;
 	}
 
 
