@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -41,6 +42,14 @@ public class WorldGrid : MonoBehaviour
 	//Diese Funktion lädt das gesamte Grid basierend auf einem im Ordner liegendem Grid...
 	public void setupGridFromFile(){
 
+	}
+
+
+
+
+
+	public void EndPlayer(){
+	
 	}
 
 	//Diese Funktion wird eine komplett leere Welt erschaffen(Wenn man wom naja offentsichtlichen)...

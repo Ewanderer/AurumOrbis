@@ -5,17 +5,12 @@ using System.Collections;
 public class PlayerController : IDComponent
 {
 	public int boundAccountIdentiy;
-
-	bool isHooked;
-	bool isPlayer;
-
 	//Diese Funktion überwacht das ordnungsgemäße Verbinden von Watcher. 
 
 
 	//Diese Funktion wird vom Watcher aufgerufen, um die Kontrolle an den Spieler zu übergeben.
 	public void HookIn(int identity){
-		if (!isHooked && identity == boundAccountIdentiy)
-			isPlayer = true;
+
 	}
 
 
@@ -26,10 +21,10 @@ public class PlayerController : IDComponent
 		base.initialize ();
 	}
 
-	void Update(){
-		if (isPlayer) {
-		
-		}
+	public override void update (float timeSinceLastUpdate)
+	{
+		//Hier das update einberufen
+		base.update (timeSinceLastUpdate);
 	}
 
 

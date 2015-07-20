@@ -14,7 +14,7 @@ enum networkState{
 	playing=3
 };
 
-public class Watcher : NetworkBehaviour {
+public class Watcher : MonoBehaviour {
 
 
 
@@ -30,8 +30,8 @@ public class Watcher : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-
+		MyNetworkManager.client.RegisterHandler (MyMsgType.LoginAnswer, OnLoginAnswer);
+		instance = this;
 	}
 
 	void OnLoginAnswer(NetworkMessage msg){
@@ -60,25 +60,6 @@ public class Watcher : NetworkBehaviour {
 	string[] avbCharNames;
 	string[] avbCharIDs;
 
-
-	[Command]
-	void Cmd_login(string name,string password,GameObject player){
-		AccountService.instance.Login (name, password,player);
-	}
-
-	[Command]
-	void Cmd_register(string name,string password,GameObject player){
-		AccountService.instance.Register (name, password, player);
-	}
-
-	[Command]
-	void Cmd_requestVisibilits (string ID, GameObject player){
-		//NetworkIdentity nId;
-
-		//nId.RebuildObservers (false);
-	}
-
-
 	public static RPGObject getReferenceObject(string ID){
 
 		RPGObject result;
@@ -88,13 +69,12 @@ public class Watcher : NetworkBehaviour {
 		})) != default(RPGObject)) 
 			return result;
 		 else {
-			Watcher.instance.Cmd_requestVisibilits (ID, Watcher.instance.gameObject);
+			MyNetworkManager.client.Send(MyMsgType.RequestVisibility,new StringMessage(ID));
 			return getReferenceObject(ID);
 		}
 	}
 
 	void OnGUI(){
-		if(isLocalPlayer)
 		switch (currentState) {
 		case networkState.login:
 			GUILayout.Label("Willkommen in Aurum Orbis");
@@ -102,36 +82,19 @@ public class Watcher : NetworkBehaviour {
 			inputName=GUILayout.TextField(inputName);
 			GUILayout.Label("Passwort:");
 			inputPassword=GUILayout.TextField(inputPassword);
-			if(GUILayout.Button("Login")){
-				Cmd_login(inputName,inputPassword,gameObject);
-			}
+			if(GUILayout.Button("Login"))
+				MyNetworkManager.client.Send(MyMsgType.LoginRequest,new AccountCredentialMsg(inputName,inputPassword));
 			if(GUILayout.Button("Register"))
-				Cmd_register(inputName,inputPassword,gameObject);
+				MyNetworkManager.client.Send(MyMsgType.NewAccountRequest,new AccountCredentialMsg(inputName,inputPassword));
 			break;
 		case networkState.charselection:
 			GUILayout.Box("Charakterauswahl");
 			int charsel=-1;
 			charsel=GUILayout.SelectionGrid(charsel,avbCharNames,1);
-			if(charsel!=-1){
-
-			}
+			if(charsel!=-1)
+				MyNetworkManager.client.Send(MyMsgType.HookChar,new StringMessage(avbCharIDs[charsel]));
 			break;
 		}
-	}
-
-	public override void OnStartLocalPlayer ()
-	{
-		base.OnStartLocalPlayer ();
-		MyNetworkManager.client.RegisterHandler (MyMsgType.LoginAnswer, OnLoginAnswer);
-		foreach(Camera c in Camera.allCameras)
-			c.tag="Untagged";
-		//gameObject.AddComponent<Camera> ();
-		gameObject.AddComponent<FlareLayer> ();
-		gameObject.AddComponent<GUILayer> ();
-		gameObject.tag="MainCamera";
-		if (base.isClient)
-			instance = this;
-
 	}
 
 	public void checkGridPoints(){

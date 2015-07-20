@@ -5,10 +5,11 @@ using System.Collections;
 
 public class MyNetworkManager : MonoBehaviour
 {
-
+	public static MyNetworkManager instance;
 	public static NetworkClient client;
 	static bool IsNetworkUp;
 	public Watcher playerObject;
+	public IDObject baseObject;
 	public GameObject Core;
 
 	// Use this for initialization
@@ -51,11 +52,8 @@ public class MyNetworkManager : MonoBehaviour
 	void SetupServer(){
 		Debug.Log("Server wird aufgesetzt...");
 		NetworkServer.Listen (System.Convert.ToInt16(port));
-		ClientScene.RegisterPrefab (playerObject.gameObject);
-		ClientScene.RegisterPrefab (Core);
-		NetworkServer.Spawn (Core);
-
-		NetworkServer.RegisterHandler (MsgType.AddPlayer,OnNewClient);
+		Instantiate (Core);
+		NetworkServer.SpawnObjects ();
 		IsNetworkUp = false;
 		Debug.Log("Server bereit.");
 	}
@@ -68,8 +66,7 @@ public class MyNetworkManager : MonoBehaviour
 		while (!client.isConnected)
 			;
 			Debug.Log("Verbindung mit Server hergestellt.");
-			ClientScene.AddPlayer (client.connection, 0);
-			client.Send (MsgType.AddPlayer, new IntegerMessage (0));
+		Instantiate (playerObject);
 			IsNetworkUp = false;
 		
 
@@ -78,22 +75,16 @@ public class MyNetworkManager : MonoBehaviour
 	void SetupLocalClient(){
 		Debug.Log("Lokaler Client wird aufgesetzt...");
 		client = ClientScene.ConnectLocalServer ();
-		client.RegisterHandler (MsgType.AddPlayer,OnNewClient);
+
 		while (!client.isConnected)
 			;
 		Debug.Log("Lokaler Client bereit.");
-		ClientScene.AddPlayer (client.connection, 0);
-		client.Send (MsgType.AddPlayer, new IntegerMessage(0));
+		Instantiate (playerObject);
 		IsNetworkUp = false;
 	}
 
 	void OnConnected(NetworkMessage netMsg){
 		Debug.Log ("Verbindung mit dem Server hergestellt...");
-	}
-
-	void OnNewClient(NetworkMessage netMsg){
-		GameObject thePlayer = (GameObject)Instantiate (playerObject.gameObject);
-		NetworkServer.AddPlayerForConnection (netMsg.conn, thePlayer,(short) netMsg.ReadMessage<IntegerMessage>().value);
 	}
 
 

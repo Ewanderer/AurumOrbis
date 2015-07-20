@@ -46,14 +46,15 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\StandardAssets\General\FileHelper.cs" />
-     <Compile Include="Assets\StandardAssets\General\StaticWorldManager.cs" />
+     <Compile Include="Assets\StandardAssets\General\Skripts\FileHelper.cs" />
+     <Compile Include="Assets\StandardAssets\General\Skripts\StaticWorldManager.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\AccountService\AccountService.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\AccountService\TAccount.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\ClientWatcher\Watcher.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\ID-System\IDComponent.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\ID-System\IDObject.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\IDComponents\PlayerController.cs" />
+     <Compile Include="Assets\StandardAssets\Networking\Scripts\Messages\AccountCredentialMsg.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\Messages\LoginAnswerMsg.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\Messages\MyMsgType.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\Messages\SkillUpdateMsg.cs" />

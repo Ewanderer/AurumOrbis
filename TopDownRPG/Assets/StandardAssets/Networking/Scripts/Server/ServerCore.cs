@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.Networking.NetworkSystem;
 using System.Collections;
 
 public class ServerCore : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	public void createObjectFromID(string ID){
+		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void HookPlayerUp(NetworkMessage msg){
+		//Load Player
+		IDObject playerchar = (IDObject)Instantiate (MyNetworkManager.instance.baseObject);
+		playerchar.loadFromFile (msg.ReadMessage<StringMessage>().value);
+		NetworkServer.AddPlayerForConnection (msg.conn, playerchar.gameObject, 1);
 	}
+
+	void Start(){
+		NetworkServer.RegisterHandler (MyMsgType.HookChar, HookPlayerUp);
+	}
+
 }
