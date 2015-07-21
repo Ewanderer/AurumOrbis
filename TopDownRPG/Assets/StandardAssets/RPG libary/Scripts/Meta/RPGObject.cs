@@ -641,13 +641,13 @@ public abstract class RPGObject:IDComponent,IRPGSource
 //Diese Funktion dient zum Zugriff auf den HP-Wert oder so, gibt die Menge des angerichten schaden zurück. Heilungen. bzw Absorbtionen müssen an die RecieveHealing Funktion weitergegeben werden.	
 	public float recieveDamage(float _value,string _typ,IRPGSource _source){
 		if (!isLocalPlayer) {
-			requestDamageDistribution();
+			Cmd_requestDamageDistribution(_value,_typ,_source.getID());
 		}
 		return _recieveDamage (_value, _typ, _source);
 	}
 
 	[Command]
-	public void requestDamageDistribution(float _value,string _typ,string _source){
+	public void Cmd_requestDamageDistribution(float _value,string _typ,string _source){
 		if(!isLocalPlayer)
 			NetworkServer.SendToClientOfPlayer(this.gameObject,MyMsgType.RecieveDamage,new RecieveDamageMsg(_value,_typ,_source));
 		_recieveDamage (_value, _typ, WorldGrid.getSource (_source));
@@ -673,7 +673,7 @@ public abstract class RPGObject:IDComponent,IRPGSource
 
 	public override void initialize ()
 	{
-		MyNetworkManager.client.RegisterHandler(MyMsgType.RecieveDamage,)
+		MyNetworkManager.client.RegisterHandler (MyMsgType.RecieveDamage, OnRecieveDamageMsg);
 		base.initialize ();
 	}
 

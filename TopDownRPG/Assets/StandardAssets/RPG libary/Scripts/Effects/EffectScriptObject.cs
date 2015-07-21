@@ -473,7 +473,7 @@ public class EffectScriptObject
 
 		switch (Command) {
 		case "recievedamage":
-			numericOutput.Add(new NumericValue("output0",target._recieveDamage(collectNumericValue(CallParameter[0],Triggerparameter),collectStringValue(CallParameter[1]),collectIRPGSource(CallParameter[2],Triggerparameter))));
+			numericOutput.Add(new NumericValue("output0",target.recieveDamage(collectNumericValue(CallParameter[0],Triggerparameter),collectStringValue(CallParameter[1]),collectIRPGSource(CallParameter[2],Triggerparameter))));
 			break;
 		case "updatestatistics":
 			target.updateStatistics();

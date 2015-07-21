@@ -73,7 +73,7 @@ public class InteractiveObject : RPGObject
 	float _cHP;
 	float _mHP;
 
-	public override float _recieveDamage (float Value, string Typ, IRPGSource Source)
+	protected override float _recieveDamage (float Value, string Typ, IRPGSource Source)
 	{
 		//Apply Resistance
 		Value -= this["Resistance_" + Typ];

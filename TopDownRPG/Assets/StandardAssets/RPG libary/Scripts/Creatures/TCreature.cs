@@ -343,7 +343,7 @@ public class TCreature : RPGObject
 
 
 	//Diese Funktion dient zum Zugriff auf den HP-Wert oder so, gibt die Menge des angerichten schaden zurück. Heilungen. bzw Absorbtionen müssen an die RecieveHealing Funktion weitergegeben werden.	
-	public override float _recieveDamage (float Value, string Typ, IRPGSource Source)
+	protected override float _recieveDamage (float Value, string Typ, IRPGSource Source)
 	{
 		if (Typ != "abilitycost") {
 			//Apply Resistance
