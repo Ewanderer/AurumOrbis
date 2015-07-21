@@ -67,7 +67,19 @@ public class WorldGrid : MonoBehaviour
 			//Objekt muss geladen werden.
 		}
 		return result;
-	} 
+	}
+
+	public static IRPGSource getSource(string ID){
+		IRPGSource result;
+		if (!ID.Contains ("-"))
+			result = getIDObject (ID).GetComponent<RPGObject>();
+		else {
+			result=getIDObject(ID.Split('-')[0]).GetComponent<RPGObject>().Effects.Find(delegate(TEffect obj) {
+				return obj.ownID.ToString()==ID.Split('-')[1];
+			});
+		}
+		return result;
+	}
 
 	public WorldBlock[,,] baseGrid{
 		get{return baseGrid;}

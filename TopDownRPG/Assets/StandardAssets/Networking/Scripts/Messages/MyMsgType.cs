@@ -11,6 +11,8 @@ public static class MyMsgType
 	public static short LoginRequest=MsgType.Highest+5;
 	public static short NewAccountRequest = MsgType.Highest + 6;
 	public static short HookChar = MsgType.Highest + 7;
+	public static short AddEffect = MsgType.Highest + 8;
+	public static short RecieveDamage = MsgType.Highest + 9;
 
 }
 

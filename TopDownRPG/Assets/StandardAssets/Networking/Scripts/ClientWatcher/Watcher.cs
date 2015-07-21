@@ -60,19 +60,7 @@ public class Watcher : MonoBehaviour {
 	string[] avbCharNames;
 	string[] avbCharIDs;
 
-	public static RPGObject getReferenceObject(string ID){
 
-		RPGObject result;
-		List<RPGObject> objs = new List<RPGObject>(GameObject.FindObjectsOfType<RPGObject> ());
-		if ((result = objs.Find (delegate(RPGObject obj) {
-			return obj.getID () == ID;
-		})) != default(RPGObject)) 
-			return result;
-		 else {
-			MyNetworkManager.client.Send(MyMsgType.RequestVisibility,new StringMessage(ID));
-			return getReferenceObject(ID);
-		}
-	}
 
 	void OnGUI(){
 		switch (currentState) {
@@ -96,5 +84,34 @@ public class Watcher : MonoBehaviour {
 			break;
 		}
 	}
+
+	//Referenz-Hilfefunktionen
+
+	public static IDObject getReferenceObject(string ID){
+		ID = ID.Split ('-') [0];
+		IDObject result;
+		List<IDObject> objs = new List<IDObject>(GameObject.FindObjectsOfType<IDObject> ());
+		if ((result = objs.Find (delegate(IDObject obj) {
+			return obj.id == ID;
+		})) != default(IDObject)) 
+			return result;
+		else {
+			MyNetworkManager.client.Send(MyMsgType.RequestVisibility,new StringMessage(ID));
+			return getReferenceObject(ID);//Falls dieser rekusive Aufruf das Programm blockiert, nullen und aufs beste hoffen...
+		}
+	}
+
+	public static IRPGSource getReferenceSource(string ID){
+		IRPGSource result = getReferenceObject (ID.Split ('-') [0]).GetComponent<RPGObject>();
+		if (ID.Contains ("-")) {
+			result=(result as RPGObject).Effects.Find(delegate(TEffect obj) {
+				return obj.getID()==ID;
+			});
+		}
+		return result;
+	}
+
+
+
 
 }

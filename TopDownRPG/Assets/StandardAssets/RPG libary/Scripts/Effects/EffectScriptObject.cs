@@ -1,10 +1,10 @@
 using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
-
+[System.Serializable]
 public class EffectScriptObject
 {
-
 	bool isActive;
 
 	public bool IsActive {
@@ -12,8 +12,18 @@ public class EffectScriptObject
 	}
 
 	//Konstanten
-	IRPGSource Source;//Wird aus TEffect Source übernommen
+	IRPGSource Source{//Wird aus TEffect Source übernommen
+		get{
+			return effect.OriginalSource;
+		}
+		set{
+			effect.OriginalSource=value;
+		}
+	}
+
+	[System.NonSerialized]
 	RPGObject Afflicted;
+	[System.NonSerialized]
 	TEffect Effect;
 
 	public IRPGSource source {
@@ -29,7 +39,7 @@ public class EffectScriptObject
 	}
 
 	//Variablen
-
+	[System.Serializable]
 	public class StringValue
 	{
 		public string Name;
@@ -41,7 +51,7 @@ public class EffectScriptObject
 			Value = value;
 		}
 	}
-
+	[System.Serializable]
 	public class NumericValue
 	{
 		public string Name;
@@ -62,23 +72,49 @@ public class EffectScriptObject
 	}
 
 	//Triggerschalter
+
 	bool AllowActivate;
+
 	bool UseTimer;
+
 	float TimeIntervall;
+
 	float Timer;
+
 	bool TakeDamage;
+
 	bool RecieveHealing;
 	//Trigger-Interface Funktionen
-
+	[System.Serializable]
 	public struct Paramter
 	{
 		public string Name;
-		public IRPGSource O;
+
+		string oID;
+		[System.NonSerialized]
+		IRPGSource _O;
+
+		public IRPGSource O{
+			get{
+				if(_O!=null&&_O.getID()==oID)
+					return _O;
+				if(NetworkServer.active)
+					_O=WorldGrid.getSource(oID);
+				else
+					if(NetworkClient.active)
+						_O=Watcher.getReferenceSource(oID);
+				return _O;
+			}
+			set{
+				oID=value.getID();
+			}
+		}
 
 		public Paramter (string _Name, IRPGSource _Object)
 		{
 			Name = _Name;
 			O = _Object;
+			_O=null;
 		}
 	}
 
@@ -114,7 +150,6 @@ public class EffectScriptObject
 		}
 	}
 
-
 	public void OnTimer(){
 		if (!Effect.IsSupressed && UseTimer) {
 			if(Timer<Time.time){
@@ -125,6 +160,7 @@ public class EffectScriptObject
 	}
 
 	//
+
 	List<string> Script = new List<string> ();
 
 	//Benötige evt. verschachtelte If Blöcke oder so
@@ -437,16 +473,16 @@ public class EffectScriptObject
 
 		switch (Command) {
 		case "recievedamage":
-			numericOutput.Add(new NumericValue("output0",target.recieveDamage(collectNumericValue(CallParameter[0],Triggerparameter),collectStringValue(CallParameter[1]),collectIRPGSource(CallParameter[2],Triggerparameter))));
+			numericOutput.Add(new NumericValue("output0",target._recieveDamage(collectNumericValue(CallParameter[0],Triggerparameter),collectStringValue(CallParameter[1]),collectIRPGSource(CallParameter[2],Triggerparameter))));
 			break;
 		case "updatestatistics":
 			target.updateStatistics();
 			break;
 		case "addeffect":
 			if(CallParameter.Length==1)
-			target.addEffect(collectIRPGSource(CallParameter[0])as TEffect);
+			target.addEffect(collectIRPGSource(CallParameter[0])as TEffect,this.source);
 			else
-				target.addEffect(RPGCore.instance.spawnEffect(CallParameter[0],collectIRPGSource(CallParameter[1],Triggerparameter),target));
+				target.addEffect(RPGCore.instance.spawnEffect(CallParameter[0]),this.source);
 			break;
 		}
 

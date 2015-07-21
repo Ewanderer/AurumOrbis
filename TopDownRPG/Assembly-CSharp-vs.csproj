@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\StandardAssets\General\Skripts\FileHelper.cs" />
+     <Compile Include="Assets\StandardAssets\General\Skripts\MetaDataManager.cs" />
      <Compile Include="Assets\StandardAssets\General\Skripts\MyAssetDatabase.cs" />
      <Compile Include="Assets\StandardAssets\General\Skripts\StaticObject.cs" />
      <Compile Include="Assets\StandardAssets\General\Skripts\StaticWorldManager.cs" />
@@ -57,9 +58,11 @@
      <Compile Include="Assets\StandardAssets\Networking\Scripts\ID-System\IDObject.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\IDComponents\PlayerController.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\Messages\AccountCredentialMsg.cs" />
+     <Compile Include="Assets\StandardAssets\Networking\Scripts\Messages\AddEffectMsg.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\Messages\CharsheetMsg.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\Messages\LoginAnswerMsg.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\Messages\MyMsgType.cs" />
+     <Compile Include="Assets\StandardAssets\Networking\Scripts\Messages\RecieveDamageMsg.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\Messages\SkillUpdateMsg.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\NetworkManager\MyNetworkManager.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\Server\Grid\GridPoint.cs" />
@@ -67,11 +70,12 @@
      <Compile Include="Assets\StandardAssets\Networking\Scripts\Server\Grid\WorldGrid.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\Server\IDService.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\Server\ServerCore.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Creatures\Metadata\TFeat.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Creatures\Metadata\TPeople.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Creatures\Metadata\TProfession.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs" />
-     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Creatures\TFeat.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Effects\EffectScriptObject.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Effects\TEffect.cs" />
-     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Effects\TEffectBase.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\InteractiveObjects\InteractiveObject.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Items\Equipment\TEquipment.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Items\TItem.cs" />
@@ -83,7 +87,6 @@
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Meta\RPGObject.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\RPGDebug\RPGLogger.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\System\CommandInterpreter.cs" />
-     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\System\EffectCatalog.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\System\RPGCore.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Templates\TDiscipline_Template.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Templates\TRace_Template.cs" />

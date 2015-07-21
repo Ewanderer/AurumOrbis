@@ -7,6 +7,40 @@ using System.Collections.Generic;
 
 public class TCreature : RPGObject
 {
+
+	//Diese Hilfsklasse dient zur Serialisierung der Kreature
+	[System.Serializable]
+	public struct CompactCreature{
+		public int bStrength;
+		public int bCourage;
+		public int bAgility;
+		public int bPrestidigitation;
+		public int bConstitution;
+		public int bMetabolism;
+		public int bIntelligence;
+		public int bWisdom;
+		public int bCharisma;
+		public int bAppearance;
+		public float _bHitpoints;//Maximale Gesunheit, Grundwert
+		public float _cHitpoints;//Aktuelle Gesundheit wenn sie auf 0 fällt stirbt der Char, können nicht regeneriert werden solange nicht aller Schmerz wiederhergestellt wurde und auch benötigt man ärtzliche Behandlung.]
+		public float _cPain;//Eine Art Schutz gegen Schwere Verwundungen. Wird durch Rast, Heilmittelchen oder einfache Heilzauber geschaffen. 
+		public float _bDurability;//Die Gesamtasudauer der Figur,Grundwert
+		public float _cExhaustion;//Der Grad der Erschöpfung durch langanhaltende Belastung(Tragen Schwerer Rüstung, Schlafmangel). Stellt auch die Maximale Grenze für Stamina-Regeneration da.
+		public float _cStamina;//Wird durch Kurzeitige Körperliche Aktivität benötigt
+		public float _bMana;//Maximaler Manapool, wenn 0 können keine anderen Effekte die Mana steigern greifen.
+		public float _cMana;
+	}
+
+	public override void serializeToFile (string FileName)
+	{
+
+	}
+
+	public override void deserializeFromFile (string FileName)
+	{
+
+	}
+
 	public override List<TEffect> Effects {
 		get {
 			List<TEffect> result = new List<TEffect> ();
@@ -309,7 +343,7 @@ public class TCreature : RPGObject
 
 
 	//Diese Funktion dient zum Zugriff auf den HP-Wert oder so, gibt die Menge des angerichten schaden zurück. Heilungen. bzw Absorbtionen müssen an die RecieveHealing Funktion weitergegeben werden.	
-	public override float recieveDamage (float Value, string Typ, IRPGSource Source)
+	public override float _recieveDamage (float Value, string Typ, IRPGSource Source)
 	{
 		if (Typ != "abilitycost") {
 			//Apply Resistance

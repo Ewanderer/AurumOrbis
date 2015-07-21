@@ -27,19 +27,18 @@ public enum SizeCategory
  * @author Jordan Eichner
  * \brief Diese Basisklasse vereinheitlicht die wichtigsten Eigenschaften aller Objekte, die Teil der vom RPG-System verwalteten Welt sind.
  */
-[System.Serializable]
 public abstract class RPGObject:IDComponent,IRPGSource
 {
 	//Standardwerte, jeweils die konstanten Grundwerte originalValue und ihr Pandon die currentValues, die mit Updatestatics neu bestimmt werden.
+	[SerializeField]
 	protected float bWeight;/**< Standardgewicht in kg in einer Umgebung mit Standard g;*/
 	[SyncVar]
-	[SerializeField]
 	protected float cWeight;/**< Durch Effekte verändertes Gewicht*/
 	
-
+	[SerializeField]
 	protected SizeCategory bSizeCategory; /**< Größenordnung für Modifikationen */
 	[SyncVar]
-	[SerializeField]
+
 	protected SizeCategory cSizeCategory;	/**<Durch Effekte veränderte Größe*/	
 
 	/**Geschützte Liste für Effekte ist über die entsprechenden Funktionen(AddEfect,RemoveEffect) von außen aufzurufen*/
@@ -413,8 +412,23 @@ public abstract class RPGObject:IDComponent,IRPGSource
 		}
 	}
 
-	public virtual bool addEffect (TEffect Effect)
+	[Command]
+	public void Cmd_requestEffectDistribution(byte[] effect,string source){
+		addEffect (FileHelper.deserializeObject<TEffect> (effect), WorldGrid.getSource (source));
+		if (!isLocalPlayer) {
+			NetworkServer.SendToClientOfPlayer(this.gameObject,MyMsgType.AddEffect,new AddEffectMsg(effect,source));
+		}
+	}
+	[SyncVar]
+			                                   [SerializeField]
+			                                   ulong IDCounter=0;		                           
+			                                
+	public virtual bool addEffect (TEffect Effect,IRPGSource source)
 	{
+		if (!isLocalPlayer||!isServer) {
+			Cmd_requestEffectDistribution(FileHelper.serializeObject<TEffect>(Effect),source.getID());
+			return false;
+		}
 		//Überprüfe zunächst ob ein Schutz gegen den Effekt exestiert
 		if (!cEffects.Exists (delegate(TEffect obj) {
 			foreach (string effs in obj.WorkingPassiveEffectStrings) {
@@ -427,6 +441,7 @@ public abstract class RPGObject:IDComponent,IRPGSource
 		})) {
 			OnNewEffect (Effect);//Füge den neuen Effekt in das Helper System ein
 			cEffects.Add (Effect);//Füge ihn in die Liste der Effekte ein
+			Effect.HookUp(source,this,IDCounter++);
 		//	UpdateStatistics ();//Aktualisiere die Statisitk(wird erst nach anknüpfen aller Effekte von der Gegenseite aufgerufen!)
 			return true;//Effekt erfolgreich hinzugefügt!
 		}
@@ -434,7 +449,7 @@ public abstract class RPGObject:IDComponent,IRPGSource
 	}
 
 	[ClientRpc]
-	public void Rpc_removeEffect(int effectID){
+	public void Rpc_removeEffect(ulong effectID){
 		if (!isLocalPlayer)
 			cEffects.Remove (cEffects.Find (delegate(TEffect obj) {
 				return obj.ownID == effectID;
@@ -557,7 +572,7 @@ public abstract class RPGObject:IDComponent,IRPGSource
 
 	//Abfrage über die Verfügbarkeit eines Skills
 
-	public	 virtual void checkSkill (string NameOfSkill, out int BaseValue, out int EndValue, out AttributModificationHelper.Modification[] UsedModification, out AttributModificationHelper.Counter[] UsedCounter)
+	public virtual void checkSkill (string NameOfSkill, out int BaseValue, out int EndValue, out AttributModificationHelper.Modification[] UsedModification, out AttributModificationHelper.Counter[] UsedCounter)
 	{
 		BaseValue = 0;
 		EndValue = 0;
@@ -624,7 +639,26 @@ public abstract class RPGObject:IDComponent,IRPGSource
 
 
 //Diese Funktion dient zum Zugriff auf den HP-Wert oder so, gibt die Menge des angerichten schaden zurück. Heilungen. bzw Absorbtionen müssen an die RecieveHealing Funktion weitergegeben werden.	
-	public abstract float recieveDamage (float Value, string Typ, IRPGSource Source);
+	public float recieveDamage(float _value,string _typ,IRPGSource _source){
+		if (!isLocalPlayer) {
+			requestDamageDistribution();
+		}
+		return _recieveDamage (_value, _typ, _source);
+	}
+
+	[Command]
+	public void requestDamageDistribution(float _value,string _typ,string _source){
+		if(!isLocalPlayer)
+			NetworkServer.SendToClientOfPlayer(this.gameObject,MyMsgType.RecieveDamage,new RecieveDamageMsg(_value,_typ,_source));
+		_recieveDamage (_value, _typ, WorldGrid.getSource (_source));
+	}
+
+	void OnRecieveDamageMsg(NetworkMessage msg){
+		RecieveDamageMsg dmginfo = msg.ReadMessage<RecieveDamageMsg> ();
+		_recieveDamage (dmginfo._damage, dmginfo._type, Watcher.getReferenceSource (dmginfo._id));
+	}
+
+	protected abstract float _recieveDamage (float Value, string Typ, IRPGSource Source);
 	//Dient zum Verrechnen von Heilung mit beispielsweise Heilmodifikationen
 	protected abstract float recieveHealing (float Value, IRPGSource Source);
 
@@ -637,5 +671,19 @@ public abstract class RPGObject:IDComponent,IRPGSource
 		return base.referenceID;
 	}
 
+	public override void initialize ()
+	{
+		MyNetworkManager.client.RegisterHandler(MyMsgType.RecieveDamage,)
+		base.initialize ();
+	}
+
+	public override void deserializeFromFile (string FileName)
+	{
+		throw new System.NotImplementedException ();
+	}
+	public override void serializeToFile (string FileName)
+	{
+		throw new System.NotImplementedException ();
+	}
 
 }

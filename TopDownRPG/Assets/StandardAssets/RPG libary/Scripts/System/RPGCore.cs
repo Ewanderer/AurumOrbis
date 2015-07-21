@@ -6,8 +6,7 @@ using System.Collections.Generic;
 //Dieses Objekt ist für die Verwaltung aller Zeitabhänigen Dienste, sowie die generelle Initialiesierung aller Dienste verantwortlich, hier sind auch alle für Console oder Skripte gebundene Kommandos aufgeführt.
 public class RPGCore:MonoBehaviour {
 	public static RPGCore instance;
-
-	public static EffectCatalog effectCatalog;
+	
 
 	void Start(){
 		instance = this;
@@ -16,7 +15,6 @@ public class RPGCore:MonoBehaviour {
 
 	void InitializeServices(){
 		Dice.InitializeDiceService();
-		effectCatalog = new EffectCatalog ("./");
 	}
 
 
@@ -24,8 +22,12 @@ public class RPGCore:MonoBehaviour {
 	//System-Befehle(RPG-Intern):
 
 	//Diese Funktion lädt aus der Datenbank die EffectBase mit diesem Namen, generiert anschließend den Effekt
-	public TEffect spawnEffect(string EffectName,IRPGSource Source,RPGObject Target){
-		return new TEffect(Target.getID());
+	public TEffect spawnEffect(string EffectName){
+		 TEffect e=MetaDataManager.instance.allEffects.Find (delegate(TEffect obj) {
+			return obj.Name == EffectName;
+		});
+		return new TEffect (e.Name, e.GeneralCategory, e.Tags, e.GeneralOrder, e.PassiveEffectStrings, e.ActiveEffectStrings, e.oDuration);
+
 	}
 
 }
