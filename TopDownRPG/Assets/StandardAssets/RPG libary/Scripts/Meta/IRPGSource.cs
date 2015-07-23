@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public interface IRPGSource {
+public interface IRPGSource:IDInterface {
 	void sendMessage(string Message,IRPGSource Source);
-	string getID();
+
 
 	float this[string ValueName] {
 		get;

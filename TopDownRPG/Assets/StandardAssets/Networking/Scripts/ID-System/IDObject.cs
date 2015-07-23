@@ -5,13 +5,17 @@ using System.Collections.Generic;
 using System.IO;
 
 //Jedes Objekt, dass nicht zur Statischen Umgebung gehört ist ein ID-Objekt. Dieses Verwaltet die IDComponents, welche beispielsweise Aussehen() oder Verhalten(Controller) verwalten und so den Datenverkehr reduzieren.
-public class IDObject : NetworkBehaviour {
+public class IDObject : NetworkBehaviour,IDInterface {
 	[SyncVar]
 	private string _id;
 	private bool isToBeSaved=true;
 
 	public string id{
 		get{return _id;}
+	}
+
+	public string getID(){
+		return _id;
 	}
 
 	//Dieser Wert bei Spielern auf false gesetzt, wenn sie sich in einem Chunk befinden, der nicht komplett geladen wurde.

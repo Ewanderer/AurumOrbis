@@ -57,11 +57,11 @@ public class WorldGrid : MonoBehaviour
 	}
 
 	//Diese Funktion generiert entweder aus den Datein zu der ID ein IDObjekt oder sucht dieses aus der Liste der bereits geladenen IDObjekte
-	public static IDObject getIDObject(string ID){
-		IDObject result;
+	public static T getIDObject<T>(string ID)where T:Object,IDInterface{
+		T result;
 		if ((result = WorldGrid.instance._main.loadedObjects.Find (delegate(IDObject obj) {
-			return obj.id == ID;
-		})) != default(IDObject))
+			return obj.getID() == ID;
+		}).GetComponent<T>()) != default(T))
 			return result;
 		else {
 			//Objekt muss geladen werden.
@@ -72,9 +72,9 @@ public class WorldGrid : MonoBehaviour
 	public static IRPGSource getSource(string ID){
 		IRPGSource result;
 		if (!ID.Contains ("-"))
-			result = getIDObject (ID).GetComponent<RPGObject>();
+			result = getIDObject<RPGObject> (ID);
 		else {
-			result=getIDObject(ID.Split('-')[0]).GetComponent<RPGObject>().Effects.Find(delegate(TEffect obj) {
+			result=getIDObject<RPGObject>(ID.Split('-')[0]).Effects.Find(delegate(TEffect obj) {
 				return obj.ownID.ToString()==ID.Split('-')[1];
 			});
 		}

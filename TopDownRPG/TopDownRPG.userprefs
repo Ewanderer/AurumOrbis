@@ -1,25 +1,15 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\Jordan Eichner\Documents\GitHub\TopDownRPG\TopDownRPG\Assets\StandardAssets\RPG libary\Scripts\Meta\RPGObject.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs">
     <Files>
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Meta\RPGObject.cs" Line="690" Column="1" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs" Line="346" Column="11" />
-      <File FileName="Assets\StandardAssets\Networking\Scripts\Messages\MyMsgType.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\Networking\Scripts\NetworkManager\MyNetworkManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\Networking\Scripts\Messages\CharsheetMsg.cs" Line="1" Column="1" />
-      <File FileName="c:\Users\Jordan Eichner\Documents\GitHub\TopDownRPG\TopDownRPG\Assets\StandardAssets\RPG libary\Scripts\Meta\RPGObject.cs" Line="644" Column="8" />
-      <File FileName="Assets\StandardAssets\Networking\Scripts\IDComponents\PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\Networking\Scripts\Server\Grid\WorldBlock.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\Networking\Scripts\Server\Grid\GridPoint.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Creatures\Metadata\TProfession.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Creatures\Metadata\TPeople.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Creatures\Metadata\TFeat.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\General\Skripts\MetaDataManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\System\RPGCore.cs" Line="1" Column="1" />
-      <File FileName="Assets\Editor\MetaDataEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\Networking\Scripts\Server\Grid\WorldGrid.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\Networking\Scripts\ClientWatcher\Watcher.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\Networking\Scripts\Messages\RecieveDamageMsg.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Meta\RPGObject.cs" Line="30" Column="48" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs" Line="328" Column="56" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\Client\Watcher.cs" Line="87" Column="161" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\ID-System\IDInterface.cs" Line="4" Column="29" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Meta\IRPGSource.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\ID-System\IDObject.cs" Line="17" Column="23" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\ID-System\IDComponent.cs" Line="12" Column="23" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\Server\Grid\WorldGrid.cs" Line="63" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

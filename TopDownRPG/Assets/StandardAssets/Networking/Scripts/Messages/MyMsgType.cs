@@ -13,6 +13,9 @@ public static class MyMsgType
 	public static short HookChar = MsgType.Highest + 7;
 	public static short AddEffect = MsgType.Highest + 8;
 	public static short RecieveDamage = MsgType.Highest + 9;
+	public static short RemoveEffect=MsgType.Highest+10;
+	public static short CreateObjectFromID = MsgType.Highest + 11;
+	public static short CreateObjectFromTemplate = MsgType.Highest + 12;
 
 }
 

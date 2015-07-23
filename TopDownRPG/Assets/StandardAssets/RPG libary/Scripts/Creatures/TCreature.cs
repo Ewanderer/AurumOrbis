@@ -10,7 +10,7 @@ public class TCreature : RPGObject
 
 	//Diese Hilfsklasse dient zur Serialisierung der Kreature
 	[System.Serializable]
-	public struct CompactCreature{
+	public class CompactCreature:CompactRPGObject<TCreature>{
 		public int bStrength;
 		public int bCourage;
 		public int bAgility;
@@ -21,32 +21,80 @@ public class TCreature : RPGObject
 		public int bWisdom;
 		public int bCharisma;
 		public int bAppearance;
-		public float _bHitpoints;//Maximale Gesunheit, Grundwert
-		public float _cHitpoints;//Aktuelle Gesundheit wenn sie auf 0 fällt stirbt der Char, können nicht regeneriert werden solange nicht aller Schmerz wiederhergestellt wurde und auch benötigt man ärtzliche Behandlung.]
-		public float _cPain;//Eine Art Schutz gegen Schwere Verwundungen. Wird durch Rast, Heilmittelchen oder einfache Heilzauber geschaffen. 
-		public float _bDurability;//Die Gesamtasudauer der Figur,Grundwert
-		public float _cExhaustion;//Der Grad der Erschöpfung durch langanhaltende Belastung(Tragen Schwerer Rüstung, Schlafmangel). Stellt auch die Maximale Grenze für Stamina-Regeneration da.
-		public float _cStamina;//Wird durch Kurzeitige Körperliche Aktivität benötigt
-		public float _bMana;//Maximaler Manapool, wenn 0 können keine anderen Effekte die Mana steigern greifen.
-		public float _cMana;
+	//	public float _bHitpoints;//Maximale Gesunheit, Grundwert
+		public float cVitality;//Aktuelle Gesundheit wenn sie auf 0 fällt stirbt der Char, können nicht regeneriert werden solange nicht aller Schmerz wiederhergestellt wurde und auch benötigt man ärtzliche Behandlung.]
+		public float cHitpoints;//Eine Art Schutz gegen Schwere Verwundungen. Wird durch Rast, Heilmittelchen oder einfache Heilzauber geschaffen. 
+		//public float _bDurability;//Die Gesamtasudauer der Figur,Grundwert
+		public float cCondition;//Der Grad der Erschöpfung durch langanhaltende Belastung(Tragen Schwerer Rüstung, Schlafmangel). Stellt auch die Maximale Grenze für Stamina-Regeneration da.
+		public float cStamina;//Wird durch Kurzeitige Körperliche Aktivität benötigt
+
+		public override void createFromObject (TCreature o)
+		{
+			base.createFromObject (o);
+			bStrength = o.bStrength;
+			bCourage = o.bCourage;
+			bAgility = o.bAgility;
+			bPrestidigitation = o.bPrestidigitation;
+			bConstitution = o.bConstitution;
+			bMetabolism = o.bMetabolism;
+			bIntelligence = o.bIntelligence;
+			bWisdom = o.bWisdom;
+			bCharisma = o.bCharisma;
+			bAppearance = o.bAppearance;
+			cVitality = o._cVitality;
+			cHitpoints = o._cHitpoints;
+			cCondition = o._cCondition;
+			cStamina = o._cStamina;
+		}
+
+		public override void setupObject (TCreature o, bool mode)
+		{
+			base.setupObject (o, mode);
+			o.bStrength = bStrength;
+			o.bCourage = bCourage;
+			o.bAgility = bAgility;
+			o.bPrestidigitation = bPrestidigitation;
+			o.bConstitution = bConstitution;
+			o.bMetabolism = bMetabolism;
+			o.bIntelligence = bIntelligence;
+			o.bWisdom = o.bWisdom;
+			o.bCharisma = bCharisma;
+			o.bCharisma = bCharisma;
+			o.updateStatistics ();
+			if (mode) {
+				o._cVitality=cVitality;
+				o._cHitpoints=cHitpoints;
+				o._cCondition=cCondition;
+				o._cStamina=cStamina;
+			}else{
+				o._cVitality=o._mVitality;
+				o._cHitpoints=o._mVitality;
+				o._cCondition=o.mCondition;
+				o._cStamina=o.mCondition;
+			}
+		} 
 	}
+
 
 	public override void serializeToFile (string FileName)
 	{
-
+		CompactCreature cC = new CompactCreature ();
+		cC.createFromObject (this);
+		FileHelper.WriteToFile (FileName, FileHelper.serializeObject<CompactCreature> (cC));
 	}
 
 	public override void deserializeFromFile (string FileName)
 	{
-
+		CompactCreature cC = FileHelper.deserializeObject<CompactCreature>(FileHelper.ReadFromFile (FileName));
+		cC.setupObject (this,true);
 	}
 
 	public override List<TEffect> Effects {
 		get {
 			List<TEffect> result = new List<TEffect> ();
 			result.AddRange (cEffects);
-			foreach (EquipmentSlot eq in Equipment)
-				result.AddRange (eq.SlottedItem.Effects);
+			foreach (BodyPart eq in bodyParts)
+				result.AddRange (eq.slottedItem.Effects);
 			return result.FindAll (delegate(TEffect obj) {
 				return !obj.IsSupressed;
 			});
@@ -79,24 +127,34 @@ public class TCreature : RPGObject
 	int bAppearance;
 	//Felder für die durch Effekte modifizierten Attribute
 	[SyncVar]
+	[System.NonSerialized]
 	int cStrength;
 	[SyncVar]
+	[System.NonSerialized]
 	int cCourage;
 	[SyncVar]
+	[System.NonSerialized]
 	int cAgility;
 	[SyncVar]
+	[System.NonSerialized]
 	int cPrestidigitation;
 	[SyncVar]
+	[System.NonSerialized]
 	int cConstitution;
 	[SyncVar]
+	[System.NonSerialized]
 	int cMetabolism;
 	[SyncVar]
+	[System.NonSerialized]
 	int cIntelligence;
 	[SyncVar]
+	[System.NonSerialized]
 	int cWisdom;
 	[SyncVar]
+	[System.NonSerialized]
 	int cCharisma;
 	[SyncVar]
+	[System.NonSerialized]
 	int cAppearance;
 	//Öffentliche Felder zum Auslesen der Attribute
 
@@ -170,23 +228,27 @@ public class TCreature : RPGObject
 	}
 
 	//Sekundäre Attribute
-	[SerializeField]
-	float _bHitpoints;//Maximale Gesunheit, Grundwert
+
+	float _bVitality{//Maximale Gesunheit, Grundwert
+		get{return Constitution*2;}
+	}
 	[SyncVar]
-	float _mHitpoints;//Maximale Gesundheit, Endwert.
+	[System.NonSerialized]
+	float _mVitality;//Maximale Gesundheit, Endwert.
+	[SyncVar]
+	float _cVitality;//Aktuelle Gesundheit wenn sie auf 0 fällt stirbt der Char, können nicht regeneriert werden solange nicht aller Schmerz wiederhergestellt wurde und auch benötigt man ärtzliche Behandlung.
+	[SyncVar]
+	float _cHitpoints;//Eine Art Schutz gegen Schwere Verwundungen. Wird durch Rast, Heilmittelchen oder einfache Heilzauber geschaffen. 
+
+	float _bCondition{//Die Gesamtasudauer der Figur,Grundwert
+		get{return Constitution*2;}
+	}
+	[SyncVar]
+	[System.NonSerialized]
+	float _mCondition;//Die Gesamtausdauer der Figur, Endwert
 	[SyncVar]
 	[SerializeField]
-	float _cHitpoints;//Aktuelle Gesundheit wenn sie auf 0 fällt stirbt der Char, können nicht regeneriert werden solange nicht aller Schmerz wiederhergestellt wurde und auch benötigt man ärtzliche Behandlung.
-	[SyncVar]
-	[SerializeField]
-	float _cPain;//Eine Art Schutz gegen Schwere Verwundungen. Wird durch Rast, Heilmittelchen oder einfache Heilzauber geschaffen. 
-	[SerializeField]
-	float _bDurability;//Die Gesamtasudauer der Figur,Grundwert
-	[SyncVar]
-	float _mDurability;//Die Gesamtausdauer der Figur, Endwert
-	[SyncVar]
-	[SerializeField]
-	float _cExhaustion;//Der Grad der Erschöpfung durch langanhaltende Belastung(Tragen Schwerer Rüstung, Schlafmangel). Stellt auch die Maximale Grenze für Stamina-Regeneration da.
+	float _cCondition;//Der Grad der Erschöpfung durch langanhaltende Belastung(Tragen Schwerer Rüstung, Schlafmangel). Stellt auch die Maximale Grenze für Stamina-Regeneration da.
 	[SyncVar]
 	[SerializeField]
 	float _cStamina;//Wird durch Kurzeitige Körperliche Aktivität benötigt
@@ -201,35 +263,24 @@ public class TCreature : RPGObject
 
 	//Öffentliche Felder für Sekundär-Attribute
 
-	public float mHitpoints {
-		get{ return _mHitpoints;}
+	public float mVitality {
+		get{ return _mVitality;}
+	}
+
+	public float cVitality {
+		get{ return _cVitality;}
 	}
 
 	public float cHitpoints {
 		get{ return _cHitpoints;}
 	}
 
-	public float cPain {
-		get{ return _cPain;}
+	public float mCondition {
+		get{ return _mCondition;}
 	}
 
-	public float mHealth {
-		get{ return _mHitpoints * 11;}
-	}
-
-	/*
-	 * Dieses Feld dient zur größeren Vedeutlicherung der Gesamt HP.
-	 */
-	public float cHealth {
-		get{ return _cPain + cHitpoints * 10;}
-	}
-
-	public float mDurability {
-		get{ return _mDurability;}
-	}
-
-	public float cExhaustion {
-		get{ return _cStamina;}
+	public float cCondition {
+		get{ return _cCondition;}
 	}
 
 	public float cStamina {
@@ -253,19 +304,42 @@ public class TCreature : RPGObject
 	}*/
 
 	//Ausrüstung und Inventar
-
-	public struct EquipmentSlot
+	[System.Serializable]
+	public struct BodyPart
 	{
 		public string Name;
-		public TEquipment SlottedItem;
+
+		//CombartPart
+
+
+
+		//Equipmentpart
+		public string slotType;//In den Equipmentslot kommen nur TEquipment objekte vom Typ der hier angegen ist :D
+		string slottedItemID;
+		[System.NonSerialized]
+		TEquipment _slottedItem;
+		public TEquipment slottedItem{
+			get{
+				if(_slottedItem&&_slottedItem.getID()==slottedItemID)
+					return _slottedItem;
+				if(NetworkServer.active)
+					_slottedItem=WorldGrid.getIDObject<TEquipment>(slottedItemID);
+				if(NetworkClient.active&&!NetworkServer.active)
+					_slottedItem=Watcher.getReferenceObject<TEquipment>(slottedItemID);
+				return _slottedItem;
+			}
+			set{
+				slottedItemID=value.getID();
+			}
+		}
 	}
 	[SerializeField]
-	List<EquipmentSlot> _Equipment = new List<EquipmentSlot> ();
+	List<BodyPart> _bodyParts = new List<BodyPart> ();
 	[SerializeField]
 	List<TItem> _Inventory = new List<TItem> ();
 
-	public List<EquipmentSlot> Equipment {
-		get{ return _Equipment;}
+	public List<BodyPart> bodyParts {
+		get{ return _bodyParts;}
 	}
 
 	public List<TItem> Inventory {
@@ -314,8 +388,8 @@ public class TCreature : RPGObject
 		if (_bMana > 0) {
 			_cMana = _bMana + GetCurrentValueModification ("mana");
 		}
-		_mHitpoints = _bHitpoints + cConstitution * 10 + GetCurrentValueModification ("hitpoints");
-		_mDurability = _bHitpoints + cConstitution * 100 + GetCurrentValueModification ("durability");
+		_mVitality = _bVitality  + GetCurrentValueModification ("hitpoints");
+		_mCondition = _bVitality + GetCurrentValueModification ("durability");
 
 	}
 
@@ -356,11 +430,11 @@ public class TCreature : RPGObject
 				foreach(EffectScriptObject so in e.ScriptObjects)
 					so.OnTakeDamage(ref Value,Typ,Source);
 
-			_cPain -= Value;
-			if (_cPain < 0) {
-				Value = _cPain / -10;
-				_cHitpoints -= Value;
-				_cPain = 0;
+			_cHitpoints -= Value;
+			if (_cHitpoints < 0) {
+				Value = _cHitpoints / -10;
+				_cVitality -= Value;
+				_cHitpoints = 0;
 			}
 		
 			return Value;
@@ -375,12 +449,20 @@ public class TCreature : RPGObject
 
 	protected override float recieveHealing (float Value,IRPGSource Source)
 	{
-		Value *= GetCurrentValueModification ("healingamplification");
-		_cPain = Mathf.Clamp (_cPain + Value, 0, _cHitpoints);
 		//Send Triggers
 		foreach(TEffect e in Effects)
 			foreach(EffectScriptObject so in e.ScriptObjects)
 				so.OnRecieveHealing(ref Value,Source);
+		Value *= GetCurrentValueModification ("healingamplification");
+		_cHitpoints = Mathf.Clamp (_cHitpoints + Value, 0, _cVitality);
+
 		return Value;
 	}
+
+	public override void OnNetworkUpdate ()
+	{
+
+		base.OnNetworkUpdate ();
+	}
+
 }
