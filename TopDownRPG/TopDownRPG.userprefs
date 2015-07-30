@@ -1,15 +1,15 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\StandardAssets\RPG libary\Scripts\Actions\ActionManager.cs">
     <Files>
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Meta\RPGObject.cs" Line="30" Column="48" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs" Line="328" Column="56" />
-      <File FileName="Assets\StandardAssets\Networking\Scripts\Client\Watcher.cs" Line="87" Column="161" />
-      <File FileName="Assets\StandardAssets\Networking\Scripts\ID-System\IDInterface.cs" Line="4" Column="29" />
-      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Meta\IRPGSource.cs" Line="1" Column="1" />
-      <File FileName="Assets\StandardAssets\Networking\Scripts\ID-System\IDObject.cs" Line="17" Column="23" />
-      <File FileName="Assets\StandardAssets\Networking\Scripts\ID-System\IDComponent.cs" Line="12" Column="23" />
-      <File FileName="Assets\StandardAssets\Networking\Scripts\Server\Grid\WorldGrid.cs" Line="63" Column="22" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\ID-System\IDInterface.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs" Line="263" Column="49" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\Client\Watcher.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\ID-System\IDObject.cs" Line="42" Column="29" />
+      <File FileName="Assets\StandardAssets\Networking\Scripts\Server\Grid\WorldGrid.cs" Line="1" Column="1" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Actions\Executeable.cs" Line="16" Column="1" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Actions\Attack_action.cs" Line="16" Column="3" />
+      <File FileName="Assets\StandardAssets\RPG libary\Scripts\Actions\ActionManager.cs" Line="15" Column="102" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

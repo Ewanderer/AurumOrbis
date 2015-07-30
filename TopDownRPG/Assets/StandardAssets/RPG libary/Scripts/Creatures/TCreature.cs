@@ -259,6 +259,9 @@ public class TCreature : RPGObject
 	[SyncVar]
 	[SerializeField]
 	float _cMana;
+	float _bInitative{
+		get{return (cWisdom+cIntelligence+cCourage)/3;}
+	}
 
 
 	//Öffentliche Felder für Sekundär-Attribute
@@ -295,7 +298,9 @@ public class TCreature : RPGObject
 		get{ return _cMana;}
 	}
 
-	
+	public float cInitative{
+
+	}
 
 
 	/*

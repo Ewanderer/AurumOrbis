@@ -73,6 +73,9 @@
      <Compile Include="Assets\StandardAssets\Networking\Scripts\Server\Grid\WorldGrid.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\Server\IDService.cs" />
      <Compile Include="Assets\StandardAssets\Networking\Scripts\Server\ServerCore.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Actions\ActionManager.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Actions\Attack_action.cs" />
+     <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Actions\Executeable.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Creatures\TCreature.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Effects\EffectScriptObject.cs" />
      <Compile Include="Assets\StandardAssets\RPG libary\Scripts\Effects\TEffect.cs" />

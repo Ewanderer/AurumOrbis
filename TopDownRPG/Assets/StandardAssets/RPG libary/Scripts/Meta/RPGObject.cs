@@ -112,7 +112,7 @@ public abstract class RPGObject:IDComponent,IRPGSource
 	}
 	/**Öffentliche Eigenschaft zum Auslesen aller Effekte, die auf das Objekt einwirken*/
 	public virtual List<TEffect> Effects {
-		get{ return cEffects;}
+		get{ return new List<TEffect>(cEffects);}
 	}
 	/**Öffentliche Eigenschaft zum Auslesen des aktuellen Gewichts*/
 	public virtual float Weight {
@@ -121,7 +121,7 @@ public abstract class RPGObject:IDComponent,IRPGSource
 
 	/**Öffentliche Eigenschaft zum Auslesen der Informationen, auch wen er nicht benutzt werden sollte, sondern man sollte eher @see GetInformation*/
 	public virtual List<Content> Information {
-		get{ return cInformation;}
+		get{ return new List<Content>(cInformation);}
 	}
 
 
