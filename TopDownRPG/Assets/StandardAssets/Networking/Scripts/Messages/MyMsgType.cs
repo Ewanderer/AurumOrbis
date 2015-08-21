@@ -11,11 +11,12 @@ public static class MyMsgType
 	public static short LoginRequest=MsgType.Highest+5;
 	public static short NewAccountRequest = MsgType.Highest + 6;
 	public static short HookChar = MsgType.Highest + 7;
-	public static short AddEffect = MsgType.Highest + 8;
-	public static short RecieveDamage = MsgType.Highest + 9;
-	public static short RemoveEffect=MsgType.Highest+10;
+
 	public static short CreateObjectFromID = MsgType.Highest + 11;
 	public static short CreateObjectFromTemplate = MsgType.Highest + 12;
 
+	public static short RequestNewCharacterMessage = MsgType.Highest + 14;
+
+	public static short IDComponentUpdateMessage=MsgType.Highest+15;
 }
 

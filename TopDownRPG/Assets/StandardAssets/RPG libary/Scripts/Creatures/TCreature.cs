@@ -2,99 +2,115 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
+[System.Serializable]
+public class CompactCreature:CompactRPGObject{
+	public int bStrength;
+	public int bCourage;
+	public int bAgility;
+	public int bPrestidigitation;
+	public int bConstitution;
+	public int bMetabolism;
+	public int bIntelligence;
+	public int bWisdom;
+	public int bCharisma;
+	public int bAppearance;
+	
+	public float cVitality;//Aktuelle Gesundheit wenn sie auf 0 fällt stirbt der Char, können nicht regeneriert werden solange nicht aller Schmerz wiederhergestellt wurde und auch benötigt man ärtzliche Behandlung.]
+	public float cHitpoints;//Eine Art Schutz gegen Schwere Verwundungen. Wird durch Rast, Heilmittelchen oder einfache Heilzauber geschaffen. 
+	public float cCondition;//Der Grad der Erschöpfung durch langanhaltende Belastung(Tragen Schwerer Rüstung, Schlafmangel). Stellt auch die Maximale Grenze für Stamina-Regeneration da.
+	public float cStamina;//Wird durch Kurzeitige Körperliche Aktivität benötigt
+	
+	public TCreature.BodyPart bodyRoot;
+	
 
+	public void createFromTemplate(TCreature_Template template){
+		bStrength = 10;
+		bCourage = 10;
+		bAgility = 10;
+		bPrestidigitation = 10;
+		bConstitution = 10;
+		bMetabolism = 10;
+		bIntelligence = 10;
+		bWisdom = 10;
+		bAppearance = 10;
+		bCharisma = 10;
+		bodyRoot = new TCreature.BodyPart (template.rootLimb);
+		bSizeCategory = template.size;
+		bEffects = new string[1];
+		bEffects [0] = template.linkedEffect.Name;
+	}
+}
 //Diese Klasse repräsentiert den Charakterbogen und dient dem Zusammenfassen der Auswirkung aller Statuseffekte und Ausrüstungseffekte.
-
+[RequireComponent(typeof(Rigidbody))]
 public class TCreature : RPGObject
 {
-
-	//Diese Hilfsklasse dient zur Serialisierung der Kreature
-	[System.Serializable]
-	public class CompactCreature:CompactRPGObject<TCreature>{
-		public int bStrength;
-		public int bCourage;
-		public int bAgility;
-		public int bPrestidigitation;
-		public int bConstitution;
-		public int bMetabolism;
-		public int bIntelligence;
-		public int bWisdom;
-		public int bCharisma;
-		public int bAppearance;
-	//	public float _bHitpoints;//Maximale Gesunheit, Grundwert
-		public float cVitality;//Aktuelle Gesundheit wenn sie auf 0 fällt stirbt der Char, können nicht regeneriert werden solange nicht aller Schmerz wiederhergestellt wurde und auch benötigt man ärtzliche Behandlung.]
-		public float cHitpoints;//Eine Art Schutz gegen Schwere Verwundungen. Wird durch Rast, Heilmittelchen oder einfache Heilzauber geschaffen. 
-		//public float _bDurability;//Die Gesamtasudauer der Figur,Grundwert
-		public float cCondition;//Der Grad der Erschöpfung durch langanhaltende Belastung(Tragen Schwerer Rüstung, Schlafmangel). Stellt auch die Maximale Grenze für Stamina-Regeneration da.
-		public float cStamina;//Wird durch Kurzeitige Körperliche Aktivität benötigt
-
-		public override void createFromObject (TCreature o)
-		{
-			base.createFromObject (o);
-			bStrength = o.bStrength;
-			bCourage = o.bCourage;
-			bAgility = o.bAgility;
-			bPrestidigitation = o.bPrestidigitation;
-			bConstitution = o.bConstitution;
-			bMetabolism = o.bMetabolism;
-			bIntelligence = o.bIntelligence;
-			bWisdom = o.bWisdom;
-			bCharisma = o.bCharisma;
-			bAppearance = o.bAppearance;
-			cVitality = o._cVitality;
-			cHitpoints = o._cHitpoints;
-			cCondition = o._cCondition;
-			cStamina = o._cStamina;
-		}
-
-		public override void setupObject (TCreature o, bool mode)
-		{
-			base.setupObject (o, mode);
-			o.bStrength = bStrength;
-			o.bCourage = bCourage;
-			o.bAgility = bAgility;
-			o.bPrestidigitation = bPrestidigitation;
-			o.bConstitution = bConstitution;
-			o.bMetabolism = bMetabolism;
-			o.bIntelligence = bIntelligence;
-			o.bWisdom = o.bWisdom;
-			o.bCharisma = bCharisma;
-			o.bCharisma = bCharisma;
-			o.updateStatistics ();
-			if (mode) {
-				o._cVitality=cVitality;
-				o._cHitpoints=cHitpoints;
-				o._cCondition=cCondition;
-				o._cStamina=cStamina;
-			}else{
-				o._cVitality=o._mVitality;
-				o._cHitpoints=o._mVitality;
-				o._cCondition=o.mCondition;
-				o._cStamina=o.mCondition;
-			}
-		} 
+	public void createCompactCreature (CompactCreature o)
+	{
+		base.createCompactRPGObject (o);
+		o.bStrength = bStrength;
+		o.bCourage = bCourage;
+		o.bAgility = bAgility;
+		o.bPrestidigitation = bPrestidigitation;
+		o.bConstitution = bConstitution;
+		o.bMetabolism = bMetabolism;
+		o.bIntelligence = bIntelligence;
+		o.bWisdom = bWisdom;
+		o.bCharisma = bCharisma;
+		o.bAppearance = bAppearance;
+		o.cVitality = _cVitality;
+		o.cHitpoints = _cHitpoints;
+		o.cCondition = _cCondition;
+		o.cStamina = _cStamina;
 	}
-
+	
+	public void setupObjectByCompact (CompactCreature o,bool mode)
+	{
+		base.setupObjectByCompact (o, mode);
+		bStrength = o.bStrength;
+		bCourage = o.bCourage;
+		bAgility = o.bAgility;
+		bPrestidigitation = o.bPrestidigitation;
+		bConstitution = o.bConstitution;
+		bMetabolism = o.bMetabolism;
+		bIntelligence = o.bIntelligence;
+		bWisdom = o.bWisdom;
+		bAppearance = o.bAppearance;
+		bCharisma = o.bCharisma;
+		updateStatistics ();
+		if (mode) {
+			_cVitality=o.cVitality;
+			_cHitpoints=o.cHitpoints;
+			_cCondition=o.cCondition;
+			_cStamina=o.cStamina;
+		}else{
+			_cVitality=_mVitality;
+			_cHitpoints=_mVitality;
+			_cCondition=mCondition;
+			_cStamina=mCondition;
+		}
+		_bodyRoot = bodyRoot;
+	} 
+	
+	//Diese Hilfsklasse dient zur Serialisierung der Kreature
 
 	public override void serializeToFile (string FileName)
 	{
 		CompactCreature cC = new CompactCreature ();
-		cC.createFromObject (this);
+		createCompactCreature (cC);
 		FileHelper.WriteToFile (FileName, FileHelper.serializeObject<CompactCreature> (cC));
 	}
 
 	public override void deserializeFromFile (string FileName)
 	{
 		CompactCreature cC = FileHelper.deserializeObject<CompactCreature>(FileHelper.ReadFromFile (FileName));
-		cC.setupObject (this,true);
+		setupObjectByCompact (cC,true);
 	}
 
 	public override List<TEffect> Effects {
 		get {
 			List<TEffect> result = new List<TEffect> ();
 			result.AddRange (cEffects);
-			foreach (BodyPart eq in bodyParts)
-				result.AddRange (eq.slottedItem.Effects);
+				result.AddRange (_bodyRoot.cEffects);
 			return result.FindAll (delegate(TEffect obj) {
 				return !obj.IsSupressed;
 			});
@@ -299,7 +315,7 @@ public class TCreature : RPGObject
 	}
 
 	public float cInitative{
-
+		get{return cInitative;}
 	}
 
 
@@ -312,14 +328,21 @@ public class TCreature : RPGObject
 	[System.Serializable]
 	public struct BodyPart
 	{
-		public string Name;
-
-		//CombartPart
-
+		public string name;
+		
+		
+		public string equipmentName;//Art welche Art von Equipment hier angeelgt werden darf
+	
+		public int weaponSize;//Gibt auskunft ob und wie groß eine Waffe sein kann. 0=keine Waffe.
+		public int pairNr;//Für zweihändige Waffen benötigt man zwei geeignete mit selben PairNr.-Wert Limbs.
+		
+		public float vital;//Vitale Punkte kosten jeweils einen festen Teil an der maximalen Gesundheit bei Verlust. Ist dieser wert 1, bedeutet der Verlust Tod
+		public float regrowthRate;//Anzahl der Rasten bis dieses Limb regeniert wurde. -1 kann nicht regenerieren.
 
 
 		//Equipmentpart
-		public string slotType;//In den Equipmentslot kommen nur TEquipment objekte vom Typ der hier angegen ist :D
+	//	public string slotType;//In den Equipmentslot kommen nur TEquipment objekte vom Typ der hier angegen ist :D
+		public SizeCategory size;//Für Beschränkungen von Equipment
 		string slottedItemID;
 		[System.NonSerialized]
 		TEquipment _slottedItem;
@@ -337,14 +360,41 @@ public class TCreature : RPGObject
 				slottedItemID=value.getID();
 			}
 		}
+
+		//Subparts
+		BodyPart[] subPart;
+
+		//Rekusive Suche nach allen Effekten
+		public List<TEffect> cEffects{
+			get{
+				List<TEffect> result=new List<TEffect>(_slottedItem.Effects);
+				foreach(BodyPart p in subPart)
+					result.AddRange(p.cEffects);
+				return result;
+			}
+		}
+
+		public BodyPart(TCreatureLimb origin){
+			this.name=origin.name;
+			this.pairNr=origin.pairNr;
+			this.equipmentName=origin.equipmentName;
+			this.regrowthRate=origin.regrowthRate;
+			this.size=origin.size;
+			this.slottedItemID="";
+			this.slottedItem=null;
+			this.weaponSize=origin.weaponSize;
+			subPart=new BodyPart[origin.subLimbs.Length];
+			for(int i=0;i<subPart.Length;i++)
+				subPart[i]=new BodyPart(origin.subLimbs[i]);
+		}
 	}
 	[SerializeField]
-	List<BodyPart> _bodyParts = new List<BodyPart> ();
+	BodyPart _bodyRoot;
 	[SerializeField]
 	List<TItem> _Inventory = new List<TItem> ();
 
-	public List<BodyPart> bodyParts {
-		get{ return _bodyParts;}
+	public BodyPart bodyRoot {
+		get{ return _bodyRoot;}
 	}
 
 	public List<TItem> Inventory {
@@ -464,10 +514,31 @@ public class TCreature : RPGObject
 		return Value;
 	}
 
-	public override void OnNetworkUpdate ()
+	public override void OnNetworkUpdate (NetworkMessage msg)
 	{
+		IDComponentUpdateMsg M = msg.ReadMessage<IDComponentUpdateMsg> ();
+		if (M.updateType != 0 && M.updateType <= 10)
+			base.OnNetworkUpdate (msg);
+		else {
+			switch(M.updateType){
+			case 0:
+				CompactCreature cC=FileHelper.deserializeObject<CompactCreature>(M.data);
+				setupObjectByCompact(cC,true);
+				break;
+			}
+		}
+	}
 
-		base.OnNetworkUpdate ();
+	public override IDComponentUpdateMsg CreateInitialSetupMessage ()
+	{
+		IDComponentUpdateMsg result = new IDComponentUpdateMsg ();
+		result.id = getID ();
+		result.componentName = GetType ().ToString ();
+		result.updateType = 0;
+		CompactCreature obj = new CompactCreature ();
+		createCompactCreature (obj);
+		result.data=FileHelper.serializeObject<CompactCreature>(obj);
+		return result;
 	}
 
 }

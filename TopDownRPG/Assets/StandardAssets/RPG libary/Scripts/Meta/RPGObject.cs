@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Networking;
+using UnityEngine.Networking.NetworkSystem;
 /**
  *@author Jordan Eichner
  * 
@@ -21,7 +22,16 @@ public enum SizeCategory
 	Gargantum,
 	Colossal
 }
-
+[System.Serializable]
+public class CompactRPGObject {
+	public string name="";
+	public float bWeight=0f;/**< Standardgewicht in kg in einer Umgebung mit Standard g;*/
+	public SizeCategory bSizeCategory=SizeCategory.Medium; /**< Größenordnung für Modifikationen */
+	public TEffect[] cEffects;//Beim Deserialisieren benutzen wir diesen Wert
+	public string[] bEffects;//Templates generieren ihre Effekten aus dieser Liste
+	public Content[] Information;
+	public ulong c;//Counter von dem Effekten
+}
 
 /**
  * @author Jordan Eichner
@@ -29,39 +39,43 @@ public enum SizeCategory
  */
 public abstract class RPGObject:IDComponent,IRPGSource
 {
-	
 
-	public class CompactRPGObject<T> where T:RPGObject {
-		public float bWeight;/**< Standardgewicht in kg in einer Umgebung mit Standard g;*/
-		public SizeCategory bSizeCategory; /**< Größenordnung für Modifikationen */
-		public TEffect[] cEffects;//Beim Deserialisieren benutzen wir diesen Wert
-		public string[] bEffects;//Templates generieren ihre Effekten aus dieser Liste
-		public Content[] Information;
-		public ulong c;
+	public void createCompactRPGObject(CompactRPGObject o){
+		o.bWeight = bWeight;
+		o.bSizeCategory = cSizeCategory;
+		o.cEffects =cEffects.ToArray();
+		o.Information =cInformation.ToArray();
+		o.c = IDCounter;
+		o.name = _name;
+	}
 
-		public virtual void createFromObject(T o){
-			bWeight = o.bWeight;
-			bSizeCategory = o.cSizeCategory;
-			cEffects = o.cEffects.ToArray();
-			Information = o.cInformation.ToArray();
-			c = o.IDCounter;
+	//Mode bestimmt ob als Teil eines Templates oder aus einem File gesetzt werden soll. true ist hierbei ID, false=template
+	public void setupObjectByCompact(CompactRPGObject o,bool mode){
+		this._name = o.name;
+		bWeight = o.bWeight;
+		bSizeCategory = o.bSizeCategory;
+		if (mode) {
+			cEffects=new List<TEffect>();
+			AttributeHelper=new List<AttributModificationHelper>();
+			if(o.cEffects!=null)
+			foreach(TEffect e in o.cEffects)
+				OnNewEffect(e);
+			IDCounter = o.c;
 		}
+		else
+			if(o.bEffects!=null)
+			foreach (string effSting in o.bEffects)
+				OnNewEffect( RPGCore.instance.spawnEffect (effSting));
+		if(o.Information!=null)
+			cInformation =new List<Content>(o.Information);
+		updateStatistics ();
+	}
 
-		//Mode bestimmt ob als Teil eines Templates oder aus einem File gesetzt werden soll. true ist hierbei ID, false=template
-		public virtual void setupObject(T o,bool mode){
-			o.bWeight = bWeight;
-			o.bSizeCategory = bSizeCategory;
-			if (mode) {
-				o.cEffects = new List<TEffect> (cEffects);
-				o.IDCounter = c;
-			}
-			else
-			foreach (string effSting in bEffects)
-				o.cEffects.Add (RPGCore.instance.spawnEffect (effSting));
-			o.cInformation =new List<Content>(Information);
-			o.updateStatistics ();
-		}
 
+	[SerializeField]
+	protected string _name;
+	public string name{
+		get{return _name;}
 	}
 
 	//Standardwerte, jeweils die konstanten Grundwerte originalValue und ihr Pandon die currentValues, die mit Updatestatics neu bestimmt werden.
@@ -78,7 +92,6 @@ public abstract class RPGObject:IDComponent,IRPGSource
 
 	/**Geschützte Liste für Effekte ist über die entsprechenden Funktionen(AddEfect,RemoveEffect) von außen aufzurufen*/
 	[SerializeField]
-	[SyncVar]
 	protected List<TEffect> cEffects = new List<TEffect> ();
 	/**Liste von Informationen.*/
 	[SerializeField]
@@ -277,8 +290,6 @@ public abstract class RPGObject:IDComponent,IRPGSource
 		}
 	}
 	bool dirtAH;
-
-	[SyncVar]
 	protected List<AttributModificationHelper> AttributeHelper = new List<AttributModificationHelper> ();
 
 	//Diese Funktion baut einen neuen Effekt in die Helper ein
@@ -441,25 +452,13 @@ public abstract class RPGObject:IDComponent,IRPGSource
 
 
 
-	[Command]
-	public void Cmd_requestEffectDistribution(byte[] effect,string source,int requester){
-		addEffect (FileHelper.deserializeObject<TEffect> (effect), WorldGrid.getSource (source));
-			foreach(NetworkConnection conn in NetworkServer.connections)
-				if(conn.connectionId!=requester)
-					NetworkServer.SendToClient(conn.connectionId,MyMsgType.AddEffect,new AddEffectMsg(effect,source));
-	}
-
-	void OnAddEffectMsg(NetworkMessage msg){
-		AddEffectMsg info=msg.ReadMessage<AddEffectMsg>();
-		addEffect (FileHelper.deserializeObject<TEffect> (info.effect), Watcher.getReferenceSource (info.sourceID));
-	}
 
 	[SyncVar]
 	[SerializeField]		 
 	ulong IDCounter=0;		                           
 
 	public bool addEffect(TEffect effect,IRPGSource source){
-			Cmd_requestEffectDistribution(FileHelper.serializeObject<TEffect>(effect),source.getID(),MyNetworkManager.client.connection.connectionId);
+		MyNetworkManager.DistributeIDComponentUpdate (this, new IDComponentUpdateMsg (1, FileHelper.serializeObject<AddEffectMsg> (new AddEffectMsg (effect, source.getID ()))));
 		return _addEffect (effect, source);
 	}
 
@@ -484,25 +483,8 @@ public abstract class RPGObject:IDComponent,IRPGSource
 		return false;//Effekt konnte nicht hinzugefügt werden!
 	}
 
-	[Command]
-	void Cmd_requestRemoveEffect(string effectID,bool enforce){
-		if (!isLocalPlayer)
-			NetworkServer.SendToClientOfPlayer (this.gameObject, MyMsgType.RemoveEffect, new RemoveEffectMsg (effectID, enforce));
-		_removeEffect (cEffects.Find (delegate(TEffect obj) {
-			return obj.ownID.ToString() == effectID;
-		}), enforce);
-	}
-
-	void OnRemoveEffectMessage(NetworkMessage msg){
-		RemoveEffectMsg info=msg.ReadMessage<RemoveEffectMsg>();
-		_removeEffect (cEffects.Find (delegate(TEffect obj) {
-			return obj.ownID.ToString() == info.effectID;
-		}), info.doenforce);
-	}
-
 	public bool removeEffect(TEffect effect,bool enforceRemove=false){
-		if (!isLocalPlayer)
-			Cmd_requestRemoveEffect (effect.ownID.ToString(), enforceRemove);
+		MyNetworkManager.DistributeIDComponentUpdate (this, new IDComponentUpdateMsg (2,FileHelper.serializeObject<RemoveEffectMsg>(new RemoveEffectMsg(effect.getID(),enforceRemove))));
 		return _removeEffect (effect, enforceRemove);
 	}
 
@@ -520,9 +502,13 @@ public abstract class RPGObject:IDComponent,IRPGSource
 	//Diese Abgespeckte variante von Checkvale wird für das berechnen der Modifikationen für currentValues benutzt
 	protected float GetCurrentValueModification (string Name)
 	{
-		return AttributeHelper.Find (delegate(AttributModificationHelper obj) {
+		AttributModificationHelper amh;
+		if ((amh = AttributeHelper.Find (delegate(AttributModificationHelper obj) {
 			return obj.AttributeName == Name;
-		}).OverallModification;
+		})) != default(AttributModificationHelper))
+			return amh.OverallModification;
+		else
+			return 0;
 	}
 
 
@@ -590,7 +576,7 @@ public abstract class RPGObject:IDComponent,IRPGSource
 		[SerializeField]
 		string[] BaseValues;
 		public string[] Focus;
-		public string[][] FocusAttributes;
+		public string[] FocusAttributes;
 		
 		public int Value {
 			get {
@@ -610,8 +596,39 @@ public abstract class RPGObject:IDComponent,IRPGSource
 	protected List<Skill> _skills = new List<Skill> ();
 	public List<Skill> Skills {
 		get{ 
-			return _skills;
+			return new List<Skill>(_skills);
 		}
+	}
+
+	//Skill-Sachen
+
+	//Lädt aus der Datenbank den Basisskill
+	public void addSkill(string SkillName){
+		MyNetworkManager.DistributeIDComponentUpdate (this, new IDComponentUpdateMsg (4, FileHelper.serializeObject<string> ("+" + SkillName)));
+		_addSkill (SkillName);
+	}
+	
+	//Aktiviert aus der Datenbank den Basisskill
+	public void addSkillFocus(string SkillName,string FokusName,string Attributes=""){
+		MyNetworkManager.DistributeIDComponentUpdate (this, new IDComponentUpdateMsg (4, FileHelper.serializeObject<string> (SkillName + "+" + FokusName + "_" + Attributes)));
+		_addSkillFocus (SkillName, FokusName, Attributes);
+	}
+
+	public void setSkillAttributes(string SkillName,string a1="",string a2="",string a3=""){
+		MyNetworkManager.DistributeIDComponentUpdate (this, new IDComponentUpdateMsg (4, FileHelper.serializeObject<string> (SkillName+ "<" + a1+","+a2+","+a3)));
+		_setSkillAttributes (SkillName, a1, a2, a3);
+	}
+
+	protected void _addSkill(string SkillName){
+
+	}
+
+	protected void _addSkillFocus(string SkillName,string FokusName,string Attributes=""){
+	
+	}
+
+	protected void _setSkillAttributes(string SkillName,string a1="",string a2="",string a3=""){
+	
 	}
 
 
@@ -686,22 +703,8 @@ public abstract class RPGObject:IDComponent,IRPGSource
 
 //Diese Funktion dient zum Zugriff auf den HP-Wert oder so, gibt die Menge des angerichten schaden zurück. Heilungen. bzw Absorbtionen müssen an die RecieveHealing Funktion weitergegeben werden.	
 	public float recieveDamage(float _value,string _typ,IRPGSource _source){
-		if (!isLocalPlayer) {
-			Cmd_requestDamageDistribution(_value,_typ,_source.getID());
-		}
+		MyNetworkManager.DistributeIDComponentUpdate (this, new IDComponentUpdateMsg (3, FileHelper.serializeObject<string> (_value.ToString()+";"+_typ+";"+_source.getID())));
 		return _recieveDamage (_value, _typ, _source);
-	}
-
-	[Command]
-	public void Cmd_requestDamageDistribution(float _value,string _typ,string _source){
-		if(!isLocalPlayer)
-			NetworkServer.SendToClientOfPlayer(this.gameObject,MyMsgType.RecieveDamage,new RecieveDamageMsg(_value,_typ,_source));
-		_recieveDamage (_value, _typ, WorldGrid.getSource (_source));
-	}
-
-	void OnRecieveDamageMsg(NetworkMessage msg){
-		RecieveDamageMsg dmginfo = msg.ReadMessage<RecieveDamageMsg> ();
-		_recieveDamage (dmginfo._damage, dmginfo._type, Watcher.getReferenceSource (dmginfo._id));
 	}
 
 	protected abstract float _recieveDamage (float Value, string Typ, IRPGSource Source);
@@ -719,42 +722,77 @@ public abstract class RPGObject:IDComponent,IRPGSource
 
 	public override void initialize ()
 	{
-		base.requireNetworkUpdate = true;
-		base.requireUpdateOnAllClients = true;
-		base.NetworkUpdateRate = 5;
-		MyNetworkManager.client.RegisterHandler (MyMsgType.RecieveDamage, OnRecieveDamageMsg);
-		MyNetworkManager.client.RegisterHandler (MyMsgType.RemoveEffect, OnRemoveEffectMessage);
-		MyNetworkManager.client.RegisterHandler (MyMsgType.AddEffect, OnAddEffectMsg);
 		base.initialize ();
 	}
 
 	public override void deserializeFromFile (string FileName)
 	{
-		CompactRPGObject<RPGObject> cO = FileHelper.deserializeObject<CompactRPGObject<RPGObject>> (FileHelper.ReadFromFile (FileName));
-		cO.setupObject (this, true);
+		CompactRPGObject cO = FileHelper.deserializeObject<CompactRPGObject> (FileHelper.ReadFromFile (FileName));
+		setupObjectByCompact (cO, true);
 	}
 	public override void serializeToFile (string FileName)
 	{
-		CompactRPGObject<RPGObject> cO = new CompactRPGObject<RPGObject> ();
-		cO.createFromObject (this);
-		FileHelper.WriteToFile (FileName, FileHelper.serializeObject<CompactRPGObject<RPGObject>>(cO));
+		CompactRPGObject cO = new CompactRPGObject ();
+		this.createCompactRPGObject(cO);
+		FileHelper.WriteToFile (FileName, FileHelper.serializeObject<CompactRPGObject>(cO));
 	}
 
-	[Command]
-	public void Cmd_UpdateSkills(byte[] skillList){
-		_skills = FileHelper.deserializeObject<List<Skill>> (skillList);
-	}
 
-	[Command]
-	public void Cmd_UpdateInformation(byte[] contentList){
-		cInformation = FileHelper.deserializeObject<List<Content>> (contentList);
-	}
-
-	public override void OnNetworkUpdate ()
+	public override void OnNetworkUpdate (NetworkMessage msg)
 	{
-		Cmd_UpdateSkills (FileHelper.serializeObject<List<Skill>>(_skills));
-		Cmd_UpdateSkills (FileHelper.serializeObject<List<Content>> (cInformation));
-		base.OnNetworkUpdate ();
+		IDComponentUpdateMsg M = msg.ReadMessage<IDComponentUpdateMsg> ();
+		switch (M.updateType) {
+		case 0:
+			setupObjectByCompact(FileHelper.deserializeObject<CompactRPGObject>(M.data),true);
+			break;
+		case 1:
+			AddEffectMsg aem=FileHelper.deserializeObject<AddEffectMsg>(M.data);
+			if(MyNetworkManager.instance.mode)
+				_addEffect(aem.effect,WorldGrid.getSource(aem.sourceID));
+			else
+				_addEffect(aem.effect,Watcher.getReferenceSource(aem.sourceID));
+			break;
+		case 2:
+			RemoveEffectMsg rem=FileHelper.deserializeObject<RemoveEffectMsg>(M.data);
+				_removeEffect(cEffects.Find(delegate(TEffect obj) {
+					return obj.getID()==rem.effectID;
+				}),rem.doenforce);
+			break;
+		case 3:
+			string damageString=FileHelper.deserializeObject<string>(M.data);
+			if(MyNetworkManager.instance.mode)
+				_recieveDamage(System.Convert.ToSingle(damageString.Split(';')[0]),damageString.Split(';')[1],WorldGrid.getSource(damageString.Split(';')[2]));
+			else
+				_recieveDamage(System.Convert.ToSingle(damageString.Split(';')[0]),damageString.Split(';')[1],Watcher.getReferenceSource(damageString.Split(';')[2]));
+			break;
+		case 4:
+			string skillString=FileHelper.deserializeObject<string>(M.data);
+			if (skillString.Contains ("+")) {
+				if(skillString[0]=='+'){
+					_addSkill(skillString.TrimStart('+'));
+				}else{
+					string a="";
+					if(skillString.Contains("_"))
+						a=skillString.Split('_')[1];
+					_addSkillFocus(skillString.Split('+')[0],skillString.Split('_')[0],a);
+				}
+			}else
+			if (skillString.Contains ("<")) {
+				_setSkillAttributes(skillString.Split('<')[0],skillString.Split('<')[1].Split(',')[0],skillString.Split('<')[1].Split(',')[1],skillString.Split('<')[1].Split(',')[2]);
+			}
+			break;
+		}
 	}
 
+	public override IDComponentUpdateMsg CreateInitialSetupMessage ()
+	{
+		IDComponentUpdateMsg result = new IDComponentUpdateMsg ();
+		result.componentName = GetType ().ToString ();
+		result.id = getID ();
+		result.updateType = 0;
+		CompactRPGObject obj = new CompactRPGObject ();
+		createCompactRPGObject (obj);
+		result.data = FileHelper.serializeObject<CompactRPGObject> (obj);
+		return result;
+	}
 }

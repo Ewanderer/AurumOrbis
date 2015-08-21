@@ -25,6 +25,10 @@ public class TAccount
 		get{return _isAdmin;}
 	}
 
+	public NetworkConnection usedConnection{
+		get{return connection;}
+	}
+
 	//For creating new Account
 	public TAccount(string name, string password){
 		_humanName = name;
@@ -47,6 +51,15 @@ public class TAccount
 		Names = null;
 		IDs = null;
 			return -1;
+	}
+
+	public void Logout(){
+		connection = null;
+	}
+
+	public void addCharacter(IDObject character){
+		_playerObjectsID.Add (character.id);
+		playerObjectsName.Add (character.GetComponent<TCreature> ().name);
 	}
 
 

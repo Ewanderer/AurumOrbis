@@ -12,7 +12,8 @@ public class MetaDataManager : MonoBehaviour
 	public List<TFeat_Template> allFeats=new List<TFeat_Template>();
 	public List<TProfession_Template> allProfessions=new List<TProfession_Template>();
 	public List<TCreature_Template> allPeoples=new List<TCreature_Template>();
-
+	public List<TSkill_Template> allSkills=new List<TSkill_Template> ();
+	public List<Executable> allExecuteble=new List<Executable>();
 
 
 	// Use this for initialization

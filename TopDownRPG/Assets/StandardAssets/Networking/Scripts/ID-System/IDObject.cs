@@ -64,8 +64,10 @@ public class IDObject : NetworkBehaviour,IDInterface {
 	List<IDComponent> components=new List<IDComponent>();
 
 	//Wenn das Objekt nicht aus einem Verzeichnes geladen wurde, wird diese Funktion das Objekt im ID-System registrieren.
-	[Command]
+
 	public void Cmd_registerObject(){
+		if (isClient)
+			return;
 		if (_id == "")
 			_id=IDService.getUniqueID ();
 	}
@@ -89,7 +91,7 @@ public class IDObject : NetworkBehaviour,IDInterface {
 	List<NetworkConnection> additionalObservers=new List<NetworkConnection>();
 
 	//Wenn das Objekt endgültig aus der Welt verschwindet soll, muss diese Funktion aufgerufen.
-	[Command]
+
 	public void Cmd_unregisterObject(){
 		if (base.isClient)
 			return;
@@ -148,6 +150,23 @@ public class IDObject : NetworkBehaviour,IDInterface {
 		}
 		//Lege eine Datei mit dem Namen "identity.obj" an, wo die Typ-Namen aller Componenten abgelegt sind
 		FileHelper.WriteToFile ("./server/objects/"+id+"/identity.obj",FileHelper.serializeObject<string[]>(componentNames.ToArray()));
+	}
+
+	//Diese Funktion wird nach Spawnen der Rohform auf den Clients und dem Laden, bzw. der Generierung des Objekt, alle ID-Componente zum Update aufzufordern. 
+	public void distributeObjectStateToObservers(NetworkConnection player=null){
+		if (isClient)
+			return;
+		List<IDComponentUpdateMsg> msgs = new List<IDComponentUpdateMsg> ();
+		foreach (IDComponent comp in GetComponents<IDComponent>())
+			msgs.Add (comp.CreateInitialSetupMessage());
+		this.GetComponent<NetworkIdentity> ().RebuildObservers (true);
+		foreach (NetworkConnection c in this.GetComponent<NetworkIdentity>().observers)
+			foreach (IDComponentUpdateMsg msg in msgs)
+				NetworkServer.SendToClient (c.connectionId, MyMsgType.IDComponentUpdateMessage, msg);
+		if (player != null) {
+			foreach (IDComponentUpdateMsg msg in msgs)
+				NetworkServer.SendToClient(player.connectionId,MyMsgType.IDComponentUpdateMessage,msg);
+		}
 	}
 
 }

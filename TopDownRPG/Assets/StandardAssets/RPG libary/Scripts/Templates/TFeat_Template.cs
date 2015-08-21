@@ -1,19 +1,22 @@
-using UnityEngine;
 using System.Collections;
-
-public class TFeat_Template : MonoBehaviour
+using System.Collections.Generic;
+[System.Serializable]
+public class TFeat_Template
 {
-
-	// Use this for initialization
-	void Start ()
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
+	public string Name;
+	public string shortDescription;
+	public string longDescription;
+	public bool isActivateable;
+	public TEffect linkendEffect;//Dieser Effekt wird mit Erhalt des Talents angefügt...
+	public string activeActionName;
+	[System.NonSerialized]
+	private Executable _activeAction;//Diese Aktion wird beim aktivieren freigesetzt...
+	public Executable activeAction{
+		get{
+			if(_activeAction!=null&&_activeAction.name==activeActionName)
+				return activeAction;
+			return null;
+		}
 	}
 }
 

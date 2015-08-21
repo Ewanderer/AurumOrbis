@@ -14,8 +14,7 @@ public abstract class IDComponent:NetworkBehaviour,IDInterface {
 
 	[System.NonSerialized]
 	protected IDObject referenceObject;
-
-
+	
 	//Gibt an ob beim Laden ein Update für diese Componenten gestartet werden muss wenn die Figur lädt...
 
 	bool _doUpdateOnOpenBlock;
@@ -24,20 +23,11 @@ public abstract class IDComponent:NetworkBehaviour,IDInterface {
 	}
 
 	public virtual void update(float timeSinceLastUpdate){}
-
-	protected bool requireNetworkUpdate=false;
+	
 	protected bool requireUpdateOnAllClients=false;
-
-	protected float NetworkUpdateRate=10;
-	float timer;
+	
 
 	void Update(){
-		if(requireNetworkUpdate&&isLocalPlayer&&isClient)
-		if (timer <= Time.time) {
-			timer=Time.time+NetworkUpdateRate;
-			OnNetworkUpdate();
-		}
-
 		if(isLocalPlayer||requireUpdateOnAllClients)
 			update (Time.deltaTime);
 	}
@@ -55,7 +45,8 @@ public abstract class IDComponent:NetworkBehaviour,IDInterface {
 	public abstract void serializeToFile(string FileName);
 	public abstract void deserializeFromFile(string FileName);
 
-	public virtual void OnNetworkUpdate(){
-	}
+	public abstract IDComponentUpdateMsg CreateInitialSetupMessage();
+
+	public abstract void OnNetworkUpdate(NetworkMessage msg);
 
 }

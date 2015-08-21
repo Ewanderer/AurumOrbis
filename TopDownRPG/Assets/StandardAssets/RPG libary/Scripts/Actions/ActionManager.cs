@@ -5,7 +5,7 @@ using System.Collections;
 public class ActionManager : IDComponent
 {
 	public bool CombatMode;//Außerhalb des Combat-Mode wird das Invoking einer Aktion bis zum nächsten Freien Wechsel verzögert. So kann man in Ruhe Menüaufwenige Aktionen ausführen, wie Craften
-	Executeable currentAction;
+	Executable currentAction;
 
 	public const float _roundDuration=1.5f;//Dieser Wert gibt an, wie lange eine Runde dauert.
 
@@ -28,11 +28,40 @@ public class ActionManager : IDComponent
 		}
 	}
 
+	public override void deserializeFromFile (string FileName)
+	{
 
+	}
+
+	public override void initialize ()
+	{
+		base.initialize ();
+	}
+
+	public override void OnNetworkUpdate (UnityEngine.Networking.NetworkMessage msg)
+	{
+
+	}
+
+	public override void serializeToFile (string FileName)
+	{
+
+	}
+
+	public override void update (float timeSinceLastUpdate)
+	{
+		base.update (timeSinceLastUpdate);
+	}
 
 	//Diese Funktion übernimmt eine neue Aktion
 	public void setAction(){
 
 	}
+
+	public override IDComponentUpdateMsg CreateInitialSetupMessage ()
+	{
+		return null;
+	}
+
 }
 

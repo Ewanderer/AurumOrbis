@@ -39,7 +39,6 @@ public class AccountService : MonoBehaviour
 		}))
 			NetworkServer.SendToClient (msg.conn.connectionId, MyMsgType.SystemError, new StringMessage ("Fehler bei der Accounterstellung! Nutzernamen bereits vergeben."));
 		else{
-		
 			registredAccount.Add (new TAccount (credential.userName, credential.passsword));
 			Login(msg);
 		}
@@ -60,6 +59,18 @@ public class AccountService : MonoBehaviour
 	void Update ()
 	{
 	
+	}
+
+	public void Logout(NetworkConnection conn){
+		registredAccount.Find (delegate(TAccount obj) {
+			return obj.usedConnection == conn;
+		}).Logout ();
+	}
+
+	public void AddCharacter(NetworkConnection conn, IDObject playerObject){
+		registredAccount.Find (delegate(TAccount obj) {
+			return obj.usedConnection == conn;
+		}).addCharacter (playerObject);
 	}
 }
 

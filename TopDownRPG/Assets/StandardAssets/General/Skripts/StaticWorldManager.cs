@@ -38,7 +38,7 @@ public class TWorld{
 			get{return _observers;}
 		}
 
-		public void load(){
+		public void load(bool isEditorial=false){
 		if (loading)
 				return;
 			loading = true;
@@ -51,7 +51,7 @@ public class TWorld{
 				c++;
 			}
 			loading = false;
-			if (_observers.Count == 0)
+			if (_observers.Count == 0&&!isEditorial)
 				unload ();
 		}
 
@@ -61,13 +61,16 @@ public class TWorld{
 			loading = true;
 			foreach (StaticObject so in loadedObjects)
 				GameObject.Destroy (so);
+			loading = false;
 		}
 
 	}
 	public WorldNode[,,] Nodes;
+	public Vector3 offset;//Da wir keine Arrays im Negativen Index beginnen können und auch Statische Welten nicht bei 0 beginnen ist dies hier der Referenzwert, um den alle Eintragungen verschoben werden müssen.
 
-	public TWorld(Vector3 size){
+	public TWorld(Vector3 size,Vector3 minimumValues){
 		Nodes=new WorldNode[(int)size.x,(int)size.y,(int)size.z];
+		offset = new Vector3 ((int)minimumValues.x, (int)minimumValues.y, (int)minimumValues.z);
 	}
 }
 
@@ -78,15 +81,15 @@ public class StaticWorldManager : MonoBehaviour
 	public static StaticWorldManager instance;
 
 	public static void registerIDObject(IDObject o, Vector3 node){
-		instance.usedWorld.Nodes [(int)node.x, (int)node.y, (int)node.z].observers.Add (o);
-		if (!instance.usedWorld.Nodes [(int)node.x, (int)node.y, (int)node.z].isLoaded)
-			instance.usedWorld.Nodes [(int)node.x, (int)node.y, (int)node.z].load ();
+		instance.usedWorld.Nodes [(int)node.x-instance.usedWorld.offset.x, (int)node.y-instance.usedWorld.offset.y, (int)node.z-instance.usedWorld.offset.z].observers.Add (o);
+		if (!instance.usedWorld.Nodes [(int)node.x-instance.usedWorld.offset.x, (int)node.y-instance.usedWorld.offset.y, (int)node.z-instance.usedWorld.offset.z].isLoaded)
+			instance.usedWorld.Nodes [(int)node.x-instance.usedWorld.offset.x, (int)node.y-instance.usedWorld.offset.y, (int)node.z-instance.usedWorld.offset.z].load ();
 	}
 
 	public static void unregisterIDObject(IDObject o,Vector3 node){
-		instance.usedWorld.Nodes [(int)node.x, (int)node.y, (int)node.z].observers.Remove (o);
-		if(instance.usedWorld.Nodes [(int)node.x, (int)node.y, (int)node.z].observers.Count==0)
-			instance.usedWorld.Nodes [(int)node.x, (int)node.y, (int)node.z].unload();
+		instance.usedWorld.Nodes [(int)node.x-instance.usedWorld.offset.x, (int)node.y-instance.usedWorld.offset.y, (int)node.z-instance.usedWorld.offset.z].observers.Remove (o);
+		if(instance.usedWorld.Nodes [(int)node.x-instance.usedWorld.offset.x, (int)node.y-instance.usedWorld.offset.y, (int)node.z-instance.usedWorld.offset.z].observers.Count==0)
+			instance.usedWorld.Nodes [(int)node.x-instance.usedWorld.offset.x, (int)node.y-instance.usedWorld.offset.y, (int)node.z-instance.usedWorld.offset.z].unload();
 	}
 
 	public TWorld usedWorld;
@@ -119,10 +122,11 @@ public class StaticWorldManager : MonoBehaviour
 			if(so.getGridPosition().z>maxZ)
 				maxZ=(int)so.getGridPosition().z;
 		}
-		int sizeX = (maxX - minX)+1;
-		int sizeY = (maxY - minY)+1;
-		int sizeZ = (maxZ - minZ)+1;
-		TWorld nWorld = new TWorld (new Vector3 (sizeX, sizeY, sizeZ));
+		int sizeX = (maxX - minX)+10;
+		int sizeY = (maxY - minY)+10;
+		int sizeZ = (maxZ - minZ)+10;
+		//Negative werte werden durch einen versatz positiv gemacht
+		TWorld nWorld = new TWorld (new Vector3 (sizeX, sizeY, sizeZ),new Vector3(minX,minY,minZ));
 		nWorld.WorldName = Name;
 		foreach (StaticObject so in foundObjects) {
 			Vector3 v=so.getGridPosition();

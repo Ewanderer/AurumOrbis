@@ -113,14 +113,15 @@ public class WorldGrid : MonoBehaviour
 		createMetaGrid ();
 	}
 
-	public void setupGridPoints(){
+	public void setupGridPoints(Vector3 reference){
 		for (int x=0; x<_baseGrid.GetLength(0); x++)
 			for (int y=0; y<_baseGrid.GetLength(1); y++)
 				for (int z=0; z<_baseGrid.GetLength(2); z++) {
-				GridPoint nPoint=(GridPoint)Instantiate(pointExample,new Vector3(x,y,z),Quaternion.identity);
+				GridPoint nPoint=(GridPoint)Instantiate(pointExample,new Vector3(x,y,z)-reference,Quaternion.identity);
+				NetworkServer.Spawn(nPoint.gameObject);
 				nPoint.ConnectBlock(_baseGrid[x,y,z]);
 				}
-		NetworkServer.SpawnObjects ();
+
 			}
 
 

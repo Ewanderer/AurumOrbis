@@ -91,83 +91,28 @@ public static class Dice
 
 	public static void ActionRoll (RPGObject Source, string TargetValueName, ComplexityClass Class, int Modifiaction, out CheckResult resultTyp, out int restPool)
 	{
-		string[] AttributNames = new string[3];
-		float mod = 0f;
-		//Bestimmung der zum Skill assoziierten Attribute
-
+		string[] attributeNames=new string[3];
 		RPGObject.Skill sk;
-		if ((sk = (Source as RPGObject).Skills.Find (delegate(RPGObject.Skill obj) {
+		if ((sk = Source.Skills.Find (delegate(RPGObject.Skill obj) {
 			return obj.SkillName == TargetValueName.Split ('-') [0];
-		})) != default(TCreature.Skill)) {
-			if (TargetValueName.Split ('-').Length > 1) {
-				string[] s = TargetValueName.Split ('-');
-				int tryies = -1;//Wir überprüfen zunächst ob die geforderte Fokusierung vorhanden ist.
-				for (int i=0; i<sk.Focus.Length; i++) {
-					if (sk.Focus [i] == s [1]) {
-						AttributNames = sk.FocusAttributes [i];
-						mod = 1;
-						tryies++;
-					}
+		})) != default(RPGObject.Skill)) {
+			if(TargetValueName.Split('-').Length>1){
+				for(int i=0;i<sk.Focus.Length;i++){
+
 				}
-				if (tryies == -1) {//Fokus nicht Vorhanden
-					//Krame Skill Helper Heraus um das Umrechungsverhältnis zu bestimmen
-					SkillHelper sh;
-					if ((sh = skh.Find (delegate(SkillHelper obj) {
-						return obj.Skill == s [0];
-					})) != default(SkillHelper)) {
-						for (int i=0; i<sh.Substitution.Length; i++) {
-							if (sh.Substitution [i].Split (',') [0] == s [1]) {
-								mod = System.Convert.ToSingle (sh.Substitution [i].Split (',') [1]);
-								AttributNames [0] = sk.Attribute1;
-								AttributNames [1] = sk.Attribute2;
-								AttributNames [2] = sk.Attribute3;
-							}
-						}
-					} else
-						Debug.Log ("SkillHelper-Gatter Unvollständing:" + TargetValueName);
-				}
-			} else {
-				//Es wird nach dem allgemeinem Wert und seinen Attributen gefragt.
-				mod = 1;
-				AttributNames [0] = sk.Attribute1;
-				AttributNames [1] = sk.Attribute2;
-				AttributNames [2] = sk.Attribute3;
-			}
-		} else {
-			//Krame SkillHelper zur Bestimmung der Attribute hervor
-			SkillHelper sh;
-			if ((sh = skh.Find (delegate(SkillHelper obj) {
-				return obj.Skill == TargetValueName.Split ('-') [0];
-			})) != default(SkillHelper)) {
-				AttributNames = sh.associatedAttributes;
 			}
 		}
-	
-		//Beschaffung der Daten
-		int bV = 0;
-		int eV = 0;
-		RPGObject.AttributModificationHelper.Modification[] m;
-		RPGObject.AttributModificationHelper.Counter[] c;
-		int[] AttributeValues = new int[3];
-		AttributeValues [0] = (int)Source [AttributNames [0]];
-		AttributeValues [1] = (int)Source [AttributNames [1]];
-		AttributeValues [2] = (int)Source [AttributNames [2]];
-
-		Source.checkSkill (TargetValueName.Split ('-') [0], out bV, out eV, out m, out c);
-		resultTyp = RollCheck (ref eV, Modifiaction, (int)Class, AttributeValues);
-		//Ausführen des Rolls
-		restPool = eV;
-
-		//Auswertung
+		resultTyp = CheckResult.Succss;
+		restPool = 0;
 	}
 
 	public static void ActionRoll (RPGObject Source, string TargetValueName, ComplexityClass Class, int Modifiaction, out CheckResult resultTyp)
 	{
 		string[] AttributNames = new string[3];
 		float mod = 0f;
-
+		resultTyp = CheckResult.Succss;
 		//Bestimmung der zum Skill assoziierten Attribute
-
+		/*
 		RPGObject.Skill sk;
 		if ((sk = (Source as RPGObject).Skills.Find (delegate(RPGObject.Skill obj) {
 			return obj.SkillName == TargetValueName.Split ('-') [0];
@@ -231,6 +176,7 @@ public static class Dice
 		//Ausführen des Rolls
 		resultTyp = RollCheck (ref eV, Modifiaction, (int)Class, AttributeValues);
 		//Auswertung
+*/
 	}
 
 	public class SkillHelper
@@ -253,6 +199,10 @@ public static class Dice
 
 	public static void CompetitiveRoll (RPGObject source, string sourceValueName, RPGObject Target, ComplexityClass Class, int SMod, int TMod, out CheckResult resultTypSource, out CheckResult resultTypTarget, out int restPoolTarget)
 	{
+		resultTypSource = CheckResult.Succss;
+		resultTypTarget = CheckResult.Succss;
+		restPoolTarget = 0;
+		/*
 		//Bestimmung des TargetValueNames und der AttributValues mithilfe der SkillHelper.
 		string targetValueName = "";
 		int[] targetAttributeValues = new int[3];
@@ -417,7 +367,7 @@ public static class Dice
 		resultTypSource = CheckResult.Succss;
 		resultTypTarget = CheckResult.Succss;
 		restPoolTarget = 0;
-
+*/
 	}
 	/*
 	public static void AttackRoll (RPGObject Agressor, RPGObject Defendor, ComplexityClass Class, int SMod, int TMod, out CheckResult resultTypAgressor, out CheckResult resultTypDefendor)

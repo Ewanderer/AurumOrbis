@@ -5,6 +5,7 @@ public class Object_Template
 {
 	public enum RpgObjectType{
 		noObject=-1,
+		Interactive=0,
 		Creatue=1
 	};
 

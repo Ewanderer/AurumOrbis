@@ -28,10 +28,21 @@ public class PlayerController : IDComponent
 		base.initialize ();
 	}
 
+	public override IDComponentUpdateMsg CreateInitialSetupMessage ()
+	{
+		//Nicht benötigt?
+		return null;
+	}
+
 	public override void update (float timeSinceLastUpdate)
 	{
 		//Hier das update einberufen
 		base.update (timeSinceLastUpdate);
+	}
+
+	public override void OnNetworkUpdate (NetworkMessage msg)
+	{
+		return;
 	}
 
 
