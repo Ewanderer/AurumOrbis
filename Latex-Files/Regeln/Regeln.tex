@@ -146,6 +146,10 @@ Die allgemeine Ausdauer, aber auch die Körpereigenen Abwehrkräfte gegen Gifte 
 \item[Charisma(CHA)]
 \item[Aussehen(APP)]
 \end{description}
+\chapter{Steigern und Fortschritt}
+Erfahrungspunkte in einer Fähigkeit werden gleichmäßig auf die verwendeten Attribute verteilt. Die Formel zur Bestimmung des Fortschrittes lautet:
+\\$9X+e^{frac{X}{5}}$
+\\Zuästzlich können Sagenpunkte im Verhältnis 1:10 investiert werden können.
 \chapter{Sekundäre Attribute}
 Die hier aufgeführten Werte, berechnen sich aus den Basisattributen und können daher nicht direkt durch Training verbessert werden.
 \\Vitalität=Konstitution*2+Boni
@@ -154,27 +158,32 @@ Die hier aufgeführten Werte, berechnen sich aus den Basisattributen und können
 \\Gefahren-Level(Monster/Tiere)=Summe aller Attribute / 10
 \chapter{Fertigkeiten}
 \section{Einführung}
-Alle Tätigkeiten, die nicht auf einem Attribut basiert, sondern eine Mischung von Erfahrung und Attributen werden durch sogenannte Fertigkeiten beschrieben. Fertigkeiten lassen sich dabei in die Kategorien: Waffen, Soziales, Handwerk, Wissen, Sonstiges. Die Kategorie ist dabei ausschlaggebend für die Lernkosten. Zusätzlich hat jede Fertigkeit einen eigenen, von den Professionen und der sog. Komplexität(A=1, B=1.25, C=1.5, D=2, E=2.25, F=2.5) abhängigen Lernmodifikator. Eine Fertigkeit kann zudem in sog. Fokussierungen auftreten. Diese sind in der Regel Teil einer Profession und erlaubt in bestimmten Situationen mehr Punkte in eine Probe einzubringen.
+Alle Tätigkeiten, die nicht auf einem Attribut basiert, sondern eine Mischung von Erfahrung und Attributen werden durch sogenannte Fertigkeiten beschrieben. Fertigkeiten lassen sich dabei in die Kategorien: Waffen, Soziales, Handwerk, Wissen, Sonstiges. Die Kategorie ist dabei ausschlaggebend für die Lernkosten. Zusätzlich hat jede Fertigkeit einen eigenen, von den Professionen und der sog. Komplexität(A=0, B=0.25, C=0.5, D=0.75, E=1, F=1.25...) abhängigen Lernmodifikator. Eine Fertigkeit kann zudem in sog. Fokussierungen auftreten. Diese sind in der Regel Teil einer Profession und erlaubt in bestimmten Situationen mehr Punkte in eine Probe einzubringen.
+\section{Erfahrung \& Steigern}
+Bei jeder Probe werden EP für die genutzte Fertigkeit ausgegeben. Dazu gilt Komplexitätsklasse * 3 EP * Lernmodifikator * (Prozentchance für Misserfolg/100, Minimum 0.05). Agiert man außerhalb der eigenen Komplexitätsklasse so werden die Basis-EP auf die eigene Klasse abgewertet. Für Aktionen unterhalb der eigenen Komplexitätsklasse wird der Mittelwert abgerundet gebildet.
+\\Die Formel zur Rangbestimmung auf Basis der Erfahrungspunkte ist:\\$7X*e^{\frac{x}{10}}$
+\\Für eine bessere Übersicht und Rechnung können diese Werte mit 100 multipliziert werden und bleibende Nachkommastellen fallen lassen, außerdem sollte man die Auswertung immer auf die nächste Rast verschieben.
 \section{Übersicht von Fertigkeiten}
 \subsection{Waffen}
 \subsection{Soziales}
 \begin{description}
-\item[Überzeugen-CHA,WIS,INT]Die Rhetorik ist die Hohe Kunst Argumente in schöne Worte zu kleiden, um langfristig die Einstellung seines Gegenübers hin zu seinem eigenem Standpunkt zu bewegen. Der Erfolg hängt einerseits von der Attitüde des Gegenübers ab. Befindet man sich in einer Diskussionsrunde können die Gegenüber ihre eigene Fertigkeit einbringen, da sie die Argumente entkräften. Wird diese Fähigkeiten in großen Menschenmengen benutzt wird die Probe zusätzlich entsprechend der Größe erschwert. Anbei ein paar Tabellen zu den Modifikatoren:
+\item[Überzeugen]- CHA,WIS,INT
+\\Die Rhetorik ist die Hohe Kunst Argumente in schöne Worte zu kleiden, um langfristig die Einstellung seines Gegenübers hin zu seinem eigenem Standpunkt zu bewegen. Der Erfolg hängt einerseits von der Attitüde des Gegenübers ab. Befindet man sich in einer Diskussionsrunde können die Gegenüber ihre eigene Fertigkeit einbringen, da sie die Argumente entkräften. Wird diese Fähigkeiten in großen Menschenmengen benutzt wird die Probe zusätzlich entsprechend der Größe erschwert. Anbei ein paar Tabellen zu den Modifikatoren:
 %hier tabelle
 Die Wirkung von Überzeugung hält in der Regel mehrere Tage, wobei angesichts veränderte Umstände die Wirkung auch spontan verfliegen kann. Übrig gebliebene Punkte entscheiden daher über den Grad der Überzeugung:
 %Hier tabelle
 Für jede Komplexitätsklasse über dem Stand des Ziels erhöht die Wirkung um eine Kategorie.
-\item[Überreden-CHA,INT,CHA]
-\item[Einschüchtern-CHA, COU, STR]
-\item[Lügen-CHA,INT,COU]
-\item[Menschenkenntnis-WIS,INT,CHA]
-\item[Etikette-INT, COU, SoH]
-\item[Gassenwissen-CHA,WIS,INT]
-\item[Tanzen-CHA,DEX,APP]
-\item[Singen-CHA,CHA,WIS]
-\item[Lyrik-CHA,WIS,CHA]
-\item[Schauspielen-CHA,WIS,COU]
-\item[Verkleiden-WIS,COU,INT]
+\item[Überreden]- CHA,INT,CHA
+\item[Einschüchtern]- CHA, COU, STR
+\item[Lügen]- CHA,INT,COU
+\item[Menschenkenntnis]- WIS,INT,CHA
+\item[Etikette]- INT, COU, SoH
+\item[Gassenwissen]- CHA,WIS,INT
+\item[Tanzen]- CHA,DEX,APP
+\item[Singen]- CHA,CHA,WIS
+\item[Lyrik]- CHA,WIS,CHA
+\item[Schauspielen]- CHA,WIS,COU
+\item[Verkleiden]- WIS,COU,INT
 
 
 \end{description}

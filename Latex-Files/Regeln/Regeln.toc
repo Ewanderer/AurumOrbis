@@ -1,43 +1,44 @@
 \select@language {ngerman}
-\contentsline {part}{I\hspace {1em}Grundlagen}{5}{part.3}
-\contentsline {chapter}{\numberline {1}Ein paar Abk\IeC {\"u}rzugen}{6}{chapter.4}
-\contentsline {chapter}{\numberline {2}Strukturierung der Welt}{7}{chapter.5}
-\contentsline {chapter}{\numberline {3}Komplexit\IeC {\"a}ts-Klassen}{8}{chapter.6}
-\contentsline {section}{\numberline {3.1}Einstufungen von Proben}{9}{section.7}
-\contentsline {section}{\numberline {3.2}Mathematik zu Schranken f\IeC {\"u}r Spielerfortschritt}{9}{section.8}
-\contentsline {chapter}{\numberline {4}Proben}{11}{chapter.9}
-\contentsline {section}{\numberline {4.1}\IeC {\"U}bersicht}{11}{section.10}
-\contentsline {section}{\numberline {4.2}Arten von Proben}{11}{section.11}
-\contentsline {section}{\numberline {4.3}Besonderheiten}{12}{section.12}
-\contentsline {chapter}{\numberline {5}Sagenpunkte}{13}{chapter.13}
-\contentsline {section}{\numberline {5.1}Verdienstm\IeC {\"o}glichkeiten}{13}{section.14}
-\contentsline {section}{\numberline {5.2}Ausgabem\IeC {\"o}glichkeiten}{14}{section.15}
-\contentsline {section}{\numberline {5.3}Anmerkungen}{14}{section.16}
-\contentsline {chapter}{\numberline {6}Erfahrungspunkte}{15}{chapter.17}
-\contentsline {part}{II\hspace {1em}Kreaturen}{16}{part.18}
-\contentsline {chapter}{\numberline {1}\IeC {\"U}bersicht}{17}{chapter.19}
-\contentsline {chapter}{\numberline {2}Attribute}{18}{chapter.20}
-\contentsline {chapter}{\numberline {3}Sekund\IeC {\"a}re Attribute}{20}{chapter.21}
-\contentsline {chapter}{\numberline {4}Fertigkeiten}{21}{chapter.22}
-\contentsline {section}{\numberline {4.1}Einf\IeC {\"u}hrung}{21}{section.23}
-\contentsline {section}{\numberline {4.2}\IeC {\"U}bersicht von Fertigkeiten}{21}{section.24}
-\contentsline {subsection}{\numberline {4.2.1}Waffen}{21}{subsection.25}
-\contentsline {subsection}{\numberline {4.2.2}Soziales}{21}{subsection.26}
-\contentsline {subsection}{\numberline {4.2.3}Handwerk}{22}{subsection.27}
-\contentsline {subsection}{\numberline {4.2.4}Wissen}{22}{subsection.28}
-\contentsline {subsection}{\numberline {4.2.5}Sonstige}{23}{subsection.29}
-\contentsline {chapter}{\numberline {5}Effekte}{25}{chapter.30}
-\contentsline {part}{III\hspace {1em}Erg\IeC {\"a}nzung f\IeC {\"u}r Charaktere}{26}{part.31}
-\contentsline {chapter}{\numberline {1}Spezialisierungen/Professionen}{27}{chapter.32}
-\contentsline {section}{\numberline {1.1}Aufbau einer Profession/Spezialisierung}{27}{section.33}
-\contentsline {chapter}{\numberline {2}Gesundheit und Schwere Wunden}{28}{chapter.34}
-\contentsline {chapter}{\numberline {3}Kondition und Ersch\IeC {\"o}pfung}{29}{chapter.35}
-\contentsline {chapter}{\numberline {4}Kampf}{30}{chapter.36}
-\contentsline {chapter}{\numberline {5}Ausr\IeC {\"u}stung}{31}{chapter.37}
-\contentsline {part}{IV\hspace {1em}Ausr\IeC {\"u}stung \& anderen Gegenst\IeC {\"a}nden}{32}{part.38}
-\contentsline {part}{V\hspace {1em}Herstellung von Objekten}{33}{part.39}
-\contentsline {part}{VI\hspace {1em}Kampf}{34}{part.40}
-\contentsline {part}{VII\hspace {1em}Magie}{35}{part.41}
-\contentsline {part}{VIII\hspace {1em}Geweihte}{36}{part.42}
-\contentsline {part}{IX\hspace {1em}Meister \& Hintergr\IeC {\"u}nde}{37}{part.43}
-\contentsline {part}{X\hspace {1em}Zus\IeC {\"a}tzliche Regeln}{38}{part.44}
+\contentsline {part}{I\hspace {1em}Grundlagen}{6}{part.3}
+\contentsline {chapter}{\numberline {1}Ein paar Abk\IeC {\"u}rzugen}{7}{chapter.4}
+\contentsline {chapter}{\numberline {2}Strukturierung der Welt}{8}{chapter.5}
+\contentsline {chapter}{\numberline {3}Komplexit\IeC {\"a}ts-Klassen}{9}{chapter.6}
+\contentsline {section}{\numberline {3.1}Einstufungen von Proben}{10}{section.7}
+\contentsline {section}{\numberline {3.2}Mathematik zu Schranken f\IeC {\"u}r Spielerfortschritt}{10}{section.8}
+\contentsline {chapter}{\numberline {4}Proben}{12}{chapter.9}
+\contentsline {section}{\numberline {4.1}\IeC {\"U}bersicht}{12}{section.10}
+\contentsline {section}{\numberline {4.2}Arten von Proben}{12}{section.11}
+\contentsline {section}{\numberline {4.3}Besonderheiten}{13}{section.12}
+\contentsline {chapter}{\numberline {5}Sagenpunkte}{14}{chapter.13}
+\contentsline {section}{\numberline {5.1}Verdienstm\IeC {\"o}glichkeiten}{14}{section.14}
+\contentsline {section}{\numberline {5.2}Ausgabem\IeC {\"o}glichkeiten}{15}{section.15}
+\contentsline {section}{\numberline {5.3}Anmerkungen}{15}{section.16}
+\contentsline {chapter}{\numberline {6}Erfahrungspunkte}{16}{chapter.17}
+\contentsline {part}{II\hspace {1em}Kreaturen}{17}{part.18}
+\contentsline {chapter}{\numberline {1}\IeC {\"U}bersicht}{18}{chapter.19}
+\contentsline {chapter}{\numberline {2}Attribute}{19}{chapter.20}
+\contentsline {chapter}{\numberline {3}Sekund\IeC {\"a}re Attribute}{21}{chapter.21}
+\contentsline {chapter}{\numberline {4}Fertigkeiten}{22}{chapter.22}
+\contentsline {section}{\numberline {4.1}Einf\IeC {\"u}hrung}{22}{section.23}
+\contentsline {section}{\numberline {4.2}Erfahrung \& Steigern}{22}{section.24}
+\contentsline {section}{\numberline {4.3}\IeC {\"U}bersicht von Fertigkeiten}{23}{section.25}
+\contentsline {subsection}{\numberline {4.3.1}Waffen}{23}{subsection.26}
+\contentsline {subsection}{\numberline {4.3.2}Soziales}{23}{subsection.27}
+\contentsline {subsection}{\numberline {4.3.3}Handwerk}{24}{subsection.28}
+\contentsline {subsection}{\numberline {4.3.4}Wissen}{24}{subsection.29}
+\contentsline {subsection}{\numberline {4.3.5}Sonstige}{26}{subsection.30}
+\contentsline {chapter}{\numberline {5}Effekte}{27}{chapter.31}
+\contentsline {part}{III\hspace {1em}Erg\IeC {\"a}nzung f\IeC {\"u}r Charaktere}{28}{part.32}
+\contentsline {chapter}{\numberline {1}Spezialisierungen/Professionen}{29}{chapter.33}
+\contentsline {section}{\numberline {1.1}Aufbau einer Profession/Spezialisierung}{29}{section.34}
+\contentsline {chapter}{\numberline {2}Gesundheit und Schwere Wunden}{30}{chapter.35}
+\contentsline {chapter}{\numberline {3}Kondition und Ersch\IeC {\"o}pfung}{31}{chapter.36}
+\contentsline {chapter}{\numberline {4}Kampf}{32}{chapter.37}
+\contentsline {chapter}{\numberline {5}Ausr\IeC {\"u}stung}{33}{chapter.38}
+\contentsline {part}{IV\hspace {1em}Ausr\IeC {\"u}stung \& anderen Gegenst\IeC {\"a}nden}{34}{part.39}
+\contentsline {part}{V\hspace {1em}Herstellung von Objekten}{35}{part.40}
+\contentsline {part}{VI\hspace {1em}Kampf}{36}{part.41}
+\contentsline {part}{VII\hspace {1em}Magie}{37}{part.42}
+\contentsline {part}{VIII\hspace {1em}Geweihte}{38}{part.43}
+\contentsline {part}{IX\hspace {1em}Meister \& Hintergr\IeC {\"u}nde}{39}{part.44}
+\contentsline {part}{X\hspace {1em}Zus\IeC {\"a}tzliche Regeln}{40}{part.45}
