@@ -152,16 +152,19 @@ Erfahrungspunkte in einer Fähigkeit werden gleichmäßig auf die verwendeten At
 \\Zuästzlich können Sagenpunkte im Verhältnis 1:10 investiert werden können.
 \chapter{Sekundäre Attribute}
 Die hier aufgeführten Werte, berechnen sich aus den Basisattributen und können daher nicht direkt durch Training verbessert werden.
-\\Vitalität=Konstitution*2+Boni
-\\Regnerationsrate=Konstitution/(Metabolismus*2)+1+Boni
-\\Kondition=Konstitution*4+Boni
+\\Vitalität=Konstitution+Boni
+\\Trefferpunkte=Vitalität*5
+\\Regnerationsrate=Metabolismus/(Konstitution*2)+1+Boni
+\\Kondition=Konstitution*10+Boni
 \\Gefahren-Level(Monster/Tiere)=Summe aller Attribute / 10
+%K
 \chapter{Fertigkeiten}
 \section{Einführung}
-Alle Tätigkeiten, die nicht auf einem Attribut basiert, sondern eine Mischung von Erfahrung und Attributen werden durch sogenannte Fertigkeiten beschrieben. Fertigkeiten lassen sich dabei in die Kategorien: Waffen, Soziales, Handwerk, Wissen, Sonstiges. Die Kategorie ist dabei ausschlaggebend für die Lernkosten. Zusätzlich hat jede Fertigkeit einen eigenen, von den Professionen und der sog. Komplexität(A=0, B=0.25, C=0.5, D=0.75, E=1, F=1.25...) abhängigen Lernmodifikator. Eine Fertigkeit kann zudem in sog. Fokussierungen auftreten. Diese sind in der Regel Teil einer Profession und erlaubt in bestimmten Situationen mehr Punkte in eine Probe einzubringen.
+Alle Tätigkeiten, die nicht auf einem Attribut basiert, sondern eine Mischung von Erfahrung und Attributen werden durch sogenannte Fertigkeiten beschrieben. Fertigkeiten lassen sich dabei in die Kategorien: Waffen(B), Soziales(D), Handwerk(B), Wissen(C), Sonstiges(E). Die Kategorie ist dabei ausschlaggebend für die Lernkosten. Zusätzlich hat jede Fertigkeit einen eigenen, von den Professionen und der sog. Komplexität(A=0, B=0.25, C=0.5, D=0.75, E=1, F=1.25...) abhängigen Lernmodifikator. Eine Fertigkeit kann zudem in sog. Fokussierungen auftreten. Diese sind in der Regel Teil einer Profession und erlaubt in bestimmten Situationen mehr Punkte in eine Probe einzubringen.
 \section{Erfahrung \& Steigern}
 Bei jeder Probe werden EP für die genutzte Fertigkeit ausgegeben. Dazu gilt Komplexitätsklasse * 3 EP * Lernmodifikator * (Prozentchance für Misserfolg/100, Minimum 0.05). Agiert man außerhalb der eigenen Komplexitätsklasse so werden die Basis-EP auf die eigene Klasse abgewertet. Für Aktionen unterhalb der eigenen Komplexitätsklasse wird der Mittelwert abgerundet gebildet.
 \\Die Formel zur Rangbestimmung auf Basis der Erfahrungspunkte ist:\\$7X*e^{\frac{x}{10}}$
+\\Hat eine Fertigkeit die Komplexität A kann nur durch einen Lehrmeister/Trainingpartner gelernt werden. Nähere Regel hierzu folgen dann.
 \\Für eine bessere Übersicht und Rechnung können diese Werte mit 100 multipliziert werden und bleibende Nachkommastellen fallen lassen, außerdem sollte man die Auswertung immer auf die nächste Rast verschieben.
 \section{Übersicht von Fertigkeiten}
 \subsection{Waffen}
@@ -197,7 +200,7 @@ Für jede Komplexitätsklasse über dem Stand des Ziels erhöht die Wirkung um e
 \item[Weben und Spinnen]
 \item[Schreiner]
 \item[Baukunst]
-\item[]
+
 \end{description}
 \subsection{Wissen}
 Mithilfe von Wissensfertigkeiten können Merkmale von Feinden aufgedeckt werden. Dazu muss in der Regel eine Probe erschwert um die Gefahrenstufe selbigen gemacht werden. Für je 3 übrig gebliebene Punkte wird ein Merkmal aufgedeckt. Diese Erkennen-Probe kann pro Begegnung mit diesem Feind einmal eingesetzt werden und kostet eine Runde.
@@ -217,7 +220,8 @@ Zusätzlich kann ein Anwender dieser Fertigkeit ihm nicht bekannte Zaubersprüch
 \end{description}
 \subsection{Sonstige}
 \begin{description}
-\item[Schleichen]Frei;Wann immer eine Figur versucht unbemerkt zu bleiben, während sie sich bewegt, dann ist Schleichen gefragt. 
+\item[Schleichen]Frei;Wann immer eine Figur versucht unbemerkt zu bleiben, während sie sich bewegt, dann ist Schleichen gefragt. Im Kampf nimm ihre Bewegungsgeschwindigkeit auf 1/4 reduziert und sprinten unzulässig. Angriffe mit Nahkampfwaffen heben Schleichen auf.
+\item[Verstecken]Frei;Stillstand, Angriffe aus dem Verborgenem. Waffen, die keinen Sound abgeben la
 \item[Wahrnehmung]
 \item[Athletik]Rennen, Springen 
 \item[Akrobatik]Ausweichen, Balancieren, Manöver
@@ -232,14 +236,15 @@ Zusätzlich kann ein Anwender dieser Fertigkeit ihm nicht bekannte Zaubersprüch
 \setcounter{chapter}{0}
 \chapter{Spezialisierungen/Professionen}
 \section{Aufbau einer Profession/Spezialisierung}
-Jede Profession bringt sog. favorisierte und entlegene Fertigkeiten mit, bei denen jeweils der Lernmodifikator entsprechend erhöht und verringert wird.
+Jede Profession bringt sog. favorisierte und entlegene Fertigkeiten mit, bei denen jeweils der Lernmodifikator entsprechend erhöht und verringert wird. Bevorzugte Fertigkeiten werden um 2 Kategorien einfacher, während vernachlässigte Fertigkeiten um 3 schwerer werden. Weitere Professionen ändern bei Übereinstimmungen diesen Modifikator nur um 1.
 Dazu gibt es verteilt auf bis zu 6 Ränge, beginnend mit 0, Talente, Fertigkeiten-Foki und passive Vorteile.
 Pro Rang gibt es bis zu 4 mit Professionspunkten bezahlbare solcher Inhalte, sowie ein kostenloser, sobald der Rang durch Erfahrung freigeschaltet wurde. Höhere Ränge können dabei nicht eingesehen werden.  
+
 
 \chapter{Gesundheit und Schwere Wunden}
 Die wichtigsten Werte für eine Figur ist die eigene Gesundheit. Diese wird durch die sog. Vitalität und Trefferpunkte verkörpert.
 \\Vitalität - Dieser Wert ist entscheidend für das Überleben einer Figur. Sinkt sie auf 0 stirbt die Figur unweigerlich.
-\\Trefferpunkt - Bevor eine Figur lebensbedrohliche und schwere Verwundungen einsteckt, geht jeder Schaden gegen diesen Wert. Ist er aufgebraucht wird Vitalität im Verhältnis 1:10 aufgebraucht.
+\\Trefferpunkt - Bevor eine Figur lebensbedrohliche und schwere Verwundungen einsteckt, geht jeder Schaden gegen diesen Wert. Ist er aufgebraucht wird Vitalität im Verhältnis 1:5 aufgebraucht.
 \\Während die Regeneration von Trefferpunkten bereits während einer ersten echten Rast(8 Stunden) vollständig abgeschlossen ist, wobei Trefferpunkte nicht die aktuelle Vitalität übersteigen können, sieht es im Falle der Vitalität anders aus. In der Regel generiert eine Figur pro Rast ihre Vitalität mit der Regenerationsrate. Durch medizinische Behandlung können beide Regenetationen angehoben werden: 1h intensiver medizinischer Behandlung stellt alle Trefferpunkte wieder her. Für die Vitalität muss die Behandlung auf 12 ausgeweitet werden, wenn auch nicht zwangsläufig so intensiv, siehe hierfür die Fertigkeiten zur Heilkunde und regeneriert dabei die Hälfte der Vitalität.
 Schwere Verletzungen, wie fehlende Gliedmaßen reduzieren dauerhaft die maximale Vitalität, sofern sie nicht wiederhergestellt werden. Anbei eine Tabelle zur Übersicht der Auswirkungen einer derartigen Verletzung:
 %Tabelle
@@ -247,26 +252,55 @@ Schwere Verletzungen, wie fehlende Gliedmaßen reduzieren dauerhaft die maximale
 \chapter{Kondition und Erschöpfung}
 Jede körperliche Aktivität fordert früher oder später ihren Tribut in Form von Erschöpfung. Der Grad der aktuellen Erschöpfung wird hierbei durch die Werte Ausdauer und Kondition verkörpert:
 \\Ausdauer - Alle Körperlichen was über normale Gehen ohne Gepäck hinaus geht kostet in der Regel Ausdauer.
-\\Kondition - Im Fall das einer Figur die Puste ausgeht oder sie einer langfristigen Belastung durch beispielsweise einen Gewaltmarsch mit Gepäck durch die Wüste ausgesetzt ist, sinkt die Kondition. Ausdauer kann im Verhältnis 1:10 durch Kondition ersetzt werden.
+\\Kondition - Im Fall das einer Figur die Puste ausgeht oder sie einer langfristigen Belastung durch beispielsweise einen Gewaltmarsch mit Gepäck durch die Wüste ausgesetzt ist, sinkt die Kondition. Ausdauer kann im Verhältnis 1:5 durch Kondition ersetzt werden.
 \\Erhält eine Figur die Gelegenheit für Atem zu schöpfen, so regeneriert sich pro Minute ein Zehntel der maximalen Ausdauer. Diese wird begrenzt durch die aktuelle Kondition. Kondition hingegen erholt sich vollständig über eine 8 Stunden Rast, wobei auch kleinere Pausen von einer Mindestdauer von 1h die Kondition wiederherstellen.
 Eine niedrige Kondition belegt eine Figur außerdem mit zusätzlichen Mali auf seine Angriffs-, Parade-, sowie gekennzeichnete Fertigkeiten.
 50\% der maximalen Kondition erteilen einen Malus von 5, während 25\% einen Malus von 10 erteilen. Bei 5\% schließlich wird der Malus auf 20 angehoben.
-
-\chapter{Kampf}
-In Kampfsituationen wird das Kampfgeschehen in Runden eingeteilt. Zu Beginn jeder Runde wird der sog. PAI bestimmt. PAI steht dabei für: Parade, Attacke und Initiative. Initiative wird im Programm einmalig bei Ausrüsten einer Waffe berechnet und ohne das zusätzliche Punkt darauf verteilt werden können. Diese Werte werden über den Grundwert von Waffe, Attacke-Nahkampf/Fernkampf, Parade-Basiswert. In einer Runde stehen einer Figur 2 Aktionen zur Verfügung. Zusätzlich hat jede Figur noch min. eine Freie Aktion, wobei z.B. das Verlieren von Konzentration nicht als solche gilt.
-Runden bestehen aus 2 Phasen: Ansage und Ausführung.
-Während der Ansage, die bei der Figur mit der geringsten Initiative beginnt, müssen die Aktionen bestimmt werden. Die Ausführung selbiger Aktionen folgt anschließend, beginnend mit der Figur mit der höchsten Initiative.
-
-Bei einem klassischem Angriff wird eine Probe auf das Waffentalent gemacht, modifiziert durch die Attacke. ist der Angriff erfolgreich steht dem Ziel, falls es eine Parade offen hat, diese zu oder es kann als freie Aktion Ausweichen. In beiden Fällen muss eine entsprechende Gegenprobe gemacht werden, die allerdings nicht konkurrierend ist. Scheitert diese Probe war der Angriff erfolgreich und basierend auf der Waffe Schaden ausgewürfelt. Für 3 Punkte die beim Angriff übrig geblieben sind, erleidet das Ziel einen weiteren Punkt Schaden. 
-%Programmnotiz: Alle Aktions-Befehle führt das Programm basierend auf der Initiative mit einer Verzögerung aus(während man also auf seinen Zug wartet), innerhalb dieser Zeit kann die Aktion durch eine neue ersetzt werden, wodurch diese jedoch einen Malus erhält. Aktionen werden hierbei evt. in einer Warteschlange abgelegt, wobei ungültige Befehle verfallen. Zusätzlich lassen sich aus der Warteschlange kommende befehle innerhalb eines gewissen Zeitfensters löschen und Ersetzten. HUD-Mäßig haben wir einen sog. Ini-Balken, der in drei Abschnitte aufgeteilt ist. Im ersten Drittel lassen sich Befehle beliebig ersetzten ohne Abzüge, im zweitem Drittel werden bei jedem Wechsel Abzüge erteilt. Im letzten drittel schließlich wird auch die erst gewählte Aktion mit Mali belegt. Ist der Balken voll wird die Aktion ausgeführt und der Balken zurückgesetzt. Aktive Bewegung und andere nicht freien Aktionen reduzieren die Geschwindigkeit mit der sich der Balken füllt. Während der Ausführung abrechenbarer Aktionen, z.B. beim Zaubern füllt der Balken sich nicht. Außerhalb von Kämpfen ist der Balken deaktiviert. Falls Überrascht lässt sich im ersten Balken keine Aktion unterbringen. Fenster für die Zeit bis der Balken sich füllt 1-2 Sekunden.
-\chapter{Ausrüstung}
-
 \part{Ausrüstung \& anderen Gegenständen}
 \setcounter{chapter}{0}
 \part{Herstellung von Objekten}
 \setcounter{chapter}{0}
 \part{Kampf}
 \setcounter{chapter}{0}
+\chapter{Ablauf}
+%In Kampfsituationen wird das Kampfgeschehen in Runden eingeteilt. Zu Beginn jeder Runde wird der sog. PAI bestimmt. PAI steht dabei für: Parade, Attacke und Initiative. %Initiative wird im Programm einmalig bei Ausrüsten einer Waffe berechnet und ohne das zusätzliche Punkt darauf verteilt werden können.
+%Diese Werte werden über den Grundwert von Waffe, Attacke-Nahkampf/Fernkampf, Parade-Basiswert. In einer Runde stehen einer Figur 2 Aktionen zur Verfügung. Zusätzlich hat jede Figur noch min. eine Freie Aktion, wobei z.B. das Verlieren von Konzentration nicht als solche gilt.
+%Runden bestehen aus 2 Phasen: Ansage und Ausführung.
+%Während der Ansage, die bei der Figur mit der geringsten Initiative beginnt, müssen die Aktionen bestimmt werden. Die Ausführung selbiger Aktionen folgt anschließend, beginnend mit der Figur mit der höchsten Initiative.
+%Bei einem klassischem Angriff wird eine Probe auf das Waffentalent gemacht, modifiziert durch die Attacke. ist der Angriff erfolgreich steht dem Ziel, falls es eine Parade offen hat, diese zu oder es kann als freie Aktion Ausweichen. In beiden Fällen muss eine entsprechende Gegenprobe gemacht werden, die allerdings nicht konkurrierend ist. Scheitert diese Probe war der Angriff erfolgreich und basierend auf der Waffe Schaden ausgewürfelt. Für 3 Punkte die beim Angriff übrig geblieben sind, erleidet das Ziel einen weiteren Punkt Schaden. 
+
+Kämpfe finden in Runden statt. Zu Beginn jeder Runde wird der P(arade)A(ngriff)I(nitiative) ermittelt. Dazu wird der Kampfwert, welcher aus den drei Hauptattributen der Waffenfertigkeit geteilt durch 3 plus die Ränge in der Waffenfertigkeit besteht. Der Kampfwert kann nun nach eigenem ermessen und ggf. durch den Waffentyp beschränkt auf den PAI verteilt werden, abschließend kommen noch die PAI-Werte der Waffe auf diese Werte und ein W6 pro Komplexitätsklasse, welche sich nach dem Kampfwert richtet, auf Initiative. Nun beginnt derjenige mit der geringsten Initiative mit der Ansage. Er plant seine Aktion und deckt dabei seinen PAI auf. Sobald alle Aktionen geplant wurden, werden diese im umgekehrter Order ausgeführt, beginnend mit demjenigen der die höchste Initiative hat. Zu jedem Zeitpunkt kann eine Figur eine freie Aktion durchführen. Die Anzahl freier Aktionen pro Runde kann beschränkt sein.
+\chapter{Aktionen}
+Folgende Aktionen stehen zur Verfügung:
+\begin{description}
+\item[Bewegen*]Jede Figur kann basierend auf der Art wie sie sich Fortbewegt mit der entsprechenden Geschwindigkeit bewegen. Während einer Bewegung können andere Aktionen eingebunden werden, auch wenn sie ggf. Abzüge erhalten.
+\item[Rennen*]Die Figur bewegt sich mit 2,5-facher Geschwindigkeit bewegen, dabei können keine anderen Aktionen eingebunden werden. 
+\item[Nahkampfangriff]Parade des Ziels wird mit eigenem Angriff verglichen. Basierend auf der Differenz wird Schaden gerollt. Alternativ kann man seinen Angriff auf mehrere nebeneinander stehende Gegner aufteilen.
+\item[Kampfmanöver]Ein Nahkampfangriff, an den eine konkurrierende Probe mit den Waffentalente, die durch die Differenz erleichtert wird und die beiden Waffentalente einschließt.
+\item[Fernkampfangriff*]Sofern die Waffe geladen ist kann man eine offene Probe auf das Waffentalent machen und basierend auf dem Restwert Schaden rollen. Weiß das Ziel um die nahende Gefahr kann es versuchen auszuweichen. Handelt es sich um eine Waffe mit Schnellfeuer können entsprechend dieses Wertes und dem Restmagazin mehrere Schüsse abgegeben werden, mit einer Erleichterung von 1 für jeden Folge Schuss und einer Erschwernis von 2 für jedes weitere Ziel.
+\item[Volle Defensive]Für jeden parierten Angriff verliert man in der Regel 3 Punkte in seiner Parade, mit dieser Aktion kann man für jeden eingehenden Angriff eine Probe auf seine Defensiv-Waffe machen. Falls diese erfolgreich ist, verliert man keinen Paradewert und kann zusätzlich die Differenz zwischen eigenem Paradewert mit gegnerischem Angriff mit übrigen Punkten im Verhältnis 1:3 ausgleichen. 
+\item[Ausweichen*]Falls man durch eine Überzahl zu überwältigt werden droht oder unter Beschuss steht kann man eine Akrobatik-Probe machen. Ist diese erfolgreich negiert man den Angriff, verliert jedoch für den Rest der Runde seinen PAI. Ein kritischer Erfolg negiert diesen Effekt. Ausweichen kann eine freie Aktion sein, allerdings verliert man dann unabhängig des Ergebnisses seinen PAI.
+\item[Nachladen*]Eine leere Nahkampfwaffe muss für die auf der Waffe angegeben Anzahl von Runden nachgeladen werden. Zusätzlich kann! eine Waffenprobe gemacht werden, die wenn erfolgreich die Waffe in halber Zeit nachlädt, während ein Fehlschlag die Dauer um die Hälfte anhebt. Diese Probe kann pro Nachladen nur einmalig gemacht werden. Beträgt die Nachladedauer 0 bis <1, kann die Waffe in derselben Runde benutzt werden.
+\item[Fertigkeiten und andere Proben*]Natürlich kann man jederzeit eine Fertigkeitsprobe machen.**
+\end{description}
+*Eine Aktion, die z.B. die gesamte Konzentration benötigt, lässt einen den PAI verlieren.
+\\**Sofern die Probe z.B. Wissenfertigkeit zur Analyse eines Feindes ist kann man natürlich Ausnahmen machen.
+\\Zusätzlich gibt es noch einen Haufen freier Aktionen, die bis zu einem gewissen Maß jederzeit eingesetzt werden können.
+\begin{description}
+\item[Sprechen]Naja reden, schreien, all das ist eine freie Aktion, auch wenn natürlich die Anzahl der Wörter begrenzt ist.
+\item[Waffe fallen lassen]Der PAI verfällt für den Rest der Runde, auch wenn eine neue Waffe gezogen wird.
+\end{description}
+\chapter{Ohne PAI}
+Wenn eine Figur ihren PAI im Laufe der aktuellen Runde verliert, bleibt ihre Initiative bestehen und sie können ggf. noch eine Aktion ausführen. Ansonsten gilt das jeder Figur, sofern sie sich eingehender Angriffe bewusst ist Ausweichen als freie Aktion zur Verfügung steht. Alle Aktionen gegen einen PAI-losen, die Proben verlangen, müssen immer noch gewürfelt werden, wenn sie auch um 3 erleichtert sind.
+\chapter{Ungültige Aktionen und Planänderungen}
+Im Falle, dass z.B. ein Ziel nicht mehr vorhanden ist, verfällt die Aktion ersatzlos. Zu Beginn ihrer Aktion kann sich jede Figur zu einer Planänderung entscheiden. Falls die neue Aktion keine Probe erfordert, muss der Erfolg durch eine Angemessene(Angriff=Waffenprobe) entschieden werden. In jedem Fall sind diese Proben um 4 erschwert.
+\chapter{Zusätzliche Regeln}
+\begin{itemize}
+\item Werden mehrere Waffen geführt erhält man einen Abzug auf Angriff und Parade von 4 und Initiative von 2.
+\end{itemize} 
+%Programmnotiz: Alle Aktions-Befehle führt das Programm basierend auf der Initiative mit einer Verzögerung aus(während man also auf seinen Zug wartet), innerhalb dieser Zeit kann die Aktion durch eine neue ersetzt werden, wodurch diese jedoch einen Malus erhält. Aktionen werden hierbei evt. in einer Warteschlange abgelegt, wobei ungültige Befehle verfallen. Zusätzlich lassen sich aus der Warteschlange kommende befehle innerhalb eines gewissen Zeitfensters löschen und Ersetzten. HUD-Mäßig haben wir einen sog. Ini-Balken, der in drei Abschnitte aufgeteilt ist. Im ersten Drittel lassen sich Befehle beliebig ersetzten ohne Abzüge, im zweitem Drittel werden bei jedem Wechsel Abzüge erteilt. Im letzten drittel schließlich wird auch die erst gewählte Aktion mit Mali belegt. Ist der Balken voll wird die Aktion ausgeführt und der Balken zurückgesetzt. Aktive Bewegung und andere nicht freien Aktionen reduzieren die Geschwindigkeit mit der sich der Balken füllt. Während der Ausführung abrechenbarer Aktionen, z.B. beim Zaubern füllt der Balken sich nicht. Außerhalb von Kämpfen ist der Balken deaktiviert. Falls Überrascht lässt sich im ersten Balken keine Aktion unterbringen. Fenster für die Zeit bis der Balken sich füllt 1-2 Sekunden.
+
+
 \part{Magie}
 \setcounter{chapter}{0}
 \part{Geweihte}
