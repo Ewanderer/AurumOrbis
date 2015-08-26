@@ -35,14 +35,18 @@
 \contentsline {chapter}{\numberline {2}Gesundheit und Schwere Wunden}{31}{chapter.36}
 \contentsline {chapter}{\numberline {3}Kondition und Ersch\IeC {\"o}pfung}{32}{chapter.37}
 \contentsline {part}{IV\hspace {1em}Ausr\IeC {\"u}stung \& anderen Gegenst\IeC {\"a}nden}{33}{part.38}
-\contentsline {part}{V\hspace {1em}Herstellung von Objekten}{34}{part.39}
-\contentsline {part}{VI\hspace {1em}Kampf}{35}{part.40}
-\contentsline {chapter}{\numberline {1}Ablauf}{36}{chapter.41}
-\contentsline {chapter}{\numberline {2}Aktionen}{37}{chapter.42}
-\contentsline {chapter}{\numberline {3}Ohne PAI}{39}{chapter.43}
-\contentsline {chapter}{\numberline {4}Ung\IeC {\"u}ltige Aktionen und Plan\IeC {\"a}nderungen}{40}{chapter.44}
-\contentsline {chapter}{\numberline {5}Zus\IeC {\"a}tzliche Regeln}{41}{chapter.45}
-\contentsline {part}{VII\hspace {1em}Magie}{42}{part.46}
-\contentsline {part}{VIII\hspace {1em}Geweihte}{43}{part.47}
-\contentsline {part}{IX\hspace {1em}Meister \& Hintergr\IeC {\"u}nde}{44}{part.48}
-\contentsline {part}{X\hspace {1em}Zus\IeC {\"a}tzliche Regeln}{45}{part.49}
+\contentsline {chapter}{\numberline {1}Waffen}{34}{chapter.39}
+\contentsline {section}{\numberline {1.1}Nahkampfwaffen}{34}{section.40}
+\contentsline {section}{\numberline {1.2}Fernkampfwaffen}{34}{section.41}
+\contentsline {chapter}{\numberline {2}R\IeC {\"u}stungen}{35}{chapter.42}
+\contentsline {part}{V\hspace {1em}Herstellung von Objekten}{36}{part.43}
+\contentsline {part}{VI\hspace {1em}Kampf}{37}{part.44}
+\contentsline {chapter}{\numberline {1}Ablauf}{38}{chapter.45}
+\contentsline {chapter}{\numberline {2}Aktionen}{39}{chapter.46}
+\contentsline {chapter}{\numberline {3}Ohne PAI}{41}{chapter.47}
+\contentsline {chapter}{\numberline {4}Ung\IeC {\"u}ltige Aktionen und Plan\IeC {\"a}nderungen}{42}{chapter.48}
+\contentsline {chapter}{\numberline {5}Zus\IeC {\"a}tzliche Regeln}{43}{chapter.49}
+\contentsline {part}{VII\hspace {1em}Magie}{44}{part.50}
+\contentsline {part}{VIII\hspace {1em}Geweihte}{45}{part.51}
+\contentsline {part}{IX\hspace {1em}Meister \& Hintergr\IeC {\"u}nde}{46}{part.52}
+\contentsline {part}{X\hspace {1em}Zus\IeC {\"a}tzliche Regeln}{47}{part.53}

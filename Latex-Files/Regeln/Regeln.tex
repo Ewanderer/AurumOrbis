@@ -155,7 +155,8 @@ Die hier aufgeführten Werte, berechnen sich aus den Basisattributen und können
 \\Vitalität=Konstitution+Boni
 \\Trefferpunkte=Vitalität*5
 \\Regnerationsrate=Metabolismus/(Konstitution*2)+1+Boni
-\\Kondition=Konstitution*10+Boni
+\\Kondition=Konstitution*2+Boni
+\\Ausdauerpunkte=Kondition*5
 \\Gefahren-Level(Monster/Tiere)=Summe aller Attribute / 10
 %K
 \chapter{Fertigkeiten}
@@ -258,6 +259,14 @@ Eine niedrige Kondition belegt eine Figur außerdem mit zusätzlichen Mali auf s
 50\% der maximalen Kondition erteilen einen Malus von 5, während 25\% einen Malus von 10 erteilen. Bei 5\% schließlich wird der Malus auf 20 angehoben.
 \part{Ausrüstung \& anderen Gegenständen}
 \setcounter{chapter}{0}
+\chapter{Waffen}
+\section{Nahkampfwaffen}
+
+\section{Fernkampfwaffen}
+\chapter{Rüstungen}
+
+
+
 \part{Herstellung von Objekten}
 \setcounter{chapter}{0}
 \part{Kampf}
@@ -269,14 +278,14 @@ Eine niedrige Kondition belegt eine Figur außerdem mit zusätzlichen Mali auf s
 %Während der Ansage, die bei der Figur mit der geringsten Initiative beginnt, müssen die Aktionen bestimmt werden. Die Ausführung selbiger Aktionen folgt anschließend, beginnend mit der Figur mit der höchsten Initiative.
 %Bei einem klassischem Angriff wird eine Probe auf das Waffentalent gemacht, modifiziert durch die Attacke. ist der Angriff erfolgreich steht dem Ziel, falls es eine Parade offen hat, diese zu oder es kann als freie Aktion Ausweichen. In beiden Fällen muss eine entsprechende Gegenprobe gemacht werden, die allerdings nicht konkurrierend ist. Scheitert diese Probe war der Angriff erfolgreich und basierend auf der Waffe Schaden ausgewürfelt. Für 3 Punkte die beim Angriff übrig geblieben sind, erleidet das Ziel einen weiteren Punkt Schaden. 
 
-Kämpfe finden in Runden statt. Zu Beginn jeder Runde wird der P(arade)A(ngriff)I(nitiative) ermittelt. Dazu wird der Kampfwert, welcher aus den drei Hauptattributen der Waffenfertigkeit geteilt durch 3 plus die Ränge in der Waffenfertigkeit besteht. Der Kampfwert kann nun nach eigenem ermessen und ggf. durch den Waffentyp beschränkt auf den PAI verteilt werden, abschließend kommen noch die PAI-Werte der Waffe auf diese Werte und ein W6 pro Komplexitätsklasse, welche sich nach dem Kampfwert richtet, auf Initiative. Nun beginnt derjenige mit der geringsten Initiative mit der Ansage. Er plant seine Aktion und deckt dabei seinen PAI auf. Sobald alle Aktionen geplant wurden, werden diese im umgekehrter Order ausgeführt, beginnend mit demjenigen der die höchste Initiative hat. Zu jedem Zeitpunkt kann eine Figur eine freie Aktion durchführen. Die Anzahl freier Aktionen pro Runde kann beschränkt sein.
+Kämpfe finden in Runden statt. Zu Beginn jeder Runde wird der P(arade)A(ngriff)I(nitiative) ermittelt. Dazu wird der Kampfwert, welcher aus den drei Hauptattributen der Waffenfertigkeit plus die Ränge in der Waffenfertigkeit besteht. Der Kampfwert kann nun nach eigenem ermessen und ggf. durch den Waffentyp beschränkt auf den PAI verteilt werden, abschließend kommen noch die PAI-Werte der Waffe auf diese Werte und ein W6 pro Komplexitätsklasse, welche sich nach dem Kampfwert richtet, auf Initiative. Nun beginnt derjenige mit der geringsten Initiative mit der Ansage. Er plant seine Aktion und deckt dabei seinen PAI auf. Sobald alle Aktionen geplant wurden, werden diese im umgekehrter Order ausgeführt, beginnend mit demjenigen der die höchste Initiative hat. Zu jedem Zeitpunkt kann eine Figur eine freie Aktion durchführen. Die Anzahl freier Aktionen pro Runde kann beschränkt sein.
 \chapter{Aktionen}
 Folgende Aktionen stehen zur Verfügung:
 \begin{description}
 \item[Bewegen*]Jede Figur kann basierend auf der Art wie sie sich Fortbewegt mit der entsprechenden Geschwindigkeit bewegen. Während einer Bewegung können andere Aktionen eingebunden werden, auch wenn sie ggf. Abzüge erhalten.
 \item[Rennen*]Die Figur bewegt sich mit 2,5-facher Geschwindigkeit bewegen, dabei können keine anderen Aktionen eingebunden werden. 
-\item[Nahkampfangriff]Parade des Ziels wird mit eigenem Angriff verglichen. Basierend auf der Differenz wird Schaden gerollt. Alternativ kann man seinen Angriff auf mehrere nebeneinander stehende Gegner aufteilen.
-\item[Kampfmanöver]Ein Nahkampfangriff, an den eine konkurrierende Probe mit den Waffentalente, die durch die Differenz erleichtert wird und die beiden Waffentalente einschließt.
+\item[Nahkampfangriff]Das Ziel macht eine Probe gegen den eigenen Angriffswert, bei Erfolg steht dem Ziel ggf. eine Probe auf seine Parade zu. Basierend auf der Differenz wird Schaden gerollt. Alternativ kann man seinen Angriffswert auf mehrere nebeneinander stehende Gegner oder für mehrere Nahkampfangriffe auf ein Ziel aufteilen.
+\item[Kampfmanöver]Eine konkurrierende Probe mit dem eigenem Waffentalente und dem gegnerischen Waffentalente.
 \item[Fernkampfangriff*]Sofern die Waffe geladen ist kann man eine offene Probe auf das Waffentalent machen und basierend auf dem Restwert Schaden rollen. Weiß das Ziel um die nahende Gefahr kann es versuchen auszuweichen. Handelt es sich um eine Waffe mit Schnellfeuer können entsprechend dieses Wertes und dem Restmagazin mehrere Schüsse abgegeben werden, mit einer Erleichterung von 1 für jeden Folge Schuss und einer Erschwernis von 2 für jedes weitere Ziel.
 \item[Volle Defensive]Für jeden parierten Angriff verliert man in der Regel 3 Punkte in seiner Parade, mit dieser Aktion kann man für jeden eingehenden Angriff eine Probe auf seine Defensiv-Waffe machen. Falls diese erfolgreich ist, verliert man keinen Paradewert und kann zusätzlich die Differenz zwischen eigenem Paradewert mit gegnerischem Angriff mit übrigen Punkten im Verhältnis 1:3 ausgleichen. 
 \item[Ausweichen*]Falls man durch eine Überzahl zu überwältigt werden droht oder unter Beschuss steht kann man eine Akrobatik-Probe machen. Ist diese erfolgreich negiert man den Angriff, verliert jedoch für den Rest der Runde seinen PAI. Ein kritischer Erfolg negiert diesen Effekt. Ausweichen kann eine freie Aktion sein, allerdings verliert man dann unabhängig des Ergebnisses seinen PAI.
@@ -296,7 +305,10 @@ Wenn eine Figur ihren PAI im Laufe der aktuellen Runde verliert, bleibt ihre Ini
 Im Falle, dass z.B. ein Ziel nicht mehr vorhanden ist, verfällt die Aktion ersatzlos. Zu Beginn ihrer Aktion kann sich jede Figur zu einer Planänderung entscheiden. Falls die neue Aktion keine Probe erfordert, muss der Erfolg durch eine Angemessene(Angriff=Waffenprobe) entschieden werden. In jedem Fall sind diese Proben um 4 erschwert.
 \chapter{Zusätzliche Regeln}
 \begin{itemize}
-\item Werden mehrere Waffen geführt erhält man einen Abzug auf Angriff und Parade von 4 und Initiative von 2.
+\item Werden mehrere Waffen geführt erhält man einen Abzug auf Angriff und Parade von 2 und Initiative von 1. Dieser Malus steigt mit jeder Größenkategorie der Zweitwaffe über klein.
+\item Bei Nahkampfkonfrontationen mit unterschiedlichen Komplexitätsklassen muss derjenige mit der niedrigeren, für jede Differenz eine zusätzliche Probe machen.
+\item Fällt ein PAI in einer Komplexitätsklasse, so bleiben die Kosten bestehen.
+\item Die Ausdauerkosten steigen aufgrund von Komplexitätsklasse steigen bereits 5 Punkte unter der Schwelle.
 \end{itemize} 
 %Programmnotiz: Alle Aktions-Befehle führt das Programm basierend auf der Initiative mit einer Verzögerung aus(während man also auf seinen Zug wartet), innerhalb dieser Zeit kann die Aktion durch eine neue ersetzt werden, wodurch diese jedoch einen Malus erhält. Aktionen werden hierbei evt. in einer Warteschlange abgelegt, wobei ungültige Befehle verfallen. Zusätzlich lassen sich aus der Warteschlange kommende befehle innerhalb eines gewissen Zeitfensters löschen und Ersetzten. HUD-Mäßig haben wir einen sog. Ini-Balken, der in drei Abschnitte aufgeteilt ist. Im ersten Drittel lassen sich Befehle beliebig ersetzten ohne Abzüge, im zweitem Drittel werden bei jedem Wechsel Abzüge erteilt. Im letzten drittel schließlich wird auch die erst gewählte Aktion mit Mali belegt. Ist der Balken voll wird die Aktion ausgeführt und der Balken zurückgesetzt. Aktive Bewegung und andere nicht freien Aktionen reduzieren die Geschwindigkeit mit der sich der Balken füllt. Während der Ausführung abrechenbarer Aktionen, z.B. beim Zaubern füllt der Balken sich nicht. Außerhalb von Kämpfen ist der Balken deaktiviert. Falls Überrascht lässt sich im ersten Balken keine Aktion unterbringen. Fenster für die Zeit bis der Balken sich füllt 1-2 Sekunden.
 
