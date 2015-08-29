@@ -40,13 +40,17 @@
 \contentsline {section}{\numberline {1.2}Fernkampfwaffen}{34}{section.41}
 \contentsline {chapter}{\numberline {2}R\IeC {\"u}stungen}{35}{chapter.42}
 \contentsline {part}{V\hspace {1em}Herstellung von Objekten}{36}{part.43}
-\contentsline {part}{VI\hspace {1em}Kampf}{37}{part.44}
-\contentsline {chapter}{\numberline {1}Ablauf}{38}{chapter.45}
-\contentsline {chapter}{\numberline {2}Aktionen}{39}{chapter.46}
-\contentsline {chapter}{\numberline {3}Ohne PAI}{41}{chapter.47}
-\contentsline {chapter}{\numberline {4}Ung\IeC {\"u}ltige Aktionen und Plan\IeC {\"a}nderungen}{42}{chapter.48}
-\contentsline {chapter}{\numberline {5}Zus\IeC {\"a}tzliche Regeln}{43}{chapter.49}
-\contentsline {part}{VII\hspace {1em}Magie}{44}{part.50}
-\contentsline {part}{VIII\hspace {1em}Geweihte}{45}{part.51}
-\contentsline {part}{IX\hspace {1em}Meister \& Hintergr\IeC {\"u}nde}{46}{part.52}
-\contentsline {part}{X\hspace {1em}Zus\IeC {\"a}tzliche Regeln}{47}{part.53}
+\contentsline {chapter}{\numberline {1}Grundlagen}{37}{chapter.44}
+\contentsline {chapter}{\numberline {2}Rezepte}{38}{chapter.45}
+\contentsline {section}{\numberline {2.1}Slot}{38}{section.46}
+\contentsline {section}{\numberline {2.2}Endqualit\IeC {\"a}t\&Wertigkeit}{39}{section.47}
+\contentsline {part}{VI\hspace {1em}Kampf}{40}{part.48}
+\contentsline {chapter}{\numberline {1}Ablauf}{41}{chapter.49}
+\contentsline {chapter}{\numberline {2}Aktionen}{42}{chapter.50}
+\contentsline {chapter}{\numberline {3}Ohne PAI}{44}{chapter.51}
+\contentsline {chapter}{\numberline {4}Ung\IeC {\"u}ltige Aktionen und Plan\IeC {\"a}nderungen}{45}{chapter.52}
+\contentsline {chapter}{\numberline {5}Zus\IeC {\"a}tzliche Regeln}{46}{chapter.53}
+\contentsline {part}{VII\hspace {1em}Magie}{47}{part.54}
+\contentsline {part}{VIII\hspace {1em}Geweihte}{48}{part.55}
+\contentsline {part}{IX\hspace {1em}Meister \& Hintergr\IeC {\"u}nde}{49}{part.56}
+\contentsline {part}{X\hspace {1em}Zus\IeC {\"a}tzliche Regeln}{50}{part.57}

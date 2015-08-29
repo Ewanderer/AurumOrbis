@@ -190,7 +190,7 @@ Für jede Komplexitätsklasse über dem Stand des Ziels erhöht die Wirkung um e
 \item[Schauspielen]- CHA,WIS,COU
 \item[Verkleiden]- WIS,COU,INT
 \item[Gaukeln]- MUT, BEW,FF
-
+\item[Zechen]-CHA,KON,MTB
 \end{description}
 \subsection{Handwerk}
 \begin{description}
@@ -202,6 +202,7 @@ Für jede Komplexitätsklasse über dem Stand des Ziels erhöht die Wirkung um e
 \item[Weben und Spinnen]
 \item[Schreiner]
 \item[Baukunst]
+\item[Schlösser]- FF,FF,INT
 
 \end{description}
 \subsection{Wissen}
@@ -224,7 +225,7 @@ Zusätzlich kann ein Anwender dieser Fertigkeit ihm nicht bekannte Zaubersprüch
 \begin{description}
 \item[Schleichen]- BEW, BEW, WIS; Frei
 \\Wann immer eine Figur versucht unbemerkt zu bleiben, während sie sich bewegt, dann ist Schleichen gefragt. Im Kampf nimm ihre Bewegungsgeschwindigkeit auf 1/4 reduziert und sprinten unzulässig. Angriffe mit Nahkampfwaffen heben Schleichen auf.
-\item[Verstecken]Frei;Stillstand, Angriffe aus dem Verborgenem. Waffen, die keinen Sound abgeben la
+\item[Verstecken]- WIS, MUT,  Frei;Stillstand, Angriffe aus dem Verborgenem. Waffen, die keinen Sound abgeben la
 \item[Wahrnehmung]- INT, WIS, WIS
 \item[Athletik]- STR, KON, BEW Rennen, Springen 
 \item[Akrobatik]- BEW,BEW,STR
@@ -273,6 +274,26 @@ Eine niedrige Kondition belegt eine Figur außerdem mit zusätzlichen Mali auf s
 
 \part{Herstellung von Objekten}
 \setcounter{chapter}{0}
+\chapter{Grundlagen}
+Jedes Objekt setzt sich aus sog. Komponenten zusammen, was durch ein sog. Rezept verkörpert wird. Im Rezept sind sog. Slots verankert. Für jeden Slot muss das dort angegebene Material bereitgestellt werden, ggf. in einer bestimmten Qualitätsgüte. Anschließend muss für jeden Slot eine Handwerksprobe abgeschlossen werden, mit der für den Slot angegeben Erschwernis. Die Komplexitätsklasse hängt hierbei von der Angabe des Slots und der Qualität ab. Je besser diese Probe abhängt desto höher ist die Verarbeitungsqualität des Slots und die Gesamtqualität der Durchschnitt aller.
+\chapter{Rezepte}
+Ein Rezept gibt immer an wie sich die Qualität auf das Endprodukt auswirkt.
+\section{Slot}
+\begin{description}
+\item[Materialtyp]Gibt an was benötigt wird.
+\item[Min-Qualität]Gibt an von welcher Qualität das Material sein muss.
+\item[Max-Qualität]Gibt an, wie hoch die Verarbeitungsqualität durch das Material angehoben werden kann. Natürlich kann der Wert angehoben werden für reiche Schnösel, aber naja es wird dadurch nicht besser, natürlich muss man auch das notwendige Talent zur Verabeitung besitzen. Für magische Rituale kann es natürlich interessant sein, dass das Objekt einen Mindestwert hat.
+\item[Standard-Materialqualität]Wenn das gewählte Material minderwertig ist, wird die Verarbeitungskomplexität runter gezogen, aber auch die Qualität.
+\item[Verarbeitungskomplexität]Kann durch hochwertiges Material nach oben gezogen werden.
+\item[Min-Erfolg]Bei der Probe muss dieser Wert übrig bleiben, damit die Verarbeitung gelingt. Fehlende Punkte machen prozentual das Material kaputt?
+\item[Qualitätsschritte]Alle so viele Punkte steigt die Qualität um eine Kategorie.
+\item[Standard-Verabeitungsqualität]Dieser wird wird von der erwürfelten Verabeitungsqualität abgezogen, um auch minderwertige Produktionen zu erlauben.
+\item[Max-Verabeitungsqualität]Begrenzt die Bonus-Qualität nach oben.
+\item[Qualitätsmodifikator]Gibt wie weit diese Qualität am Ende zum Endprodukt beiträgt.
+\end{description}
+Die Verarbeitungsqualität ist (Materialqualität+Verabeitungsqualität-Standardverarbeitungsqualität)*Qualitätsmodifikator.
+\section{Endqualität \& Wertigkeit}
+Summe aller Verarbeitungsqualität und dann Einteilen. Der Wert hängt von Verabeitungsqualität ab.
 \part{Kampf}
 \setcounter{chapter}{0}
 \chapter{Ablauf}
