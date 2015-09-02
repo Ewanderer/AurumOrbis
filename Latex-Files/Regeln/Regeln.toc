@@ -43,7 +43,7 @@
 \contentsline {chapter}{\numberline {1}Grundlagen}{37}{chapter.44}
 \contentsline {chapter}{\numberline {2}Rezepte}{38}{chapter.45}
 \contentsline {section}{\numberline {2.1}Slot}{38}{section.46}
-\contentsline {section}{\numberline {2.2}Endqualit\IeC {\"a}t\&Wertigkeit}{39}{section.47}
+\contentsline {section}{\numberline {2.2}Endqualit\IeC {\"a}t \& Wertigkeit}{39}{section.47}
 \contentsline {part}{VI\hspace {1em}Kampf}{40}{part.48}
 \contentsline {chapter}{\numberline {1}Ablauf}{41}{chapter.49}
 \contentsline {chapter}{\numberline {2}Aktionen}{42}{chapter.50}

@@ -138,67 +138,70 @@
 \contentsline {part}{VIII\hspace {1em}Professionen\&Spezialisierungen}{97}{part.142}
 \contentsline {chapter}{Einf\IeC {\"u}hrung}{98}{chapter*.143}
 \contentsline {chapter}{Offene Professionen}{99}{chapter*.144}
-\contentsline {section}{Weltenbummler}{99}{section*.145}
-\contentsline {subsection}{Anforderungen}{99}{section*.146}
-\contentsline {subsection}{Fertigkeiten}{99}{section*.147}
-\contentsline {section}{Bauer}{99}{section*.148}
-\contentsline {section}{Fischer}{99}{section*.149}
-\contentsline {section}{Bote}{99}{section*.150}
-\contentsline {section}{Matrose}{99}{section*.151}
-\contentsline {subsection}{Stufen}{100}{section*.152}
-\contentsline {section}{Pirat}{100}{section*.153}
-\contentsline {section}{Mechaniker}{100}{section*.154}
-\contentsline {section}{Arzt}{100}{section*.155}
-\contentsline {section}{Soldat}{100}{section*.156}
-\contentsline {subsection}{Fertigkeiten}{100}{section*.157}
-\contentsline {subsection}{Stufen}{100}{section*.158}
-\contentsline {section}{Barde}{101}{section*.159}
-\contentsline {subsection}{Stufen}{101}{section*.160}
-\contentsline {section}{Gladiator}{101}{section*.161}
-\contentsline {section}{Knecht/Magd}{101}{section*.162}
-\contentsline {section}{Gaukler}{101}{section*.163}
-\contentsline {subsection}{Stufen}{101}{section*.164}
-\contentsline {section}{Trickbetr\IeC {\"u}ger}{102}{section*.165}
-\contentsline {section}{F\IeC {\"a}lscher}{102}{section*.166}
-\contentsline {section}{Gelehrter}{102}{section*.167}
-\contentsline {section}{Priester}{102}{section*.168}
-\contentsline {section}{Koch}{102}{section*.169}
-\contentsline {section}{Faustk\IeC {\"a}mpfer}{102}{section*.170}
-\contentsline {subsection}{Fertigkeiten}{102}{section*.171}
-\contentsline {subsection}{Stufen}{102}{section*.172}
-\contentsline {section}{J\IeC {\"a}ger}{103}{section*.173}
-\contentsline {subsection}{Voraussetzungen}{103}{section*.174}
-\contentsline {subsection}{Fertigkeiten}{103}{section*.175}
-\contentsline {subsection}{Stufen}{103}{section*.176}
-\contentsline {section}{S\IeC {\"o}ldner}{104}{section*.177}
-\contentsline {subsection}{Voraussetzung}{104}{section*.178}
-\contentsline {subsection}{Fertigkeiten}{104}{section*.179}
-\contentsline {subsection}{Stufen}{105}{section*.180}
-\contentsline {section}{Gauner}{105}{section*.181}
-\contentsline {subsection}{Voraussetzungen}{105}{section*.182}
-\contentsline {subsection}{Fertigkeiten}{105}{section*.183}
-\contentsline {subsection}{Stufen}{105}{section*.184}
-\contentsline {section}{Schurke}{106}{section*.185}
-\contentsline {subsection}{Voraussetzungen}{106}{section*.186}
-\contentsline {subsection}{Fertigkeiten}{106}{section*.187}
-\contentsline {subsection}{Stufen}{107}{section*.188}
-\contentsline {chapter}{Geschlossene Professionen}{108}{chapter*.189}
-\contentsline {section}{dunkelelfischer Krieger}{108}{section*.190}
-\contentsline {chapter}{Weiterentwickelte Professionen}{109}{chapter*.191}
-\contentsline {section}{Besitenj\IeC {\"a}ger}{109}{section*.192}
-\contentsline {subsection}{Voraussetzungen}{109}{section*.193}
-\contentsline {subsection}{Fertigkeiten}{109}{section*.194}
-\contentsline {subsection}{Stufen}{109}{section*.195}
-\contentsline {section}{Kopfgeldj\IeC {\"a}ger}{110}{section*.196}
-\contentsline {section}{Einbrecher}{110}{section*.197}
-\contentsline {section}{Attent\IeC {\"a}ter}{110}{section*.198}
-\contentsline {part}{IX\hspace {1em}Zu Sortierendes}{111}{part.199}
-\contentsline {chapter}{Tal des Zwielichts}{112}{chapter*.200}
-\contentsline {chapter}{Erze\&Metalle}{113}{chapter*.201}
-\contentsline {section}{Mundane Erze}{113}{section*.202}
-\contentsline {section}{G\IeC {\"o}ttliche Erze}{113}{section*.203}
-\contentsline {section}{Metalle}{114}{section*.204}
-\contentsline {chapter}{Ma\IeC {\ss }e und Einheiten}{115}{chapter*.205}
-\contentsline {chapter}{Ring der Tr\IeC {\"a}nen}{116}{chapter*.206}
-\contentsline {part}{Stichwortverzeichnis}{117}{section*.207}
-\contentsline {part}{Geographieglossar}{117}{section*.209}
+\contentsline {section}{Alchemist}{99}{section*.145}
+\contentsline {subsection}{Fertigkeiten}{99}{section*.146}
+\contentsline {subsection}{Stufen}{99}{section*.147}
+\contentsline {section}{Weltenbummler}{99}{section*.148}
+\contentsline {subsection}{Anforderungen}{99}{section*.149}
+\contentsline {subsection}{Fertigkeiten}{99}{section*.150}
+\contentsline {section}{Bauer}{100}{section*.151}
+\contentsline {section}{Fischer}{100}{section*.152}
+\contentsline {section}{Bote}{100}{section*.153}
+\contentsline {section}{Matrose}{100}{section*.154}
+\contentsline {subsection}{Stufen}{100}{section*.155}
+\contentsline {section}{Pirat}{100}{section*.156}
+\contentsline {section}{Mechaniker}{100}{section*.157}
+\contentsline {section}{Arzt}{100}{section*.158}
+\contentsline {section}{Soldat}{100}{section*.159}
+\contentsline {subsection}{Fertigkeiten}{101}{section*.160}
+\contentsline {subsection}{Stufen}{101}{section*.161}
+\contentsline {section}{Barde}{101}{section*.162}
+\contentsline {subsection}{Stufen}{101}{section*.163}
+\contentsline {section}{Gladiator}{101}{section*.164}
+\contentsline {section}{Knecht/Magd}{101}{section*.165}
+\contentsline {section}{Gaukler}{101}{section*.166}
+\contentsline {subsection}{Stufen}{101}{section*.167}
+\contentsline {section}{Trickbetr\IeC {\"u}ger}{102}{section*.168}
+\contentsline {section}{F\IeC {\"a}lscher}{102}{section*.169}
+\contentsline {section}{Gelehrter}{102}{section*.170}
+\contentsline {section}{Priester}{102}{section*.171}
+\contentsline {section}{Koch}{102}{section*.172}
+\contentsline {section}{Faustk\IeC {\"a}mpfer}{102}{section*.173}
+\contentsline {subsection}{Fertigkeiten}{102}{section*.174}
+\contentsline {subsection}{Stufen}{102}{section*.175}
+\contentsline {section}{J\IeC {\"a}ger}{103}{section*.176}
+\contentsline {subsection}{Voraussetzungen}{103}{section*.177}
+\contentsline {subsection}{Fertigkeiten}{103}{section*.178}
+\contentsline {subsection}{Stufen}{103}{section*.179}
+\contentsline {section}{S\IeC {\"o}ldner}{104}{section*.180}
+\contentsline {subsection}{Voraussetzung}{104}{section*.181}
+\contentsline {subsection}{Fertigkeiten}{104}{section*.182}
+\contentsline {subsection}{Stufen}{105}{section*.183}
+\contentsline {section}{Gauner}{105}{section*.184}
+\contentsline {subsection}{Voraussetzungen}{105}{section*.185}
+\contentsline {subsection}{Fertigkeiten}{105}{section*.186}
+\contentsline {subsection}{Stufen}{105}{section*.187}
+\contentsline {section}{Schurke}{106}{section*.188}
+\contentsline {subsection}{Voraussetzungen}{106}{section*.189}
+\contentsline {subsection}{Fertigkeiten}{106}{section*.190}
+\contentsline {subsection}{Stufen}{107}{section*.191}
+\contentsline {chapter}{Geschlossene Professionen}{108}{chapter*.192}
+\contentsline {section}{dunkelelfischer Krieger}{108}{section*.193}
+\contentsline {chapter}{Weiterentwickelte Professionen}{109}{chapter*.194}
+\contentsline {section}{Besitenj\IeC {\"a}ger}{109}{section*.195}
+\contentsline {subsection}{Voraussetzungen}{109}{section*.196}
+\contentsline {subsection}{Fertigkeiten}{109}{section*.197}
+\contentsline {subsection}{Stufen}{109}{section*.198}
+\contentsline {section}{Kopfgeldj\IeC {\"a}ger}{110}{section*.199}
+\contentsline {section}{Einbrecher}{110}{section*.200}
+\contentsline {section}{Attent\IeC {\"a}ter}{110}{section*.201}
+\contentsline {part}{IX\hspace {1em}Zu Sortierendes}{111}{part.202}
+\contentsline {chapter}{Tal des Zwielichts}{112}{chapter*.203}
+\contentsline {chapter}{Erze\&Metalle}{113}{chapter*.204}
+\contentsline {section}{Mundane Erze}{113}{section*.205}
+\contentsline {section}{G\IeC {\"o}ttliche Erze}{113}{section*.206}
+\contentsline {section}{Metalle}{114}{section*.207}
+\contentsline {chapter}{Ma\IeC {\ss }e und Einheiten}{115}{chapter*.208}
+\contentsline {chapter}{Ring der Tr\IeC {\"a}nen}{116}{chapter*.209}
+\contentsline {part}{Stichwortverzeichnis}{117}{section*.210}
+\contentsline {part}{Geographieglossar}{117}{section*.212}
