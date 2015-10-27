@@ -6,7 +6,9 @@
 **/[Bb]uild
 **/[Ll]ibrary/
 sysinfo.txt
- 
+
+/TopDownRPG/
+
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
