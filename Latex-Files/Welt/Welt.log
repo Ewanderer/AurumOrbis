@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2014.12.4)  24 OCT 2015 11:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2014.12.4)  30 OCT 2015 23:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -888,14 +888,14 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 65.
  [2]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 100.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 98.
+(babel)             in language  on input line 100.
  [3]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 134.
+(babel)             in language  on input line 133.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 134.
+(babel)             in language  on input line 133.
  [4]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 167.
@@ -2980,201 +2980,30 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 1006.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1006.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1006.
 
+Package rerunfilecheck Info: File `Welt.out' has not changed.
+(rerunfilecheck)             Checksum: A6DDE167D549BC0166E0B5B30921D24C;15569.
 
-
-Package rerunfilecheck Warning: File `Welt.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Welt.out':
-(rerunfilecheck)             Before: 59141EF857439031F7636A84A4AF7604;15365
-(rerunfilecheck)             After:  A6DDE167D549BC0166E0B5B30921D24C;15569.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 12880 strings out of 493109
- 219650 string characters out of 6138587
- 294457 words of memory out of 5000000
- 15803 multiletter control sequences out of 15000+600000
+ 12829 strings out of 493109
+ 219076 string characters out of 6138587
+ 294460 words of memory out of 5000000
+ 15806 multiletter control sequences out of 15000+600000
  9872 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,41p,10472b,483s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{section*.245} has been referenced but does not ex
-ist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.244} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.242} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.240} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.239} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.238} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.237} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.236} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.235} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.234} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.233} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.232} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.231} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{part.230} has been referenced but does not exist, r
-eplaced by a fixed one
-
-pdfTeX warning (dest): name{section*.225} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.223} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.222} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.220} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.175} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.174} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.173} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.172} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{part.170} has been referenced but does not exist, r
-eplaced by a fixed one
-
-pdfTeX warning (dest): name{part.169} has been referenced but does not exist, r
-eplaced by a fixed one
-
-pdfTeX warning (dest): name{section*.167} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.165} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.164} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.163} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{part.162} has been referenced but does not exist, r
-eplaced by a fixed one
-
-pdfTeX warning (dest): name{section*.144} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.141} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.122} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.120} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.119} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.117} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{part.116} has been referenced but does not exist, r
-eplaced by a fixed one
-
-pdfTeX warning (dest): name{section*.114} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.113} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.111} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.110} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.104} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.103} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.102} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.101} has been referenced but does not exis
-t, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.97} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.96} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.95} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.94} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.93} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.91} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.90} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.89} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{chapter*.88} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{part.87} has been referenced but does not exist, re
-placed by a fixed one
-
-<c:/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texli
-ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2014/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2014/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsl12.pfb><c:/texlive/2014/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Welt.pdf (136 pages, 367538 bytes).
+ 41i,6n,41p,10472b,481s stack positions out of 5000i,500n,10000p,200000b,80000s
+<c:/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/tex
+live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2014/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2014/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsl12.pfb><c:/texlive/2014/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb>
+Output written on Welt.pdf (136 pages, 367014 bytes).
 PDF statistics:
- 2043 PDF objects out of 2073 (max. 8388607)
- 1881 compressed objects within 19 object streams
- 442 named destinations out of 1000 (max. 500000)
- 1929 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1989 PDF objects out of 2073 (max. 8388607)
+ 1827 compressed objects within 19 object streams
+ 388 named destinations out of 1000 (max. 500000)
+ 1953 words of extra memory for PDF output out of 10000 (max. 10000000)
 
