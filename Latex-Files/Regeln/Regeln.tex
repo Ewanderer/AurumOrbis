@@ -149,6 +149,7 @@ Die allgemeine Ausdauer, aber auch die Körpereigenen Abwehrkräfte gegen Gifte 
 \chapter{Steigern und Fortschritt}
 Erfahrungspunkte in einer Fähigkeit werden gleichmäßig auf die verwendeten Attribute verteilt. Die Formel zur Bestimmung des Fortschrittes lautet:
 \\$9X+e^{frac{X}{5}}$
+\\Neue Formel:$9X+11X*(\frac{X}{20})$
 \\Zuästzlich können Sagenpunkte im Verhältnis 1:10 investiert werden können.
 \chapter{Sekundäre Attribute}
 Die hier aufgeführten Werte, berechnen sich aus den Basisattributen und können daher nicht direkt durch Training verbessert werden.
@@ -164,11 +165,27 @@ Die hier aufgeführten Werte, berechnen sich aus den Basisattributen und können
 Alle Tätigkeiten, die nicht auf einem Attribut basiert, sondern eine Mischung von Erfahrung und Attributen werden durch sogenannte Fertigkeiten beschrieben. Fertigkeiten lassen sich dabei in die Kategorien: Waffen(B), Soziales(D), Handwerk(B), Wissen(C), Sonstiges(E). Die Kategorie ist dabei ausschlaggebend für die Lernkosten. Zusätzlich hat jede Fertigkeit einen eigenen, von den Professionen und der sog. Komplexität(A=0, B=0.25, C=0.5, D=0.75, E=1, F=1.25...) abhängigen Lernmodifikator. Eine Fertigkeit kann zudem in sog. Fokussierungen auftreten. Diese sind in der Regel Teil einer Profession und erlaubt in bestimmten Situationen mehr Punkte in eine Probe einzubringen.
 \section{Erfahrung \& Steigern}
 Bei jeder Probe werden EP für die genutzte Fertigkeit ausgegeben. Dazu gilt Komplexitätsklasse * 3 EP * Lernmodifikator * (Prozentchance für Misserfolg/100, Minimum 0.05). Agiert man außerhalb der eigenen Komplexitätsklasse so werden die Basis-EP auf die eigene Klasse abgewertet. Für Aktionen unterhalb der eigenen Komplexitätsklasse wird der Mittelwert abgerundet gebildet.
-\\Die Formel zur Rangbestimmung auf Basis der Erfahrungspunkte ist:\\$7X*e^{\frac{x}{10}}$
+\\Die Formel zur Rangbestimmung auf Basis der Erfahrungspunkte ist:
+\\$7X+e^{\frac{x}{10}}$
+\\Neu Formel:$\frac{9x^{2}}{40}+7x$
 \\Hat eine Fertigkeit die Komplexität A kann nur durch einen Lehrmeister/Trainingpartner gelernt werden. Nähere Regel hierzu folgen dann.
 \\Für eine bessere Übersicht und Rechnung können diese Werte mit 100 multipliziert werden und bleibende Nachkommastellen fallen lassen, außerdem sollte man die Auswertung immer auf die nächste Rast verschieben.
 \section{Übersicht von Fertigkeiten}
 \subsection{Waffen}
+\begin{description}
+\item[Bogen]
+\item[Schwert]
+\item[Dolch]
+\item[Faustkampf]
+\item[kleine Wurfwaffen]
+\item[Wurfwaffen] Speere
+\item[Schleudern]
+\item[Hiebwaffen]
+\item[Zweihändige Schwerter]
+\item[Zweihändige Hiebwaffen]
+\item[Improvisierte Waffen]
+\item[Schilde]
+\end{description}
 \subsection{Soziales}
 \begin{description}
 \item[Überzeugen]- CHA,WIS,INT
@@ -237,6 +254,7 @@ Zusätzlich kann ein Anwender dieser Fertigkeit ihm nicht bekannte Zaubersprüch
 \\Klettern
 \item[Reiten]
 \item[Überleben]- WIS, FF, BEW
+\item[Werfen]
 \end{description}
 \chapter{Effekte}
 
@@ -349,5 +367,10 @@ Im Falle, dass z.B. ein Ziel nicht mehr vorhanden ist, verfällt die Aktion ersa
 \part{Zusätzliche Regeln}
 \setcounter{chapter}{0}
 \phantomsection
+
+\part{Sortierendes}
+\chapter{Erstellung}
+Startwert Attribute ist 8.
+Zusätzlich erhält jeder Char 530XP jeweils für F. und A. zum Verteilen.
 
 \end{document}
