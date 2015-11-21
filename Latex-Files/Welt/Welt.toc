@@ -147,109 +147,110 @@
 \contentsline {subsubsection}{Gebote}{78}{section*.150}
 \contentsline {subsubsection}{Rituale}{79}{section*.151}
 \contentsline {subsection}{Dinaris, die Umtriebige}{79}{section*.152}
-\contentsline {chapter}{Pantheon der Gegenwelt}{80}{chapter*.153}
-\contentsline {section}{Einf\IeC {\"u}hrung}{80}{section*.154}
-\contentsline {section}{Wirken au\IeC {\ss }erhalb der Gegenwelt}{80}{section*.155}
-\contentsline {section}{\IeC {\"U}bersicht \IeC {\"u}ber die G\IeC {\"o}tter}{81}{section*.156}
-\contentsline {subsection}{Schicksal}{81}{section*.157}
-\contentsline {subsection}{Umos, W\IeC {\"a}chter des Morgens}{81}{section*.158}
-\contentsline {subsubsection}{Falkenorden}{82}{section*.159}
-\contentsline {subsection}{Eron, der Gerechte}{82}{section*.160}
-\contentsline {subsubsection}{Eron Verehrung}{83}{section*.161}
-\contentsline {paragraph}{Rituale}{83}{section*.162}
-\contentsline {subsection}{Askon, der Gefallene Gott}{84}{section*.163}
-\contentsline {subsubsection}{Askon Verehrung}{85}{section*.164}
-\contentsline {paragraph}{Meditationen}{85}{section*.165}
-\contentsline {subsection}{Charon, der F\IeC {\"a}hrmann}{86}{section*.166}
-\contentsline {subsubsection}{Nekromantie}{87}{section*.167}
-\contentsline {paragraph}{Rituale}{87}{section*.168}
-\contentsline {subparagraph}{Nekropole}{90}{section*.169}
-\contentsline {subsection}{Die Lady des Nichts}{91}{section*.170}
-\contentsline {subsubsection}{Weihen}{92}{section*.171}
-\contentsline {subsubsection}{Rituale und Gaben}{92}{section*.172}
-\contentsline {subsubsection}{Der Palast der Leere}{92}{section*.173}
-\contentsline {subsection}{Valery, die Prophetin des Chaos}{93}{section*.174}
-\contentsline {part}{VI\hspace {1em}Kreaturen}{95}{part.175}
-\contentsline {chapter}{Flora und Fauna von Aurum Orbis}{96}{chapter*.176}
-\contentsline {chapter}{Magische Monster}{98}{chapter*.177}
-\contentsline {chapter}{Plagen aus der Gegenwelt}{101}{chapter*.178}
-\contentsline {chapter}{Sch\IeC {\"o}pfungen fremder G\IeC {\"o}tter}{105}{chapter*.179}
-\contentsline {chapter}{Kreaturenindex}{111}{section*.180}
-\contentsline {part}{VII\hspace {1em}Technologie}{113}{part.182}
-\contentsline {part}{VIII\hspace {1em}Professionen\&Spezialisierungen}{115}{part.183}
-\contentsline {chapter}{Einf\IeC {\"u}hrung}{116}{chapter*.184}
-\contentsline {chapter}{Offene Professionen}{117}{chapter*.185}
-\contentsline {section}{Alchemist}{117}{section*.186}
-\contentsline {subsection}{Fertigkeiten}{117}{section*.187}
-\contentsline {subsection}{Stufen}{117}{section*.188}
-\contentsline {section}{Weltenbummler}{117}{section*.189}
-\contentsline {subsection}{Anforderungen}{117}{section*.190}
-\contentsline {subsection}{Fertigkeiten}{117}{section*.191}
-\contentsline {section}{Bauer}{118}{section*.192}
-\contentsline {section}{Fischer}{118}{section*.193}
-\contentsline {section}{Bote}{118}{section*.194}
-\contentsline {section}{Matrose}{118}{section*.195}
-\contentsline {subsection}{Stufen}{118}{section*.196}
-\contentsline {section}{Pirat}{118}{section*.197}
-\contentsline {section}{Mechaniker}{118}{section*.198}
-\contentsline {section}{Arzt}{118}{section*.199}
-\contentsline {section}{Soldat}{118}{section*.200}
-\contentsline {subsection}{Fertigkeiten}{119}{section*.201}
-\contentsline {subsection}{Stufen}{119}{section*.202}
-\contentsline {section}{Barde}{119}{section*.203}
-\contentsline {subsection}{Stufen}{119}{section*.204}
-\contentsline {section}{Gladiator}{119}{section*.205}
-\contentsline {section}{Knecht/Magd}{119}{section*.206}
-\contentsline {section}{Gaukler}{119}{section*.207}
-\contentsline {subsection}{Stufen}{119}{section*.208}
-\contentsline {section}{Trickbetr\IeC {\"u}ger}{120}{section*.209}
-\contentsline {section}{F\IeC {\"a}lscher}{120}{section*.210}
-\contentsline {section}{Gelehrter}{120}{section*.211}
-\contentsline {section}{Priester}{120}{section*.212}
-\contentsline {section}{Koch}{120}{section*.213}
-\contentsline {section}{Faustk\IeC {\"a}mpfer}{120}{section*.214}
-\contentsline {subsection}{Fertigkeiten}{120}{section*.215}
-\contentsline {subsection}{Stufen}{120}{section*.216}
-\contentsline {section}{J\IeC {\"a}ger}{121}{section*.217}
-\contentsline {subsection}{Voraussetzungen}{121}{section*.218}
-\contentsline {subsection}{Fertigkeiten}{121}{section*.219}
-\contentsline {subsection}{Stufen}{121}{section*.220}
-\contentsline {section}{S\IeC {\"o}ldner}{122}{section*.221}
-\contentsline {subsection}{Voraussetzung}{122}{section*.222}
-\contentsline {subsection}{Fertigkeiten}{122}{section*.223}
-\contentsline {subsection}{Stufen}{123}{section*.224}
-\contentsline {section}{Gauner}{123}{section*.225}
-\contentsline {subsection}{Voraussetzungen}{123}{section*.226}
-\contentsline {subsection}{Fertigkeiten}{123}{section*.227}
-\contentsline {subsection}{Stufen}{123}{section*.228}
-\contentsline {section}{Schurke}{124}{section*.229}
-\contentsline {subsection}{Voraussetzungen}{124}{section*.230}
-\contentsline {subsection}{Fertigkeiten}{124}{section*.231}
-\contentsline {subsection}{Stufen}{125}{section*.232}
-\contentsline {chapter}{Geschlossene Professionen}{126}{chapter*.233}
-\contentsline {section}{dunkelelfischer Krieger}{126}{section*.234}
-\contentsline {chapter}{Weiterentwickelte Professionen}{127}{chapter*.235}
-\contentsline {section}{Besitenj\IeC {\"a}ger}{127}{section*.236}
-\contentsline {subsection}{Voraussetzungen}{127}{section*.237}
-\contentsline {subsection}{Fertigkeiten}{127}{section*.238}
-\contentsline {subsection}{Stufen}{127}{section*.239}
-\contentsline {section}{Kopfgeldj\IeC {\"a}ger}{128}{section*.240}
-\contentsline {section}{Einbrecher}{128}{section*.241}
-\contentsline {section}{Attent\IeC {\"a}ter}{128}{section*.242}
-\contentsline {part}{IX\hspace {1em}Zu Sortierendes}{129}{part.243}
-\contentsline {chapter}{Tal des Zwielichts}{130}{chapter*.244}
-\contentsline {chapter}{Erze\&Metalle}{131}{chapter*.245}
-\contentsline {section}{Mundane Erze}{131}{section*.246}
-\contentsline {section}{G\IeC {\"o}ttliche Erze}{131}{section*.247}
-\contentsline {section}{Metalle}{133}{section*.248}
-\contentsline {chapter}{Ma\IeC {\ss }e und Einheiten}{134}{chapter*.249}
-\contentsline {chapter}{Ring der Tr\IeC {\"a}nen}{135}{chapter*.250}
-\contentsline {chapter}{Hexen}{136}{chapter*.251}
-\contentsline {section}{Kesselhexen}{136}{section*.252}
-\contentsline {section}{Ritualhexen}{137}{section*.253}
-\contentsline {chapter}{D\IeC {\"a}umling}{138}{chapter*.254}
-\contentsline {chapter}{Anomalien des Manas}{139}{chapter*.255}
-\contentsline {section}{Drittes Auge}{139}{section*.256}
-\contentsline {section}{Blaues Fieber}{139}{section*.257}
-\contentsline {part}{Stichwortverzeichnis}{141}{section*.258}
-\contentsline {part}{Geographieglossar}{141}{section*.260}
+\contentsline {subsubsection}{Meditationen}{79}{section*.153}
+\contentsline {chapter}{Pantheon der Gegenwelt}{80}{chapter*.154}
+\contentsline {section}{Einf\IeC {\"u}hrung}{80}{section*.155}
+\contentsline {section}{Wirken au\IeC {\ss }erhalb der Gegenwelt}{80}{section*.156}
+\contentsline {section}{\IeC {\"U}bersicht \IeC {\"u}ber die G\IeC {\"o}tter}{81}{section*.157}
+\contentsline {subsection}{Schicksal}{81}{section*.158}
+\contentsline {subsection}{Umos, W\IeC {\"a}chter des Morgens}{81}{section*.159}
+\contentsline {subsubsection}{Falkenorden}{82}{section*.160}
+\contentsline {subsection}{Eron, der Gerechte}{82}{section*.161}
+\contentsline {subsubsection}{Eron Verehrung}{83}{section*.162}
+\contentsline {paragraph}{Rituale}{83}{section*.163}
+\contentsline {subsection}{Askon, der Gefallene Gott}{84}{section*.164}
+\contentsline {subsubsection}{Askon Verehrung}{85}{section*.165}
+\contentsline {paragraph}{Meditationen}{85}{section*.166}
+\contentsline {subsection}{Charon, der F\IeC {\"a}hrmann}{86}{section*.167}
+\contentsline {subsubsection}{Nekromantie}{87}{section*.168}
+\contentsline {paragraph}{Rituale}{87}{section*.169}
+\contentsline {subparagraph}{Nekropole}{90}{section*.170}
+\contentsline {subsection}{Die Lady des Nichts}{91}{section*.171}
+\contentsline {subsubsection}{Weihen}{92}{section*.172}
+\contentsline {subsubsection}{Rituale und Gaben}{92}{section*.173}
+\contentsline {subsubsection}{Der Palast der Leere}{92}{section*.174}
+\contentsline {subsection}{Valery, die Prophetin des Chaos}{93}{section*.175}
+\contentsline {part}{VI\hspace {1em}Kreaturen}{95}{part.176}
+\contentsline {chapter}{Flora und Fauna von Aurum Orbis}{96}{chapter*.177}
+\contentsline {chapter}{Magische Monster}{98}{chapter*.178}
+\contentsline {chapter}{Plagen aus der Gegenwelt}{101}{chapter*.179}
+\contentsline {chapter}{Sch\IeC {\"o}pfungen fremder G\IeC {\"o}tter}{106}{chapter*.180}
+\contentsline {chapter}{Kreaturenindex}{112}{section*.181}
+\contentsline {part}{VII\hspace {1em}Technologie}{114}{part.183}
+\contentsline {part}{VIII\hspace {1em}Professionen\&Spezialisierungen}{116}{part.184}
+\contentsline {chapter}{Einf\IeC {\"u}hrung}{117}{chapter*.185}
+\contentsline {chapter}{Offene Professionen}{118}{chapter*.186}
+\contentsline {section}{Alchemist}{118}{section*.187}
+\contentsline {subsection}{Fertigkeiten}{118}{section*.188}
+\contentsline {subsection}{Stufen}{118}{section*.189}
+\contentsline {section}{Weltenbummler}{118}{section*.190}
+\contentsline {subsection}{Anforderungen}{118}{section*.191}
+\contentsline {subsection}{Fertigkeiten}{118}{section*.192}
+\contentsline {section}{Bauer}{119}{section*.193}
+\contentsline {section}{Fischer}{119}{section*.194}
+\contentsline {section}{Bote}{119}{section*.195}
+\contentsline {section}{Matrose}{119}{section*.196}
+\contentsline {subsection}{Stufen}{119}{section*.197}
+\contentsline {section}{Pirat}{119}{section*.198}
+\contentsline {section}{Mechaniker}{119}{section*.199}
+\contentsline {section}{Arzt}{119}{section*.200}
+\contentsline {section}{Soldat}{119}{section*.201}
+\contentsline {subsection}{Fertigkeiten}{120}{section*.202}
+\contentsline {subsection}{Stufen}{120}{section*.203}
+\contentsline {section}{Barde}{120}{section*.204}
+\contentsline {subsection}{Stufen}{120}{section*.205}
+\contentsline {section}{Gladiator}{120}{section*.206}
+\contentsline {section}{Knecht/Magd}{120}{section*.207}
+\contentsline {section}{Gaukler}{120}{section*.208}
+\contentsline {subsection}{Stufen}{120}{section*.209}
+\contentsline {section}{Trickbetr\IeC {\"u}ger}{121}{section*.210}
+\contentsline {section}{F\IeC {\"a}lscher}{121}{section*.211}
+\contentsline {section}{Gelehrter}{121}{section*.212}
+\contentsline {section}{Priester}{121}{section*.213}
+\contentsline {section}{Koch}{121}{section*.214}
+\contentsline {section}{Faustk\IeC {\"a}mpfer}{121}{section*.215}
+\contentsline {subsection}{Fertigkeiten}{121}{section*.216}
+\contentsline {subsection}{Stufen}{121}{section*.217}
+\contentsline {section}{J\IeC {\"a}ger}{122}{section*.218}
+\contentsline {subsection}{Voraussetzungen}{122}{section*.219}
+\contentsline {subsection}{Fertigkeiten}{122}{section*.220}
+\contentsline {subsection}{Stufen}{122}{section*.221}
+\contentsline {section}{S\IeC {\"o}ldner}{123}{section*.222}
+\contentsline {subsection}{Voraussetzung}{123}{section*.223}
+\contentsline {subsection}{Fertigkeiten}{123}{section*.224}
+\contentsline {subsection}{Stufen}{124}{section*.225}
+\contentsline {section}{Gauner}{124}{section*.226}
+\contentsline {subsection}{Voraussetzungen}{124}{section*.227}
+\contentsline {subsection}{Fertigkeiten}{124}{section*.228}
+\contentsline {subsection}{Stufen}{124}{section*.229}
+\contentsline {section}{Schurke}{125}{section*.230}
+\contentsline {subsection}{Voraussetzungen}{125}{section*.231}
+\contentsline {subsection}{Fertigkeiten}{125}{section*.232}
+\contentsline {subsection}{Stufen}{126}{section*.233}
+\contentsline {chapter}{Geschlossene Professionen}{127}{chapter*.234}
+\contentsline {section}{dunkelelfischer Krieger}{127}{section*.235}
+\contentsline {chapter}{Weiterentwickelte Professionen}{128}{chapter*.236}
+\contentsline {section}{Besitenj\IeC {\"a}ger}{128}{section*.237}
+\contentsline {subsection}{Voraussetzungen}{128}{section*.238}
+\contentsline {subsection}{Fertigkeiten}{128}{section*.239}
+\contentsline {subsection}{Stufen}{128}{section*.240}
+\contentsline {section}{Kopfgeldj\IeC {\"a}ger}{129}{section*.241}
+\contentsline {section}{Einbrecher}{129}{section*.242}
+\contentsline {section}{Attent\IeC {\"a}ter}{129}{section*.243}
+\contentsline {part}{IX\hspace {1em}Zu Sortierendes}{130}{part.244}
+\contentsline {chapter}{Tal des Zwielichts}{131}{chapter*.245}
+\contentsline {chapter}{Erze\&Metalle}{132}{chapter*.246}
+\contentsline {section}{Mundane Erze}{132}{section*.247}
+\contentsline {section}{G\IeC {\"o}ttliche Erze}{132}{section*.248}
+\contentsline {section}{Metalle}{134}{section*.249}
+\contentsline {chapter}{Ma\IeC {\ss }e und Einheiten}{135}{chapter*.250}
+\contentsline {chapter}{Ring der Tr\IeC {\"a}nen}{136}{chapter*.251}
+\contentsline {chapter}{Hexen}{137}{chapter*.252}
+\contentsline {section}{Kesselhexen}{137}{section*.253}
+\contentsline {section}{Ritualhexen}{138}{section*.254}
+\contentsline {chapter}{D\IeC {\"a}umling}{139}{chapter*.255}
+\contentsline {chapter}{Anomalien des Manas}{140}{chapter*.256}
+\contentsline {section}{Drittes Auge}{140}{section*.257}
+\contentsline {section}{Blaues Fieber}{140}{section*.258}
+\contentsline {part}{Stichwortverzeichnis}{142}{section*.259}
+\contentsline {part}{Geographieglossar}{142}{section*.261}
