@@ -144,10 +144,11 @@ Die allgemeine Ausdauer, aber auch die Körpereigenen Abwehrkräfte gegen Gifte 
 \item[Intelligenz(INT)]
 \item[Weisheit(WIS)]
 \item[Charisma(CHA)]
-\item[Aussehen(APP)]
+\item[Aussehen(AUS)]
+Dieses Attribut beschreibt die Physische Erscheinung und ihre Wirkung auf andere. Dabei ist zu erwähnen, dass Schönheitsideale von Volk zu Volk unterschiedlich sein können. Auch wird dieses Talent weder gesteigert noch sonst irgendwie erhöht, vielmehr wird bei der Charaktererstellung ein Wert zwischen 1-100 bestimmt, der je nach Physiognomie des Volkes mit zunehmenden Alter modifiziert wird. Weitere Informationen zu Aussehen werden in den folgenden Kapitel besprochen.
 \end{description}
 \chapter{Steigern und Fortschritt}
-Erfahrungspunkte in einer Fähigkeit werden gleichmäßig auf die verwendeten Attribute verteilt. Die Formel zur Bestimmung des Fortschrittes lautet:
+Erfahrungspunkte in einer Fähigkeit werden gleichmäßig auf die verwendeten Attribute verteilt. Die Formel zur Bestimmung der Kosten für eine Stufe lautet:
 \\$9X+11X*(\frac{X}{20})$
 \\Für Fertigkeiten mit einem Lernmodifikator ungleich 1, multipliziere Wert mit dem Kehrwert des Modifikator und runde auf.
 \\
@@ -166,119 +167,18 @@ Die hier aufgeführten Werte, berechnen sich aus den Basisattributen und können
 Alle Tätigkeiten, die nicht auf einem Attribut basiert, sondern eine Mischung von Erfahrung und Attributen werden durch sogenannte Fertigkeiten beschrieben. Fertigkeiten lassen sich dabei in die Kategorien: Waffen(B), großes Handwerk(B), Wissen(C), Soziales(D), kleines Handwerk(D), Sonstiges(E). Die Kategorie ist dabei ausschlaggebend für die Lernkosten. Zusätzlich hat jede Fertigkeit einen eigenen, von den Professionen und der sog. Komplexität(A=0, B=0.25, C=0.5, D=0.75, E=1, F=1.25...) abhängigen Lernmodifikator. Eine Fertigkeit kann zudem in sog. Fokussierungen auftreten. Diese sind in der Regel Teil einer Profession und erlaubt in bestimmten Situationen mehr Punkte in eine Probe einzubringen.
 \section{Erfahrung \& Steigern}
 Bei jeder Probe werden EP für die genutzte Fertigkeit ausgegeben. Dazu gilt Komplexitätsklasse * 3 EP * Lernmodifikator * (Prozentchance für Misserfolg/100, Minimum 0.05). Agiert man außerhalb der eigenen Komplexitätsklasse so werden die Basis-EP auf die eigene Klasse abgewertet. Für Aktionen unterhalb der eigenen Komplexitätsklasse wird der Mittelwert abgerundet gebildet.
-\\Die Formel zur Rangbestimmung auf Basis der Erfahrungspunkte ist:
+\\Die Formel zur Kostenbestimmung für einen Rang:
 \\$7x+9x*\frac{x}{10}$
 \\Für Fertigkeiten mit einem Lernmodifikator ungleich 1, multipliziere Wert mit dem Kehrwert des Modifikator und runde auf.
 \\
 \\Hat eine Fertigkeit die Komplexität A kann nur durch einen Lehrmeister/Trainingpartner gelernt werden. Nähere Regel hierzu folgen dann.
 \\Für eine bessere Übersicht und Rechnung können diese Werte mit 100 multipliziert werden und bleibende Nachkommastellen fallen lassen, außerdem sollte man die Auswertung immer auf die nächste Rast verschieben.
-\section{Übersicht von Fertigkeiten}
-\subsection{Waffen}
-\begin{description}
-\item[Bogen]- STR, BEW, WIS
-\item[Schwert]- STR, MUT, BEW
-\item[Dolch]- STR, MUT, BEW
-\item[Faustkampf]- STR, MUT, BEW
-\item[kleine Wurfwaffen]- FF, STR, WIS
-\\Wurfsterne, 
-\item[Wurfwaffen]- BEW, STR, WIS
-\\Speere
-\item[Schleudern]
-\item[Hiebwaffen]
-\item[Zweihändige Schwerter]
-\item[Zweihändige Hiebwaffen]
-\item[Improvisierte Waffen]
-\item[Schilde]
-\end{description}
-\subsection{Soziales}
-\begin{description}
-\item[Überzeugen]- CHA,WIS,INT
-\\Die Rhetorik ist die Hohe Kunst Argumente in schöne Worte zu kleiden, um langfristig die Einstellung seines Gegenübers hin zu seinem eigenem Standpunkt zu bewegen. Der Erfolg hängt einerseits von der Attitüde des Gegenübers ab. Befindet man sich in einer Diskussionsrunde können die Gegenüber ihre eigene Fertigkeit einbringen, da sie die Argumente entkräften. Wird diese Fähigkeiten in großen Menschenmengen benutzt wird die Probe zusätzlich entsprechend der Größe erschwert. Anbei ein paar Tabellen zu den Modifikatoren:
-%hier tabelle
-Die Wirkung von Überzeugung hält in der Regel mehrere Tage, wobei angesichts veränderte Umstände die Wirkung auch spontan verfliegen kann. Übrig gebliebene Punkte entscheiden daher über den Grad der Überzeugung:
-%Hier tabelle
-Für jede Komplexitätsklasse über dem Stand des Ziels erhöht die Wirkung um eine Kategorie.
-\item[Überreden]- CHA,INT,WIS
-\item[Einschüchtern]- CHA, MUT, STR
-\item[Lügen]- CHA, INT, MUT
-\item[Verspotten]- CHA, INT, MUT
-\item[Menschenkenntnis]- WIS, INT, CHA
-\item[Etikette]- INT, MUT, FF
-\item[Gassenwissen]- CHA, WIS, INT
-\item[Tanzen]- CHA, CHA, BEW 
-\item[Singen]- CHA, CHA, WIS
-\item[Lyrik]- CHA, WIS, CHA
-\item[Musizieren] - WIS, WIS, INT 
-\item[Schauspielen]- CHA, WIS, MUT
-\item[Verkleiden]- WIS, MUT, INT
-\item[Gaukeln]- MUT, BEW, FF
-\item[Zechen]- CHA, KON, MTB
-\end{description}
-\subsection{großes Handwerk}
-\begin{description}
-\item[Grobschmied]
-\item[Feinschmied]
-\item[Balieren]Edelsteinschleifer
-\item[Schreiner]
-\item[Baukunst]-
-\\Umsetzten von Plänen
-\item[Schlösser]- FF, FF, INT
-\\Knacken und Machen
-\item[Feinmechanik]
-
-\end{description}
-\subsection{kleines Handwerk}
-\begin{description}
-\item[Fleischer]
-\item[Kürschner]
-\item[Weben und Spinnen]
-\item[Holzbearbeitung]
-\end{description}
-\subsection{Wissen}
-Mithilfe von Wissensfertigkeiten können Merkmale von Feinden aufgedeckt werden. Dazu muss in der Regel eine Probe erschwert um die Gefahrenstufe selbigen gemacht werden. Für je 3 übrig gebliebene Punkte wird ein Merkmal aufgedeckt. Diese Erkennen-Probe kann pro Begegnung mit diesem Feind einmal eingesetzt werden und kostet eine Runde.
-\begin{description}
-\item[Architektur]-
-\\Planen von Gebäuden
-\item[Tierkunde]- WIS, WIS, CHA
-\\Neben den Völkern und Monstern gibt es noch eine ganze Reihe von animalischen Kreaturen. Über die Pflege von domestizierten Varianten, Verbreitung und Eigenheiten der Wilden Varianten gibt diese Fähigkeit Auskunft. Jeder Wurf wird durch die Gefahrenstufe des Tiers erschwert. Bei Pflege muss um gesundheitliche Probleme zu behandeln ein weitere Wurf auf Heilkunde mit der Erschwernis der Gefahrenstufe, abzüglich der übrigen Punkte aus der Tierkundeprobe.
-\item[Alchemistische Ordnung]-
-\\Allen Objekten, ob Blut, Minerale, Pflanzen, verfügt laut den Alchemisten über besondere Eigenschaften. Diese zu erkennen, zu extrahieren und mit anderen zu kombinieren sind drei verschiedene Proben, die im letzten Schritt bei Fehlschlägen zur Vernichtung ganzer Stadtviertel führen können. Auch fertige Kreationen dieser Schule können mit dieser Fähigkeiten erkannt werden. Die Probe ist dabei in der Regel 3/4 der zur Herstellung benötigten Probe. In der Regel muss der Anwender auch Zugriff auf ein Labor haben, ansonsten muss er je nach Rezeptur mit heftigen Erschwernissen oder dem garantieren Scheitern rechnen. Für mehr Details siehe hierzu das Kapitel Alchemie.
-\item[Kräuterkunde]-
-\\Vielen Pflanzen in ganz Aurum Orbis haben von Natur aus Heilkräfte oder schädliche Wirkungen. Für die Erkennung und fachgerechte Verarbeitung werden zwei Proben auf diese Fähigkeit benötigt. Fehlschläge können dabei je nach schwere bis hin zu tödlichen Verwechselungen oder Selbstvergiftung führen. Für eine fachgerechte Verarbeitung muss in der Regel Zugriff auf eine Küche und entsprechendes Werkzeug bestehen, bei echten Laboren wird die Probe zum Verarbeiten um bis zu 5 Punkte erleichtert. 
-\item[Götter und Aspekte]
-\item[Arkanes Wissen]Die Arkanen Künste sind nicht nur auf das Auswendiglernen von Zaubersprüchen beschränkt. Sie alle beruhen letztendlich auf einer Sprache mit eigenem Vokabular und Grammatik. Wer dieser mächtig ist, kann seine Zauber leicht anpassen, um sie den eigenen Wünschen anzupassen. Diese erhöhen natürlich die Komplexität eines Zaubers und erfordern eine Probe auf arkanes Wissens, wobei übrig gebliebende Punkte die anschließende Zauberprobe bis zur ursprünglichen Komplexität erleichtern. Anbei ein paar Möglichkeiten:
-Effizientes Zaubern-Die Mana-Kosten für den Zauber werden bis zu 25\% reduziert. Komplexität steigt um die gewählte Prozentzahl.
-Zusätzlich kann ein Anwender dieser Fertigkeit ihm nicht bekannte Zaubersprüche erkennen. Hierzu muss eine Probe in Höhe der dem Zauber entsprechendem Komplexität bestanden werden. Magier können nachdem sie diesen erkannt haben, mit einem Gegenzauber abblocken, wobei die Zauberprobe um die übrig gebliebenen Punkte aus der Erkennenprobe vereinfacht wird.
-\item[Sagen und Legenden]Schon immer vermengten die Barden und Geschichtenerzähler die Wahrheit mit Elementen ihrer eigenen Fiktion. So ist zwar nicht immer auf solche Erzählungen verlass und doch kann es, wenn die Bücher des Gelehrten versagen, die Worte einer Ballade sein, die über den Kampf gegen uralte Übel und exotische Gefahren entscheiden kann. Mit dieser Fähigkeiten kann das Fehlen andere Wissensfertigkeiten zum Teil ausgeglichen werden, auch wenn der Meister die Informationen in geeigneten Rätseln verpacken sollte.
-\item[Adel und Persönlichkeiten]- INT, INT, CHA
-\item[Historie \& Geographie]- INT, INT, WIS
-\item[Anatomie]
-\item[Rechnen]- INT, INT, WIS
-\item[Rechtskunde]- INT, WIS, CHA
-\item[Schätzen]- INT, INT, WIS
-\item[Staatskunde]- INT, WIS, CHA
-\item[Kryptographie]- INT, INT, WIS
-\item[Mechanik]-
-\\Verstädnis von Mechanischen Vorgängen 
-\end{description}
-\subsection{Sonstige}
-\begin{description}
-\item[Schleichen]- BEW, BEW, WIS; Frei
-\\Wann immer eine Figur versucht unbemerkt zu bleiben, während sie sich bewegt, dann ist Schleichen gefragt. Im Kampf nimm ihre Bewegungsgeschwindigkeit auf 1/4 reduziert und sprinten unzulässig. Angriffe mit Nahkampfwaffen heben Schleichen auf.
-\item[Verstecken]- WIS, MUT,  Frei;Stillstand, Angriffe aus dem Verborgenem. Waffen, die keinen Sound abgeben la
-\item[Wahrnehmung]- INT, WIS, WIS
-\item[Athletik]- STR, KON, BEW
-\\Rennen, Springen 
-\item[Akrobatik]- BEW, BEW, STR
-\\Ausweichen, Balancieren, Manöver
-\item[Schwimmen]- STR, KON, STR
-\\Schwimmen, Tauchen
-\item[Klettern]- STR, BEW, MUT
-\\Klettern
-\item[Reiten]
-\item[Überleben]- WIS, FF, BEW
-\item[Werfen]
-\end{description}
+\section{Probe}
+Auch wenn die genaue Probenart je nach Situation und Fertigkeit variieren kann, so dienen die drei mit der Fähigkeit verknüpften Attribute als Schwellen und der Fertigkeits-Rang als positiver Modifikator.
+\section{Charisma und Aussehen}
+Aussehen kann bei bestimmten Sozialen Fertigkeiten einen Modifikator, in der Höhe von AUS/10 erzeugen. Beachte die Verhältnisse bei anderen Völkern und Geschlechtern.
+\\\textsuperscript{c+}, bedeutet Positiver Modifikator
+\\\textsuperscript{c-}, `` negativer ``
 \chapter{Effekte}
 
 \part{Ergänzung für Charaktere}
