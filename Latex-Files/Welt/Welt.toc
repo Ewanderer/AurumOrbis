@@ -260,7 +260,9 @@
 \contentsline {chapter}{Nirgendwo}{146}{chapter*.264}
 \contentsline {section}{Seelenl\IeC {\"a}ufer}{146}{section*.265}
 \contentsline {subsection}{Schamanen}{147}{section*.266}
-\contentsline {section}{Trinit\IeC {\"a}t des B\IeC {\"o}sen}{147}{section*.267}
-\contentsline {chapter}{Untergr\IeC {\"u}ndige}{149}{chapter*.268}
-\contentsline {part}{Stichwortverzeichnis}{150}{section*.269}
-\contentsline {part}{Geographieglossar}{150}{section*.271}
+\contentsline {subsection}{Magierj\IeC {\"a}ger?}{147}{section*.267}
+\contentsline {section}{Verlorene}{147}{section*.268}
+\contentsline {section}{Trinit\IeC {\"a}t des B\IeC {\"o}sen}{148}{section*.269}
+\contentsline {chapter}{Untergr\IeC {\"u}ndige}{149}{chapter*.270}
+\contentsline {part}{Stichwortverzeichnis}{150}{section*.271}
+\contentsline {part}{Geographieglossar}{150}{section*.273}

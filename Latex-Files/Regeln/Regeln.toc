@@ -53,9 +53,8 @@
 \contentsline {chapter}{\numberline {3}Ohne PAI}{43}{chapter.54}
 \contentsline {chapter}{\numberline {4}Ung\IeC {\"u}ltige Aktionen und Plan\IeC {\"a}nderungen}{44}{chapter.55}
 \contentsline {chapter}{\numberline {5}Zus\IeC {\"a}tzliche Regeln}{45}{chapter.56}
-\contentsline {part}{VII\hspace {1em}Magie}{46}{part.57}
-\contentsline {part}{VIII\hspace {1em}Geweihte}{47}{part.58}
-\contentsline {part}{IX\hspace {1em}Meister \& Hintergr\IeC {\"u}nde}{48}{part.59}
-\contentsline {part}{X\hspace {1em}Zus\IeC {\"a}tzliche Regeln}{49}{part.60}
-\contentsline {part}{XI\hspace {1em}Sortierendes}{50}{part.62}
-\contentsline {chapter}{\numberline {1}Erstellung}{51}{chapter.63}
+\contentsline {part}{VII\hspace {1em}Meister \& Hintergr\IeC {\"u}nde}{46}{part.57}
+\contentsline {part}{VIII\hspace {1em}Zus\IeC {\"a}tzliche Regeln}{47}{part.58}
+\contentsline {part}{IX\hspace {1em}Sortierendes}{48}{part.60}
+\contentsline {chapter}{\numberline {1}Erstellung}{49}{chapter.61}
+\contentsline {chapter}{\numberline {2}Sagenpunkt Anwendungen}{50}{chapter.62}
