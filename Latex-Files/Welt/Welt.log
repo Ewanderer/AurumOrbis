@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2014.12.4)  9 JAN 2016 12:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/W32TeX) (preloaded format=pdflatex 2014.12.4)  9 JAN 2016 18:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -911,15 +911,15 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 243.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 243.
- [7])
+ [7]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 271.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 271.
+ [8])
 \tf@toc=\write8
 \openout8 = `Welt.toc'.
 
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 36.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 36.
- [8]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 36.
 Package babel Info: Redefining ngerman shorthand "~
@@ -3149,18 +3149,22 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 1150.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1154.
+(babel)             in language  on input line 1152.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1154.
+(babel)             in language  on input line 1152.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1156.
+(babel)             in language  on input line 1154.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1156.
+(babel)             in language  on input line 1154.
  [148]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1157.
+(babel)             in language  on input line 1155.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1157.
+(babel)             in language  on input line 1155.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1158.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1158.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1163.
 Package babel Info: Redefining ngerman shorthand "~
@@ -3168,32 +3172,37 @@ Package babel Info: Redefining ngerman shorthand "~
 
 [149]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1163.
+(babel)             in language  on input line 1164.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1163.
+(babel)             in language  on input line 1164.
+ [150]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1166.
+(babel)             in language  on input line 1164.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1166.
- [150
+(babel)             in language  on input line 1164.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 1167.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 1167.
+ [151
 
 ]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1168.
+(babel)             in language  on input line 1169.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1168.
+(babel)             in language  on input line 1169.
 runsystem(makeindex Stichworte.idx)...executed safely (allowed).
 
  (./Stichworte.ind)
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1171.
+(babel)             in language  on input line 1172.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1171.
+(babel)             in language  on input line 1172.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1172.
+(babel)             in language  on input line 1173.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1172.
- [151
+(babel)             in language  on input line 1173.
+ [152
 
 
 
@@ -3201,32 +3210,32 @@ Package babel Info: Redefining ngerman shorthand "~
 runsystem(makeindex Geographie.idx)...executed safely (allowed).
 
  (./Geographie.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1175.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1176.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 1175.
+(babel)             in language  on input line 1176.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 1175.
- [152
+(babel)             in language  on input line 1176.
+ [153
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1175.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1176.
  (./Welt.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1175.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1175.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1176.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1176.
 
 Package rerunfilecheck Info: File `Welt.out' has not changed.
-(rerunfilecheck)             Checksum: C01F5970FE5195D3BB0F7AFC6CF37D17;17427.
+(rerunfilecheck)             Checksum: 1B8FB9703D06D2F4BC2A4EA74422969E;17490.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 12908 strings out of 493109
- 220014 string characters out of 6138587
+ 12911 strings out of 493109
+ 220048 string characters out of 6138587
  295519 words of memory out of 5000000
- 15841 multiletter control sequences out of 15000+600000
+ 15842 multiletter control sequences out of 15000+600000
  9872 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,6n,41p,10472b,481s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -3235,10 +3244,10 @@ live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2014/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><c:/texlive/2014/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmsl12.pfb><c:/texlive/2014/texmf-dist/fonts/ty
 pe1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Welt.pdf (153 pages, 413836 bytes).
+Output written on Welt.pdf (154 pages, 415291 bytes).
 PDF statistics:
- 2210 PDF objects out of 2487 (max. 8388607)
- 2029 compressed objects within 21 object streams
- 432 named destinations out of 1000 (max. 500000)
- 2169 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2222 PDF objects out of 2487 (max. 8388607)
+ 2040 compressed objects within 21 object streams
+ 434 named destinations out of 1000 (max. 500000)
+ 2177 words of extra memory for PDF output out of 10000 (max. 10000000)
 
