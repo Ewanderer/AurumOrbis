@@ -1,8 +1,8 @@
-.aux
-.log
-.out
-.gz
-.toc
-.idx
-.ilg
-.ind
+*.aux
+*.log
+*.out
+*.gz
+*.toc
+*.idx
+*.ilg
+*.ind
