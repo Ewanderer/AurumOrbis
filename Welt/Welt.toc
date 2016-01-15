@@ -262,12 +262,14 @@
 \contentsline {section}{Blaues Fieber}{145}{section*.266}
 \contentsline {section}{Freies Blut}{146}{section*.267}
 \contentsline {chapter}{Nirgendwo}{147}{chapter*.268}
-\contentsline {section}{Seelenl\IeC {\"a}ufer}{147}{section*.269}
+\contentsline {section}{Spaltl\IeC {\"a}ufer}{147}{section*.269}
 \contentsline {subsection}{Schamanen}{148}{section*.270}
 \contentsline {subsection}{Magierj\IeC {\"a}ger?}{148}{section*.271}
 \contentsline {subsection}{Ber\IeC {\"u}hrte}{148}{section*.272}
-\contentsline {section}{Verlorene}{149}{section*.273}
-\contentsline {section}{Trinit\IeC {\"a}t des B\IeC {\"o}sen}{149}{section*.274}
-\contentsline {chapter}{Untergr\IeC {\"u}ndige}{151}{chapter*.275}
-\contentsline {part}{Stichwortverzeichnis}{152}{section*.276}
-\contentsline {part}{Geographieglossar}{152}{section*.278}
+\contentsline {subsection}{Spaltung der Spaltl\IeC {\"a}ufer}{149}{section*.273}
+\contentsline {section}{Verlorene}{149}{section*.274}
+\contentsline {section}{Trinit\IeC {\"a}t des B\IeC {\"o}sen}{150}{section*.275}
+\contentsline {chapter}{Untergr\IeC {\"u}ndige}{151}{chapter*.276}
+\contentsline {chapter}{Magische Textur}{152}{chapter*.277}
+\contentsline {part}{Stichwortverzeichnis}{153}{section*.278}
+\contentsline {part}{Geographieglossar}{153}{section*.280}
