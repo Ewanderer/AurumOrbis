@@ -1,0 +1,99 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>XP Rechner</title>
+</head>
+<body>
+<script>
+function roll() {
+  return Math.floor(Math.random() * 20) + 1;
+}
+
+function calc(){
+	
+	var succ = fail = 0;
+	var a0 = document.getElementById("a0").value;
+	var a1 = document.getElementById("a1").value;
+	var a2 = document.getElementById("a2").value;
+	var a3 = document.getElementById("a3").value;
+	
+	if(a3 < 0) {
+		a3 = -a3;
+		a0 -= a3;
+		a1 -= a3;
+		a2 -= a3;
+		a3 = 0;
+	}
+	
+	for(var d0 = 1; d0 <= 20; d0++) {
+		for(var d1 = 1; d1 <= 20; d1++) {
+			for(var d2 = 1; d2 <= 20; d2++) {
+				var a = b = 0;
+				if((d0 == 1) + (d1 == 1) + (d2 == 1) >= 2) {
+					succ++;
+					continue;
+				}
+				if((d0 == 20) + (d1 == 20) + (d2 == 20) >= 2) {
+					fail++;
+					continue;
+				}
+				a = d0 - a0;
+				if(a > 0) {
+					b += a;
+				}
+				a = d1 - a1;
+				if(a > 0) {
+					b += a;
+				}
+				a = d2 - a2;
+				if(a > 0) {
+					b += a;
+				}
+				if(b > a3) {
+					fail++;
+				} else {
+					succ++;
+				}
+			}
+		}
+	}
+	
+	var quote = 100.0*succ/(succ+fail);
+	
+	document.getElementById("results").innerHTML = '<table border="0" cellpadding="10" cellspacing="0"><tr><td>Quote</td><td>' + quote
+			+ '%</td></tr><tr><td>XP</td><td>' + Math.floor(3*(quote > 95 ? 5 : 100 - quote)*document.getElementById("mod").value + 0.5)
+			+ '</td></tr><tr><td>XP fail</td><td>' + Math.floor(1.5*(quote > 95 ? 5 : 100 - quote)*document.getElementById("mod").value + 0.5)
+			+ '</td></tr></table>';
+}
+
+setTimeout(calc, 100);
+</script>
+
+<table border="0" cellpadding="2" cellspacing="0">
+<tr>
+<td>Attribute:
+</td>
+<td><input size="5" id="a0" value="14" onkeyup="calc()">
+</td>
+<td><input size="5" id="a1" value="14" onkeyup="calc()">
+</td>
+<td><input size="5" id="a2" value="14" onkeyup="calc()">
+</td>
+</tr>
+<tr>
+<td>Fertigkeitenwert:
+</td>
+<td><input size="5" id="a3" value="5" onkeyup="calc()">
+</td>
+</tr>
+<tr>
+<td>Modifikator:
+</td>
+<td><input size="5" id="mod" value="1" onkeyup="calc()">
+</td>
+</tr>
+</table>
+<div id="results">
+</div>
+</body>
+</html>

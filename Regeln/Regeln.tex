@@ -181,12 +181,13 @@ Aussehen kann bei bestimmten Sozialen Fertigkeiten einen Modifikator, in der Hö
 \\\textsuperscript{c-}, `` negativer ``
 
 \chapter{Effekte}
-Es gibt drei Kategorien von Effekten:
-\\Modifikationen, sowohl negativ als auch negativ.
-\\Counter, welche bei Konkurrieren Proben Boni des anderen aufheben.
-\\Block, welche dort genannten Effekte am applien hindert.
-Bei allen Effekten gibt es eine Source und einen Value. Es gilt für einen Source-Typ jeweils nur die beiden Values mit dem größten Ausschlag(also negativ und positiv).
-Um Counter und Block mit Mods abzugleichen, wird natürlich immer das Absolut genommen. 
+\section{passive Eigenschaften}
+Eine passive Eigenschaft besteht aus seiner Bezeichnung, einem Wert, sowie einer Angabe über die Herkunft.
+\subsection{Modification}
+Eine Modifikation wird auf den bezeichneten Basiswert gerechnet, wobei jeweils für einen Source-Typ nur der höchste positive und niedrigste negative Wert beachtet wird. Hierbei ist zu beachten, dass ein \* am Ende der Bezeichnung einen Multiplikator bedeutet, für die andere Regeln gibt. Diese werden erst nach Addition der übrigen Werte angerechnet. Negative Werte werden hier als 1/abs(Wert) gewertet und die 0 hat Vorrang über negative Werte und kann nur durch einen besonderen Block abgewehrt werden.
+\subsection{Block}
+Sperren schützen vor den Einflüssen von Modifikationen. Die Bezeichnung bedeutet, dass der bezeichnete Basiswert nur durch eine Modifikation von höherem Wert(negativ natürlich retrospekt negativ) als dem Block bearbeitet werden kann. Ein Block mit 0, kann einen negativen Modifikator. 
+\subsection{}
 
 \part{Ergänzung für Charaktere}
 \setcounter{chapter}{0}
@@ -329,6 +330,11 @@ Im Falle, dass z.B. ein Ziel nicht mehr vorhanden ist, verfällt die Aktion ersa
 \phantomsection
 
 \part{Sortierendes}
+
+\chapter{Ausdauerkosten}
+Angriffe/Parade 3 * Komplexitätsklasse.
+
+
 \chapter{Erstellung}
 Startwert Attribute ist 8.
 Zusätzlich erhält jeder Char 530XP jeweils für F. und A. zum Verteilen.
