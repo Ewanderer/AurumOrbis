@@ -24,37 +24,41 @@
 \BOOKMARK [1][-]{section.26}{Probe}{chapter.23}% 24
 \BOOKMARK [1][-]{section.27}{Charisma und Aussehen}{chapter.23}% 25
 \BOOKMARK [0][-]{chapter.28}{Effekte}{part.18}% 26
-\BOOKMARK [-1][-]{part.29}{III Erg\344nzung f\374r Charaktere}{}% 27
-\BOOKMARK [0][-]{chapter.30}{Spezialisierungen/Professionen}{part.29}% 28
-\BOOKMARK [1][-]{section.31}{Aufbau einer Profession/Spezialisierung}{chapter.30}% 29
-\BOOKMARK [0][-]{chapter.32}{Merkmale}{part.29}% 30
-\BOOKMARK [1][-]{section.33}{Einf\374hrung}{chapter.32}% 31
-\BOOKMARK [1][-]{section.34}{Alternativregeln}{chapter.32}% 32
-\BOOKMARK [1][-]{section.35}{Generelle Merkmale}{chapter.32}% 33
-\BOOKMARK [2][-]{subsection.36}{Vorteile}{section.35}% 34
-\BOOKMARK [2][-]{subsection.37}{Nachteile}{section.35}% 35
-\BOOKMARK [2][-]{subsection.38}{Neutrale}{section.35}% 36
-\BOOKMARK [0][-]{chapter.39}{Gesundheit und Schwere Wunden}{part.29}% 37
-\BOOKMARK [0][-]{chapter.40}{Kondition und Ersch\366pfung}{part.29}% 38
-\BOOKMARK [-1][-]{part.41}{IV Ausr\374stung \046 anderen Gegenst\344nden}{}% 39
-\BOOKMARK [0][-]{chapter.42}{Waffen}{part.41}% 40
-\BOOKMARK [1][-]{section.43}{Nahkampfwaffen}{chapter.42}% 41
-\BOOKMARK [1][-]{section.44}{Fernkampfwaffen}{chapter.42}% 42
-\BOOKMARK [0][-]{chapter.45}{R\374stungen}{part.41}% 43
-\BOOKMARK [-1][-]{part.46}{V Herstellung von Objekten}{}% 44
-\BOOKMARK [0][-]{chapter.47}{Grundlagen}{part.46}% 45
-\BOOKMARK [0][-]{chapter.48}{Rezepte}{part.46}% 46
-\BOOKMARK [1][-]{section.49}{Slot}{chapter.48}% 47
-\BOOKMARK [1][-]{section.50}{Endqualit\344t \046 Wertigkeit}{chapter.48}% 48
-\BOOKMARK [-1][-]{part.51}{VI Kampf}{}% 49
-\BOOKMARK [0][-]{chapter.52}{Ablauf}{part.51}% 50
-\BOOKMARK [0][-]{chapter.53}{Aktionen}{part.51}% 51
-\BOOKMARK [0][-]{chapter.54}{Ohne PAI}{part.51}% 52
-\BOOKMARK [0][-]{chapter.55}{Ung\374ltige Aktionen und Plan\344nderungen}{part.51}% 53
-\BOOKMARK [0][-]{chapter.56}{Zus\344tzliche Regeln}{part.51}% 54
-\BOOKMARK [-1][-]{part.57}{VII Meister \046 Hintergr\374nde}{}% 55
-\BOOKMARK [-1][-]{part.58}{VIII Zus\344tzliche Regeln}{}% 56
-\BOOKMARK [-1][-]{part.60}{IX Sortierendes}{}% 57
-\BOOKMARK [0][-]{chapter.61}{Ausdauerkosten}{part.60}% 58
-\BOOKMARK [0][-]{chapter.62}{Erstellung}{part.60}% 59
-\BOOKMARK [0][-]{chapter.63}{Sagenpunkt Anwendungen}{part.60}% 60
+\BOOKMARK [1][-]{section.29}{passive Eigenschaften}{chapter.28}% 27
+\BOOKMARK [2][-]{subsection.30}{Modification}{section.29}% 28
+\BOOKMARK [2][-]{subsection.31}{Block}{section.29}% 29
+\BOOKMARK [2][-]{subsection.32}{Counter}{section.29}% 30
+\BOOKMARK [-1][-]{part.33}{III Erg\344nzung f\374r Charaktere}{}% 31
+\BOOKMARK [0][-]{chapter.34}{Spezialisierungen/Professionen}{part.33}% 32
+\BOOKMARK [1][-]{section.35}{Aufbau einer Profession/Spezialisierung}{chapter.34}% 33
+\BOOKMARK [0][-]{chapter.36}{Merkmale}{part.33}% 34
+\BOOKMARK [1][-]{section.37}{Einf\374hrung}{chapter.36}% 35
+\BOOKMARK [1][-]{section.38}{Alternativregeln}{chapter.36}% 36
+\BOOKMARK [1][-]{section.39}{Generelle Merkmale}{chapter.36}% 37
+\BOOKMARK [2][-]{subsection.40}{Vorteile}{section.39}% 38
+\BOOKMARK [2][-]{subsection.41}{Nachteile}{section.39}% 39
+\BOOKMARK [2][-]{subsection.42}{Neutrale}{section.39}% 40
+\BOOKMARK [0][-]{chapter.43}{Gesundheit und Schwere Wunden}{part.33}% 41
+\BOOKMARK [0][-]{chapter.44}{Kondition und Ersch\366pfung}{part.33}% 42
+\BOOKMARK [-1][-]{part.45}{IV Ausr\374stung \046 anderen Gegenst\344nden}{}% 43
+\BOOKMARK [0][-]{chapter.46}{Waffen}{part.45}% 44
+\BOOKMARK [1][-]{section.47}{Nahkampfwaffen}{chapter.46}% 45
+\BOOKMARK [1][-]{section.48}{Fernkampfwaffen}{chapter.46}% 46
+\BOOKMARK [0][-]{chapter.49}{R\374stungen}{part.45}% 47
+\BOOKMARK [-1][-]{part.50}{V Herstellung von Objekten}{}% 48
+\BOOKMARK [0][-]{chapter.51}{Grundlagen}{part.50}% 49
+\BOOKMARK [0][-]{chapter.52}{Rezepte}{part.50}% 50
+\BOOKMARK [1][-]{section.53}{Slot}{chapter.52}% 51
+\BOOKMARK [1][-]{section.54}{Endqualit\344t \046 Wertigkeit}{chapter.52}% 52
+\BOOKMARK [-1][-]{part.55}{VI Kampf}{}% 53
+\BOOKMARK [0][-]{chapter.56}{Ablauf}{part.55}% 54
+\BOOKMARK [0][-]{chapter.57}{Aktionen}{part.55}% 55
+\BOOKMARK [0][-]{chapter.58}{Ohne PAI}{part.55}% 56
+\BOOKMARK [0][-]{chapter.59}{Ung\374ltige Aktionen und Plan\344nderungen}{part.55}% 57
+\BOOKMARK [0][-]{chapter.60}{Zus\344tzliche Regeln}{part.55}% 58
+\BOOKMARK [-1][-]{part.61}{VII Meister \046 Hintergr\374nde}{}% 59
+\BOOKMARK [-1][-]{part.62}{VIII Zus\344tzliche Regeln}{}% 60
+\BOOKMARK [-1][-]{part.64}{IX Sortierendes}{}% 61
+\BOOKMARK [0][-]{chapter.65}{Ausdauerkosten}{part.64}% 62
+\BOOKMARK [0][-]{chapter.66}{Erstellung}{part.64}% 63
+\BOOKMARK [0][-]{chapter.67}{Sagenpunkt Anwendungen}{part.64}% 64

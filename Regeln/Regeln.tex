@@ -186,8 +186,9 @@ Eine passive Eigenschaft besteht aus seiner Bezeichnung, einem Wert, sowie einer
 \subsection{Modification}
 Eine Modifikation wird auf den bezeichneten Basiswert gerechnet, wobei jeweils für einen Source-Typ nur der höchste positive und niedrigste negative Wert beachtet wird. Hierbei ist zu beachten, dass ein \* am Ende der Bezeichnung einen Multiplikator bedeutet, für die andere Regeln gibt. Diese werden erst nach Addition der übrigen Werte angerechnet. Negative Werte werden hier als 1/abs(Wert) gewertet und die 0 hat Vorrang über negative Werte und kann nur durch einen besonderen Block abgewehrt werden.
 \subsection{Block}
-Sperren schützen vor den Einflüssen von Modifikationen. Die Bezeichnung bedeutet, dass der bezeichnete Basiswert nur durch eine Modifikation von höherem Wert(negativ natürlich retrospekt negativ) als dem Block bearbeitet werden kann. Ein Block mit 0, kann einen negativen Modifikator. 
-\subsection{}
+Sperren schützen vor den Einflüssen von Modifikationen. Die Bezeichnung bedeutet, dass der bezeichnete Basiswert nur durch eine Modifikation von höherem Wert(negativ natürlich retrospekt negativ) als dem Block bearbeitet werden kann. Ein Block mit 0, kann einen negativen Modifikator. Ein Block mit \* am Ende seiner Bezeichnung bedeutet, weist diese als Source aus, die andere Modifikationen/Blocks unter den Tisch fallen lassen, die kleinerer Order haben, bei Multiplikativen werden nur Absolute betrachtet.
+\subsection{Counter}
+Kommen erst bei konkurrierenden Proben zum Einsatz. Die Bezeichnung steht dafür für die Probe/Fertigkeit, bei der dieser Counter relevant sind. Die Source hebt alle Modifikationen auf, mit selber Source, die geringeren Value(absoluter Wert) haben.
 
 \part{Ergänzung für Charaktere}
 \setcounter{chapter}{0}
