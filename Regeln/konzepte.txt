@@ -1,0 +1,29 @@
+Bestimmung von Waffenschaden
+	(
+	Komplexität 					=>	Differenz der KompK
+	+ Größenkategorie Träger 		=>	-1 klein | 0 mittel | +1 groß
+	+ Waffenqualität				=>	1 Improvisiert | 2 Beschädigt oder verstärkte Impro | 3 echte Waffe | 4+ verbesserte Waffe
+	
+	W
+	
+	Waffentyp						=>  3 nur! Fäuste |6 leichte und gewöhnliche Waffen(dolche, schwerter, handbeil) | 8 schwere Waffen(Hammer, Streitkolben) | 10 große leichte Waffen(Zweihänder) | 12 große schwere Waffen(Lanzen, Kriegshammer)
+	
+	)
+	*
+	Waffentyp						=> 0.5 kleine Waffen | 1 sonstiges und fäuste
+	
+Notizen zum Proc von Stumpfen Waffen:
+	Da nicht jeder eine Rüstung trägt, sollte es einen alternativen Proc im Falle des Fehlens von Rüstung geben. Dieser macht AP Schaden deren höhe sich an den eigenen AP kosten für den Angriff orientieren sollte.
+	Dafür sollten stumpfe Waffen von natur aus auch TP schaden machen, da es ansonsten zu verwirrend ist
+
+	
+Faustkampf
+	Bei Fäusten würde ich wenn man nach dem System dort oben geht, sagen, dass wenn man mit einem zu niedrigen Wert kämpft, 1W3, mit z.B. Schlagringen ohne Erfahrung 2w3 macht.
+	Die Basis für einen erfahrenden Kämpfer ist dagegen 3w3, mit einer stütze sogar 4w3.
+
+Kram zu Reaktionen
+	Jede Figur hat ein Maximum von INI/10 Reaktion in einer Runde, min 0.
+	Typischeste Reaktion ist der Gelegenheitsangriff. Ohne entsprechendes Training ist max. ein Gelegenheitsangriff möglich.
+	Auch andere Reaktionen sind ohne entsprechendes Training auf höchstens eine Anwendung in einer Runde beschränkt und verbrauchen auch die einfache Nutzung andere ungelernter Reaktionen.
+
+	

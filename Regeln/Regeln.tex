@@ -32,7 +32,15 @@ Jordan Eichner
   
 \part{Grundlagen}
 \chapter{Ein paar Abkürzugen}
-W6=6 Seitiger Würfel
+\begin{itemize}
+\item W6=6 Seitiger Würfel
+\item KompK=Komplexitätsklasse
+\item TP=Trefferpunkte
+\item VP=Vitalitätspunkte
+\item AP=Ausdauerpunkte
+\item KP=Konditionspunkte
+
+\end{itemize}
 
 \chapter{Strukturierung der Welt}
 Die Spielwert setzt sich aus zwei Teilen zusammen: der Statischen Umgebung, wozu vor allem das Terrain zählt und den sogenannten RPG-Objekten. Letztere kann man schließlich noch in folgende Kategorien einteilen:
@@ -162,6 +170,29 @@ Die hier aufgeführten Werte, berechnen sich aus den Basisattributen und können
 \\Ausdauerpunkte=Kondition*5
 \\Gefahren-Level(Monster/Tiere)=Summe aller Attribute / 10
 %K
+
+\chapter{Anatomie}
+Jede Figur hat einen Körper(ja auch Geister!), der aus unterschiedlichen Komponenten besteht, die unterschiedliche Funktionen und Bedeutung hat.
+\section{Gliedmaßen}
+\begin{description}
+\item[Körpersegment]Ein Körpersegment kann bestückt sein mit Organen, ist dafür von Natur aus besser geschützt als andere Teile des Körpers.
+\item[Arm]Ein Arm zeichnet sich durch eine Hand an einem Ende aus.
+\item[Hand]Eine Hand dient zum Halten von Waffen oder anderen Gegenständen.
+\item[Bein]Jedes Beinpaar über dem ersten erhöht  in der Regel die Basisgeschwindigkeit um 3 Meter.
+\item[Fuß]Benötigt zum Auftreten und Balancieren.
+\item[Kopf]Stellt einen Vitalen Punkt bei den meisten Kreaturen da.
+\end{description}
+\section{Organe}
+\begin{description}
+\item[Herz]Stellt das Zentrum eines Metabolismus bei
+\item[Gehirn]
+\item[Lunge]
+\item[Verdauung]
+\item[vitales Organ]
+\item[Restorgan]Nicht vital, kann aber besondere Eigenschaften, wie Giftproduktion besitzen.
+\end{description}
+
+
 \chapter{Fertigkeiten}
 \section{Einführung}
 Alle Tätigkeiten, die nicht auf einem Attribut basiert, sondern eine Mischung von Erfahrung und Attributen werden durch sogenannte Fertigkeiten beschrieben. Fertigkeiten lassen sich dabei in die Kategorien: Waffen(B), großes Handwerk(B), Wissen(C), Soziales(D), kleines Handwerk(D), Sonstiges(E). Die Kategorie ist dabei ausschlaggebend für die Lernkosten. Zusätzlich hat jede Fertigkeit einen eigenen, von den Professionen und der sog. Komplexität(A=0, B=0.25, C=0.5, D=0.75, E=1, F=1.25...) abhängigen Lernmodifikator. Eine Fertigkeit kann zudem in sog. Fokussierungen auftreten. Diese sind in der Regel Teil einer Profession und erlaubt in bestimmten Situationen mehr Punkte in eine Probe einzubringen.
@@ -192,6 +223,7 @@ Kommen erst bei konkurrierenden Proben zum Einsatz. Die Bezeichnung steht dafür
 
 \part{Ergänzung für Charaktere}
 \setcounter{chapter}{0}
+
 \chapter{Spezialisierungen/Professionen}
 \section{Aufbau einer Profession/Spezialisierung}
 Jede Profession bringt sog. favorisierte und entlegene Fertigkeiten mit, bei denen jeweils der Lernmodifikator entsprechend erhöht und verringert wird. Bevorzugte Fertigkeiten werden um 2 Kategorien einfacher, während vernachlässigte Fertigkeiten um 3 schwerer werden. Weitere Professionen ändern bei Übereinstimmungen diesen Modifikator nur um 1.
@@ -214,7 +246,7 @@ Wie so oft, variieren die genauen Merkmale von Welt zu Welt, weshalb hier beispi
 \\Wahrnehmungsproben mit diesem Sinn erhalten einen Bonus von 2*Stufe des Merkmals.
 \item[Ausdauernd] (Athletik/Kampf/Körperarbeit/Marsch) Ausdauerkosten für gewählte Tätigkeit werden halbiert.
 \item[Hohe Regeneration] Bei Rast wird doppelte Regenerationsrate angerechnet.
-\item[Talent für Fertigkeit] Lernklasse wird eine besser.
+\item[Talent für Fertigkeit] Lernklasse wird 1 besser.
 \item[Talent für Fertigkeitengruppe] Lernklasse wird 1 besser
 \item[Eisern] Wundschwelle steigt
 \end{description}
@@ -231,12 +263,16 @@ Wie so oft, variieren die genauen Merkmale von Welt zu Welt, weshalb hier beispi
 \end{description}    
 
 \chapter{Gesundheit und Schwere Wunden}
+
+\section{Gesundheit}
 Die wichtigsten Werte für eine Figur ist die eigene Gesundheit. Diese wird durch die sog. Vitalität und Trefferpunkte verkörpert.
 \\Vitalität - Dieser Wert ist entscheidend für das Überleben einer Figur. Sinkt sie auf 0 stirbt die Figur unweigerlich.
 \\Trefferpunkt - Bevor eine Figur lebensbedrohliche und schwere Verwundungen einsteckt, geht jeder Schaden gegen diesen Wert. Ist er aufgebraucht wird Vitalität im Verhältnis 1:5 aufgebraucht.
 \\Während die Regeneration von Trefferpunkten bereits während einer ersten echten Rast(8 Stunden) vollständig abgeschlossen ist, wobei Trefferpunkte nicht die aktuelle Vitalität übersteigen können, sieht es im Falle der Vitalität anders aus. In der Regel generiert eine Figur pro Rast ihre Vitalität mit der Regenerationsrate. Durch medizinische Behandlung können beide Regenetationen angehoben werden: 1h intensiver medizinischer Behandlung stellt alle Trefferpunkte wieder her. Für die Vitalität muss die Behandlung auf 12 ausgeweitet werden, wenn auch nicht zwangsläufig so intensiv, siehe hierfür die Fertigkeiten zur Heilkunde und regeneriert dabei die Hälfte der Vitalität.
-Schwere Verletzungen, wie fehlende Gliedmaßen reduzieren dauerhaft die maximale Vitalität, sofern sie nicht wiederhergestellt werden. Anbei eine Tabelle zur Übersicht der Auswirkungen einer derartigen Verletzung:
-%Tabelle
+
+\section{Wunden}
+Jedes Körperteil kann aus verschiedenen Quellen Wunden erhalten. Dabei unterscheidet man zwischen kleinen und großen Wunden. 2 kleine Wunden werden automatisch in eine Große umgewandelt. Handelt es sich um eine Extremität, so werden bei Köpfen nach 2 großen Wunden, ansonsten bei 3, die Extremität abgetrennt. Anbei eine kurze Liste über die Auswirkungen von Wunden basierend auf ihrer Postion:
+
 
 \chapter{Kondition und Erschöpfung}
 Jede körperliche Aktivität fordert früher oder später ihren Tribut in Form von Erschöpfung. Der Grad der aktuellen Erschöpfung wird hierbei durch die Werte Ausdauer und Kondition verkörpert:
@@ -358,7 +394,7 @@ Initiative spiegelt die Übersicht einer Figur über das aktuelle Kampfgeschehen
 \section{Ganzrundenaktionen}
 Aktionen aus dieser Kategorie stellen in der Regel eine dauerhafte Anstrengung. Sie kosten sämtliche INI-Punkte und lassen sich allerhöchstens mit einem Einzelschritt kombinieren.
 \begin{description}
-\item[Volle Defensive -]
+\item[Volle Defensive -] Die AP-Kosten für Paraden werden auf 2*KompK gesenkt und der steigende Malus für bereits erfolgte Angriffe wird um 1 gesenkt.
 \end{description}
 
 
