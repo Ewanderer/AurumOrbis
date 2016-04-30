@@ -1,0 +1,163 @@
+
+<h3>Grunddaten</h3>
+Spielername:<input type='text' name='attr_Playername'/>
+Charaktername:<input type='text' name='attr_Charactername'/><br />
+Rasse:<input type='text' name='attr_Race'>
+
+<h3>Professionen:</h3>
+<fieldset class="repeating_professions"/>            
+      Name:<input type="text" name="attr_professionname"/>
+      Rang:<input type="number" name="attr_professionrank" />
+</fieldset>
+<h3>Attribute</h3> 
+<table style="width:50%">
+
+<tr>
+    <td>Name:</td> 
+    <td>XP:</td>
+    <td>Modifikator:</td>
+    <td>Gesamt:</td>
+</tr>
+
+<tr>
+<td>Stärke:</td>
+
+<td><input type='number' name='attr_strength_xp' value='7500' style='width: 75px;'></td>
+<td><input type='number' name='attr_strength_mod' value='0' style='width: 60px;'></td>
+<td><input type='number' name="attr_strength" disabled='true' style='width: 60px;' value='floor(((@{strength_xp}/100) /(9+((@{strength_xp}/100)/250)))+@{strength_mod})'>
+</td>
+    
+</tr>
+    
+<tr>
+<td>Mut:</td>
+<td><input type='number' name='attr_courage_xp' value='7500' style='width: 75px;'></td>
+<td><input type='number' name='attr_courage_mod' value='0' style='width: 60px;'></td>
+<td><input type='number' name="attr_courage" disabled='true' style='width: 60px;' value='floor(((@{courage_xp}/100)/(9+((@{courage_xp}/100)/250)))+@{courage_mod})'>
+</td>
+    
+</tr>
+
+<tr>
+<td>Beweglichkeit:</td>
+<td><input type='number' name='attr_agility_xp' value='7500' style='width: 75px;'></td>
+<td><input type='number' name='attr_agility_mod' value='0' style='width: 60px;'></td>
+<td><input type='number' name="attr_agility" disabled='true' style='width: 60px;' value='floor(((@{agility_xp}/100)/(9+((@{agility_xp}/100)/250)))+@{agility_mod})'>
+</td>
+</tr>
+
+<tr>
+<td>Fingerfertigkeit:</td>
+<td><input type='number' name='attr_dexterity_xp' value='7500' style='width: 75px;'></td>
+<td><input type='number' name='attr_dexterity_mod' value='0' style='width: 60px;'></td>
+<td><input type='number' name="attr_dexterity" disabled='true' style='width: 60px;' value='floor(((@{dexterity_xp}/100)/(9+((@{dexterity_xp}/100)/250)))+@{dexterity_mod})'>
+</td>
+</tr>
+
+<tr>
+<td>Konstitution:</td>
+<td><input type='number' name='attr_constitution_xp' value='7500' style='width: 75px;'></td>
+<td><input type='number' name='attr_constitution_mod' value='0' style='width: 60px;'></td>
+<td><input type='number' name="attr_constitution" disabled='true' style='width: 60px;' value='floor(((@{constitution_xp}/100)/(9+((@{constitution_xp}/100)/250)))+@{constitution_mod})'>
+</td>
+</tr>
+
+<tr>
+<td>Metabolismums:</td>
+<td><input type='number' name='attr_metabolism_xp' value='7500' style='width: 75px;'></td>
+<td><input type='number' name='attr_metabolism_mod' value='0' style='width: 60px;'></td>
+<td><input type='number' name="attr_metabolism" disabled='true' style='width: 60px;' value='floor(((@{metabolism_xp}/100)/(9+((@{metabolism_xp}/100)/250)))+@{metabolism_mod})'>
+</td>
+</tr>
+
+<tr>
+<td>Intelligenz:</td>
+<td><input type='number' name='attr_intellect_xp' value='7500' style='width: 75px;'></td>
+<td><input type='number' name='attr_intellect_mod' value='0' style='width: 60px;'></td>
+<td><input type='number' name="attr_intellect" disabled='true' style='width: 60px;' value='floor(((@{intellect_xp}/100)/(9+((@{intellect_xp}/100)/250)))+@{intellect_mod})'>
+</td>
+</tr>
+
+<tr>
+<td>Weisheit:</td>
+<td><input type='number' name='attr_wisdom_xp' value='7500' style='width: 75px;'></td>
+<td><input type='number' name='attr_wisdom_mod' value='0' style='width: 60px;'></td>
+<td><input type='number' name="attr_wisdom" disabled='true' style='width: 60px;' value='floor(((@{wisdom_xp}/100)/(9+((@{wisdom_xp}/100)/250)))+@{wisdom_mod})'>
+</td>
+</tr>
+
+<tr>
+<td>Charisma:</td>
+<td><input type='number' name='attr_charisma_xp' value='7500' style='width: 75px;'></td>
+<td><input type='number' name='attr_charisma_mod' value='0' style='width: 60px;'></td>
+<td><input type='number' name="attr_charisma" disabled='true' style='width: 60px;' value='floor(((@{charisma_xp}/100)/(9+((@{charisma_xp}/100)/250)))+@{charisma_mod})'>
+</td>
+</tr>
+
+<tr>
+<td>Schönheit:</td>
+<td><input type='number' style='width: 60px;' name='attr_beauty' value='50'> </td>
+</tr>
+</table>
+
+<h3>Fertigkeiten:</h3>
+<fieldset class="repeating_skills">
+      Name: <input type="text" name="attr_sk_name" /> 
+      LM:<input type='number' name='attr_sk_lm' style='width: 60px;' value='1'/>  
+      XP:<input type='number' name='attr_sk_xp' style='width: 75px;' value='0'/> 
+      Mod:<input type='number' name='attr_sk_mod' style='width: 75px;' value='0'/> 
+      Wert:<input type='number' name='attr_sk_endvalue'  value="floor( ((@{sk_xp}/100)*@{sk_lm})/(3+((@{sk_xp}/100)*@{sk_lm})/250) )" disabled="true" style='width: 60px;'>
+      Att1: <select type="number" name="attr_sk_aatt1"/>                
+          <option value="@{strength}">STR</option>
+          <option value="@{courage}">MUT</option>
+          <option value="@{agility}">BEW</option>
+          <option value="@{dexterity}">FF</option>
+          <option value="@{constitution}">KON</option>
+          <option value="@{metabolism}">MTB</option>
+          <option value="@{intellect}">INT</option>
+          <option value="@{wisdom}">WIS</option>
+          <option value="@{charisma}">CHA</option>
+      </select>
+      Att2:<select type="number" name="attr_sk_aatt2"/>                
+          <option value="@{strength}">STR</option>
+          <option value="@{courage}">MUT</option>
+          <option value="@{agility}">BEW</option>
+          <option value="@{dexterity}">FF</option>
+          <option value="@{constitution}">KON</option>
+          <option value="@{metabolism}">MTB</option>
+          <option value="@{intellect}">INT</option>
+          <option value="@{wisdom}">WIS</option>
+          <option value="@{charisma}">CHA</option>
+      </select>
+      Att3:<select type="number" name="attr_sk_aatt3"/>                
+          <option value="@{strength}">STR</option>
+          <option value="@{courage}">MUT</option>
+          <option value="@{agility}">BEW</option>
+          <option value="@{dexterity}">FF</option>
+          <option value="@{constitution}">KON</option>
+          <option value="@{metabolism}">MTB</option>
+          <option value="@{intellect}">INT</option>
+          <option value="@{wisdom}">WIS</option>
+          <option value="@{charisma}">CHA</option>
+      </select> <br/>
+      KompK:<select type="number" name="attr_sk_kompk"/>                
+          <option value="20">d20</option>
+          <option value="40">d40</option>
+          <option value="60">d60</option>
+          <option value="80">d80</option>
+          <option value="100">d100</option>
+      </select>
+      
+      XP_for_Sucess:<input type='number' name='attr_sk_xp_success' value='floor( (  ((@{sk_kompk}-@{sk_aatt1}-@{sk_endvalue}/3) /@{sk_kompk}) * 
+      ((@{sk_kompk}-@{sk_aatt2}-@{sk_endvalue}/3) /@{sk_kompk})*
+      ((@{sk_kompk}-@{sk_aatt3}-@{sk_endvalue}/3) /@{sk_kompk})  )*300)' disabled='true' style='width: 75px;'/>
+      XP_for_Attributes:<input type='number' name='attr_sk_xp_att' value='floor(@{sk_xp_success}/3)' disabled='true' style='width: 75px;'><br/>
+      FXP:<input type='number' name='attr_sk_fxp' value='floor(@{sk_xp_success}/2)' disabled='true' style='width: 75px;'>
+      FXP_for_Attributes:<input type='number' name='attr_sk_fxpatt' value='floor((@{sk_xp_success}/3)/2)' disabled='true' style='width: 75px;'> 
+       <i>Alles bei 150XP cappen.</i>
+</fieldset>
+<h3>Feats</h3>
+<fieldset class='repeating_feats'/>
+Name:<input type='text' name='attr_ft_name'/><br/>
+Beschreibung:<textarea name='attr_ft_description' rows='4' cols='15'/></textarea>
+</fieldset>
