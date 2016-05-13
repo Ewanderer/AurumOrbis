@@ -1,0 +1,37 @@
+Kristalle:
+	Generell besitzen Kristalle eine gewisse Energiedichte welche die anstreben hierbei gilt, 
+	hat ein Kristall mehr Energie zur verfügung als seine angestrebte Energiedichte so versucht er Energie abzustoßen.
+	Hat ein Kristall weniger Energie zur verfühung verucht er Energie aufzunehmen.
+
+	Energiekristalle haben eine sehr hohe Energiedichte wo hingegen Elementarkristalle möglichts geringe haben sollten.
+
+	Elementarkristalle stehen in verbindung mit der zugehörigen freien Energie (z.B:Feuer) und stoßen Energie überschüsse	
+	auch zu gewissen teilen als freie Energie ab.
+
+	Die Effekte der Kristalle hängen von den enthaltenen mineralen ab
+	aber auch von deren anordnung wodurch manche kristalle sich begrenzt umfunktionieren lassen.
+	
+
+Drähte:
+	Energie versucht stehts den Weg mit dem niedrigsten Wiederstand zu nehmen
+	wobei zu viel Energie in einem zu kleinen Draht zu Eigenwiederstand führt.
+	Luft hat einen sehr hohen Wiederstand
+
+	Die Kontaktfläche der Drähte zu den Kristallen bestimmt wie stark die Kristalle anziehend
+	beziehungsweise abstoßend auf die Energie im System wirken.
+
+	Metalle haben verschiedene eigenschaften welche es speziellen Legierungen erlaubt:
+		- Die Flussrichtung von Energie in einer Richtung zu blockieren (Di-Kristalleinschlüsse)
+		- Die Absorptions und Emmisionseigenschaften von Kontaktfläche umzukehren (Überstarke Leiter)
+		- Die Flussgeschwindigkeit zu verändern (Schwache oder Starke Leiter)
+		- Die Einflussrichtung von Energie in Kristalle ändern (Ader- und Porenmetalle)
+
+Freie Energien:
+	- Hitzekristalle stehen in Verbindung zu ihrer umliegenden Temperatur
+	  und können mit dieser absorbierend oder emmitierend interagieren (höhere Temperatur -> mehr Energie).
+	  ihr minimales Energieniveau liegt bei 20°C oder höher
+	- Kältekristalle sind Hitzekristalle mit einem maximalen Energieniveau von 20°C oder weniger.
+	- Bewegungskristalle stehen in verbindung mit ihrer eigenen Bewegung welche sich durch rotation manifestiert.
+	  Die Bewegung muss orthogonal zur Energie-Einflussrichtung sein.
+	- Gravitationskristalle stehen in verbindung mit der Gravitation
+	  und können eigene anziehende oder abstoßende je nach Energie-Einflussrichtung erzeugen
