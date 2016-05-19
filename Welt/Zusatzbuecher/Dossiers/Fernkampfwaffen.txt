@@ -1,0 +1,15 @@
+Name
+Fertigkeit
+Kaliber - Kompatible Munition
+Magazingröße - Wie lange bis nachgeladen werden muss.
+INI-Kosten=(Einzelne Kategorien können durch Technik/Feats modifiziert werden)
+	+Nachladen - Wechseln des Magazin
+	+Anlegen/Schussrate	- Zeit um eine Salve abzufeuern
+	+Zielen	- Zeit die man für einen gezielten Schuss benötigt, ohne diesen wird die Präzison als Malus(min. 2) auferlegt.
+Präzison - Ein Wert, welcher den Angriffswert modifiziert(Aufsätze modifizieren diesen oder die spezielle Waffe aus der Kategorie, z.B. Sniper, sind besonders gut).
+Reichweiten ([m,TP,TM]/[n,TP,TM]...) - m ist die Größe des Reichweiteninkrements, letzter Wert kann iterativ und gestackt benutzt werden. TP ist der Schadensmodifikator für das Reichweiteninkrement. TM ist der Treffermodifikator.
+Streuwinkel - Winkel in welchem sich eine Salve verteilt.
+Steudichte - Anzahl der theoretischen Ziele, auch welche sich eine Salve verteilt. Heißt es können maximal soviele Ziele wie angegeben getroffen werden und nehmen damit Schaden. Bei zu wenig Zielen wird ein Schaden pro fehlendem Ziel abzegoen(min 1)
+Schaden - XDY, den jedes getroffene Ziel nimmt.
+
+
