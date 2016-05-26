@@ -287,26 +287,79 @@ Eine niedrige Kondition belegt eine Figur außerdem mit zusätzlichen Mali auf s
 \part{Herstellung von Objekten}
 \setcounter{chapter}{0}
 \chapter{Grundlagen}
-Jedes Objekt setzt sich aus sog. Komponenten zusammen, was durch ein sog. Rezept verkörpert wird. Im Rezept sind sog. Slots verankert. Für jeden Slot muss das dort angegebene Material bereitgestellt werden, ggf. in einer bestimmten Qualitätsgüte. Anschließend muss für jeden Slot eine Handwerksprobe abgeschlossen werden, mit der für den Slot angegeben Erschwernis. Die Komplexitätsklasse hängt hierbei von der Angabe des Slots und der Qualität ab. Je besser diese Probe abhängt desto höher ist die Verarbeitungsqualität des Slots und die Gesamtqualität der Durchschnitt aller.
-\chapter{Rezepte}
-Ein Rezept gibt immer an wie sich die Qualität auf das Endprodukt auswirkt.
-\section{Slot}
-\begin{description}
-\item[Materialtyp]Gibt an was benötigt wird.
-\item[Min-Qualität]Gibt an von welcher Qualität das Material sein muss.
-\item[Max-Qualität]Gibt an, wie hoch die Verarbeitungsqualität durch das Material angehoben werden kann. Natürlich kann der Wert angehoben werden für reiche Schnösel, aber naja es wird dadurch nicht besser, natürlich muss man auch das notwendige Talent zur Verabeitung besitzen. Für magische Rituale kann es natürlich interessant sein, dass das Objekt einen Mindestwert hat.
-\item[Standard-Materialqualität]Wenn das gewählte Material minderwertig ist, wird die Verarbeitungskomplexität runter gezogen, aber auch die Qualität.
-\item[Verarbeitungskomplexität]Kann durch hochwertiges Material nach oben gezogen werden.
-\item[Min-Erfolg]Bei der Probe muss dieser Wert übrig bleiben, damit die Verarbeitung gelingt. Fehlende Punkte machen prozentual das Material kaputt?
-\item[Qualitätsschritte]Alle so viele Punkte steigt die Qualität um eine Kategorie.
-\item[Standard-Verabeitungsqualität]Dieser wird wird von der erwürfelten Verabeitungsqualität abgezogen, um auch minderwertige Produktionen zu erlauben.
-\item[Max-Verabeitungsqualität]Begrenzt die Bonus-Qualität nach oben.
-\item[Qualitätsmodifikator]Gibt wie weit diese Qualität am Ende zum Endprodukt beiträgt.
-\end{description}
-Die Verarbeitungsqualität ist (Materialqualität+Verabeitungsqualität-Standardverarbeitungsqualität)*Qualitätsmodifikator.
-\section{Endqualität \& Wertigkeit}
-Summe aller Verarbeitungsqualität und dann Einteilen. Der Wert hängt von Verabeitungsqualität ab.
+Jedes Objekt setzt sich aus sog. Komponenten zusammen, was durch ein sog. Rezept verkörpert wird. Im Rezept sind sog. Slots verankert. Für jeden Slot muss das dort angegebene Material bereitgestellt werden.
 
+\chapter{Material}
+\begin{description}
+\item[Bezeichnung]
+\item[Typ]Holz, Metall, Leder, etc.
+\item[Verarbeitungsschwierigkeitsgrad]VSG, Modifikatoren, für die Probe zum Umsetzten des Slots
+\item[Qualität Stabilität]
+\item[Qualität Flexibilität]
+\item[Qualität Gewicht]
+\item[Zusätzliche Eigenschaften]Werden in das Produkt übernommen und ist für bestimmte Verbesserungen vorhanden sein.
+\end{description}
+
+\section{Qualitäten}
+\begin{enumerate}
+\item Improvisiertes, schlecht behandelte Minderwaren
+\item Verbesserte Improvisation, Minderwaren, schlecht behandelte Standardware
+\item Standardware, verbesserte Minderware
+\item Und so weiter...
+\end{enumerate}
+
+
+\chapter{Rezeptur}
+\begin{description}
+\item[Komplexität]Grundwert für alle Handwerksproben
+\item[Slots]Wir unterscheiden für Slots von Materialien und Produkten. Letztere sind das Ergebnis von Rezepturen.
+\item[Verfügbare Merkmale]Welche Verbesserungen können von Qualität gekauft werden.
+\end{description}
+
+\section{Slots}
+\begin{description}
+\item[Typ]Was geht hierrein
+\item[Probenanzahl]Wie viel Zeit nimmt die Verarbeitung in Anspruch.
+\item[Teilbar]Die Probe kann von einem anderem Arbeiter übernommen werden.
+\item[Komplexitätsgrenze(X/Y)]Komplexität für die Verarbeitungsprobe kann nach oben/unten verändert werden. Die Obergrenzen erhöhen/verringern sich für jeden Schritt. Die Endqualität wird für jeden Schritt um 1 erhöht oder halt gesenkt. Dieses Wertepaar gibt dabei die Schranken an.
+\item[Verarbeitungsschwierigkeitsgrad]VSG, Modifikator
+\item[Bonusschwelle]Alle X Punkte aus der Probe bringen einen Bonus von 1. Für Fehlgeschlagene Proben wird dieser Wert als Malus betrachtet.
+\item[Bonusobergrenze]Mali können nicht unter 0 fallen.
+\item[Einfluss]Summe aller Slots ist 1, multipliziere die Verarbeitungsqualität, also der Wert welcher nach den Proben sich ergibt, mit dem Einfluss.
+\end{description}
+
+\subsection{Materialslot}
+Erweitern die obigen Statistiken.
+\begin{description}
+\item[Verteilung(S/F/G)]Summe ist 1. Multipliziere die Statistiken(Stabilität/Flexibilität/Gewicht) mit den Werten. Wert geht direkt in die Verarbeitungsqualität ein.
+\item[Minimale Qualität(S/F/G)]Material muss mindestens diese Werte besitzen.
+\item[Reguläre Qualität(S/F/G)]Differenz zu den Statistiken des Materials wird vor Berechnen des Qualitätsbonus verrechnet.
+\item[Maximale Qualität(S/F/G)]Statistiken des Materials werden entsprechend nach oben begrenzt. Natürlich gibt es keine Verbote diese Werte zu übersteigen.
+\end{description}
+
+\subsection{Produktslot}
+\begin{description}
+\item[Minimale Qualität]Produkt muss mindestens diesen Wert besitzen.
+\item[Reguläre Qualität]Differenz zur Qualität geht direkt in die Verarbeitungsqualität ein.
+\item[Maximale Qualität]Qualität des Materials werden entsprechend nach oben begrenzt. Natürlich gibt es keine Verbote diesen Wert zu übertreten.
+\end{description}
+
+\subsection{Verarbeitungsqualität für eine Slot berechnen}
+Nach dem Ablegen jeder Probe werden die gesammelten übrig gebliebenen oder fehlenden Punkte mit der Bonusschwelle verrechnet. Sind mehr als die Hälfte der Proben fehlgeschlagen oder übersteigt der Qualitätsmalus die Bonusobergrenze, so scheitert die gesamte Rezeptur.
+
+\section{Berechnen der Gesamtqualität}
+Summe aus allen Verarbeitungsqualitäten mal den angegeben Einflusswert.
+
+\chapter{Modifikatoren für Handwerksproben}
+
+\chapter{Verbessern von Produkten}
+Während der Herstellung wird nach der Produktion ein Guthaben in Höhe von Qualität*10 erstellt, welches dann in Verbesserungen umgesetzt werden können. Nachträglich lässt sich die Qualität durch Ablegen einer Herstellungsprobe einmalig verbessert werden. Die so gewonnene Qualität wird wieder in Guthaben mit Multiplikator 5 zur Verfügung gestellt.
+
+\section{Beispielhafte Verbesserungen}
+\begin{description}
+\item[Mehr Schaden]
+\item[Rüstungswert erhöhen]
+\end{description}
 
 \part{Kampf}
 \setcounter{chapter}{0}
@@ -408,7 +461,7 @@ Wie bereits erwähnt treten bei Schadenswürfe für das Erzielen von Einzelergeb
 \begin{description}
 \item[Stichwaffen(S)] Verursachen einen Punkt Schaden an der Vitalität. Der gewöhnliche Schaden wird ggf. auf 5 pro Trumpf angehoben.
 \item[Klingenwaffen(K)] Erzeugen einen Blutungseffekt, welcher jeder Runde einen Punkt Schaden macht, wonach der Schaden in der nächsten Runde um 1 reduziert ist, bis der Effekt bei 0 Schaden endet. Blutungen stapeln zwar, allerdings nach dem Aktualisierungsprinzip: Würde das Opfer in der nächsten Runde 2 Schaden durch die Blutung nehmen, so können entweder 2 durch den Angriff neu Entstehende das Abklingen des Schadens um eine Runde verzögern, oder falls mehr neuer Blutungsschaden gewürfelt wurden, die Zahl ersetzt werden.
-\item[Hiebwaffen(H)] Diese fügen getroffener Rüstung einen Punkt Schaden zu, für die Auswirkung siehe Rüstungen. Falls das Ziel keine Rüstung mit Integrität besitzt, wird Ausdauerschaden in Höhe der halben Ausdauerkosten des Angriffs gemacht.
+\item[Hiebwaffen(H)] Diese fügen getroffener Rüstung einen Punkt Stabilitätsschaden zu, für die Auswirkung siehe Rüstungen. Falls das Ziel keine Rüstung mit Stabilität besitzt, wird Ausdauerschaden in Höhe der halben Ausdauerkosten des Angriffs gemacht.
 \item[Fäusten] Kämpft man lediglich mit seinen Fäusten(nicht bestialisch modifiziert durch z.B. Krallen), so erzeugen 2 Trümpfe in einem Angriff eine kleine Wunde(siehe Wunden).
 \end{description}
 
@@ -478,6 +531,14 @@ Aktionen aus dieser Kategorie stellen in der Regel eine dauerhafte Anstrengung. 
 \chapter{Trefferzonen}
 
 \chapter{Rüstungsstatistiken}
+\begin{description}
+\item[Name]
+\item[Rüstungswert]Schaden wird um diesen Wert reduziert
+\item[Integrität]Reduziert die Anzahl von Trümpfen aus Klingenwaffen.
+\item[Stabilität]Reduziert den Anzahl von Trümpfen aus Hiebwaffen, und repräsentiert die Trefferpunkte einer Rüstung.
+%\item[]
+\end{description}
+
 
 \chapter{Darüber hinaus}
 
