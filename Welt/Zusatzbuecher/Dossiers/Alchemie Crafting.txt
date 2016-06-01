@@ -1,0 +1,24 @@
+Elementar
+	Name: Bezeichnung, Identität
+	Gegensatz: Welches Elementar steht im Gegensatz hierzu
+
+
+Sammelessenz
+	Enthält insgesamt 3 Einheiten von mindestens 2 verschieden nicht gegensätzlichen Elementaren.
+
+
+Komponente
+	Dominante Teile:
+	Enthält 3-9 Einheiten Elementare. Dabei müssen 3 verschieden Typen vertreten sein und kein Elementar mehr als 3 Mal enthalten sein.
+	Es können auch Sammelessenzen enthalten kann, allerdings werden die Beschränkungen damit nicht umgangen.
+
+	Restelementar:
+	Zusätzlich sind für jede Komponente 1 bis 3 Arten von noch nicht vertretenden Elementaren enthalten
+
+	Zusatz:
+	Insegsamt gilt, dass keine Gegensätzliche Elementare in einer Komponente enhalten sein dürfen. 
+	Außnahme stellen lose Dominante und solche in Sammelessenzen dar(z.B. Wasser und Feuer, wenn letzteres Teil der Sonnenessenz, wie es bei Morgentau)
+
+
+Regeln zur Herstellung eines Extraktes
+	
